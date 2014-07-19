@@ -110,6 +110,6 @@
 		});
 	</script>
 	
-	<c:import url="/WEB-INF/jsp/menu.jsp"></c:import>
+	<c:import url="/WEB-INF/jsp/main/menu.jsp"></c:import>
 </body>
 </html>

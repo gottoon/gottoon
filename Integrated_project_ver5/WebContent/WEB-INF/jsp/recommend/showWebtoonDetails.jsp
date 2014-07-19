@@ -128,7 +128,7 @@
 		</div>
 	</div>
 	
-	<c:import url="/WEB-INF/jsp/menu.jsp"></c:import>	
+	<c:import url="/WEB-INF/jsp/main/menu.jsp"></c:import>	
 	
 	<script>
 	if ("${webtoonDetail.webtoons_completed}" === '완')
