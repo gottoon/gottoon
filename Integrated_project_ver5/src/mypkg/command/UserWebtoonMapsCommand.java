@@ -94,11 +94,11 @@ public class UserWebtoonMapsCommand implements Command {
 	// 2014.07.17 soo 별점 4점이상 웹툰 작가
 	public String doGetWebtoonAuthors(HttpServletRequest request) {
 		HttpSession session = request.getSession();
-		long CurruntUser_facebookID = (long) session.getAttribute("CurrentUser");
+		long curruntUser_facebookID = (long) session.getAttribute("CurrentUser");
 		
 		String authors_name = request.getParameter("authorsName");
 
 		WebtoonService service = new WebtoonService();
-		return service.doGetWebtoonsAuthors(CurruntUser_facebookID, authors_name);
+		return service.doGetWebtoonsAuthors(curruntUser_facebookID, authors_name);
 	}
 }

@@ -15,7 +15,7 @@ import javax.sql.DataSource;
 import mypkg.vo.GenreVO;
 
 public class GenreDAO {
-	DataSource pool;
+	private DataSource pool;
 
 	// 생성자
 	public GenreDAO() {
