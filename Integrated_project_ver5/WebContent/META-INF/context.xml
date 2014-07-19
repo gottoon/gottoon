@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Context reloadable="true">s
+	<Resource name="jdbc/test_toondb" auth="Container"
+		type="javax.sql.DataSource" maxActive="100" maxIdle="30" maxWait="10000"
+		removeAbandoned="true" username="root" password="1234"
+		driverClassName="com.mysql.jdbc.Driver" url="jdbc:mysql://localhost:3306/test_toondb" />
+</Context>

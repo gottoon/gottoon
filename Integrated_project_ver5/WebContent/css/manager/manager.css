@@ -1,0 +1,33 @@
+@CHARSET "UTF-8";
+
+#addWebtoon {
+	margin-left: auto;
+	margin-right: auto;
+	width: 50%;
+	height: 100%;
+}
+
+form {
+	font-size: 18px;
+}
+
+label {
+	margin-top: 10px;
+}
+
+ul li{
+	display:inline-block;
+}
+button{
+	background-color:white;
+	border:0px;
+	
+}
+button:hover{
+	background-color:lightgray;
+}
+button p {
+	font-size:14px;
+	text-align: center;
+	
+}

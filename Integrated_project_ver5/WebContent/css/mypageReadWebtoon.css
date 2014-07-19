@@ -1,0 +1,26 @@
+@CHARSET "UTF-8";
+.thumbnail {
+	display: block;
+	padding: 4px;
+	margin-bottom: 30px;
+	line-height: 2.42857143;
+	background-color: #fff;
+	border: 1px solid #ddd;
+	border-radius: 10px;
+	-webkit-transition: all .2s ease-in-out;
+	-o-transition: all .2s ease-in-out;
+	transition: all .2s ease-in-out;
+}
+
+body {
+	font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+	font-size: 12px;
+	line-height: 1.42857143;
+	color: #333;
+	background-color: #fff;
+}
+
+h2,div {
+	font-size: 20px;
+	text-align: center;
+}

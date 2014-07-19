@@ -1,0 +1,89 @@
+@media screen and (max-width:401px) {
+	#webtoons {
+		width : 70%;
+		margin-left : 7%;
+	}
+	
+	#common_webtoon_info {
+		width : 81%;
+		margin-left : 10%;
+	}
+	
+	#other_webtoon_info {
+		width : 100%;
+		/* margin-left : 5%; */
+	}
+}
+
+@media screen and (min-width:402px) and (max-width:990px) {
+	#webtoons {
+		width : 55%;
+		margin-left : 22.5%;
+	}
+	
+	#common_webtoon_info {
+		width : 55%;
+		margin-left : 23%;
+	}
+	
+	#other_webtoon_info {
+		width : 70%;
+		margin-left : 15%;
+	}
+}
+
+@media screen and (min-width:991px) {
+	#webtoons {
+		width : 35%;
+		margin-left : 32.5%;
+	}
+	
+	#common_webtoon_info {
+		width : 35%;
+		margin-left : 32.5%;
+	}
+	
+	#other_webtoon_info {
+		width : 60%;
+		margin-left : 20%;
+	}
+}
+
+td, header, #header, #footer {
+	text-align : center;
+}
+
+#webtoon_details {
+	font-size : 7px;
+}
+
+.top-header h1 span {
+	display : block;
+	font-size : 70%;
+	margin-top : 10px;
+}
+
+#option, #option_table, #webtoon_image {
+	width : 100%;
+}
+
+#webtoon_image {
+	/* width : 400px; */
+	height : 100%;
+}
+
+.label {
+	position : absolute;
+	width : 25%;
+}
+
+.end_label, .new_label {
+	float:left;
+}
+
+.author_label {
+	display: inline-block;
+	float : right;
+	width : 30%;
+}
+

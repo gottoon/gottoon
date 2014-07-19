@@ -1,0 +1,32 @@
+@CHARSET "UTF-8";
+
+td {
+	width: :100%;
+	font-size: 11px;
+	border-left: 1px dotted #3b5998;
+	border-top: #3b5998;
+}
+
+th {
+	background-color: #3b5998;
+	color: white;
+	font-size: 14px;
+	border-left: 1px dotted #3b5998;
+}
+
+th:hover {
+	color: black;
+	background-color:white;
+}
+th:focus{
+	background-color: yellow;
+}
+
+#keywords{
+	height:500px;
+	
+}
+
+input{
+	display:inline-block;
+}
