@@ -41,7 +41,6 @@ public class ManagerService {
 
 	}
 
-	
 	// addWebtoon- bj 7.18 
 	public void addWebtoon(WebtoonVO webtoonVO) {
 		MySqlDAOFactory mySqlDAOFactory = new MySqlDAOFactory();
