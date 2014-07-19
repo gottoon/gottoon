@@ -30,7 +30,10 @@ public class RecommendCommand implements Command {
 	
 	public List<WebtoonVO> doGetRecommendWebtoons(HttpServletRequest request,
 			HttpServletResponse response) {
+		HttpSession session = request.getSession();
+		long currentUser_facebookID = (long)session.getAttribute("CurrentUser");
+		
 		RecommendService recommendService = new RecommendService();
-		return recommendService.getRecommendWebtoons(request);
+		return recommendService.getRecommendWebtoons(currentUser_facebookID);
 	}
 }
