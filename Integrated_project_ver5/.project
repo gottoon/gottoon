@@ -3,10 +3,6 @@
 	<name>Integrated_project_ver5</name>
 	<comment></comment>
 	<projects>
-		<project>gson-2.2.4</project>
-		<project>java-json</project>
-		<project>standard</project>
-		<project>jstl</project>
 	</projects>
 	<buildSpec>
 		<buildCommand>

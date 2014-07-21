@@ -2,7 +2,6 @@ package mypkg.command;
 
 import java.io.IOException;
 import java.io.UnsupportedEncodingException;
-import java.util.List;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
@@ -16,9 +15,6 @@ import mypkg.service.GenreService;
 import mypkg.service.ManagerService;
 import mypkg.service.UserService;
 import mypkg.service.WebtoonService;
-import mypkg.vo.KeywordsVO;
-import mypkg.vo.Webtoon_keyword_mapsVO;
-
 
 //다 bj 꺼 
 public class ManagerCommand implements Command {
@@ -40,7 +36,8 @@ public class ManagerCommand implements Command {
 		System.out.println("todo = " + todo);
 
 		if (todo.equals("manager")) {
-			commandResult = new CommandResult("/WEB-INF/jsp/manager/managerForm.jsp");
+			commandResult = new CommandResult(
+					"/WEB-INF/jsp/manager/managerForm.jsp");
 
 		} else if (todo.equals("getAuthors")) {
 			String authors = doGetAllAuthors(response);
@@ -73,22 +70,20 @@ public class ManagerCommand implements Command {
 		return commandResult;
 	}
 
-	public void doAddWebtoon(HttpServletRequest request) {
-		managerService.doAddWebtoon(request);
-	}
-
 	public String doGetAllAuthors(HttpServletResponse response) {
 		return authorService.doGetAllAuthorJson(response);
 	}
 
 	public void doGetAllWebtoons(HttpServletRequest request) {
 		request.setAttribute("allWebtoons", webtoonService.doGetAllWebtoons());
-		commandResult = new CommandResult("/WEB-INF/jsp/manager/webtoonList.jsp");
+		commandResult = new CommandResult(
+				"/WEB-INF/jsp/manager/webtoonList.jsp");
 	}
 
 	public void doGetAllKeywords(HttpServletRequest request) {
 		request.setAttribute("allKeywords", dnaService.doGetAllKeywords());
-		commandResult = new CommandResult("/WEB-INF/jsp/manager/keywordList.jsp");
+		commandResult = new CommandResult(
+				"/WEB-INF/jsp/manager/keywordList.jsp");
 
 	}
 
@@ -178,4 +173,5 @@ public class ManagerCommand implements Command {
 		commandResult = new CommandResult("text/plain", Webtoon_author_mapsVOs);
 
 	}
+
 }
