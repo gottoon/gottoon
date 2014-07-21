@@ -50,8 +50,9 @@ public class WebtoonDAO {
 			stmt = conn.createStatement();
 
 			String sql = "select w.webtoons_title, a.authors_name, w.webtoons_completed, "
-					+ "w.webtoons_url, w.webtoons_first_update from webtoons as w "
-					+ "inner join webtoon_author_maps as wam on w.webtoons_id_pk = wam.webtoons_id_fk "
+					+ "w.webtoons_viewfree, w.webtoons_url, w.webtoons_first_update "
+					+ "from webtoons as w inner join webtoon_author_maps as wam "
+					+ "on w.webtoons_id_pk = wam.webtoons_id_fk "
 					+ "inner join authors as a on a.authors_id_pk = wam.authors_id_fk "
 					+ "where webtoons_id_pk = "	+ webtoon_id;
 
@@ -61,11 +62,12 @@ public class WebtoonDAO {
 			String webtoons_title = rset.getString("webtoons_title");
 			String authors_name = rset.getString("authors_name");
 			String webtoons_completed = rset.getString("webtoons_completed");
+			boolean webtoons_viewfree = rset.getBoolean("webtoons_viewfree");
 			String webtoons_url = rset.getString("webtoons_url");
 			String webtoons_first_update = rset.getString("webtoons_first_update");
 			
 			webtoon = new WebtoonVO(webtoon_id, webtoons_title, authors_name,
-						webtoons_completed, webtoons_url, webtoons_first_update);
+						webtoons_completed, webtoons_viewfree, webtoons_url, webtoons_first_update);
 		} catch (SQLException e) {
 			e.printStackTrace();
 		} finally {
