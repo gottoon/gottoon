@@ -30,7 +30,7 @@
 										<div class="right_label"></div>
 									</div>
 								</div>
-								<img id="webtoon_image" src="../img/detailsImg/${webtoonDetail.webtoons_title}.jpg" />
+								<img id="webtoon_image" src="${webtoonDetail.webtoons_main_image}" />
 							</td>
 						</tr>
 					</table>

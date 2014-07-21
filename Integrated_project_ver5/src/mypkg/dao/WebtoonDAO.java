@@ -97,7 +97,8 @@ public class WebtoonDAO {
 			String sql = "select g.genres_name, w.webtoons_title, w.webtoons_summary, "
 					+ "w.webtoons_update_days, w.webtoons_completed, w.webtoons_viewfree, "
 					+ "w.webtoons_professional, w.webtoons_pgrating, w.webtoons_publisher, "
-					+ "w.webtoons_average_rate, w.webtoons_url, w.webtoons_first_update "
+					+ "w.webtoons_average_rate, w.webtoons_main_image, w.webtoons_url, "
+					+ "w.webtoons_first_update "
 					+ "from webtoons w inner join genres g on w.genre_id_fk = g.genres_id_pk "
 					+ "where w.webtoons_id_pk = " + webtoon_id;
 			
@@ -120,6 +121,7 @@ public class WebtoonDAO {
 			String webtoons_pgrating = rset.getString("webtoons_pgrating");
 			String webtoons_publisher = rset.getString("webtoons_publisher");
 			double webtoons_average_rate = rset.getDouble("webtoons_average_rate");
+			String webtoons_main_image = rset.getString("webtoons_main_image");
 			String webtoons_url = rset.getString("webtoons_url");
 			String webtoons_first_update = rset.getString("webtoons_first_update");
 			String webtoon_viewfree = null;
@@ -140,7 +142,7 @@ public class WebtoonDAO {
 					webtoons_summary, webtoons_update_days,
 					webtoons_completed,	webtoon_viewfree, webtoon_professional,
 					webtoons_pgrating, webtoons_publisher, webtoons_average_rate,
-					webtoons_url, webtoons_first_update);
+					webtoons_main_image, webtoons_url, webtoons_first_update);
 		} catch (SQLException e) {
 			e.printStackTrace();
 		} finally {
@@ -474,53 +476,21 @@ public class WebtoonDAO {
 			String webtoons_pgrating = webtoonVO.getWebtoons_pgrating();
 			String webtoons_publisher = webtoonVO.getWebtoons_publisher();
 			Double webtoons_average_rate = webtoonVO.getWebtoons_average_rate();
-			String webtoons_mail_image = webtoonVO.getWebtoons_mail_image();
+			String webtoons_mail_image = webtoonVO.getWebtoons_main_image();
 			String webtoons_thumbnail = webtoonVO.getWebtoons_thumbnail();
 			String webtoons_url = webtoonVO.getWebtoons_url();
 
-			String sqlstr = "insert into webtoons (genre_id_fk,webtoons_title,webtoons_summary,webtoons_update_days,webtoons_completed,webtoons_viewfree,webtoons_professional,webtoons_pgrating,webtoons_publisher,webtoons_average_rate,webtoons_mail_image,webtoons_thumbnail,webtoons_url) values ("
-					+ genre_id_fk
-					+ ","
-					+ "'"
-					+ webtoons_title
-					+ "'"
-					+ ","
-					+ "'"
-					+ webtoons_summary
-					+ "'"
-					+ ","
-					+ "'"
-					+ webtoons_update_days
-					+ "'"
-					+ ","
-					+ "'"
-					+ webtoons_completed
-					+ "'"
-					+ ","
-					+ webtoons_viewfree
-					+ ","
-					+ webtoons_professional
-					+ ","
-					+ "'"
-					+ webtoons_pgrating
-					+ "'"
-					+ ","
-					+ "'"
-					+ webtoons_publisher
-					+ "'"
-					+ ","
-					+ webtoons_average_rate
-					+ ","
-					+ "'"
-					+ webtoons_mail_image
-					+ "'"
-					+ ","
-					+ "'"
-					+ webtoons_thumbnail
-					+ "'"
-					+ ","
-					+ "'"
-					+ webtoons_url + "')";
+			String sqlstr = "insert into webtoons "
+					+ "(genre_id_fk,webtoons_title,webtoons_summary,webtoons_update_days,"
+					+ "webtoons_completed,webtoons_viewfree,webtoons_professional,"
+					+ "webtoons_pgrating,webtoons_publisher,webtoons_average_rate,"
+					+ "webtoons_mail_image,webtoons_thumbnail,webtoons_url) values ("
+					+ genre_id_fk + ",'" + webtoons_title + "','" + webtoons_summary
+					+ "','" + webtoons_update_days + "','" + webtoons_completed
+					+ "'," + webtoons_viewfree + "," + webtoons_professional + ",'"
+					+ webtoons_pgrating + "','" + webtoons_publisher + "'," 
+					+ webtoons_average_rate + ",'" + webtoons_mail_image + "','" 
+					+ webtoons_thumbnail + "','" + webtoons_url + "')";
 			stmt.executeUpdate(sqlstr);
 
 		} catch (Exception e) {

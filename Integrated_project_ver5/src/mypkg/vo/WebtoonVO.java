@@ -16,7 +16,7 @@ public class WebtoonVO implements Serializable {
 	private String webtoons_pgrating;
 	private String webtoons_publisher;
 	private Double webtoons_average_rate;
-	private String webtoons_mail_image;
+	private String webtoons_main_image;
 	private String webtoons_thumbnail;
 	private String webtoons_url;
 	private String webtoons_first_update; // 2014.07.11 soo 여기부터
@@ -83,7 +83,7 @@ public class WebtoonVO implements Serializable {
 			String webtoons_completed, boolean webtoons_view_free,
 			boolean webtoons_professional, String webtoons_pgrating,
 			String webtoons_publisher, Double webtoons_average_rate,
-			String webtoons_mail_image, String webtoons_thumbnail,
+			String webtoons_main_image, String webtoons_thumbnail,
 			String webtoons_url) {
 		this.genre_id_fk = genre_id_fk;
 		this.webtoons_title = webtoons_title;
@@ -95,18 +95,18 @@ public class WebtoonVO implements Serializable {
 		this.webtoons_pgrating = webtoons_pgrating;
 		this.webtoons_publisher = webtoons_publisher;
 		this.webtoons_average_rate = webtoons_average_rate;
-		this.webtoons_mail_image = webtoons_mail_image;
+		this.webtoons_main_image = webtoons_main_image;
 		this.webtoons_thumbnail = webtoons_thumbnail;
 		this.webtoons_url = webtoons_url;
 	}
 
-	// 2014.07.11 soo 생성자 추가
+	// 2014.07.11 soo 생성자 추가 (웹툰 상세보기)
 	// 생성자 8번
 	public WebtoonVO(int webtoon_id_pk, String genres_name, String webtoons_title,
 			String webtoons_summary, String webtoons_update_days,
 			String webtoons_completed, String webtoon_viewfree, String webtoon_professional,
 			String webtoons_pgrating, String webtoons_publisher, double webtoons_average_rate,
-			String webtoons_url, String webtoons_first_update) {
+			String webtoons_main_image, String webtoons_url, String webtoons_first_update) {
 		this.webtoons_id_pk = webtoon_id_pk;
 		this.genres_name = genres_name;
 		this.webtoons_title = webtoons_title;
@@ -118,6 +118,7 @@ public class WebtoonVO implements Serializable {
 		this.webtoons_pgrating = webtoons_pgrating;
 		this.webtoons_publisher = webtoons_publisher;
 		this.webtoons_average_rate = webtoons_average_rate;
+		this.webtoons_main_image = webtoons_main_image;
 		this.webtoons_url = webtoons_url;
 		this.webtoons_first_update = webtoons_first_update;
 	}
@@ -256,12 +257,12 @@ public class WebtoonVO implements Serializable {
 		this.webtoons_average_rate = webtoons_average_rate;
 	}
 
-	public String getWebtoons_mail_image() {
-		return webtoons_mail_image;
+	public String getWebtoons_main_image() {
+		return webtoons_main_image;
 	}
 
-	public void setWebtoons_mail_image(String webtoons_mail_image) {
-		this.webtoons_mail_image = webtoons_mail_image;
+	public void setWebtoons_mail_image(String webtoons_main_image) {
+		this.webtoons_main_image = webtoons_main_image;
 	}
 
 	public String getWebtoons_thumbnail() {

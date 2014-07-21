@@ -68,6 +68,7 @@ public class CommandFactory {
 		 case "/userGenre":
 		 target = new UserGenreMapsCommand();
 		 break;
+		 
 		 case "/genre":
 		 target = new GenreCommand();
 		 break;
