@@ -20,19 +20,20 @@ public class RecommendCommand implements Command {
 
 	public CommandResult execute(HttpServletRequest request,
 			HttpServletResponse response) throws ServletException, IOException {
-		List<WebtoonVO> recommendWebtoons = this.doGetRecommendWebtoons(request, response);
+		List<WebtoonVO> recommendWebtoons = this.doGetRecommendWebtoons(request);
 
 		request.setAttribute("recommendWebtoons", recommendWebtoons);
-		
 		commandResult = new CommandResult("/WEB-INF/jsp/recommend/recommend_webtoon.jsp");
 		
 		return commandResult;
 	}
 	
-	public List<WebtoonVO> doGetRecommendWebtoons(HttpServletRequest request,
-			HttpServletResponse response) {
-		RecommendService recommendService = new RecommendService();
+	public List<WebtoonVO> doGetRecommendWebtoons(HttpServletRequest request) {
+		HttpSession session = request.getSession();
+		long currentUser_facebookID = (long)session.getAttribute("CurrentUser");
+		String filterviewfree = request.getParameter("filterviewfree");
 		
-		return recommendService.getRecommendWebtoons(request);
+		RecommendService recommendService = new RecommendService();
+		return recommendService.getRecommendWebtoons(currentUser_facebookID, filterviewfree);
 	}
 }

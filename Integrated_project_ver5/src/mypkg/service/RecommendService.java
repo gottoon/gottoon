@@ -31,38 +31,35 @@ public class RecommendService {
 	int relativeRate = 0; // 연관성 점수
 	boolean isWebtoonHighRated = true; // 
 	
-	public List<WebtoonVO> getRecommendWebtoons(HttpServletRequest request) {
-		
+	public List<WebtoonVO> getRecommendWebtoons(long currentUser_facebookID, String viewfreeValue) {
 		// 1. 세션값 불러오기 (유저 facebook ID)
-		HttpSession session = request.getSession();
-		long CurrentUser_facebookID = (long)session.getAttribute("CurrentUser");
-		
-		List<UserWebtoonMapsVO> userReadWebtoons = this.getAllReadWebtoons(CurrentUser_facebookID); // 2-1. 사용자 읽은 웹툰 다 가져오기
+
+		List<UserWebtoonMapsVO> userReadWebtoons = this.getAllReadWebtoons(currentUser_facebookID); // 2-1. 사용자 읽은 웹툰 다 가져오기
 		List<UserWebtoonMapsVO> ratedWebtoons = this.exceptLowRated(userReadWebtoons); // 2-2. 사용자 웹툰 별점확인
 		
 		// 3. 유저 중 웹툰 비교해서 추천자 선택하고 정렬
-		List<RecommenderVO> recommenders = this.chooseSimilarUsers(CurrentUser_facebookID, ratedWebtoons);
+		List<RecommenderVO> recommenders = this.chooseSimilarUsers(currentUser_facebookID, ratedWebtoons);
 		
 		// 4. 사용자, 추천자 웹툰 비교해서 추천웹툰목록 뽑기
-		HashSet<Integer> repeatWebtoonRemove = this.compareToRecommender(CurrentUser_facebookID, 
+		HashSet<Integer> repeatWebtoonRemove = this.compareToRecommender(currentUser_facebookID, 
 				recommenders, userReadWebtoons, ratedWebtoons);
 
 		// 5. 중복제거된 웹툰 객체로 정보 뽑아오기
-		return this.completeRecommendWebtoons(repeatWebtoonRemove, request);
+		return this.completeRecommendWebtoons(repeatWebtoonRemove, viewfreeValue);
 	} // @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ return
 	
-	public List<UserGenreMapsVO> getSelectedGenres(long userId) {
+	public List<UserGenreMapsVO> getSelectedGenres(long user_facebookID) {
 		MySqlDAOFactory mysqlDAOFactory = new MySqlDAOFactory();
 		User_Genre_MapsDAO userGenreDAO = mysqlDAOFactory.getUser_Genre_MapsDAO();
 		
-		return userGenreDAO.getAllSelectedGenres(userId);
+		return userGenreDAO.getAllSelectedGenres(user_facebookID);
 	}
 	
-	public List<UserWebtoonMapsVO> getAllReadWebtoons(long userId) {
+	public List<UserWebtoonMapsVO> getAllReadWebtoons(long user_facebookID) {
 		MySqlDAOFactory mysqlFactory = new MySqlDAOFactory();
 		User_Webtoon_MapsDAO userWebtoonDAO = mysqlFactory.getUser_Webtoon_MapsDAO();
 		
-		return userWebtoonDAO.getAllReadWebtoons(userId);
+		return userWebtoonDAO.getAllReadWebtoons(user_facebookID);
 	}
 	
 	public List<UserWebtoonMapsVO> findHighRatedWebtoons(long user_facebookID) {
@@ -122,7 +119,7 @@ public class RecommendService {
 		}
 	}
 	
-	public List<RecommenderVO> chooseSimilarUsers(long userId, List<UserWebtoonMapsVO> userRatedWebtoons) {
+	public List<RecommenderVO> chooseSimilarUsers(long user_facebookID, List<UserWebtoonMapsVO> userRatedWebtoons) {
 		List<UserWebtoonMapsVO> anotherRatedWebtoons = new ArrayList<UserWebtoonMapsVO>();
 		List<RecommenderVO> recommenders = new ArrayList<RecommenderVO>();
 		RecommenderVO recommender = null;
@@ -132,7 +129,7 @@ public class RecommendService {
 		// 3-2. 블랙리스트 제거한 유저 한사람씩 forEach문
 		for (UserVO exceptBlacklistUser : exceptBlacklistUsers) {
 			// 3-2-a. 사용자 ID와 추천자 ID 같으면 건너뛰기
-			if (userId == exceptBlacklistUser.getUsers_facebookID_pk()) {
+			if (user_facebookID == exceptBlacklistUser.getUsers_facebookID_pk()) {
 				continue;
 			}
 			
@@ -175,7 +172,7 @@ public class RecommendService {
 		return recommenders;
 	}
 	
-	public HashSet<Integer> compareToRecommender(long userId, List<RecommenderVO> recommenders,
+	public HashSet<Integer> compareToRecommender(long user_facebookID, List<RecommenderVO> recommenders,
 			List<UserWebtoonMapsVO> userReadWebtoons, List<UserWebtoonMapsVO> ratedWebtoons) {
 		HashSet<Integer> repeatWebtoonRemove = new LinkedHashSet<Integer>(); // 4-1. 중복제거 set
 		
@@ -183,7 +180,7 @@ public class RecommendService {
 		for (RecommenderVO recommender : recommenders) {
 			// 4-2-a. 사용자가 선택한 장르의 웹툰만 가져오기
 			List<UserWebtoonMapsVO> selectedGenreWebtoons = 
-					this.compareToGenre(userId, recommender.getReadWebtoons());
+					this.compareToGenre(user_facebookID, recommender.getReadWebtoons());
 		
 			// 4-2-b. 사용자가 본 웹툰 제외
 			List<UserWebtoonMapsVO> exceptReadWebtoons = 
@@ -213,7 +210,7 @@ public class RecommendService {
 		return repeatWebtoonRemove;
 	}
 	
-	public List<WebtoonVO> completeRecommendWebtoons(HashSet<Integer> repeatWebtoonRemove, HttpServletRequest request) {
+	public List<WebtoonVO> completeRecommendWebtoons(HashSet<Integer> repeatWebtoonRemove, String viewfreeValue) {
 		List<WebtoonVO> completeRecommendWebtoons = new ArrayList<WebtoonVO>(); // 완료된 추천웹툰
 		WebtoonVO filteringWebtoonInfo = null; //07.20 희철
 		Iterator<Integer> iter = repeatWebtoonRemove.iterator();
@@ -221,12 +218,10 @@ public class RecommendService {
 			WebtoonVO webtoonInfo = this.findWebtoon(iter.next());
 			
 			//7.20 희철 우료 / 무료 보기 
-			String filterviewfree = request.getParameter("filterviewfree");
-			
-			if(filterviewfree == null || filterviewfree.equals("null")){
+			if(viewfreeValue == null || viewfreeValue.equals("null")){
 				filteringWebtoonInfo = webtoonInfo;
 				System.out.println(String.valueOf(webtoonInfo.isWebtoons_viewfree()));
-			}else if(filterviewfree.equals(String.valueOf(webtoonInfo.isWebtoons_viewfree()))){
+			}else if(viewfreeValue.equals(String.valueOf(webtoonInfo.isWebtoons_viewfree()))){
 				
 				filteringWebtoonInfo = webtoonInfo;
 			}else{

@@ -16,11 +16,15 @@ import mypkg.vo.WebtoonVO;
 
 public class WebtoonService {
 	
-	//2014.07.11 soo 웹툰 상세보기
-	public void doShowWebtoonDetails(HttpServletRequest request) {
-		int webtoon_id = Integer.parseInt(request.getParameter("webtoon_id"));
+	// 2014.07.11 soo 웹툰 상세보기 - 2014.07.19 수정
+	public WebtoonVO doGetWebtoonDetail(int webtoon_id) {
+		WebtoonVO webtoonDetail = this.getWebtoonDetail(webtoon_id);
 		
-		WebtoonVO webtoonDetails = this.getWebtoonDetails(webtoon_id);
+		return webtoonDetail;
+	}
+	
+	// 2014.07.19 soo 상세보기 작가 가져오기
+	public String doGetAuthors(int webtoon_id) {
 		List<AuthorVO> authors = this.getAuthors(webtoon_id);
 		
 		String authors_name = "";
@@ -30,8 +34,7 @@ public class WebtoonService {
 					: ", " + authors.get(i).getAuthors_name(); 
 		}
 		
-		request.setAttribute("webtoonDetail", webtoonDetails);
-		request.setAttribute("authorsName", authors_name);
+		return authors_name;
 	}
 	
 	// 2014.07.17 soo 별점4 이상 본 웹툰 작가 뽑아오기
@@ -59,7 +62,7 @@ public class WebtoonService {
 	}
 	
 	//2014.07.11 soo 상세보기 웹툰 정보 뽑아오기 DAO
-	public WebtoonVO getWebtoonDetails(int webtoon_id) {
+	public WebtoonVO getWebtoonDetail(int webtoon_id) {
 		MySqlDAOFactory mysqlDAOFactory = new MySqlDAOFactory();
 		WebtoonDAO webtoonDAO = mysqlDAOFactory.getWebtoonsDAO();
 		
