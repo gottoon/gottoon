@@ -21,7 +21,7 @@ import org.json.JSONObject;
 
 
 public class KeywordDAO {
-	private DataSource pool;
+	DataSource pool;
 
 	public KeywordDAO() {
 		try {

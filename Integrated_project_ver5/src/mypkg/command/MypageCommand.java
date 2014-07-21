@@ -49,6 +49,9 @@ public class MypageCommand implements Command {
 			System.out.println("내가 본 웹툰 실행");
 			this.doMypageReadWebtoon(request, CurrentUser_facebookID);
 			commandResult = new CommandResult("/WEB-INF/jsp/mypage/mypageReadWebtoon.jsp");
+			
+			
+			
 		} else if (todo.equals("mypageReadWebtoon")) {
 			System.out.println("내가 본 웹툰 실행");
 			this.doMypageReadWebtoon(request, CurrentUser_facebookID);
@@ -132,6 +135,8 @@ public class MypageCommand implements Command {
 
 		session.setAttribute("grade", userVO.getUsers_grade().toString());
 		session.setAttribute("readToon", webtoonVO);
+	
+	
 	}
 
 	// Recommend Command

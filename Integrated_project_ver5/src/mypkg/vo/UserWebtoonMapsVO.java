@@ -10,21 +10,28 @@ public class UserWebtoonMapsVO {
 	private int user_webtoon_rate;
 	private String webtoons_title; // 2014.07.17 soo 추가
 	private String authors_name; // ''
-	
-	
-	
-	
+
+	// 2014.07.17 박태균 생성자 추가
+	public UserWebtoonMapsVO(int webtoons_id_fk, int user_webtoon_rate,
+			String webtoon_title) {
+
+		this.webtoons_id_fk = webtoons_id_fk;
+		this.user_webtoon_rate = user_webtoon_rate;
+		this.webtoons_title = webtoon_title;
+	}
+
 	// 2014.07.17 soo 생성자 추가
 	// 생성자 1번
-	public UserWebtoonMapsVO(long users_facebookID_fk, String webtoons_title,	String authors_name) {
+	public UserWebtoonMapsVO(long users_facebookID_fk, String webtoons_title,
+			String authors_name) {
 		this.users_facebookID_fk = users_facebookID_fk;
 		this.webtoons_title = webtoons_title;
 		this.authors_name = authors_name;
 	}
-	
+
 	// 생성자 2번
-	public UserWebtoonMapsVO(long users_facebookID_fk, int webtoons_id_fk, int genres_id_fk,
-			boolean user_webtoon_isRead, int user_webtoon_rate) {
+	public UserWebtoonMapsVO(long users_facebookID_fk, int webtoons_id_fk,
+			int genres_id_fk, boolean user_webtoon_isRead, int user_webtoon_rate) {
 		this.users_facebookID_fk = users_facebookID_fk;
 		this.webtoons_id_fk = webtoons_id_fk;
 		this.genres_id_fk = genres_id_fk;
@@ -33,8 +40,9 @@ public class UserWebtoonMapsVO {
 	}
 
 	// 생성자 3번
-	public UserWebtoonMapsVO(long users_facebookID_fk, int webtoons_id_fk, int push_alarms_id_fk,
-			int comment_id_fk, boolean user_webtoon_isRead, int user_webtoon_rate) {
+	public UserWebtoonMapsVO(long users_facebookID_fk, int webtoons_id_fk,
+			int push_alarms_id_fk, int comment_id_fk,
+			boolean user_webtoon_isRead, int user_webtoon_rate) {
 		this.users_facebookID_fk = users_facebookID_fk;
 		this.webtoons_id_fk = webtoons_id_fk;
 		this.push_alarms_id_fk = push_alarms_id_fk;

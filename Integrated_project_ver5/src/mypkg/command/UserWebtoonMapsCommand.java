@@ -13,6 +13,7 @@ import mypkg.control.Command;
 import mypkg.control.CommandResult;
 import mypkg.service.UserWebtoonMapsService;
 import mypkg.service.WebtoonService;
+import mypkg.vo.UserWebtoonMapsVO;
 import mypkg.vo.WebtoonVO;
 
 //박태균 
@@ -24,8 +25,8 @@ public class UserWebtoonMapsCommand implements Command {
 
 		String todo = request.getParameter("todo");
 		
-		if (todo.equals("insertWebtoon")) {
-			System.out.println("UserWebtoonMapsCommand시작 ,doInsertWebtoon실행 ");
+		if (todo.equals("insertWebtoon")) {//2014.07.20 박태균  웹툰  CRUD 
+System.out.println("UserWebtoonMapsCommand시작 ,doInsertWebtoon실행 ");
 			
 			this.doInsertWebtoon(request);
 			
@@ -34,8 +35,23 @@ public class UserWebtoonMapsCommand implements Command {
 			out.flush();
 			out.close();
 			
-			System.out.println("선택한 웹툰의 갯수 : " + this.doCountWebtoon(request));
-			commandResult = new CommandResult("text/plain;charset=UTF-8", "test");
+			System.out.println("선택한 웹툰의 갯수 : "+this.doCountWebtoon(request));
+			String comment = "ajax 성공 "; 
+			commandResult = new CommandResult("text/plain;charset=UTF-8", comment);
+		}else if(todo.equals("getCount")){//2014.07.20 박태균 웹툰 총갯수구하기 (게이지바 , 사용자등급에 사용)
+				PrintWriter out = response.getWriter();
+				out.print(this.doCountWebtoon(request));
+				out.flush();
+				out.close();
+				System.out.println("선택한 웹툰의 갯수 : "+this.doCountWebtoon(request));
+				String comment = "자동 ajax 성공 "; 
+				commandResult = new CommandResult("text/plain;charset=UTF-8", comment);
+		}else if(todo.equals("loadingWebtoon")) {//2014.07.20 박태균 웹툰 총갯수구하기 사용자가 선택했던 장르의 웹툰 불러오기
+					
+					request.setAttribute("loadingWebtoons", doLoadingWebtoon(request));
+					
+					
+					commandResult = new CommandResult("/WEB-INF/jsp/TestStarPoint.jsp");
 
 		} else if (todo.equals("seeReserve")) { // 2014.07.10 soo 찜한 웹툰 todo
 												// 걸러내기
@@ -56,6 +72,16 @@ public class UserWebtoonMapsCommand implements Command {
 		return commandResult;
 
 	}
+	// 2014.07.12 박태균 유저가 선택했던 , 찜을 제외한 모든 웹툰
+
+		public List<UserWebtoonMapsVO> doLoadingWebtoon(HttpServletRequest request){
+			HttpSession session = request.getSession();
+			long CurruntUser_facebookID = (long) session.getAttribute("CurrentUser");
+			
+			UserWebtoonMapsService service = new UserWebtoonMapsService();
+		
+			return service.LoadingWebtoon(CurruntUser_facebookID);
+		}
 	
 	// 2014.07.12 박태균 : 웹툰 카운트 (게이지 바)
 	public int doCountWebtoon(HttpServletRequest request){
@@ -66,6 +92,8 @@ public class UserWebtoonMapsCommand implements Command {
 
 		return service.countWebtoon(CurruntUser_facebookID);
 	}
+	
+	
 
 	// 2014.07.12 박태균 : 사용자가 선택한 웹툰의 CRUD
 	public List<WebtoonVO> doInsertWebtoon(HttpServletRequest request) {
@@ -94,11 +122,11 @@ public class UserWebtoonMapsCommand implements Command {
 	// 2014.07.17 soo 별점 4점이상 웹툰 작가
 	public String doGetWebtoonAuthors(HttpServletRequest request) {
 		HttpSession session = request.getSession();
-		long curruntUser_facebookID = (long) session.getAttribute("CurrentUser");
+		long CurruntUser_facebookID = (long) session.getAttribute("CurrentUser");
 		
 		String authors_name = request.getParameter("authorsName");
 
 		WebtoonService service = new WebtoonService();
-		return service.doGetWebtoonsAuthors(curruntUser_facebookID, authors_name);
+		return service.doGetWebtoonsAuthors(CurruntUser_facebookID, authors_name);
 	}
 }

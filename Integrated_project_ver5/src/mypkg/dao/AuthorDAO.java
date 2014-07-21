@@ -17,7 +17,7 @@ import javax.sql.DataSource;
 import mypkg.vo.AuthorVO;
 
 public class AuthorDAO {
-	private DataSource pool;
+	DataSource pool;
 
 	// 생성자
 	public AuthorDAO() {

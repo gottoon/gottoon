@@ -1,11 +1,13 @@
 package mypkg.control;
 
 import mypkg.command.ChartCommand;
+import mypkg.command.GenreCommand;
 import mypkg.command.MainCommand;
 import mypkg.command.ManagerCommand;
 import mypkg.command.MypageCommand;
 import mypkg.command.RecommendCommand;
 import mypkg.command.UserCommand;
+import mypkg.command.UserGenreMapsCommand;
 import mypkg.command.UserWebtoonMapsCommand;
 import mypkg.command.WebtoonCommand;
 
@@ -63,12 +65,12 @@ public class CommandFactory {
 		// target = new AuthorCommand();
 		// break;
 
-		// case "/userGenre":
-		// target = new UserGenreMapsCommand();
-		// break;
-		// case "/genre":
-		// target = new GenreCommand();
-		// break;
+		 case "/userGenre":
+		 target = new UserGenreMapsCommand();
+		 break;
+		 case "/genre":
+		 target = new GenreCommand();
+		 break;
 		}
 		return target;
 	}

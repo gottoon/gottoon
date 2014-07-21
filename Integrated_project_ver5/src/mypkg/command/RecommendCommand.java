@@ -23,6 +23,7 @@ public class RecommendCommand implements Command {
 		List<WebtoonVO> recommendWebtoons = this.doGetRecommendWebtoons(request, response);
 
 		request.setAttribute("recommendWebtoons", recommendWebtoons);
+		
 		commandResult = new CommandResult("/WEB-INF/jsp/recommend/recommend_webtoon.jsp");
 		
 		return commandResult;
@@ -30,10 +31,8 @@ public class RecommendCommand implements Command {
 	
 	public List<WebtoonVO> doGetRecommendWebtoons(HttpServletRequest request,
 			HttpServletResponse response) {
-		HttpSession session = request.getSession();
-		long currentUser_facebookID = (long)session.getAttribute("CurrentUser");
-		
 		RecommendService recommendService = new RecommendService();
-		return recommendService.getRecommendWebtoons(currentUser_facebookID);
+		
+		return recommendService.getRecommendWebtoons(request);
 	}
 }
