@@ -24,6 +24,48 @@
 </head>
 <body>
 	<script>
+		//윈도우 시작시 페북 환경 체크 
+		window.fbAsyncInit = function() {
+			FB.init({
+				appId : '618721798234752',
+				cookie : true, // enable cookies to allow the server to access
+				// the session
+				xfbml : true, // parse social plugins on this page
+				version : 'v2.0' // use version 2.0
+			});
+
+			// 페북 로그인 체크 시작 
+			FB.getLoginStatus(function(response) {
+				statusChangeCallback(response);
+			});
+
+		};
+
+		// 로그인 상태에 따른 콜백
+		function statusChangeCallback(response) {
+			console.log('statusChangeCallback 안녕하세요 스테터스 콜백 시전 ');
+			if (response.status === 'connected') {
+				login();
+			} else if (response.status === 'not_authorized') {
+				document.getElementById('welcomUser').innerHTML = 'Please log '
+						+ 'into this app.';
+			} else {
+				$("#welcomeUser").html('<p>Please log into Facebook.</p>');
+				FB
+						.login(function(response) {
+							if (response.authResponse) {
+								console
+										.log('Welcome!  Fetching your information.... ');
+
+								location.reload();
+							} else {
+								console
+										.log('User cancelled login or did not fully authorize.');
+							}
+						});
+			}
+		}
+
 		function checkLoginState() {
 			FB.getLoginStatus(function(response) {
 				statusChangeCallback(response);
@@ -32,66 +74,64 @@
 
 		/*로그인  */
 		function login() {
-			console.log('Welcome!  Fetching your information.... ');
+			console.log('로그인 실행 ');
 			FB.api('/me', function(response) {
 				console.log('Successful login for: ' + response.name);
-
 			});
 
 			/* make the API call */
-			FB.api("/me/picture",
-
-			function(response) {
-
+			FB.api("/me/picture", function(response) {
 				console.log('사진이야!!');
-
 				if (response) {
 					/* handle the result */
 					console.log(response);
 					$('#userImg').attr('src', response.data.url);
 				}
 			});
+			
+			FB.api('/me', function checkUser(response) {
+				var form = $('#loginForm');
 
-			FB
-					.api(
-							'/me',
-							function checkUser(response) {
-								var form = $('#loginForm');
+				console.log("체크 유저 시작 " + response.email);
+				var curruntUserName = response.name;
+				var curruntUserEmail = response.email;
+				var CurruntUser_facebookID = response.id;
+				console.log(CurruntUser_facebookID);
+				$.ajax({
+					type : form.attr('method'),
+					url : form.attr('action'),
+					data : {
+						"curruntUserName" : curruntUserName,
+						"curruntUserEmail" : curruntUserEmail,
+						"CurruntUser_facebookID" : CurruntUser_facebookID
+					},
 
-								console.log("체크 유저 시작 " + response.email);
-								var curruntUserName = response.name;
-								var curruntUserEmail = response.email;
-								var CurruntUser_facebookID = response.id;
-								console.log(CurruntUser_facebookID);
-								$
-										.ajax({
-											type : form.attr('method'),
-											url : form.attr('action'),
-											data : {
-												"curruntUserName" : curruntUserName,
-												"curruntUserEmail" : curruntUserEmail,
-												"CurruntUser_facebookID" : CurruntUser_facebookID
-											},
+					success : function() {
+						$("#welcomeUser").html(
+								"<h2>안녕하세요 " + response.name + "님 !</h2>");
+						$("#facebookBtn").hide();
 
-											success : function() {
+					}
 
-												var currentUser =
-	<%=session.getAttribute("CurrentUser")%>
-		;
-												$("#welcomeUser").html(
-														"<h2>안녕하세요 "
-																+ response.name
-																+ "님 !</h2>");
-												$("#facebookBtn").hide();
+				});
 
-											}
-
-										});
-
-							});
+			});
 
 		}
+
+		/*sdk 불러오기  */
+		(function(d, s, id) {
+			var js, fjs = d.getElementsByTagName(s)[0];
+			if (d.getElementById(id))
+				return;
+			js = d.createElement(s);
+			js.id = id;
+			js.src = "//connect.facebook.net/kr_KO/sdk.js";
+			fjs.parentNode.insertBefore(js, fjs);
+		}(document, 'script', 'facebook-jssdk'));
 	</script>
+	
+	
 	<div id="pgcontainer">
 		<c:import url="/WEB-INF/jsp/main/menu.jsp"></c:import>
 
@@ -161,7 +201,6 @@
 
 		</div>
 	</div>
-
 
 
 

@@ -65,12 +65,13 @@ public class CommandFactory {
 		// target = new AuthorCommand();
 		// break;
 
-		 case "/userGenre":
-		 target = new UserGenreMapsCommand();
-		 break;
-		 case "/genre":
-		 target = new GenreCommand();
-		 break;
+		case "/userGenre":
+			target = new UserGenreMapsCommand();
+			break;
+		case "/genre":
+			target = new GenreCommand();
+			break;
+
 		}
 		return target;
 	}
