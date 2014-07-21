@@ -49,7 +49,8 @@
 	}
 }
 
-td, header, #header, #footer {
+td, .top-header, .sec-header, 
+#header, #footer {
 	text-align : center;
 }
 
@@ -80,6 +81,7 @@ td, header, #header, #footer {
 .end_label, .new_label {
 	float:left;
 }
+
 
 .author_label {
 	display: inline-block;

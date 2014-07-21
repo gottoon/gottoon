@@ -66,13 +66,14 @@ public class WebtoonVO implements Serializable {
 	// 2014.07.15 soo 생성자 변경 (아래 삭제한거)
 	// 생성자 6번
 	public WebtoonVO(int webtoons_id_pk, String webtoons_title, String authors_name, 
-			String webtoons_completed, boolean webtoons_viewfree, String webtoons_url, 
-			String webtoons_first_update) {
+			String webtoons_completed, boolean webtoons_viewfree, String webtoons_main_image,
+			String webtoons_url, String webtoons_first_update) {
 		this.webtoons_id_pk = webtoons_id_pk;
 		this.webtoons_title = webtoons_title;
 		this.authors_name = authors_name;
 		this.webtoons_completed = webtoons_completed;
 		this.webtoons_viewfree = webtoons_viewfree;
+		this.webtoons_main_image = webtoons_main_image;
 		this.webtoons_url = webtoons_url;
 		this.webtoons_first_update = webtoons_first_update;
 	}

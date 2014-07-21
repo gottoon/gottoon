@@ -21,39 +21,48 @@
 </style> -->
 </head>
 <body>
-	<header class="top-header">
+	<div class="top-header">
 		<h1>Hello :)
 		<span>${CurrentUser}'s<br />Recommend Webtoons!</span>
 		</h1>
-		<nav class="move-mypage">
-			<form method="post" action="<c:url value='/action/mypageReadWebtoon'/>">
-				<input type="submit" id="reset" value="마이페이지" />
-			</form>
-			<!--  07.20 희철 -->
-			<form mehtod = "post" action="<c:url value='/action/recommend'/>">
-				<input type = "hidden" name = "filterviewfree" value ="false">
-				<input type="submit" name="select" value="유료만보기" >
+		<div class="nav">
+			<div id="go_mypage">
+				<form method="post" action="<c:url value='/action/mypageReadWebtoon'/>">
+					<input type="submit" id="reset" value="마이페이지" />
 				</form>
-				<form mehtod = "post" action="<c:url value='/action/recommend'/>">
-				<input type = "hidden" name = "filterviewfree" value ="true">
-				<input type="submit" name="select" value="무료만보기" >
-				</form>
-				<form mehtod = "post" action="<c:url value='/action/recommend'/>">
-				<input type = "hidden" name = "filterviewfree" value ="null">
-				<input type="submit" name="select" value="전체보기" >
-				</form>
-			
-		</nav>
-	</header>
-	<section>
-		<header>
+			</div>
+			<div class="selectViewfree">
+				<!--  07.20 희철 -->
+				<div id="viewCharge">
+					<form mehtod = "post" action="<c:url value='/action/recommend'/>">
+						<input type = "hidden" name = "filterviewfree" value ="false">
+						<input type="submit" name="select" value="유료만보기" >
+					</form>
+				</div>
+				<div id="viewFree">
+					<form mehtod = "post" action="<c:url value='/action/recommend'/>">
+						<input type = "hidden" name = "filterviewfree" value ="true">
+						<input type="submit" name="select" value="무료만보기" >
+					</form>
+				</div>
+				<div id="viewNone">
+					<form mehtod = "post" action="<c:url value='/action/recommend'/>">
+						<input type = "hidden" name = "filterviewfree" value ="null">
+						<input type="submit" name="select" value="전체보기" >
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="section">
+		<div class="sec-header">
 			<h3>추천 웹툰 List</h3>
-		</header>
-		<article>
+		</div>
+		<div class="article">
 			<div align="center" id="webtoons">
 			</div>
-		</article>
-	</section>
+		</div>
+	</div>
 	
 	<script type="text/javascript">
 		var webtoonCount = 0;
@@ -72,7 +81,7 @@
 						+ '<input type="hidden" name="webtoon_id" value="${webtoonInfo.webtoons_id_pk}" />'
 						+ '<input type="hidden" name="todo" value="showWebtoonDetails" />'
 						+ '<input type="image" width="300" height="400" '
-						+ 'src="../img/detailsImg/${webtoonInfo.webtoons_title}.jpg" /></form>');
+						+ 'src="${webtoonInfo.webtoons_main_image}" /></form>');
 				$('td').eq(-4).text("별점 평가하기");
 				$('td').eq(-3).append('<form id="myForm">'
 							+ '<input type="hidden" name="webtoons_id_pk" value="${webtoonInfo.webtoons_id_pk}" />'

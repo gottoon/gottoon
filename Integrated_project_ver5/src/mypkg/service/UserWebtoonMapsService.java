@@ -66,10 +66,10 @@ public class UserWebtoonMapsService {
 
 		if (result == true) {
 			return "찜하기 성공!";
-			// return "See Reserve Success!";
+//			 return "See Reserve Success!";
 		} else {
 			return "이미 찜하거나 본 웹툰입니다!";
-			// return "Error!";
+//			 return "Error!";
 		}
 	}
 

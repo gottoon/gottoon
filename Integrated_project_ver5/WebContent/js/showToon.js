@@ -14,7 +14,7 @@ $(document).ready(function() {
 
 			if (data == 0) {
 				alert("신규 가입자 입니다. 최소 20개의 웹툰을 평가해주세요 ");
-			} else if ([ data ] >= 2) {
+			} else if ([ data ] >= 20) {
 				$("#button").show();
 
 				$('.show-modal1').show(function() {
@@ -44,7 +44,7 @@ function onclickStart(param) {
 		success : function(data) {
 			if (data != 0) {
 
-				if ([ data ] == 2) {
+				if ([ data ] == 20) {
 
 					$('.show-modal').show(function() {
 						$('.modal').fadeIn('normal');

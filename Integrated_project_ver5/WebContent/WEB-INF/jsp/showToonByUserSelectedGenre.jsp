@@ -36,7 +36,7 @@
 
 
 
-	<meter id="meter" value="0" max="2">
+	<meter id="meter" value="0" max="20">
 		<input name="show" />
 
 	</meter>

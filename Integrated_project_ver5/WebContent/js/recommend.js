@@ -23,8 +23,8 @@ function seeReserve(form) {
 	$.ajax({
 		url : "userWebtoon",
 		data : {"todo" : "seeReserve", "webtoon_id" : form.webtoon_id.value},
-		success : function(text, status) {
-			alert(text);
+		success : function(data) {
+			alert(data);
 		}
 	});
 }

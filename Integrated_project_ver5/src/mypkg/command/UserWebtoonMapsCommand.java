@@ -2,6 +2,7 @@ package mypkg.command;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.net.URLDecoder;
 import java.util.List;
 
 import javax.servlet.ServletException;
@@ -56,8 +57,10 @@ System.out.println("UserWebtoonMapsCommand시작 ,doInsertWebtoon실행 ");
 		} else if (todo.equals("seeReserve")) { // 2014.07.10 soo 찜한 웹툰 todo
 												// 걸러내기
 			String result = this.doInsertReserveWebtoon(request);
-
-			commandResult = new CommandResult("text/plain;charset=UTF-8", result);
+			/*request.setCharacterEncoding("UTF-8");*/
+//			response.setContentType("text/html;charset=UTF-8");
+//			response.setCharacterEncoding("UTF-8");
+			commandResult = new CommandResult("text/plain", result);
 		
 		} else if (todo.equals("authorLabel")) { // 2014.07.17 soo 라벨 비교 작가 뽑아오기
 			String result = this.doGetWebtoonAuthors(request);
