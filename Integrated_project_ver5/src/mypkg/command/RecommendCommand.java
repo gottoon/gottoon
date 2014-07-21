@@ -31,9 +31,9 @@ public class RecommendCommand implements Command {
 	public List<WebtoonVO> doGetRecommendWebtoons(HttpServletRequest request) {
 		HttpSession session = request.getSession();
 		long currentUser_facebookID = (long)session.getAttribute("CurrentUser");
-		String filterviewfree = request.getParameter("filterviewfree");
+		String viewfreeValue = request.getParameter("filterviewfree");
 		
 		RecommendService recommendService = new RecommendService();
-		return recommendService.getRecommendWebtoons(currentUser_facebookID, filterviewfree);
+		return recommendService.getRecommendWebtoons(currentUser_facebookID, viewfreeValue);
 	}
 }
