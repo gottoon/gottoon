@@ -26,9 +26,23 @@
 		<span>${CurrentUser}'s<br />Recommend Webtoons!</span>
 		</h1>
 		<nav class="move-mypage">
-			<form method="post" action="mypage">
+			<form method="post" action="<c:url value='/action/mypageReadWebtoon'/>">
 				<input type="submit" id="reset" value="마이페이지" />
 			</form>
+			<!--  07.20 희철 -->
+			<form mehtod = "post" action="<c:url value='/action/recommend'/>">
+				<input type = "hidden" name = "filterviewfree" value ="false">
+				<input type="submit" name="select" value="유료만보기" >
+				</form>
+				<form mehtod = "post" action="<c:url value='/action/recommend'/>">
+				<input type = "hidden" name = "filterviewfree" value ="true">
+				<input type="submit" name="select" value="무료만보기" >
+				</form>
+				<form mehtod = "post" action="<c:url value='/action/recommend'/>">
+				<input type = "hidden" name = "filterviewfree" value ="null">
+				<input type="submit" name="select" value="전체보기" >
+				</form>
+			
 		</nav>
 	</header>
 	<section>
