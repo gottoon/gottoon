@@ -8,6 +8,13 @@
 	href="<c:url value='/css/genre.css'/>" />
 <script src="<c:url value='/js/genre.js'/>"></script>
 <script src="//code.jquery.com/jquery-1.11.0.js"></script>
+    <!-- 모바일 디바이스를 위한 설정 -->
+  <!--  <meta name="viewport" content="width=device-width, initial-scale=1">  -->
+<!-- jquery mobile 사용하겠다 -->
+<!-- <link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.3/jquery.mobile-1.4.3.min.css" />
+<script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
+<script src="http://code.jquery.com/mobile/1.4.3/jquery.mobile-1.4.3.min.js"></script> -->
+
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Show Genre</title>
 </head>
@@ -20,6 +27,8 @@
 	<p align="center"><%=session.getAttribute("CurrentUser")%></p>
 	
 </header>
+ <!-- <div data-role="content">  -->
+           
 	<!-- DB에있는 장르 -->
 		<%-- <c:forEach var="GenreVO" items="${allGenres}"> 
 		<p align="center">${GenreVO.genres_id_pk}</p>
@@ -94,10 +103,13 @@
 					</tr>
 
 			<td><input type="submit" name="장르선택확인" align="center" value="확인">
+			<a href="#" data-role="button" data-icon="star">확인</a>
 			</td>
 		</table>
 
 	</form>
+<!-- 	</div> -->
+	
 	<script>
 	/* $("input:checkbox[id='cb10']").is(":checked") == true : false; */
 	
