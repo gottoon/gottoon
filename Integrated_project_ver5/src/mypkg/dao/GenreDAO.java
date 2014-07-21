@@ -58,7 +58,7 @@ public class GenreDAO {
 		return rset;
 	}
 
-	// findAllGenre -bj 7.18
+	// findAllGenre -bj 7.18  // 희철 사용장르 불러오기
 	public List<GenreVO> findAllGenre() {
 		Connection conn = null;
 		Statement stmt = null;
@@ -93,4 +93,5 @@ public class GenreDAO {
 		}
 		return GenreList;
 	}
+
 }

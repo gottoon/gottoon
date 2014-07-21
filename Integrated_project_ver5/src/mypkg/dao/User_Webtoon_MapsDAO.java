@@ -282,4 +282,258 @@ public class User_Webtoon_MapsDAO {
 		
 		return readWebtoonCount;
 	}
+	
+	
+	//2014.07.20 박태균 웹툰 수정 메소드 
+	public void updateReadWebtoon(int webtoons_id_pk, int user_webtoon_rate, long users_facebookID_fk) {
+
+		Connection conn = null;
+		Statement stmt = null;
+
+		try {
+			conn = pool.getConnection();
+			stmt = conn.createStatement();
+
+			String sql = "UPDATE user_webtoon_maps SET user_webtoon_rate = " + user_webtoon_rate
+					+ " where users_facebookID_fk = " + users_facebookID_fk + " and webtoons_id_fk = " + webtoons_id_pk
+					+ ";";
+
+			stmt.executeUpdate(sql);
+
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			try {
+				if (stmt != null)
+					stmt.close();
+				if (conn != null)
+					conn.close();
+			} catch (SQLException ex) {
+				ex.printStackTrace();
+			}
+		}
+
+	}
+	//2014.07.20 박태균 유저가 읽은 웹툰 가져오기
+	public List<WebtoonVO> readWebtoon(long users_facebookID_fk) {
+		Connection conn = null;
+		Statement stmt = null;
+		List<WebtoonVO> webtoons = new ArrayList<>();
+		try {
+			conn = pool.getConnection();
+			stmt = conn.createStatement();
+
+			String sql = "select * from user_webtoon_maps where users_facebookID_fk = " + users_facebookID_fk + ";";
+			ResultSet rset = stmt.executeQuery(sql);
+			while (rset.next()) {
+				int webtoons_id_pk = rset.getInt("webtoons_id_fk");
+				System.out.println("사용자가 선택했던 웹툰 아이디" + webtoons_id_pk);
+				webtoons.add(new WebtoonVO(webtoons_id_pk));
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			try {
+				if (stmt != null)
+					stmt.close();
+				if (conn != null)
+					conn.close();
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+		}
+
+		return webtoons;
+
+	}
+	//2014.07.20 박태균 찜한거 제외한 웹툰 가져오기 
+	public List<UserWebtoonMapsVO> readWebtoonWithOUtIsRead(long users_facebookID_fk) {
+		Connection conn = null;
+		Statement stmt = null;
+		List<UserWebtoonMapsVO> webtoons = new ArrayList<>();
+		int count =0;
+		try {
+			conn = pool.getConnection();
+			stmt = conn.createStatement();
+
+			String sql = "select user_webtoon_maps.webtoons_id_fk , user_webtoon_maps.user_webtoon_rate , "
+					+ " webtoons.webtoons_title from user_webtoon_maps inner join "
+					+ " webtoons on user_webtoon_maps.webtoons_id_fk = webtoons.webtoons_id_pk "
+					+ " where user_webtoon_maps.users_facebookID_fk = " + users_facebookID_fk + " and user_webtoon_maps.user_webtoon_isread = 1 ; ";
+			ResultSet rset = stmt.executeQuery(sql);
+			
+			while (rset.next()) {
+				int webtoons_id_fk = rset.getInt("webtoons_id_fk");
+				int user_webtoon_rate = rset.getInt("user_webtoon_rate");
+				String webtoon_title = rset.getString("webtoons_title");
+				System.out.println("readWebtoonWithOUtIsRead의 사용자가 선택했던 웹툰 아이디" + webtoons_id_fk
+						+" , 별점 :"+user_webtoon_rate+", 웹툰 타이틀 : "+webtoon_title);
+			
+				++count;
+				webtoons.add(new UserWebtoonMapsVO( webtoons_id_fk, user_webtoon_rate , webtoon_title));
+				
+			}
+			System.out.println("총 갯수 : "+count);
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			try {
+				if (stmt != null)
+					stmt.close();
+				if (conn != null)
+					conn.close();
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+		}
+
+		return webtoons;
+
+	}
+	//2014.07.20 박태균 카운트 
+	public int countWebtoon(long users_facebookID_fk) {
+
+		Connection conn = null;
+		Statement stmt = null;
+		int count = 0;
+		try {
+			conn = pool.getConnection();
+			stmt = conn.createStatement();
+			String sql = "select * from user_webtoon_maps where users_facebookID_fk = " + users_facebookID_fk + " and user_webtoon_isread = 1;";
+
+			ResultSet rs = stmt.executeQuery(sql);
+			rs.last();
+			count = rs.getRow();
+			rs.beforeFirst();
+
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			try {
+				if (stmt != null)
+					stmt.close();
+				if (conn != null)
+					conn.close();
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+		}
+		return count;
+	}
+	//2014.07.20 박태균 웹툰 추가 
+	public void addReadWebtoon(int webtoons_id_pk, int user_webtoon_rate, long users_facebookID_fk) {
+		System.out.println("repetitionRemoval 시작 ");
+
+		Connection conn = null;
+		Statement stmt = null;
+
+		try {
+			conn = pool.getConnection();
+			stmt = conn.createStatement();
+
+			String sql = "INSERT INTO user_webtoon_maps ( webtoons_id_fk , users_facebookID_fk , push_alarms_id_fk , comment_id_fk , user_webtoon_rate, user_webtoon_isread ) SELECT "
+					+ webtoons_id_pk
+					+ " , "
+					+ users_facebookID_fk
+					+ " , 1 , 1 , "
+					+ user_webtoon_rate
+					+ " , 1 FROM DUAL WHERE NOT EXISTS (SELECT * FROM user_webtoon_maps WHERE webtoons_id_fk = "
+					+ webtoons_id_pk + " AND users_facebookID_fk = " + users_facebookID_fk + " );";
+
+			stmt.execute(sql);
+			System.out.println("웹툰 아이디 :" + webtoons_id_pk + " , 유저아이디 :" + users_facebookID_fk + ",평가별점 :  "
+					+ user_webtoon_rate + "추가 완료");
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			try {
+				if (stmt != null)
+					stmt.close();
+				if (conn != null)
+					conn.close();
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+		}
+
+	}
+	//2014.07.20 박태균 웹툰 삭제 
+	public void deleteReadWebtoon(int webtoons_id_pk) {
+		System.out.println("삭제할 웹툰아이디 : " + webtoons_id_pk);
+		Connection conn = null;
+		Statement stmt = null;
+
+		try {
+			conn = pool.getConnection();
+			stmt = conn.createStatement();
+			String sql = "delete From user_webtoon_maps where webtoons_id_fk = " + webtoons_id_pk + ";";
+			stmt.executeUpdate(sql);
+
+			// String sql =
+			// "delete From user_webtoon_maps (webtoons_id_fk) SELECT"
+			// + webtoons_id_pk
+			// +"  FROM DUAL WHERE NOT EXISTS  (SELECT * FROM user_webtoon_maps WHERE webtoons_id_fk = "
+			// + webtoons_id_pk + ");";
+
+			//
+			// String sql =
+			// "INSERT INTO user_webtoon_maps ( webtoons_id_fk , users_facebookID_fk , push_alarms_id_fk , comment_id_fk , user_webtoon_rate, user_webtoon_isread ) SELECT "
+			// + webtoons_id_pk
+			// + " , "
+			// + users_facebookID_fk
+			// + " , 1 , 1 ,  "
+			// + user_webtoon_rate
+			// +
+			// " , 1 FROM DUAL WHERE NOT EXISTS (SELECT * FROM user_webtoon_maps WHERE webtoons_id_fk = "
+			// + webtoons_id_pk + ");";
+			//
+			//
+
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			try {
+				if (stmt != null)
+					stmt.close();
+				if (conn != null)
+					conn.close();
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+		}
+	}
+	
+	//2014.07.20 박태균 신규가입자의 첫 웹툰 추가 
+		public void addFirstReadWebtoon(int webtoons_id_pk, int user_webtoon_rate, long users_facebookID_fk) {
+			System.out.println("새로운 유저 insert시작 또는 새로운 웹툰 추가  " + webtoons_id_pk);
+
+			Connection conn = null;
+			Statement stmt = null;
+
+			try {
+				conn = pool.getConnection();
+				stmt = conn.createStatement();
+
+				// INSERT INTO good_guy (NAME, email) VALUES ('oh_yea', 'cool')
+				// ON DUPLICATE KEY UPDATE name='oh_yea', email='wow';
+
+				String sql = "INSERT INTO user_webtoon_maps (webtoons_id_fk , user_webtoon_rate , users_facebookID_fk , push_alarms_id_fk , comment_id_fk , user_webtoon_isread) VALUES ("
+						+ webtoons_id_pk + ", " + user_webtoon_rate + ", " + users_facebookID_fk + ", 1 , 1 ,1)";
+				stmt.executeUpdate(sql);
+
+			} catch (SQLException e) {
+				e.printStackTrace();
+			} finally {
+				try {
+					if (stmt != null)
+						stmt.close();
+					if (conn != null)
+						conn.close();
+				} catch (SQLException e) {
+					e.printStackTrace();
+				}
+			}
+		}
+
+	
 }

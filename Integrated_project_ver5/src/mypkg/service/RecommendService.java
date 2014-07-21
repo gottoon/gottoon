@@ -31,7 +31,7 @@ public class RecommendService {
 	int relativeRate = 0; // 연관성 점수
 	boolean isWebtoonHighRated = true; // 
 	
-	public List<WebtoonVO> getRecommendWebtoons(long currentUser_facebookID) {
+	public List<WebtoonVO> getRecommendWebtoons(long currentUser_facebookID, String viewfreeValue) {
 		// 1. 세션값 불러오기 (유저 facebook ID)
 
 		List<UserWebtoonMapsVO> userReadWebtoons = this.getAllReadWebtoons(currentUser_facebookID); // 2-1. 사용자 읽은 웹툰 다 가져오기
@@ -45,7 +45,7 @@ public class RecommendService {
 				recommenders, userReadWebtoons, ratedWebtoons);
 
 		// 5. 중복제거된 웹툰 객체로 정보 뽑아오기
-		return this.completeRecommendWebtoons(repeatWebtoonRemove);
+		return this.completeRecommendWebtoons(repeatWebtoonRemove, viewfreeValue);
 	} // @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ return
 	
 	public List<UserGenreMapsVO> getSelectedGenres(long user_facebookID) {
@@ -210,13 +210,24 @@ public class RecommendService {
 		return repeatWebtoonRemove;
 	}
 	
-	public List<WebtoonVO> completeRecommendWebtoons(HashSet<Integer> repeatWebtoonRemove) {
+	public List<WebtoonVO> completeRecommendWebtoons(HashSet<Integer> repeatWebtoonRemove, String viewfreeValue) {
 		List<WebtoonVO> completeRecommendWebtoons = new ArrayList<WebtoonVO>(); // 완료된 추천웹툰
-		
+		WebtoonVO filteringWebtoonInfo = null; //07.20 희철
 		Iterator<Integer> iter = repeatWebtoonRemove.iterator();
 		while (iter.hasNext()) {
 			WebtoonVO webtoonInfo = this.findWebtoon(iter.next());
-			completeRecommendWebtoons.add(webtoonInfo);
+			
+			//7.20 희철 우료 / 무료 보기 
+			if(viewfreeValue == null || viewfreeValue.equals("null")){
+				filteringWebtoonInfo = webtoonInfo;
+				System.out.println(String.valueOf(webtoonInfo.isWebtoons_viewfree()));
+			}else if(viewfreeValue.equals(String.valueOf(webtoonInfo.isWebtoons_viewfree()))){
+				
+				filteringWebtoonInfo = webtoonInfo;
+			}else{
+				continue;
+			}
+			completeRecommendWebtoons.add(filteringWebtoonInfo);
 		}
 		return completeRecommendWebtoons;
 	}

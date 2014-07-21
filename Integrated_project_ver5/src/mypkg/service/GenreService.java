@@ -9,8 +9,7 @@ import mypkg.vo.GenreVO;
 
 public class GenreService {
 	
-	
-	//getAllGenres-  bj  7.18 
+	//getAllGenres-  bj  7.18   희철 사용
 	public List<GenreVO> getAllGenres() {
 		System.out.println("getAllgenres 시작 ");
 		MySqlDAOFactory mysqlFactory = new MySqlDAOFactory();
