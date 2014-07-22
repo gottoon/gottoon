@@ -40,8 +40,10 @@ public class UserService {
 	
 	//doAddUser -bj 7.18 
 	public boolean doAddUser(HttpServletRequest request) {
+		System.out.println("doAddUser 시작");
 		long user_facebookID = Long.parseLong(request
 				.getParameter("CurruntUser_facebookID"));
+		System.out.println("adf" + user_facebookID);
 		String name = request.getParameter("curruntUserName");
 		String email = request.getParameter("curruntUserEmail");
 
@@ -60,10 +62,8 @@ public class UserService {
 	}
 
 	//doCheckUser - bj 7.18 
-	public boolean doCheckUser(HttpServletRequest request) {
+	public boolean doCheckUser(long  CurruntUser_facebookID) {
 		System.out.println("doCheckUser 시작 ");
-		long CurruntUser_facebookID = Long.parseLong(request
-				.getParameter("CurruntUser_facebookID"));
 		boolean isUser = false;
 		List<UserVO> usersList = getAllUsers();
 
@@ -85,7 +85,6 @@ public class UserService {
 
 		MySqlDAOFactory mysqlDAOFactory = new MySqlDAOFactory();
 		UserDAO userDAO = mysqlDAOFactory.getUserDAO();
-
 		return userDAO.addUser(user_facebookID, name, email);
 	}
 

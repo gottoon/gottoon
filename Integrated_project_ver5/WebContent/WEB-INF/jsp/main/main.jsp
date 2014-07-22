@@ -49,8 +49,10 @@
 			} else if (response.status === 'not_authorized') {
 				document.getElementById('welcomUser').innerHTML = 'Please log '
 						+ 'into this app.';
+				$("#facebookBtn").show();
 			} else {
 				$("#welcomeUser").html('<p>Please log into Facebook.</p>');
+				$("#facebookBtn").show();
 				FB
 						.login(function(response) {
 							if (response.authResponse) {
@@ -88,29 +90,36 @@
 					$('#userImg').attr('src', response.data.url);
 				}
 			});
-			
+
 			FB.api('/me', function checkUser(response) {
 				var form = $('#loginForm');
 
-				console.log("체크 유저 시작 " + response.email);
 				var curruntUserName = response.name;
 				var curruntUserEmail = response.email;
 				var CurruntUser_facebookID = response.id;
-				console.log(CurruntUser_facebookID);
+
 				$.ajax({
 					type : form.attr('method'),
 					url : form.attr('action'),
 					data : {
 						"curruntUserName" : curruntUserName,
 						"curruntUserEmail" : curruntUserEmail,
-						"CurruntUser_facebookID" : CurruntUser_facebookID
+						"CurruntUser_facebookID" : CurruntUser_facebookID,
+						todo : "checkUser"
 					},
 
 					success : function() {
 						$("#welcomeUser").html(
 								"<h2>안녕하세요 " + response.name + "님 !</h2>");
-						$("#facebookBtn").hide();
-
+						console.log(
+	<%=session.getAttribute("userGrade")%>
+		);
+						if (
+	<%=session.getAttribute("userGrade")%>
+		== 1) {
+							console.log("asdfasdf");
+							location.href = "action/genre";
+						}
 					}
 
 				});
@@ -130,8 +139,8 @@
 			fjs.parentNode.insertBefore(js, fjs);
 		}(document, 'script', 'facebook-jssdk'));
 	</script>
-	
-	
+
+
 	<div id="pgcontainer">
 		<c:import url="/WEB-INF/jsp/main/menu.jsp"></c:import>
 
@@ -201,6 +210,8 @@
 
 		</div>
 	</div>
+
+
 
 
 

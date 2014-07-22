@@ -11,6 +11,7 @@
 		request.setCharacterEncoding("UTF-8");
 
 		session.removeAttribute("userGrade");
+		session.removeAttribute("CurrentUser");
 
 		response.sendRedirect("/main");
 		// 페이지의 메인으로 이동

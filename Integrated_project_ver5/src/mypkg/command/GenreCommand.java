@@ -31,14 +31,12 @@ public class GenreCommand implements Command {
 				.getAttribute("CurrentUser");
 		
 		System.out.println("todo = " +todo);
-		if (todo.equals("showGenres")) {
 			System.out.println("showGenre if 시작 ");
 						
 			this.doShowGenre(request, response);
 			this.doUserGenreMaps(request,CurrentUser_facebookID); // 유저 장르 불러오기 7.17
 			
 			commandResult = new CommandResult("/WEB-INF/jsp/showGenre.jsp");
-		}
 
 		return commandResult;
 	}

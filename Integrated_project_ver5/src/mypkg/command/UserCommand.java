@@ -21,16 +21,17 @@ public class UserCommand implements Command {
 			HttpServletResponse response) throws ServletException, IOException {
 		System.out.println("유저 커맨드 시작 ");
 		System.out.println(request.getParameter("CurruntUser_facebookID"));
+		System.out.println(request.getParameter("curruntUserName"));
+		System.out.println(request.getParameter("curruntUserEmail"));
 
 		String todo = request.getParameter("todo");
 		System.out.println("todo = " + todo);
 
-		if (todo != null && todo.equals("logout")) {
+		if (todo.equals("logout")) {
 			this.logout(request);
 			commandResult = new CommandResult("/WEB-INF/jsp/main/main.jsp");
-		} else {
+		} else if(todo.equals("checkUser")) {
 			this.doCheckUser(request, response);
-
 		}
 
 		return commandResult;
@@ -53,27 +54,25 @@ public class UserCommand implements Command {
 
 		long CurruntUser_facebookID = Long.parseLong(request
 				.getParameter("CurruntUser_facebookID"));
-
-		boolean isUser = userService.doCheckUser(request);
-		String userGrade = userService.doGetUserGrade(CurruntUser_facebookID);
+		System.out.println("롱타입 파싱"+ CurruntUser_facebookID);
+		boolean isUser = userService.doCheckUser(CurruntUser_facebookID);
+		HttpSession session = request.getSession(true);
 
 		if (isUser) {
 			System.out.println("이미 회원입니다.");
 
+			String userGrade = userService.doGetUserGrade(CurruntUser_facebookID);
 			commandResult = new CommandResult("/WEB-INF/jsp/main/main.jsp");
+			session.setAttribute("userGrade", userGrade);
 		} else {
 			this.doAddUser(request, response);
 		}
 
-		System.out.println("CurrentUser = " + CurruntUser_facebookID
-				+ ", userGrade = " + userGrade);
-		HttpSession session = request.getSession();
 		session.setAttribute("CurrentUser", CurruntUser_facebookID);
-		session.setAttribute("userGrade", userGrade);
 	}
 
 	public void logout(HttpServletRequest request) {
-		HttpSession session = request.getSession();
+		HttpSession session = request.getSession(true);
 		session.removeAttribute("CurrentUser");
 		session.removeAttribute("userGrade");
 
