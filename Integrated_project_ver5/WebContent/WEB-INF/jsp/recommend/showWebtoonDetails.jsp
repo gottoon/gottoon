@@ -138,7 +138,7 @@
 		$('.left_label').after('<img class="new_label" src="../img/labels/new.png" />');
 	
 	getHighRatedWebtoonsAuthor("${authorsName}", "${webtoonDetail.webtoons_id_pk}", function(result) {
-		$('.right_label').append('<div class="author_label">'+ result + ' 작가웹툰!!</div>');
+		$('.right_label').append('<div class="author_label"><span class="author_span">'+ result + '<br />작가웹툰!!</span></div>');
 	});
 	</script>
 </body>

@@ -166,18 +166,19 @@ public class UserWebtoonMapsService {
 		return user_Webtoon_MapsDAO.countWebtoon(CurruntUser_facebookID);
 	}
 	
-	
-	
-	
-
 	// 2014.07.14 soo 평균별점 계산
 	public void calculateAverageRate(int webtoons_id, int user_webtoon_rate) {
 		AverageRateVO averageRateVO = this.getRateOfReadWebtoon(webtoons_id);
-		double averageRate = (double) averageRateVO.getSumRate()
-				/ averageRateVO.getCountUsers();
-
-		System.out.println("평균별점 : " + averageRate);
-		updateWebtoonRate(webtoons_id, averageRate);
+		if (averageRateVO.getCountUsers() == 0 || averageRateVO.getSumRate() == 0) {
+			System.out.println("평균별점 : " + 0);
+			updateWebtoonRate(webtoons_id, 0);
+		} else {
+			double averageRate = (double) averageRateVO.getSumRate()
+					/ averageRateVO.getCountUsers();
+			
+			System.out.println("평균별점 : " + averageRate);
+			updateWebtoonRate(webtoons_id, averageRate);
+		}
 	}
 
 	// 2014.07.14 soo 해당 웹툰 별점 가져오기
