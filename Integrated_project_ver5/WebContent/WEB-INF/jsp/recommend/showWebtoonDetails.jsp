@@ -65,7 +65,7 @@
 						<tr>
 							<td>
 								<form method="post" action="#">
-									<input type="hidden" name="webtoon_id" value="${webtoonInfo.webtoons_id_pk}" />
+									<input type="hidden" name="webtoon_id" value="${webtoonDetail.webtoons_id_pk}" />
 									<input type="button" id="reserve" value="찜하기" onclick="seeReserve(this.form);" />
 								</form>
 							</td>

@@ -41,11 +41,11 @@ public class UserWebtoonMapsService {
 
 				while (webtoonIter.hasNext()) {
 					if (webtoons_id == webtoonIter.next().getWebtoons_id_pk()) {
-						System.out
-								.println("동일한 웹툰 별점수 또는 이미 평가한 웹툰 upDateWebtoon실행");
+						System.out.println("동일한 웹툰 별점수 또는 이미 평가한 웹툰 upDateWebtoon실행");
 						this.updateReadWebtoon(webtoons_id, user_webtoon_rate,
 								CurruntUser_facebookID);
 					} else {
+						System.out.println("왜 여기 들어오지");
 						System.out.println("새로운 웹툰 추가 repetitionRemoval 실행 ");
 						this.addReadWebtoon(webtoons_id, user_webtoon_rate,
 								CurruntUser_facebookID);

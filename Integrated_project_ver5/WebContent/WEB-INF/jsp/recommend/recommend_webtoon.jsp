@@ -72,16 +72,14 @@
  		$(document).ready(function(){
 			<c:forEach var="webtoonInfo" items="${recommendWebtoons}" varStatus="status">
 				$('#webtoons').append('<table class="webtoon_table" border="1" cellpadding="5">'
-					+ '<tr><td colspan="2"></td></tr><tr><td colspan="2"></td></tr><tr><td></td><td></td></tr>'
+					+ '<tr><td colspan="2"></td></tr><tr><td></td><td></td></tr>'
 					+ '<tr><td></td><td></td></tr></table><br id="webtoonBreak"/>');
- 				$('td').eq(-6).append("${webtoonInfo.webtoons_title}");
-				$('td').eq(-5).append('<div class="label" style="position:absolute"><div class="label_container" style="clear:both;">'
-						+ '<div class="left_label"></div><div class="right_label"></div></div></div>'
-						+ '<form method="post" action="webtoon">'
+				$('td').eq(-5).append('<div class="main_image"><form method="post" action="webtoon">'
 						+ '<input type="hidden" name="webtoon_id" value="${webtoonInfo.webtoons_id_pk}" />'
 						+ '<input type="hidden" name="todo" value="showWebtoonDetails" />'
-						+ '<input type="image" width="300" height="400" '
-						+ 'src="${webtoonInfo.webtoons_main_image}" /></form>');
+						+ '<input class="webtoon_main_image" type="image" width="300" height="400" '
+						+ 'src="${webtoonInfo.webtoons_main_image}" /></form>'
+						+ '<h2><span>${webtoonInfo.webtoons_title}</span></h2></div>');
 				$('td').eq(-4).text("별점 평가하기");
 				$('td').eq(-3).append('<form id="myForm">'
 							+ '<input type="hidden" name="webtoons_id_pk" value="${webtoonInfo.webtoons_id_pk}" />'
@@ -111,14 +109,14 @@
 				webtoonCount = "${status.count}";
 				var completed = "${webtoonInfo.webtoons_completed}";
 				if (completed === '완')
-					$('.left_label').eq(webtoonCount - 1).append('<img class="end_label" src="../img/labels/end.png" />');
+					$('.main_image').eq(webtoonCount - 1).append('<img class="end_label" src="../img/labels/end.png" />');
 				
 				if (calculateDateRange("${webtoonInfo.webtoons_first_update}"))
-					$('.left_label').eq(webtoonCount - 1).append('<img class="new_label" src="../img/labels/new.png" />');
+					$('.main_image').eq(webtoonCount - 1).append('<img class="new_label" src="../img/labels/new.png" />');
 
 				getHighRatedWebtoonsAuthor("${webtoonInfo.authors_name}", "${webtoonInfo.webtoons_id_pk}", function(result) {
 					label_index = "${status.count}";
-					$('.right_label').eq(label_index - 1).append('<div class="author_label">'+ result + ' 작가웹툰!!</div>');
+					$('.main_image').eq(label_index - 1).append('<div class="author_label"><span class="author_span">'+ result + '<br />작가웹툰!!</span></div>');
 	 			});
 	 			
 			</c:forEach>
