@@ -42,33 +42,7 @@
 
 
 <body>
-	<script>
-window.fbAsyncInit = function() {
-	FB.init({
-		appId : '618721798234752',
-		cookie : true, // enable cookies to allow the server to access
-		// the session
-		xfbml : true, // parse social plugins on this page
-		version : 'v2.0' // use version 2.0
-		
-		
-	});
-
-	/*sdk 불러오기  */
-	(function(d, s, id) {
-		var js, fjs = d.getElementsByTagName(s)[0];
-		if (d.getElementById(id))
-			return;
-		js = d.createElement(s);
-		js.id = id;
-		js.src = "//connect.facebook.net/kr_KO/sdk.js";
-		fjs.parentNode.insertBefore(js, fjs);
-	}(document, 'script', 'facebook-jssdk'));
 	
-	
-	session.re
-</script>
-
 
 	<header>
 		<nav>
@@ -104,15 +78,6 @@ window.fbAsyncInit = function() {
 								<%-- </c:if> --%>
 
 							</form></li>
-						<li><form id="DNAForm" action="<c:url value='/action/DNA'/>"
-								method="post">
-								<%-- <c:if test="${userGradeInt >= 5}"> --%>
-								<button id="DNABtn" type="submit">
-									<p>DNA</p>
-								</button>
-								<%-- 	</c:if> --%>
-
-							</form></li>
 
 
 						<li><form id="mypageForm"
@@ -130,7 +95,6 @@ window.fbAsyncInit = function() {
 									<p>매니져</p>
 								</button>
 								<input type="hidden" name="todo" value="manager">
-								<%-- 	</c:if> --%>
 
 							</form></li>
 						<li id="logout"><form id="logoutForm"
@@ -163,4 +127,5 @@ window.fbAsyncInit = function() {
 	<script src="<c:url value='/js/main/borderMenu.js'/>"></script>
 </body>
 </html>
+
 

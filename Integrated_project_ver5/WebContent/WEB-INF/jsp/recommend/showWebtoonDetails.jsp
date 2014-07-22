@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
-<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+	pageEncoding="UTF-8"%>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 
 <!DOCTYPE html>
 <html>
@@ -9,7 +9,8 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <link rel="stylesheet" href="<c:url value='/css/recommend.css'/>" />
 <link rel="stylesheet" href="<c:url value='/css/showToon.css'/>" />
-<script	src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
 <script src="<c:url value='/js/recommend.js'/>"></script>
 <script src="<c:url value='/js/showToon.js'/>"></script>
 </head>
@@ -29,8 +30,8 @@
 										<div class="left_label"></div>
 										<div class="right_label"></div>
 									</div>
-								</div>
-								<img id="webtoon_image" src="../img/detailsImg/${webtoonDetail.webtoons_title}.jpg" />
+								</div> <img id="webtoon_image"
+								src="../img/detailsImg/${webtoonDetail.webtoons_title}.jpg" />
 							</td>
 						</tr>
 					</table>
@@ -38,42 +39,50 @@
 				<div id="option">
 					<table id="option_table" border="1" cellpadding="6">
 						<tr>
-							<td width="40%">
-								별점주기
-							</td>
+							<td width="40%">별점주기</td>
 							<td>
 								<%-- <c:import url="/WEB-INF/jsp/star.jsp"></c:import> --%>
 								<div class="product-review-stars" align="center">
-									<input type="radio" id="${status.count*status.count*status.count+1}" name="rating" 
-										value="5^${webtoonDetail.webtoons_id_pk}" onclick=onclickStart(this) class="visuallyhidden" />
-									<label for="${status.count*status.count*status.count+1}" title="Rocks!">★</label>
-									<input type="radio"	id="${status.count*status.count*status.count+2}" name="rating"
-										value="4^${webtoonDetail.webtoons_id_pk}" onclick=onclickStart(this) class="visuallyhidden" />
-									<label for="${status.count*status.count*status.count+2}" title="Pretty good">★</label>
-									<input type="radio"	id="${status.count*status.count*status.count+3}" name="rating"
-										value="3^${webtoonDetail.webtoons_id_pk}" onclick=onclickStart(this) class="visuallyhidden" />
-									<label for="${status.count*status.count*status.count+3}" title="Meh">★</label>
-									<input type="radio"	id="${status.count*status.count*status.count+4}" name="rating"
-										value="2^${webtoonDetail.webtoons_id_pk}" onclick=onclickStart(this) class="visuallyhidden" />
-									<label for="${status.count*status.count*status.count+4}" title="Kinda bad">★</label>
-									<input type="radio"	id="${status.count*status.count*status.count+5}" name="rating"
-										value="1^${webtoonDetail.webtoons_id_pk}" onclick=onclickStart(this) class="visuallyhidden" />
-									<label for="${status.count*status.count*status.count+5}" title="Sucks big time">★</label>	
+									<input type="radio"
+										id="${status.count*status.count*status.count+1}" name="rating"
+										value="5^${webtoonDetail.webtoons_id_pk}"
+										onclick=onclickStart(this) class="visuallyhidden" /> <label
+										for="${status.count*status.count*status.count+1}"
+										title="Rocks!">★</label> <input type="radio"
+										id="${status.count*status.count*status.count+2}" name="rating"
+										value="4^${webtoonDetail.webtoons_id_pk}"
+										onclick=onclickStart(this) class="visuallyhidden" /> <label
+										for="${status.count*status.count*status.count+2}"
+										title="Pretty good">★</label> <input type="radio"
+										id="${status.count*status.count*status.count+3}" name="rating"
+										value="3^${webtoonDetail.webtoons_id_pk}"
+										onclick=onclickStart(this) class="visuallyhidden" /> <label
+										for="${status.count*status.count*status.count+3}" title="Meh">★</label>
+									<input type="radio"
+										id="${status.count*status.count*status.count+4}" name="rating"
+										value="2^${webtoonDetail.webtoons_id_pk}"
+										onclick=onclickStart(this) class="visuallyhidden" /> <label
+										for="${status.count*status.count*status.count+4}"
+										title="Kinda bad">★</label> <input type="radio"
+										id="${status.count*status.count*status.count+5}" name="rating"
+										value="1^${webtoonDetail.webtoons_id_pk}"
+										onclick=onclickStart(this) class="visuallyhidden" /> <label
+										for="${status.count*status.count*status.count+5}"
+										title="Sucks big time">★</label>
 								</div>
 							</td>
 						</tr>
 						<tr>
 							<td>
 								<form method="post" action="#">
-									<input type="hidden" name="webtoon_id" value="${webtoonInfo.webtoons_id_pk}" />
-									<input type="button" id="reserve" value="찜하기" onclick="seeReserve(this.form);" />
+									<input type="hidden" name="webtoon_id"
+										value="${webtoonInfo.webtoons_id_pk}" /> <input type="button"
+										id="reserve" value="찜하기" onclick="seeReserve(this.form);" />
 								</form>
 							</td>
-							<td>
-								<a href="${webtoonDetail.webtoons_url}">
+							<td><a href="${webtoonDetail.webtoons_url}">
 									<button>바로보기</button>
-								</a>
-							</td>
+							</a></td>
 						</tr>
 						<tr>
 							<td>평균별점</td>
@@ -123,23 +132,31 @@
 			</div>
 		</div>
 		<br />
+		<div class="fb-like" data-href="${webtoonDetail.webtoons_url}"
+			data-layout="standard" data-action="like" data-show-faces="true"
+			data-share="false"></div>
 		<div id="footer">
 			<button onclick="goBack();">뒤로가기</button>
 		</div>
 	</div>
-	
-	<c:import url="/WEB-INF/jsp/main/menu.jsp"></c:import>	
-	
+
+	<c:import url="/WEB-INF/jsp/main/menu.jsp"></c:import>
+
 	<script>
-	if ("${webtoonDetail.webtoons_completed}" === '완')
-		$('.left_label').after('<img class="end_label" src="../img/labels/end.png" />');
-	
-	if (calculateDateRange("${webtoonDetail.webtoons_first_update}"))
-		$('.left_label').after('<img class="new_label" src="../img/labels/new.png" />');
-	
-	getHighRatedWebtoonsAuthor("${authorsName}", "${webtoonDetail.webtoons_id_pk}", function(result) {
-		$('.right_label').append('<div class="author_label">'+ result + ' 작가웹툰!!</div>');
-	});
+		if ("${webtoonDetail.webtoons_completed}" === '완')
+			$('.left_label').after(
+					'<img class="end_label" src="../img/labels/end.png" />');
+
+		if (calculateDateRange("${webtoonDetail.webtoons_first_update}"))
+			$('.left_label').after(
+					'<img class="new_label" src="../img/labels/new.png" />');
+
+		getHighRatedWebtoonsAuthor("${authorsName}",
+				"${webtoonDetail.webtoons_id_pk}", function(result) {
+					$('.right_label').append(
+							'<div class="author_label">' + result
+									+ ' 작가웹툰!!</div>');
+				});
 	</script>
 </body>
 </html>

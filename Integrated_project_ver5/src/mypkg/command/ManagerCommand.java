@@ -37,7 +37,7 @@ public class ManagerCommand implements Command {
 
 		if (todo.equals("manager")) {
 			commandResult = new CommandResult(
-					"/WEB-INF/jsp/manager/managerForm.jsp");
+					"/WEB-INF/jsp/manager/managerMenu.jsp");
 
 		} else if (todo.equals("getAuthors")) {
 			String authors = doGetAllAuthors(response);
@@ -65,9 +65,15 @@ public class ManagerCommand implements Command {
 			this.doGetWebtoonsByKeywordID(request);
 		} else if (todo.equals("getWebtoonsByAuthorID")) {
 			this.doGetWebtoonsByAuthorID(request);
+		} else if (todo.equals("addWebtoon")) {
+			this.doAddWebtoon(request);
 		}
 
 		return commandResult;
+	}
+
+	public void doAddWebtoon(HttpServletRequest request) {
+		commandResult = new CommandResult("/WEB-INF/jsp/manager/addWebtoon.jsp");
 	}
 
 	public String doGetAllAuthors(HttpServletResponse response) {

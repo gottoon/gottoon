@@ -21,7 +21,8 @@
 </style> -->
 </head>
 <body>
-	<header class="top-header">
+<div id="pgcontainer">
+<c:import url="/WEB-INF/jsp/main/menu.jsp"></c:import>
 		<h1>Hello :)
 		<span>${CurrentUser}'s<br />Recommend Webtoons!</span>
 		</h1>
@@ -44,11 +45,8 @@
 				</form>
 			
 		</nav>
-	</header>
 	<section>
-		<header>
 			<h3>추천 웹툰 List</h3>
-		</header>
 		<article>
 			<div align="center" id="webtoons">
 			</div>
@@ -123,7 +121,7 @@
 			checkButton();
 		});
 	</script>
+	</div>
 	
-	<c:import url="/WEB-INF/jsp/main/menu.jsp"></c:import>
 </body>
 </html>

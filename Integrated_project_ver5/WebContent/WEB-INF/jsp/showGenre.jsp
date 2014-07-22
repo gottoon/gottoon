@@ -13,39 +13,13 @@
 </head>
 
 <body>
+<div id="pgcontainer">
 <c:import url="/WEB-INF/jsp/main/menu.jsp"></c:import>
-	<header>
 
 	<h1 align="center">장르 선택을해주세요.</h1>
 	<p align="center"><%=session.getAttribute("CurrentUser")%></p>
 	
-</header>
-	<!-- DB에있는 장르 -->
-		<%-- <c:forEach var="GenreVO" items="${allGenres}"> 
-		<p align="center">${GenreVO.genres_id_pk}</p>
-		</c:forEach>  --%>
 	
- 	<!--사용자가 입력한 장르  -->
-	<%-- 	<c:forEach var="UesrGenreMapsVO" items="${allusergenremaps}">
-		<p align="center">${UesrGenreMapsVO.genres_id_fk}</p>
-		</c:forEach> --%>
-		
-	<!-- <script>
-	
-		/* <c:forEach var="GenreVO" items="${allGenres}"> 
-		<p align="center">${GenreVO.genres_id_pk}</p>
-		$('#cb${GenreVO.genres_id_pk}').attr("checked", true);
-		</c:forEach>  */
-		
-//	$(document).ready(function(){
-	/* $('input:checbox[id="cb1"]').val();
-	$('input:checbox[id="cb1"]').prop( 'checked', this.checked ); */
-//	$('#cb1').attr("checked", true);
-	//$('#cb2').attr("checked", false);
-	//$('#cb3').attr("checked", true);
-	/* $(":checbox[id='cb1']").attr("checked", true);  */
-	//});
-	</script> -->
 	
 	<form method='get' onsubmit="return Validate()"
 		action="<c:url value='/action/userGenre'/>">
@@ -98,6 +72,7 @@
 		</table>
 
 	</form>
+	</div>
 	<script>
 	/* $("input:checkbox[id='cb10']").is(":checked") == true : false; */
 	

@@ -30,7 +30,7 @@
 </head>
 <body>
 
-	
+	<c:import url="/WEB-INF/jsp/manager/managerMenu.jsp"></c:import>
 
 <section id=authors>
 		<c:forEach var="author" items="${allAuthors}">

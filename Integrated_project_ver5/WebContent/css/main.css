@@ -86,12 +86,13 @@
 
 #welcomeUser {
 	width: 800px;
+	
 }
 
 #welcomeUser h2 {
 	max-width: 100%;
 	height: 40px;
-	text-align: right;
+	text-align: left ;
 	font-size: 25px;
 	white-space: nowrap;
 	-webkit-animation: rightThenLeft 4s linear;
