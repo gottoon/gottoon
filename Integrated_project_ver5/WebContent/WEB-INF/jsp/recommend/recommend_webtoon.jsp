@@ -35,6 +35,10 @@
 
 	
 	<div class="top-header">
+<div id="pgcontainer">
+<c:import url="/WEB-INF/jsp/main/menu.jsp"></c:import>
+
+
 		<h1>Hello :)
 		<span>${CurrentUser}'s<br />Recommend Webtoons!</span>
 		</h1>
@@ -66,7 +70,7 @@
 				</div>
 			</div>
 		</div>
-	</div>
+	
 	<div class="section">
 		<div class="sec-header">
 
@@ -151,7 +155,7 @@
 			checkButton();
 		});
 	</script>
-	
-	<c:import url="/WEB-INF/jsp/main/menu.jsp"></c:import>
+	</div>
+</div>	
 </body>
 </html>

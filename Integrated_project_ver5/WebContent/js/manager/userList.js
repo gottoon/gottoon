@@ -1,7 +1,7 @@
 /**
  * 
  */
-$(document).ready(function(){
+$(document).ready(function() {
 	$("#userList").stupidtable();
 });
 $(document)
@@ -38,32 +38,29 @@ $(document)
 														for (var i = 0; i < json.length; i++) {
 															var name = json[i].keywords_name;
 															var keywords_id_fk = json[i].keywords_id_fk;
-															var count = (json[i].count)*18;
+															var count = (json[i].count) * 25;
 															console.log(count);
 
 															$('#keywords')
 																	.append(
-																			'<div class="ck-button"> <label> <input type="checkbox"><span>'
+																			' <input type="checkbox">'
 																					+ name
-																					+ '</span> </label> </div>');
-															$(
-																	'.ck-button input')
+																					);
+															$('.checkbox input')
 																	.attr(
 																			"value",
 																			keywords_id_fk);
-															$('.ck-button p')
+															$('.checkbox label')
 																	.css(
 																			"font-size",
 																			count
 																					+ "px");
-															
+
 														}
 
 														$('.keywordBtn').attr(
 																'data-target',
 																"#myModal");
-														
-														
 
 													}
 
@@ -71,14 +68,14 @@ $(document)
 									});
 				});
 
-
-function filter(){
-	if($('#txtFilter').val()=="")
-		$("#userList tr").css('display','');			
-	else{
-		$("#userList tr").css('display','none');
-		$("#userList th").css('display','');
-		$("#userList tr[name*='"+$('#txtFilter').val()+"']").css('display','');
+function filter() {
+	if ($('#txtFilter').val() == "")
+		$("#userList tr").css('display', '');
+	else {
+		$("#userList tr").css('display', 'none');
+		$("#userList th").css('display', '');
+		$("#userList tr[name*='" + $('#txtFilter').val() + "']").css('display',
+				'');
 	}
 	return false;
 }

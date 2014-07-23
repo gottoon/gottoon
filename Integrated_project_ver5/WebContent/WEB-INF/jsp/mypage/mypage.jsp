@@ -20,30 +20,30 @@
 <link rel="stylesheet"
 	href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
 <style>
-
 </style>
 <title>MYPAGE</title>
 </head>
 <body>
-	<c:import url="/WEB-INF/jsp/main/menu.jsp"></c:import>
-	<%=session.getAttribute("CurrentUser")%>
+	<div id="pgcontainer">
+		<c:import url="/WEB-INF/jsp/main/menu.jsp"></c:import>
+		<%=session.getAttribute("CurrentUser")%>
 
-	<header>
 		<h1>마이페이지</h1>
-	</header>
-	
-	<nav>
-		<ul class="nav nav-pills">
-			<li class="active">
-				<form name="Mypagetap" action="<c:url value='/action/mypageReadWebtoon'/>" method="POST">
-					<input type="hidden" name="todo" value="mypageReadWebtoon">
-					<input class="btn btn-success btn-lg" type="submit" value="내가 본 웹툰" />
-				</form>
-			</li>
 
+			<ul class="nav nav-pills">
+				<li class="active">
+					<form name="Mypagetap"
+						action="<c:url value='/action/mypageReadWebtoon'/>" method="POST">
+						<input type="hidden" name="todo" value="mypageReadWebtoon">
+						<input class="btn btn-success btn-lg" type="submit"
+							value="내가 본 웹툰" />
+					</form>
+				</li>
 			<li><form name="Mypagetap" action="<c:url value='/action/mypageRecommendWebtoon'/>" method="POST">
 					<input type="hidden" name="todo" value="mypageRecommend"> <input
 						class="btn btn-success btn-lg" type="submit" value="웹툰 찾기" />
 				</form></li>
 		</ul>
-	</nav>
+	</div>
+	</body>
+	</html>

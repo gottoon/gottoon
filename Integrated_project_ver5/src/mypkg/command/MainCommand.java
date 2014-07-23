@@ -17,6 +17,5 @@ public class MainCommand implements Command {
 		commandResult = new CommandResult("/WEB-INF/jsp/main/main.jsp");
 
 		return commandResult;
-
 	}
 }

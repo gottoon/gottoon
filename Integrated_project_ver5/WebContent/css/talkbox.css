@@ -1,0 +1,42 @@
+@CHARSET "UTF-8";
+
+.bubble 
+{
+position: relative;
+width: 285px;
+height: 95px;
+padding: 0px;
+background: #FFFFFF;
+-webkit-border-radius: 13px;
+-moz-border-radius: 13px;
+border-radius: 13px;
+border: #000000 solid 2px;
+}
+
+.bubble:after 
+{
+content: '';
+position: absolute;
+border-style: solid;
+border-width: 20px 8px 0;
+border-color: #FFFFFF transparent;
+display: block;
+width: 0;
+z-index: 1;
+bottom: -20px;
+left: 113px;
+}
+
+.bubble:before 
+{
+content: '';
+position: absolute;
+border-style: solid;
+border-width: 21px 9px 0;
+border-color: #000000 transparent;
+display: block;
+width: 0;
+z-index: 0;
+bottom: -23px;
+left: 113px;
+}
