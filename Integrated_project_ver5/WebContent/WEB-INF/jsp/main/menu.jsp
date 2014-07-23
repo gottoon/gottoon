@@ -45,7 +45,12 @@
 	function statusChangeCallback(response) {
 		console.log('statusChangeCallback 안녕하세요 스테터스 콜백 시전 ');
 		if (response.status === 'connected') {
-			login();
+			
+			if(<%=session.getAttribute("CurrentUser") %> == null){
+				login();	
+			}
+			
+			
 
 		} else if (response.status === 'not_authorized') {
 			document.getElementById('welcomUser').innerHTML = 'Please log '
@@ -240,6 +245,15 @@
 									<p>장르 선택</p>
 								</button>
 								<input type="hidden" name="todo" value="showGenres">
+							</form>
+						</li>
+						<li>
+							<form id="moreForm" action="<c:url value='/action/userGenre'/>"
+								method="post">
+								<button id="moreBtn" type="submit">
+									<p>평가 하기</p>
+								</button>
+								<input type="hidden" name="todo" value="">
 							</form>
 						</li>
 						<li><form id="recommendForm"

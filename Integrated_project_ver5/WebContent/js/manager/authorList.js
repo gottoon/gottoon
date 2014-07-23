@@ -3,14 +3,16 @@
  */
 
 $(document).ready(function() {
+	$("#authorList").stupidtable();
+});
+
+$(document).ready(function() {
 	$('#authors button').click(function(e) {
 		e.preventDefault();
 	});
 });
 
-$(document).ready(function() {
-	$("#authorList").stupidtable();
-});
+
 
 $(document)
 		.ready(
