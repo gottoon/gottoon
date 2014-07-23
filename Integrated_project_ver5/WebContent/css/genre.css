@@ -2,7 +2,7 @@
         display: inline-block;
         width: 300px;
         height: 400px;
-         background: url(../img/genreImg/SF.png);
+         background-image: url(../img/genreImg/SF.png);
         border-radius: 7px;
         cursor: pointer;
       }

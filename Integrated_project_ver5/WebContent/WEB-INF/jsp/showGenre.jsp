@@ -15,8 +15,14 @@
 <script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
 <script src="http://code.jquery.com/mobile/1.4.3/jquery.mobile-1.4.3.min.js"></script> -->
 
+<link rel="stylesheet"
+	href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+<link rel="stylesheet"
+	href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
+
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Show Genre</title>
+
 </head>
 
 <body>
@@ -103,11 +109,12 @@
 					</tr>
 
 			<td><input type="submit" name="장르선택확인" align="center" value="확인">
-			<a href="#" data-role="button" data-icon="star">확인</a>
+			<!-- <a href="#" data-role="button" data-icon="star">확인</a> -->
 			</td>
 		</table>
 
 	</form>
+	<button type="button" class="btn btn-success">Success</button>
 <!-- 	</div> -->
 	
 	<script>

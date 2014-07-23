@@ -14,7 +14,6 @@ public class GenreService {
 		System.out.println("getAllgenres 시작 ");
 		MySqlDAOFactory mysqlFactory = new MySqlDAOFactory();
 		GenreDAO genreDAO = mysqlFactory.getGenreDAO();
-
 		return genreDAO.findAllGenre();
 	}
 	

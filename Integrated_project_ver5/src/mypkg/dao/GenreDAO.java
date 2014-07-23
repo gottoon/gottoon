@@ -75,8 +75,9 @@ public class GenreDAO {
 			while (rset.next()) {
 				int genres_id = rset.getInt("genres_id_pk");
 				String genres_name = rset.getString("genres_name");
-
-				GenreList.add(new GenreVO(genres_id, genres_name));
+				String genres_image = rset.getString("genres_image");
+				System.out.println(genres_image);
+				GenreList.add(new GenreVO(genres_id, genres_name, genres_image));
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();

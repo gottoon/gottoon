@@ -34,7 +34,7 @@ public class GenreCommand implements Command {
 		if (todo.equals("showGenres")) {
 			System.out.println("showGenre if 시작 ");
 						
-			this.doShowGenre(request, response);
+			this.doShowGenre(request, response);  //장르 불러오기
 			this.doUserGenreMaps(request,CurrentUser_facebookID); // 유저 장르 불러오기 7.17
 			
 			commandResult = new CommandResult("/WEB-INF/jsp/showGenre.jsp");
@@ -55,7 +55,7 @@ public class GenreCommand implements Command {
 			HttpServletResponse response) {
 		System.out.println("doshowGenre 시작 ");
 		List<GenreVO> allGenres = genreService.getAllGenres();
-
+		
 		request.setAttribute("allGenres", allGenres);
 	}
 }
