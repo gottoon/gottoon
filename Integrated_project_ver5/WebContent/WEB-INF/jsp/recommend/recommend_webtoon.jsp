@@ -74,12 +74,18 @@
 				$('#webtoons').append('<table class="webtoon_table" border="1" cellpadding="5">'
 					+ '<tr><td colspan="2"></td></tr><tr><td></td><td></td></tr>'
 					+ '<tr><td></td><td></td></tr></table><br id="webtoonBreak"/>');
-				$('td').eq(-5).append('<div class="main_image"><form method="post" action="webtoon">'
+				$('td').eq(-5).append('<div class="test" style="position:relative;">'
+						+ '<div class="main_image">'
+						+ '<img src="${webtoonInfo.webtoons_main_image}" width="300" height="382">'
+						+ '<form method="post" action="webtoon">'
 						+ '<input type="hidden" name="webtoon_id" value="${webtoonInfo.webtoons_id_pk}" />'
 						+ '<input type="hidden" name="todo" value="showWebtoonDetails" />'
-						+ '<input class="webtoon_main_image" type="image" width="300" height="400" '
-						+ 'src="${webtoonInfo.webtoons_main_image}" /></form>'
-						+ '<h2><span>${webtoonInfo.webtoons_title}</span></h2></div>');
+						+ '<button class="submit" type="submit" name="submit" value="showWebtoonDetails">'
+						+ '<span class="black_overlay"></span>'
+						+ '</button></form>'
+						+ '<h2><span>${webtoonInfo.webtoons_title}</span></h2>'
+						+ '</div>'
+						+ '</div>');
 				$('td').eq(-4).text("별점 평가하기");
 				$('td').eq(-3).append('<form id="myForm">'
 							+ '<input type="hidden" name="webtoons_id_pk" value="${webtoonInfo.webtoons_id_pk}" />'
@@ -109,7 +115,7 @@
 				webtoonCount = "${status.count}";
 				var completed = "${webtoonInfo.webtoons_completed}";
 				if (completed === '완')
-					$('.main_image').eq(webtoonCount - 1).append('<img class="end_label" src="../img/labels/end.png" />');
+					$('.test').eq(webtoonCount - 1).append('<img class="end_label" src="../img/labels/end.png" />');
 				
 				if (calculateDateRange("${webtoonInfo.webtoons_first_update}"))
 					$('.main_image').eq(webtoonCount - 1).append('<img class="new_label" src="../img/labels/new.png" />');

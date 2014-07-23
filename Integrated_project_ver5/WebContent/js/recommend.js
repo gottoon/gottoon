@@ -75,3 +75,14 @@ function getHighRatedWebtoonsAuthor(recommendAuthor, webtoon_id, callback) {
 		}
 	});
 }
+
+function overlay(webtoon_id) {
+	$.ajax({
+		type : "POST",
+		url : "webtoon",
+		data : {"todo" : "showWebtoonDetails", "webtoon_id" : webtoon_id},
+		success : function(data){
+			console.log(data);
+		}
+	});
+}

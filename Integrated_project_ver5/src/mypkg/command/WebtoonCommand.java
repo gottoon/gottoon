@@ -35,7 +35,7 @@ public class WebtoonCommand implements Command {
 	//2014.07.11 soo 웹툰 상세보기 서비스 불러오기 - 2014.07.19 수정
 	public void doGetWebtoonDetails(HttpServletRequest request) {
 		int webtoon_id = Integer.parseInt(request.getParameter("webtoon_id"));
-		
+		System.out.println(webtoon_id);
 		WebtoonVO webtoonDetail = webtoonService.doGetWebtoonDetail(webtoon_id);
 		String authorsName = webtoonService.doGetAuthors(webtoon_id);
 		
