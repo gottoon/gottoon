@@ -87,8 +87,8 @@ public class WebtoonDAO {
 		return webtoon;
 	}
 
-	//2014.07.11 soo 웹툰 상세보기 정보 뽑아오기
-	public WebtoonVO getWebtoonInfo(long curruntUser_facebookID, int webtoon_id) {
+	//2014.07.11 soo 웹툰 상세보기 정보 뽑아오기 (웹툰 본거 or 찜한거 - 별점 가져오기)
+	public WebtoonVO getMyWebtoonInfo(long curruntUser_facebookID, int webtoon_id) {
 		WebtoonVO webtoonInfo = null;
 		Connection conn = null;
 		Statement stmt = null;
@@ -151,6 +151,79 @@ public class WebtoonDAO {
 					webtoons_completed,	webtoon_viewfree, webtoon_professional,
 					webtoons_pgrating, webtoons_publisher, webtoons_average_rate,
 					webtoons_main_image, webtoons_url, webtoons_first_update, user_webtoon_rate);
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			try {
+				if (stmt != null) stmt.close();
+				if (conn != null) conn.close();
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+		}
+		
+		return webtoonInfo;
+	}
+	
+	//2014.07.23 soo 걍 웹툰 상세보기 정보 뽑아오기
+	public WebtoonVO getWebtoonInfo(int webtoon_id) {
+		WebtoonVO webtoonInfo = null;
+		Connection conn = null;
+		Statement stmt = null;
+		
+		try {
+			conn = pool.getConnection();
+			stmt = conn.createStatement();
+			
+			String sql = "select g.genres_name, w.webtoons_title, w.webtoons_summary, "
+					+ "w.webtoons_update_days, w.webtoons_completed, w.webtoons_viewfree, "
+					+ "w.webtoons_professional, w.webtoons_pgrating, w.webtoons_publisher, "
+					+ "w.webtoons_average_rate, w.webtoons_main_image, w.webtoons_url, "
+					+ "w.webtoons_first_update "
+					+ "from webtoons w inner join genres g on w.genre_id_fk = g.genres_id_pk "
+					+ "where w.webtoons_id_pk = " + webtoon_id;
+			
+//			장르, (중분류), 타이틀, 작가이름, 줄거리, 연재요일, 완결유무, 유/무료, 
+//			프로/아마, 관람등급, 제공처, 평균평점, 메인 이미지(07.21 추가), (썸네일)
+//			주소, 연재시작일, (댓글), (좋아요)
+			
+//			중분류, 썸네일, 댓글, 좋아요
+			
+			ResultSet rset = stmt.executeQuery(sql);
+			
+			rset.next();
+			String genres_name = rset.getString("genres_name");
+			String webtoons_title = rset.getString("webtoons_title");
+			String webtoons_summary = rset.getString("webtoons_summary");
+			String webtoons_update_days = rset.getString("webtoons_update_days");
+			String webtoons_completed = rset.getString("webtoons_completed");
+			boolean webtoons_viewfree = rset.getBoolean("webtoons_viewFree");
+			boolean webtoons_professional = rset.getBoolean("webtoons_professional");
+			String webtoons_pgrating = rset.getString("webtoons_pgrating");
+			String webtoons_publisher = rset.getString("webtoons_publisher");
+			double webtoons_average_rate = rset.getDouble("webtoons_average_rate");
+			String webtoons_main_image = rset.getString("webtoons_main_image");
+			String webtoons_url = rset.getString("webtoons_url");
+			String webtoons_first_update = rset.getString("webtoons_first_update");
+			String webtoon_viewfree = null;
+			String webtoon_professional = null;
+			
+			if (webtoons_viewfree == true) {
+				webtoon_viewfree = "무료";
+			} else {
+				webtoon_viewfree = "유료";
+			}
+			if (webtoons_professional == true) {
+				webtoon_professional = "프로작가";
+			} else {
+				webtoon_professional = "아마추어작가";
+			}
+			
+			webtoonInfo = new WebtoonVO(webtoon_id, genres_name, webtoons_title,
+					webtoons_summary, webtoons_update_days,
+					webtoons_completed,	webtoon_viewfree, webtoon_professional,
+					webtoons_pgrating, webtoons_publisher, webtoons_average_rate,
+					webtoons_main_image, webtoons_url, webtoons_first_update);
 		} catch (SQLException e) {
 			e.printStackTrace();
 		} finally {

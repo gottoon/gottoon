@@ -504,36 +504,66 @@ public class User_Webtoon_MapsDAO {
 	}
 	
 	//2014.07.20 박태균 신규가입자의 첫 웹툰 추가 
-		public void addFirstReadWebtoon(int webtoons_id_pk, int user_webtoon_rate, long users_facebookID_fk) {
-			System.out.println("새로운 유저 insert시작 또는 새로운 웹툰 추가  " + webtoons_id_pk);
-
-			Connection conn = null;
-			Statement stmt = null;
-
+	public void addFirstReadWebtoon(int webtoons_id_pk, int user_webtoon_rate, long users_facebookID_fk) {
+		System.out.println("새로운 유저 insert시작 또는 새로운 웹툰 추가  " + webtoons_id_pk);
+		
+		Connection conn = null;
+		Statement stmt = null;
+		
+		try {
+			conn = pool.getConnection();
+			stmt = conn.createStatement();
+			
+			// INSERT INTO good_guy (NAME, email) VALUES ('oh_yea', 'cool')
+			// ON DUPLICATE KEY UPDATE name='oh_yea', email='wow';
+			
+			String sql = "INSERT INTO user_webtoon_maps (webtoons_id_fk , user_webtoon_rate , users_facebookID_fk , push_alarms_id_fk , comment_id_fk , user_webtoon_isread) VALUES ("
+					+ webtoons_id_pk + ", " + user_webtoon_rate + ", " + users_facebookID_fk + ", 1 , 1 ,1)";
+			stmt.executeUpdate(sql);
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
 			try {
-				conn = pool.getConnection();
-				stmt = conn.createStatement();
-
-				// INSERT INTO good_guy (NAME, email) VALUES ('oh_yea', 'cool')
-				// ON DUPLICATE KEY UPDATE name='oh_yea', email='wow';
-
-				String sql = "INSERT INTO user_webtoon_maps (webtoons_id_fk , user_webtoon_rate , users_facebookID_fk , push_alarms_id_fk , comment_id_fk , user_webtoon_isread) VALUES ("
-						+ webtoons_id_pk + ", " + user_webtoon_rate + ", " + users_facebookID_fk + ", 1 , 1 ,1)";
-				stmt.executeUpdate(sql);
-
+				if (stmt != null)
+					stmt.close();
+				if (conn != null)
+					conn.close();
 			} catch (SQLException e) {
 				e.printStackTrace();
-			} finally {
-				try {
-					if (stmt != null)
-						stmt.close();
-					if (conn != null)
-						conn.close();
-				} catch (SQLException e) {
-					e.printStackTrace();
-				}
 			}
 		}
-
+	}
 	
+	// 2014.07.23 soo 내가 본 웹툰, 찜한 웹툰 체크
+	public boolean checkMyWebtoon(long users_facebookID_pk, int webtoon_id) {
+		boolean check = false;
+		Connection conn = null;
+		Statement stmt = null;
+		
+		try {
+			conn = pool.getConnection();
+			stmt = conn.createStatement();
+			
+			String sql = "select * from user_webtoon_maps where users_facebookID_fk = " 
+					+ users_facebookID_pk + " and webtoons_id_fk = " + webtoon_id;
+			
+			ResultSet rset = stmt.executeQuery(sql);
+			
+			if (rset.next()) {
+				check = true;
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			try {
+				if (stmt != null) stmt.close();
+				if (conn != null) conn.close();
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+		}
+		
+		return check;
+	}
 }

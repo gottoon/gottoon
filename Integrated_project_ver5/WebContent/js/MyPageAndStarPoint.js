@@ -2,7 +2,6 @@ $(document).ready(function() {
 	var count = 0;
 
 	var details = $('table .product-review-stars');
-	 for (var i = 0; i < details.length; i++) {
 	console.log("웹툰 갯 수 " + details.length);
 	details.each(function() {
 		var detailsIndex = details.index(this);
@@ -46,7 +45,6 @@ $(document).ready(function() {
 
 	count++;
 	console.log("반복 횟 수 " + count);
-	 }
 
 	$.ajax({
 		type : "POST",

@@ -32,12 +32,10 @@
 			<div>삭제  끄아악!</div>
 		</div>
 	</div>
-
-	
 	<div class="top-header">
+	
 <div id="pgcontainer">
 <c:import url="/WEB-INF/jsp/main/menu.jsp"></c:import>
-
 
 		<h1>Hello :)
 		<span>${CurrentUser}'s<br />Recommend Webtoons!</span>
@@ -70,11 +68,8 @@
 				</div>
 			</div>
 		</div>
-	
 	<div class="section">
 		<div class="sec-header">
-
-
 			<h3>추천 웹툰 List</h3>
 		</div>
 		<div class="article">
@@ -99,7 +94,7 @@
 						+ '<form method="post" action="webtoon">'
 						+ '<input type="hidden" name="webtoon_id" value="${webtoonInfo.webtoons_id_pk}" />'
 						+ '<input type="hidden" name="todo" value="showWebtoonDetails" />'
-						+ '<button class="submit" type="submit" name="submit" value="showWebtoonDetails">'
+						+ '<button class="submit" type="submit">'
 						+ '<span class="black_overlay"></span>'
 						+ '</button></form>'
 						+ '<h2><span>${webtoonInfo.webtoons_title}</span></h2>'

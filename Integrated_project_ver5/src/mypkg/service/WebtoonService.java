@@ -10,6 +10,7 @@ import com.google.gson.Gson;
 
 import mypkg.dao.AuthorDAO;
 import mypkg.dao.MySqlDAOFactory;
+import mypkg.dao.User_Webtoon_MapsDAO;
 import mypkg.dao.WebtoonDAO;
 import mypkg.vo.AuthorVO;
 import mypkg.vo.WebtoonVO;
@@ -18,7 +19,13 @@ public class WebtoonService {
 	
 	// 2014.07.11 soo 웹툰 상세보기 - 2014.07.19 수정
 	public WebtoonVO doGetWebtoonDetail(long curruntUser_facebookID, int webtoon_id) {
-		WebtoonVO webtoonDetail = this.getWebtoonDetail(curruntUser_facebookID, webtoon_id);
+		WebtoonVO webtoonDetail = null;
+		
+		if (this.checkMyWebtoon(curruntUser_facebookID, webtoon_id)) {
+			webtoonDetail = this.getMyWebtoonDetail(curruntUser_facebookID, webtoon_id);
+		} else {
+			webtoonDetail = this.getWebtoonDetail(webtoon_id);
+		}
 		
 		return webtoonDetail;
 	}
@@ -51,6 +58,7 @@ public class WebtoonService {
 		Gson gson = new Gson();
 		
 		return gson.toJson(webtoonAuthor);
+//		return webtoonAuthor;
 	}
 
 	// 2014.07.17 soo 별점4 이상 본 웹툰 작가 뽑아오기 DAO
@@ -61,12 +69,12 @@ public class WebtoonService {
 		return webtoonDAO.findHighRatedWebtoonsAuthors(users_facebookID_pk, author_name);
 	}
 	
-	//2014.07.11 soo 상세보기 웹툰 정보 뽑아오기 DAO
-	public WebtoonVO getWebtoonDetail(long curruntUser_facebookID, int webtoon_id) {
+	//2014.07.11 soo (내가 본&찜한) 상세보기 웹툰 정보 뽑아오기 DAO
+	public WebtoonVO getMyWebtoonDetail(long curruntUser_facebookID, int webtoon_id) {
 		MySqlDAOFactory mysqlDAOFactory = new MySqlDAOFactory();
 		WebtoonDAO webtoonDAO = mysqlDAOFactory.getWebtoonsDAO();
 		
-		return webtoonDAO.getWebtoonInfo(curruntUser_facebookID, webtoon_id);
+		return webtoonDAO.getMyWebtoonInfo(curruntUser_facebookID, webtoon_id);
 	}
 	
 	// 2014.07.11 soo 상세보기 작가 뽑아오기 DAO
@@ -102,11 +110,26 @@ public class WebtoonService {
 	}
 	
 	//2014.7.16 bj 모든 웹툰 가져오기 
-	
-		public List<WebtoonVO> doGetAllWebtoons() {
-			MySqlDAOFactory mySqlDAOFactory = new MySqlDAOFactory();
-			WebtoonDAO webtoonDAO = mySqlDAOFactory.getWebtoonsDAO();
+	public List<WebtoonVO> doGetAllWebtoons() {
+		MySqlDAOFactory mySqlDAOFactory = new MySqlDAOFactory();
+		WebtoonDAO webtoonDAO = mySqlDAOFactory.getWebtoonsDAO();
 
-			return webtoonDAO.getAllWebtoons();
-		}
+		return webtoonDAO.getAllWebtoons();
+	}
+	
+	// 2014.07.23 soo 내가 본 웹툰, 찜한 웹툰 체크
+	public boolean checkMyWebtoon(long users_facebookID_pk, int webtoon_id) {
+		MySqlDAOFactory mySqlDAOFactory = new MySqlDAOFactory();
+		User_Webtoon_MapsDAO userWebtoonDAO = mySqlDAOFactory.getUser_Webtoon_MapsDAO();
+		
+		return userWebtoonDAO.checkMyWebtoon(users_facebookID_pk, webtoon_id);
+	}
+	
+	// 2014.07.23 soo 걍 웹툰 상세정보 가져오기
+	public WebtoonVO getWebtoonDetail(int webtoon_id) {
+		MySqlDAOFactory mysqlDAOFactory = new MySqlDAOFactory();
+		WebtoonDAO webtoonDAO = mysqlDAOFactory.getWebtoonsDAO();
+		
+		return webtoonDAO.getWebtoonInfo(webtoon_id);
+	}
 }

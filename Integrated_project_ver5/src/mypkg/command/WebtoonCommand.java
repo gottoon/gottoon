@@ -22,8 +22,11 @@ public class WebtoonCommand implements Command {
 
 		String todo = request.getParameter("todo");
 		
+		System.out.println("todo = " + todo);
+		
 		// 2014.07.11 soo 웹툰 상세보기 todo - 2014.07.19 수정
 		if (todo.equals("showWebtoonDetails")) {
+			System.out.println("여기 들어오나");
 			this.doGetWebtoonDetails(request);
 
 			commandResult = new CommandResult("/WEB-INF/jsp/recommend/showWebtoonDetails.jsp");
