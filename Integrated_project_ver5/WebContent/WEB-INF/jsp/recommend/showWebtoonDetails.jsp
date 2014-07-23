@@ -11,9 +11,24 @@
 <link rel="stylesheet" href="<c:url value='/css/showToon.css'/>" />
 <script	src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
 <script src="<c:url value='/js/recommend.js'/>"></script>
-<script src="<c:url value='/js/showToon.js'/>"></script>
+<script src="<c:url value='/js/webtoonDetailAndStarPoint.js'/>"></script>
 </head>
 <body>
+
+
+
+		<div class="show-modalStar">
+		<div class="modalStar">
+			<div>저장 부아악!</div>
+		</div>
+	</div>
+
+<div class="show-modalDeleteStar">
+		<div class="modalDeleteStar">
+			<div>삭제  끄아악!</div>
+		</div>
+	</div>
+
 	<div id="container">
 		<div id="header">
 			<h1>${webtoonDetail.webtoons_title}</h1>
@@ -40,23 +55,26 @@
 						<tr>
 							<td width="40%">
 								별점주기
+								
 							</td>
 							<td>
+								<input type="hidden" id="rate" value="${webtoonDetail.webtoon_rate}">
+					 			<input type="hidden" id="id" value="${webtoonDetail.webtoons_id_pk}">		
 								<%-- <c:import url="/WEB-INF/jsp/star.jsp"></c:import> --%>
 								<div class="product-review-stars" align="center">
-									<input type="radio" id="${status.count*status.count*status.count+1}" name="rating" 
+									<input type="checkbox" id="${status.count*status.count*status.count+1}" name="rating" 
 										value="5^${webtoonDetail.webtoons_id_pk}" onclick=onclickStart(this) class="visuallyhidden" />
 									<label for="${status.count*status.count*status.count+1}" title="Rocks!">★</label>
-									<input type="radio"	id="${status.count*status.count*status.count+2}" name="rating"
+									<input type="checkbox"	id="${status.count*status.count*status.count+2}" name="rating"
 										value="4^${webtoonDetail.webtoons_id_pk}" onclick=onclickStart(this) class="visuallyhidden" />
 									<label for="${status.count*status.count*status.count+2}" title="Pretty good">★</label>
-									<input type="radio"	id="${status.count*status.count*status.count+3}" name="rating"
+									<input type="checkbox"	id="${status.count*status.count*status.count+3}" name="rating"
 										value="3^${webtoonDetail.webtoons_id_pk}" onclick=onclickStart(this) class="visuallyhidden" />
 									<label for="${status.count*status.count*status.count+3}" title="Meh">★</label>
-									<input type="radio"	id="${status.count*status.count*status.count+4}" name="rating"
+									<input type="checkbox"	id="${status.count*status.count*status.count+4}" name="rating"
 										value="2^${webtoonDetail.webtoons_id_pk}" onclick=onclickStart(this) class="visuallyhidden" />
 									<label for="${status.count*status.count*status.count+4}" title="Kinda bad">★</label>
-									<input type="radio"	id="${status.count*status.count*status.count+5}" name="rating"
+									<input type="checkbox"	id="${status.count*status.count*status.count+5}" name="rating"
 										value="1^${webtoonDetail.webtoons_id_pk}" onclick=onclickStart(this) class="visuallyhidden" />
 									<label for="${status.count*status.count*status.count+5}" title="Sucks big time">★</label>	
 								</div>

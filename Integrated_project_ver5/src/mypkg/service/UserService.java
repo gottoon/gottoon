@@ -20,21 +20,31 @@ public class UserService {
 		return userDAO.findUserGrade(user_facebookID_pk);
 	}
 
-	// 7.18 영규꺼
+	// 유저 등급 저장 7.18 영규꺼
 	public void doSetUserGrade(long CurrentUser_facebookID, int count) {
 		MySqlDAOFactory mysqlFactory = new MySqlDAOFactory();
 		UserDAO userDAO = mysqlFactory.getUserDAO();
 
 		int setGrade = 0;
 
-		if (count >= 1 && count <= 59) {
-			setGrade = 3;
-		} else if (count >= 60 && count <= 149) {
+		if (count >= 1 && count <= 19) {
 			setGrade = 2;
-		} else if (count >= 150) {
-			setGrade = 1;
-		}
-
+		} else if (count >= 20 && count <= 39) {
+			setGrade = 3;
+		} else if (count >= 40 && count <= 79) {
+			setGrade = 4;
+		} else if (count >= 80 && count <= 119) {
+			setGrade = 5;
+		} else if (count >= 120 && count <= 179) {
+			setGrade = 6;
+		} else if (count >= 180 && count <= 239) {
+			setGrade = 7;
+		} else if (count >= 240 && count <= 319) {
+			setGrade = 8;
+		} else if (count >= 320) {
+			setGrade = 9;
+		} 
+		
 		userDAO.setUserGrade(CurrentUser_facebookID, setGrade);
 	}
 	
@@ -96,9 +106,4 @@ public class UserService {
 		return userDAO.getAllUsers();
 
 	}
-
-	
-	
-	
-	
 }

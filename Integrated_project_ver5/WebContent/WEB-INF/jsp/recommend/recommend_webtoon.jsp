@@ -21,6 +21,20 @@
 </style> -->
 </head>
 <body>
+
+<div class="show-modalStar">
+		<div class="modalStar">
+			<div>저장 부아악!</div>
+		</div>
+	</div>
+
+<div class="show-modalDeleteStar">
+		<div class="modalDeleteStar">
+			<div>삭제  끄아악!</div>
+		</div>
+	</div>
+
+
 	<header class="top-header">
 		<h1>Hello :)
 		<span>${CurrentUser}'s<br />Recommend Webtoons!</span>
@@ -30,15 +44,15 @@
 				<input type="submit" id="reset" value="마이페이지" />
 			</form>
 			<!--  07.20 희철 -->
-			<form mehtod = "post" action="<c:url value='/action/recommend'/>">
+			<form method = "post" action="<c:url value='/action/recommend'/>">
 				<input type = "hidden" name = "filterviewfree" value ="false">
 				<input type="submit" name="select" value="유료만보기" >
 				</form>
-				<form mehtod = "post" action="<c:url value='/action/recommend'/>">
+				<form method = "post" action="<c:url value='/action/recommend'/>">
 				<input type = "hidden" name = "filterviewfree" value ="true">
 				<input type="submit" name="select" value="무료만보기" >
 				</form>
-				<form mehtod = "post" action="<c:url value='/action/recommend'/>">
+				<form method = "post" action="<c:url value='/action/recommend'/>">
 				<input type = "hidden" name = "filterviewfree" value ="null">
 				<input type="submit" name="select" value="전체보기" >
 				</form>
@@ -78,19 +92,19 @@
 							+ '<input type="hidden" name="webtoons_id_pk" value="${webtoonInfo.webtoons_id_pk}" />'
 							+ '<input type="hidden"	name="webtoons_title" value="${webtoonInfo.webtoons_title}" />'
 							+ '<div class="product-review-stars">'
-							+ '<input type="radio" id="${status.count*status.count*status.count+1}" name="rating" '
+							+ '<input type="checkbox" id="${status.count*status.count*status.count+1}" name="rating" '
 							+ 'value="5^${webtoonInfo.webtoons_id_pk}" onclick=onclickStart(this) class="visuallyhidden">'
 							+ '<label for="${status.count*status.count*status.count+1}" title="Rocks!">★</label>'
-							+ '<input type="radio" id="${status.count*status.count*status.count+2}" name="rating" '
+							+ '<input type="checkbox" id="${status.count*status.count*status.count+2}" name="rating" '
 							+ 'value="4^${webtoonInfo.webtoons_id_pk}" onclick=onclickStart(this) class="visuallyhidden">'
 							+ '<label for="${status.count*status.count*status.count+2}" title="Pretty good">★</label>'
-							+ '<input type="radio" id="${status.count*status.count*status.count+3}" name="rating" '
+							+ '<input type="checkbox" id="${status.count*status.count*status.count+3}" name="rating" '
 							+ 'value="3^${webtoonInfo.webtoons_id_pk}" onclick=onclickStart(this) class="visuallyhidden">'
 							+ '<label for="${status.count*status.count*status.count+3}" title="Meh">★</label>'
-							+ '<input type="radio" id="${status.count*status.count*status.count+4}" name="rating" '
+							+ '<input type="checkbox" id="${status.count*status.count*status.count+4}" name="rating" '
 							+ 'value="2^${webtoonInfo.webtoons_id_pk}" onclick=onclickStart(this) class="visuallyhidden">'
 							+ '<label for="${status.count*status.count*status.count+4}" title="Kinda bad">★</label>'
-							+ '<input type="radio" id="${status.count*status.count*status.count+5}" name="rating" '
+							+ '<input type="checkbox" id="${status.count*status.count*status.count+5}" name="rating" '
 							+ 'value="1^${webtoonInfo.webtoons_id_pk}" onclick=onclickStart(this) class="visuallyhidden">'
 							+ '<label for="${status.count*status.count*status.count+5}" title="Sucks big time">★</label></div></form>');
 				$('td').eq(-2).append('<form method="post" action="#">'

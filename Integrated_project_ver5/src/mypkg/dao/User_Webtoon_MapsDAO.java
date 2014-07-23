@@ -295,6 +295,7 @@ public class User_Webtoon_MapsDAO {
 			stmt = conn.createStatement();
 
 			String sql = "UPDATE user_webtoon_maps SET user_webtoon_rate = " + user_webtoon_rate
+					+ " , user_webtoon_isread = 1 "
 					+ " where users_facebookID_fk = " + users_facebookID_fk + " and webtoons_id_fk = " + webtoons_id_pk
 					+ ";";
 
@@ -422,7 +423,7 @@ public class User_Webtoon_MapsDAO {
 	}
 	//2014.07.20 박태균 웹툰 추가 
 	public void addReadWebtoon(int webtoons_id_pk, int user_webtoon_rate, long users_facebookID_fk) {
-		System.out.println("repetitionRemoval 시작 ");
+		System.out.println("addReadWebtoon 시작 ");
 
 		Connection conn = null;
 		Statement stmt = null;

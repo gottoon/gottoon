@@ -72,8 +72,26 @@ body {
 
 
 
-.modal1 {
+
+
+.modalStar {
   background-color: #dbd9d9;
+  display: none;
+  position: fixed;
+  top: 50%;
+  left: 51em;
+  width: 100px;
+  height: auto;
+  margin-left: -200px;
+  margin-top: -150px;
+  padding: 50px;
+  border-radius: 5px;
+  z-index: 10;
+}
+
+
+.modalDeleteStar {
+  background-color: red;
   display: none;
   position: fixed;
   top: 50%;
