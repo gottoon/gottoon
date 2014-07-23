@@ -8,6 +8,10 @@ $(document).ready(function() {
 	});
 });
 
+$(document).ready(function() {
+	$("#authorList").stupidtable();
+});
+
 $(document)
 		.ready(
 				function() {
@@ -45,9 +49,9 @@ $(document)
 
 															$('#webtoons')
 																	.append(
-																			'<div class="ck-button"> <label> <input type="checkbox"><span>'
+																			' <div class="checkbox"><label><input type="checkbox">'
 																					+ webtoonTitle
-																					+ '</span> </label> </div>');
+																					+ '</label></div>');
 															$(
 																	'.ck-button input')
 																	.attr(

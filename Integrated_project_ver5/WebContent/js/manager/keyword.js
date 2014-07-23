@@ -19,8 +19,6 @@ $(document).ready(function() {
 	});
 });
 
-
-
 $(document).ready(function() {
 	$('#keywords button').click(function(e) {
 		e.preventDefault();
@@ -34,8 +32,8 @@ $(document)
 							.click(
 									function() {
 
-										var keywordID = $(this)
-												.siblings("input").attr('value');
+										var keywordID = $(this).siblings(
+												"input").attr('value');
 										console.log("keywordID = " + keywordID);
 
 										$
@@ -59,14 +57,16 @@ $(document)
 
 														for (var i = 0; i < json.length; i++) {
 															var webtoonTitle = json[i].webtoons_title;
-															console.log(webtoonTitle);
+															console
+																	.log(webtoonTitle);
 															var keywords_id_pk = json[i].keywords_id_pk;
 
 															$('#webtoons')
 																	.append(
-																			'<div class="ck-button"> <label> <input type="checkbox"><span>'
+																			' <div class="checkbox"><label><input type="checkbox">'
 																					+ webtoonTitle
-																					+ '</span> </label> </div>');
+																					+ '</label></div>'
+																	);
 															$(
 																	'.ck-button input')
 																	.attr(

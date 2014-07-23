@@ -1,5 +1,4 @@
-@import url('http://fonts.googleapis.com/css?family=Montserrat:400,700')
-	;
+@import url(http://fonts.googleapis.com/earlyaccess/nanumgothic.css);
 
 html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p,
 	blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn,
@@ -29,7 +28,7 @@ html {
 
 body {
 	width: 100%;
-	font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+	font-family: "Nanum Gothic",'Helvetica Neue', Helvetica, Arial, sans-serif,;
 	font-size: 62.5%;
 	line-height: 1;
 }
@@ -198,7 +197,7 @@ body.openmenu {
 	width: 100%;
 	height: 60px;
 	background-position: left 5px;
-	background-size: 25% 70%;
+	background-size: 20% 55%;
 	background-repeat : no-repeat;
 	background-color:white;
 }
@@ -262,4 +261,56 @@ body.openmenu {
 
 #DNABtn:hover {
 	background-image: url('../img/menu/afterDNA.png');
+}
+
+
+#goGenreModal{
+	display:none;
+	position: fixed;
+    top: 50%;
+    left: 50%;
+    width: 300px;
+    line-height: 200px;
+    height: 200px;
+    margin-left: -150px;
+    margin-top: -100px;
+    background-color: rgba(0,0,0,0.5);
+    text-align: center;
+  	color:black;
+    /* needed styles for the overlay */
+    z-index: 100; /* keep on top of other elements on the page */
+    outline: 9999px solid rgba(0,0,0,0.5);
+}
+#goGenreModal button{
+	width:100px;
+	height:60px;
+	margin-top:40px;
+	text-align:left;
+	border: none;
+	height: 60px;
+	background-position: left 5px;
+	background-size: 100% 70%;
+	background-repeat : no-repeat;
+	background-color:white;
+	background-image: url('../img/menu/beforeExplorer.png');
+	box-shadow:2px 2px 2px black;
+	border-radius:25px;
+}
+#goGenreModal button:hover {
+	background-image: url('../img/menu/afterExplorer.png');
+}
+
+#wait{
+	position: fixed;
+    top: 50%;
+    left: 50%;
+    width: 300px;
+    line-height: 200px;
+    height: 200px;
+    margin-left: -150px;
+    margin-top: -100px;
+    text-align: center;
+    /* needed styles for the overlay */
+    z-index: 100; /* keep on top of other elements on the page */
+    outline: 9999px solid rgba(0,0,0,0.5);
 }

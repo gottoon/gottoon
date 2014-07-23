@@ -3,7 +3,7 @@
   <display-name>Integrated_project_ver5</display-name>
   
   <session-config>
-		<session-timeout>30</session-timeout>
+		<session-timeout>10</session-timeout>
 	</session-config>
 	<servlet>
 		<servlet-name>DispatcherServlet</servlet-name>

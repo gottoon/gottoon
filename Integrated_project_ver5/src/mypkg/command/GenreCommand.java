@@ -8,6 +8,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import org.json.HTTP;
+
 import mypkg.control.Command;
 import mypkg.control.CommandResult;
 import mypkg.dao.GenreDAO;
@@ -24,6 +26,9 @@ public class GenreCommand implements Command {
 	public CommandResult execute(HttpServletRequest request,
 			HttpServletResponse response) throws ServletException, IOException {
 		System.out.println("장르 커맨드 시작");
+		
+		
+		
 		String todo = request.getParameter("todo");
 		
 		HttpSession session = request.getSession();

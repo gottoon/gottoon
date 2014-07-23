@@ -27,10 +27,10 @@ public class UserCommand implements Command {
 		String todo = request.getParameter("todo");
 		System.out.println("todo = " + todo);
 
-		if (todo.equals("logout")) {
+		if (todo != null &&todo.equals("logout")) {
 			this.logout(request);
 			commandResult = new CommandResult("/WEB-INF/jsp/main/main.jsp");
-		} else if(todo.equals("checkUser")) {
+		} else{
 			this.doCheckUser(request, response);
 		}
 
@@ -42,8 +42,16 @@ public class UserCommand implements Command {
 			HttpServletResponse response) {
 
 		if (userService.doAddUser(request)) {
+			long CurruntUser_facebookID = Long.parseLong(request
+					.getParameter("CurruntUser_facebookID"));
 			System.out.println("회원가입 완료");
-			commandResult = new CommandResult("/WEB-INF/jsp/main/main.jsp");
+			String userGrade = userService.doGetUserGrade(CurruntUser_facebookID);
+			System.out.println("뉴비 e등급"+ userGrade );
+			
+			
+			
+			
+			commandResult = new CommandResult("text/plain",userGrade);
 		} else {
 			commandResult = new CommandResult("/WEB-INF/jsp/error.jsp");
 		}

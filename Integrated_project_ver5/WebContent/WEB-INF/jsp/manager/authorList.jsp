@@ -7,10 +7,8 @@
 <meta charset=UTF-8>
 <script
 	src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
-<link rel="stylesheet" type="text/css"
-	href="<c:url value='/css/manager/list.css'/>">
-<link rel="stylesheet" type="text/css"
-	href="<c:url value='/css/manager/keywordList.css'/>">
+
+
 <!-- Latest compiled and minified CSS -->
 <link rel="stylesheet"
 	href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
@@ -22,31 +20,57 @@
 <!-- Latest compiled and minified JavaScript -->
 <script
 	src="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
-	
-	
-<script src="<c:url value='/js/manager/authorList.js'/>"></script>	
-	
+
+<link rel="stylesheet" type="text/css"
+	href="<c:url value='/css/manager/list.css'/>">
+<link rel="stylesheet" type="text/css"
+	href="<c:url value='/css//manager/webtoonList.css'/>">
+<script type="text/javascript" src="<c:url value='/js/manager/stupidtable.js'/>"></script>
+<script type="text/javascript" src="<c:url value='/js/manager/authorList.js'/>"></script>
+
+
 <title>authors</title>
 </head>
 <body>
 
 	<c:import url="/WEB-INF/jsp/manager/managerMenu.jsp"></c:import>
 
-<section id=authors>
-		<c:forEach var="author" items="${allAuthors}">
+	<section id="searchBar">
+		이름검색: <input type='text' id='txtFilter'
+			onkeyup='{filter();return false}'
+			onkeypress='javascript:if(event.keyCode==13){ filter(); return false;}'>
+		<br />
 
-			<form>
-				<input type="hidden" name="keywords_id_pk"
-					value="<c:out value='${author.authors_id_pk}'></c:out>">
-				<button class="authorBtn" data-toggle="modal"
-					data-target="#myModal2">
-					<c:out value='${author.authors_name}'></c:out>
-				</button>
-			</form>
-
-		</c:forEach>
+	</section>
 
 
+	<section id="authors">
+
+		<table class="table table-hover" id="authorList">
+			<thead>
+				<tr>
+
+					<th data-sort="string">author_name</th>
+					<th>keywords</th>
+				</tr>
+			</thead>
+			<tbody>
+				<c:forEach var="author" items="${allAuthors}">
+					<tr name="${author.authors_name}">
+
+						<td><c:out value="${author.authors_name}" /></td>
+
+						<td><form>
+								<input type="hidden" name="keywords_id_pk"
+									value="<c:out value='${author.authors_id_pk}'></c:out>">
+								<button class="authorBtn" data-toggle="modal"
+									data-target="#myModal2">작가의 작품</button>
+							</form></td>
+					</tr>
+				</c:forEach>
+			</tbody>
+
+		</table>
 	</section>
 
 
