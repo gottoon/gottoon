@@ -45,14 +45,5 @@
 					<input type="hidden" name="todo" value="mypageRecommend"> <input
 						class="btn btn-success btn-lg" type="submit" value="웹툰 찾기" />
 				</form></li>
-
-			<li><form name="Mypagetap" action="<c:url value='/action/mypageSetting'/>" method="POST">
-					<input type="hidden" name="todo" value="mypageSetting"> <input
-						class="btn btn-success btn-lg" type="submit" value="설정" />
-				</form></li>
 		</ul>
 	</nav>
-	
-	 
-</body>
-</html>

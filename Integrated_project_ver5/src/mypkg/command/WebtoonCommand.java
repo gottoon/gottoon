@@ -5,6 +5,7 @@ import java.io.IOException;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import mypkg.control.Command;
 import mypkg.control.CommandResult;
@@ -34,9 +35,12 @@ public class WebtoonCommand implements Command {
 
 	//2014.07.11 soo 웹툰 상세보기 서비스 불러오기 - 2014.07.19 수정
 	public void doGetWebtoonDetails(HttpServletRequest request) {
+		HttpSession session = request.getSession();
+		long curruntUser_facebookID = (long) session.getAttribute("CurrentUser");
+		
 		int webtoon_id = Integer.parseInt(request.getParameter("webtoon_id"));
 		System.out.println(webtoon_id);
-		WebtoonVO webtoonDetail = webtoonService.doGetWebtoonDetail(webtoon_id);
+		WebtoonVO webtoonDetail = webtoonService.doGetWebtoonDetail(curruntUser_facebookID, webtoon_id);
 		String authorsName = webtoonService.doGetAuthors(webtoon_id);
 		
 		request.setAttribute("webtoonDetail", webtoonDetail);

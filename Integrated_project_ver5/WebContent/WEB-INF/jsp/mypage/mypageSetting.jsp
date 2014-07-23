@@ -16,8 +16,8 @@
 </style>
 <title>MYPAGE SETTING</title>
 </head>
-<body>
-	<%-- MYPAGE SETTING --%>
+<%-- <body>
+	MYPAGE SETTING
 	<hr>
 	<c:if test="${sessionSetting!=null}">
 		<form name="MypageSettingTap"
@@ -80,5 +80,5 @@
 			</form>
 		</c:if>
 	</c:if>
-</body>
+</body> --%>
 </html>

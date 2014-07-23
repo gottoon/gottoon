@@ -12,24 +12,26 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
-<link rel="stylesheet"
-	href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
-<link rel="stylesheet"
-	href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
-<script
-	src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
-<link rel="stylesheet"
-	href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
 
+<link rel="stylesheet" media="screen" type="text/css"
+	href="<c:url value='/css/myPageStar.css'/>" />
 
+<script src="<c:url value='/js/MyPageAndStarPoint.js'/>"></script>
+
+<style>
+h2, div {
+	font-size: 20px;
+	text-align: center;
+}
+
+</style>
 <title>MYPAGE RECOMMEND</title>
 </head>
 <body>
 	<%-- MYPAGE RECOMMEND --%>
-	<c:if test="${sessionRecommend!=null}">
-		<section>
+	<%--<section>
 			<ul>
-				<section>
+				 <section>
 					<form>
 						<h3>
 							친구 추천 :
@@ -77,148 +79,246 @@
 					</form>
 				</section>
 			</ul>
+		</section>--%>
+
+	<h2>신작 웹툰</h2>
+
+
+	<c:if test="${fn:length(recommendNewWebtoon)==0}">
+		<hr>
+		<p>신작 웹툰이 없습니다.</p>
+	</c:if>
+
+	<c:if test="${fn:length(recommendNewWebtoon)!=0}">
+		<section class="container">
+			<table border='0' cellpadding='0' align="center">
+				
+				<tr>
+					<td><c:forEach var="WebtoonVO" items="${recommendNewWebtoon}" varStatus="status">
+							<c:if test="${WebtoonVO.webtoons_publisher=='네이버'}">
+								<h3>네이버 신작</h3>
+								<link href='http://fonts.googleapis.com/css?family=Lato:300,400,700,900'
+			rel='stylesheet' type='text/css'>
+				<div class="col-xs-12 col-sm-6 col-md-6 col-lg-4">
+							<div class="thumbnail">
+								<div class="caption">
+									<article>
+
+										<form method="post" action="webtoon">
+										<input type="hidden" name="webtoon_id" value="${WebtoonVO.webtoons_id_pk}" />
+										<input type="hidden" name="todo" value="showWebtoonDetails" />
+										<input type="image" width="100%" height="100%" src="<c:url value='${WebtoonVO.webtoons_thumbnail}'/>" />
+										</form>
+
+		<!-- <table id="fb-root" class="showToon" border="1"> -->
+
+
+				<input type="hidden" id="rate" value="${WebtoonVO.webtoon_rate }">
+					 <input type="hidden" id="id" value="${WebtoonVO.webtoons_id_pk }">
+					<form id="myForm">
+						<p>별점 : ${WebtoonVO.webtoon_rate }</p>
+						<div class="product-review-stars">
+							<input type="checkbox"
+								id="${status.count*status.count*status.count+1}" name="rating"
+								value="5^${WebtoonVO.webtoons_id_pk}"
+								onclick=onclickStart(this) class="visuallyhidden"> <label
+								for="${status.count*status.count*status.count+1}" title="Rocks!">★</label>
+							<input type="checkbox"
+								id="${status.count*status.count*status.count+2}" name="rating"
+								value="4^${WebtoonVO.webtoons_id_pk}"
+								onclick=onclickStart(this) class="visuallyhidden"> <label
+								for="${status.count*status.count*status.count+2}"
+								title="Pretty good">★</label> <input type="checkbox"
+								id="${status.count*status.count*status.count+3}" name="rating"
+								value="3^${WebtoonVO.webtoons_id_pk}"
+								onclick=onclickStart(this) class="visuallyhidden"> <label
+								for="${status.count*status.count*status.count+3}" title="Meh">★</label>
+							<input type="checkbox"
+								id="${status.count*status.count*status.count+4}" name="rating"
+								value="2^${WebtoonVO.webtoons_id_pk}"
+								onclick=onclickStart(this) class="visuallyhidden"> <label
+								for="${status.count*status.count*status.count+4}" title="Kinda bad">★</label>
+							<input type="checkbox"
+								id="${status.count*status.count*status.count+5}" name="rating"
+								value="1^${WebtoonVO.webtoons_id_pk}"
+								onclick=onclickStart(this) class="visuallyhidden"> <label
+								for="${status.count*status.count*status.count+5}"
+								title="Sucks big time">★</label>
+						</div>
+					</form>
+<!-- 		</table>
+ -->
+		<script src='http://codepen.io/assets/libs/fullpage/jquery.js'></script>
+
+
+
+
+
+										<br> <a href="${WebtoonVO.webtoons_url}" target="_blank">${WebtoonVO.webtoons_title}</a>
+									</article>
+								</div>
+							</div>
+						</div>
+							</c:if>
+						</c:forEach></td>
+				</tr>
+			</table>
 		</section>
-	</c:if>
-
-	<c:if test="${sessionRecommendAuthor!=null}">
-		<form name="MypageRecommendAuthorTap"
-			action="<c:url value='/action/mypageRecommendWebtoon'/>"
-			method="POST">
-			<c:if test="${sessionOnoff=='0'}">
-				<p>작가 추천이 꺼져있습니다. 추천을 원하시면 설정에서 ON으로 바꿔주세요.</p>
-			</c:if>
-
-			<c:if test="${sessionOnoff=='1'}">
-				<input type="hidden" name="todo" value="searchAuthor">
-		작가 : <select name=author>
-					<c:forEach var="AuthorVO" items="${author}">
-						<option value="${AuthorVO.authors_id_pk}">${AuthorVO.authors_name}</option>
-					</c:forEach>
-					<input type="submit" value="검색">
-				</select>
-
-				<c:if test="${recommendAuthorWebtoon!=null}">
-					<table border='1' cellpadding='6'>
-						<tr>
-							<th>TITLE</th>
-							<th>DAYS</th>
-							<th>SUMMARY</th>
-							<th>PUBLISHER</th>
-							<th>URL</th>
-						</tr>
-						<c:forEach var="WebtoonVO" items="${recommendAuthorWebtoon}">
-							<tr>
-								<td>${WebtoonVO.webtoons_title}
-								<td>
-								<td>${WebtoonVO.webtoons_days}</td>
-								<td>${WebtoonVO.webtoons_summary}</td>
-								<td>${WebtoonVO.webtoons_publisher}</td>
-								<td><a href="${WebtoonVO.webtoons_url}" target="_blank">바로보기</a></td>
-							</tr>
-						</c:forEach>
-					</table>
-				</c:if>
-			</c:if>
-		</form>
-	</c:if>
-
-
-	<c:if test="${sessionRecommendNew!=null}">
-		<form name="MypageRecommendNewTap"
-			action="<c:url value='/action/mypageRecommendWebtoon'/>"
-			method="POST">
-			<c:if test="${sessionOnoff=='0'}">
-				<p>신작 추천이 꺼져있습니다. 추천을 원하시면 설정에서 ON으로 바꿔주세요.</p>
-			</c:if>
-
-			<c:if test="${sessionOnoff=='1'}">
-
-				<h3>네이버 신작</h3>
-
-				<section class="container">
-					<table border='0' cellpadding='0' align="center">
-						<tr>
-							<td><c:forEach var="WebtoonVO"
-									items="${recommendNewWebtoon}">
-									<div class="col-xs-10 col-md-10">
-										<div class="thumbnail">
-											<div class="caption">
-												<article>
-													<!-- 이미지 경로 때문에 nullpointer 뜸 -->
-													<a href="${WebtoonVO.webtoons_url}" target="_blank"><img
-														src="<c:url value='${WebtoonVO.webtoons_thumbnail}'/>"
-														width="100%" height="100%" border="0"></a> <br> <br>
-													href="${WebtoonVO.webtoons_url}"
-													target="_blank">${WebtoonVO.webtoons_title}${WebtoonVO.webtoons_days}${WebtoonVO.webtoons_summary}</a>
-												</article>
-											</div>
-										</div>
-									</div>
-								</c:forEach></td>
-						</tr>
-					</table>
-				</section>
-
-				<hr>
-				<h3>다음 신작</h3>
-
-				<section class="container">
-					<table border='0' cellpadding='0' align="center">
-						<tr>
-							<td><c:forEach var="WebtoonVO"
-									items="${recommendNewWebtoon}">
-									<div class="col-xs-10 col-md-10">
-										<div class="thumbnail">
-											<div class="caption">
-												<article>
-													<!-- 이미지 경로 때문에 nullpointer 뜸 -->
-													<a href="${WebtoonVO.webtoons_url}" target="_blank"><img
-														src="<c:url value='${WebtoonVO.webtoons_thumbnail}'/>"
-														width="100%" height="100%" border="0"></a> <br> <br>
-													href="${WebtoonVO.webtoons_url}"
-													target="_blank">${WebtoonVO.webtoons_title}${WebtoonVO.webtoons_days}${WebtoonVO.webtoons_summary}</a>
-												</article>
-											</div>
-										</div>
-									</div>
-								</c:forEach></td>
-						</tr>
-					</table>
-				</section>
-			</c:if>
-		</form>
-	</c:if>
-
-
-
-	<c:if test="${sessionWishList!=null}">
-		<c:if test="${fn:length(wishList)==0}">
-			<hr>
-			<p>찜한 웹툰이 없습니다.</p>
-		</c:if>
 
 		<section class="container">
 			<table border='0' cellpadding='0' align="center">
-				<hr>
 				<tr>
-					<td><c:forEach var="WebtoonVO" items="${wishList}">
-							<div class="col-xs-6 col-md-4">
-								<div class="thumbnail">
-									<div class="caption">
-										<article>
-											<!-- 이미지 경로 때문에 nullpointer 뜸 -->
-											<a href="${WebtoonVO.webtoons_url}" target="_blank"><img
-												src="<c:url value='${WebtoonVO.webtoons_thumbnail}'/>"
-												width="100%" height="100%" border="0"></a> <br> <a
-												href="${WebtoonVO.webtoons_url}" target="_blank">${WebtoonVO.webtoons_title}</a>
-										</article>
-									</div>
+					<td><c:forEach var="WebtoonVO" items="${recommendNewWebtoon}" varStatus="status">
+							<c:if test="${WebtoonVO.webtoons_publisher=='다음'}">
+								<hr>
+								<h3>다음 신작</h3>
+								<link href='http://fonts.googleapis.com/css?family=Lato:300,400,700,900'
+			rel='stylesheet' type='text/css'>
+				<div class="col-xs-12 col-sm-6 col-md-6 col-lg-4">
+							<div class="thumbnail">
+								<div class="caption">
+									<article>
+
+										<form method="post" action="webtoon">
+										<input type="hidden" name="webtoon_id" value="${WebtoonVO.webtoons_id_pk}" />
+										<input type="hidden" name="todo" value="showWebtoonDetails" />
+										<input type="image" width="100%" height="100%" src="<c:url value='${WebtoonVO.webtoons_thumbnail}'/>" />
+										</form>
+
+		<!-- <table id="fb-root" class="showToon" border="1"> -->
+
+
+				<input type="hidden" id="rate" value="${WebtoonVO.webtoon_rate }">
+					 <input type="hidden" id="id" value="${WebtoonVO.webtoons_id_pk }">
+					<form id="myForm">
+						<p>별점 : ${WebtoonVO.webtoon_rate }</p>
+						<div class="product-review-stars">
+							<input type="checkbox"
+								id="${status.count*status.count*status.count+1}" name="rating"
+								value="5^${WebtoonVO.webtoons_id_pk}"
+								onclick=onclickStart(this) class="visuallyhidden"> <label
+								for="${status.count*status.count*status.count+1}" title="Rocks!">★</label>
+							<input type="checkbox"
+								id="${status.count*status.count*status.count+2}" name="rating"
+								value="4^${WebtoonVO.webtoons_id_pk}"
+								onclick=onclickStart(this) class="visuallyhidden"> <label
+								for="${status.count*status.count*status.count+2}"
+								title="Pretty good">★</label> <input type="checkbox"
+								id="${status.count*status.count*status.count+3}" name="rating"
+								value="3^${WebtoonVO.webtoons_id_pk}"
+								onclick=onclickStart(this) class="visuallyhidden"> <label
+								for="${status.count*status.count*status.count+3}" title="Meh">★</label>
+							<input type="checkbox"
+								id="${status.count*status.count*status.count+4}" name="rating"
+								value="2^${WebtoonVO.webtoons_id_pk}"
+								onclick=onclickStart(this) class="visuallyhidden"> <label
+								for="${status.count*status.count*status.count+4}" title="Kinda bad">★</label>
+							<input type="checkbox"
+								id="${status.count*status.count*status.count+5}" name="rating"
+								value="1^${WebtoonVO.webtoons_id_pk}"
+								onclick=onclickStart(this) class="visuallyhidden"> <label
+								for="${status.count*status.count*status.count+5}"
+								title="Sucks big time">★</label>
+						</div>
+					</form>
+<!-- 		</table>
+ -->
+		<script src='http://codepen.io/assets/libs/fullpage/jquery.js'></script>
+
+
+
+
+
+										<br> <a href="${WebtoonVO.webtoons_url}" target="_blank">${WebtoonVO.webtoons_title}</a>
+									</article>
 								</div>
 							</div>
+						</div>
+							</c:if>
 						</c:forEach></td>
 				</tr>
 			</table>
 		</section>
 	</c:if>
+	
+	<hr>
+	<h2>내가 찜한 웹툰</h2>
+	<hr>
+	
+	<c:if test="${fn:length(wishList)==0}">
+		<hr>
+		<p>찜한 웹툰이 없습니다.</p>
+	</c:if>
+
+	<section class="container">
+		<table border='0' cellpadding='0' align="center">
+			<tr>
+				<td><c:forEach var="WebtoonVO" items="${wishList}" varStatus="status">
+						<link href='http://fonts.googleapis.com/css?family=Lato:300,400,700,900'
+			rel='stylesheet' type='text/css'>
+				<div class="col-xs-12 col-sm-6 col-md-6 col-lg-4">
+							<div class="thumbnail">
+								<div class="caption">
+									<article>
+
+										<form method="post" action="webtoon">
+										<input type="hidden" name="webtoon_id" value="${WebtoonVO.webtoons_id_pk}" />
+										<input type="hidden" name="todo" value="showWebtoonDetails" />
+										<input type="image" width="100%" height="100%" src="<c:url value='${WebtoonVO.webtoons_thumbnail}'/>" />
+										</form>
+
+		<!-- <table id="fb-root" class="showToon" border="1"> -->
+
+
+				<input type="hidden" id="rate" value="${WebtoonVO.webtoon_rate }">
+					 <input type="hidden" id="id" value="${WebtoonVO.webtoons_id_pk }">
+					<form id="myForm">
+						<p>별점 : ${WebtoonVO.webtoon_rate }</p>
+						<div class="product-review-stars">
+							<input type="checkbox"
+								id="${status.count*status.count*status.count+1}" name="rating"
+								value="5^${WebtoonVO.webtoons_id_pk}"
+								onclick=onclickStart(this) class="visuallyhidden"> <label
+								for="${status.count*status.count*status.count+1}" title="Rocks!">★</label>
+							<input type="checkbox"
+								id="${status.count*status.count*status.count+2}" name="rating"
+								value="4^${WebtoonVO.webtoons_id_pk}"
+								onclick=onclickStart(this) class="visuallyhidden"> <label
+								for="${status.count*status.count*status.count+2}"
+								title="Pretty good">★</label> <input type="checkbox"
+								id="${status.count*status.count*status.count+3}" name="rating"
+								value="3^${WebtoonVO.webtoons_id_pk}"
+								onclick=onclickStart(this) class="visuallyhidden"> <label
+								for="${status.count*status.count*status.count+3}" title="Meh">★</label>
+							<input type="checkbox"
+								id="${status.count*status.count*status.count+4}" name="rating"
+								value="2^${WebtoonVO.webtoons_id_pk}"
+								onclick=onclickStart(this) class="visuallyhidden"> <label
+								for="${status.count*status.count*status.count+4}" title="Kinda bad">★</label>
+							<input type="checkbox"
+								id="${status.count*status.count*status.count+5}" name="rating"
+								value="1^${WebtoonVO.webtoons_id_pk}"
+								onclick=onclickStart(this) class="visuallyhidden"> <label
+								for="${status.count*status.count*status.count+5}"
+								title="Sucks big time">★</label>
+						</div>
+					</form>
+<!-- 		</table>
+ -->
+		<script src='http://codepen.io/assets/libs/fullpage/jquery.js'></script>
+
+
+
+
+
+										<br> <a href="${WebtoonVO.webtoons_url}" target="_blank">${WebtoonVO.webtoons_title}</a>
+									</article>
+								</div>
+							</div>
+						</div>
+					</c:forEach></td>
+			</tr>
+		</table>
+	</section>
 </body>
 </html>

@@ -422,7 +422,7 @@ public class User_Webtoon_MapsDAO {
 	}
 	//2014.07.20 박태균 웹툰 추가 
 	public void addReadWebtoon(int webtoons_id_pk, int user_webtoon_rate, long users_facebookID_fk) {
-		System.out.println("repetitionRemoval 시작 ");
+		System.out.println("addReadWebtoon 시작 ");
 
 		Connection conn = null;
 		Statement stmt = null;

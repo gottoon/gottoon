@@ -24,6 +24,7 @@ public class WebtoonVO implements Serializable {
 	private String webtoon_viewfree;
 	private String webtoon_professional; 
 	private String authors_name; // 여기까지 추가
+	private int webtoon_rate;
 	
 	// 생성자 1번
 	public WebtoonVO(int webtoons_id_pk) {
@@ -43,19 +44,31 @@ public class WebtoonVO implements Serializable {
 		this.webtoons_id_pk = webtoons_id_pk;
 	}
 	
-	// 7.18 영규꺼
+	// 7.18 영규꺼 7.22 id 추가
 	// 생성자 4번
-	public WebtoonVO(String webtoons_title, String webtoons_thumbnail,
-			String webtoons_url) {
+	public WebtoonVO(int webtoons_id_pk, String webtoons_title, String webtoons_thumbnail,
+			String webtoons_url ) {
+		this.webtoons_id_pk = webtoons_id_pk;
 		this.webtoons_title = webtoons_title;
 		this.webtoons_thumbnail = webtoons_thumbnail;
 		this.webtoons_url = webtoons_url;
 	}
+	
+	public WebtoonVO(int webtoons_id_pk, String webtoons_title, String webtoons_thumbnail,
+			String webtoons_url ,int webtoon_rate ) {
+		this.webtoons_id_pk = webtoons_id_pk;
+		this.webtoons_title = webtoons_title;
+		this.webtoons_thumbnail = webtoons_thumbnail;
+		this.webtoons_url = webtoons_url;
+		this.webtoon_rate = webtoon_rate;
+	}
 
-	// 생성자 5번
-	public WebtoonVO(String webtoons_title, String webtoons_update_days,
+	// 영규꺼 7.22 id 추가  
+	// 생성자 5번 
+	public WebtoonVO(int webtoons_id_pk, String webtoons_title, String webtoons_update_days,
 			String webtoons_summary, String webtoons_publisher,
 			String webtoons_url) {
+		this.webtoons_id_pk = webtoons_id_pk;
 		this.webtoons_title = webtoons_title;
 		this.webtoons_update_days = webtoons_update_days;
 		this.webtoons_summary = webtoons_summary;
@@ -107,7 +120,8 @@ public class WebtoonVO implements Serializable {
 			String webtoons_summary, String webtoons_update_days,
 			String webtoons_completed, String webtoon_viewfree, String webtoon_professional,
 			String webtoons_pgrating, String webtoons_publisher, double webtoons_average_rate,
-			String webtoons_main_image, String webtoons_url, String webtoons_first_update) {
+			String webtoons_main_image, String webtoons_url, String webtoons_first_update, 
+			int user_webtoon_rate) {
 		this.webtoons_id_pk = webtoon_id_pk;
 		this.genres_name = genres_name;
 		this.webtoons_title = webtoons_title;
@@ -122,6 +136,7 @@ public class WebtoonVO implements Serializable {
 		this.webtoons_main_image = webtoons_main_image;
 		this.webtoons_url = webtoons_url;
 		this.webtoons_first_update = webtoons_first_update;
+		this.webtoon_rate = user_webtoon_rate;
 	}
 	
 	//생성자 9번 - bj 7.18
@@ -169,6 +184,14 @@ public class WebtoonVO implements Serializable {
 		this.genres_name = genres_name;
 	}
 
+
+	public int getWebtoon_rate() {
+		return webtoon_rate;
+	}
+
+	public void setWebtoon_rate(int webtoon_rate) {
+		this.webtoon_rate = webtoon_rate;
+	}
 
 	public int getWebtoons_id_pk() {
 		return webtoons_id_pk;

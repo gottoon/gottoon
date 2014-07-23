@@ -17,8 +17,8 @@ import mypkg.vo.WebtoonVO;
 public class WebtoonService {
 	
 	// 2014.07.11 soo 웹툰 상세보기 - 2014.07.19 수정
-	public WebtoonVO doGetWebtoonDetail(int webtoon_id) {
-		WebtoonVO webtoonDetail = this.getWebtoonDetail(webtoon_id);
+	public WebtoonVO doGetWebtoonDetail(long curruntUser_facebookID, int webtoon_id) {
+		WebtoonVO webtoonDetail = this.getWebtoonDetail(curruntUser_facebookID, webtoon_id);
 		
 		return webtoonDetail;
 	}
@@ -62,11 +62,11 @@ public class WebtoonService {
 	}
 	
 	//2014.07.11 soo 상세보기 웹툰 정보 뽑아오기 DAO
-	public WebtoonVO getWebtoonDetail(int webtoon_id) {
+	public WebtoonVO getWebtoonDetail(long curruntUser_facebookID, int webtoon_id) {
 		MySqlDAOFactory mysqlDAOFactory = new MySqlDAOFactory();
 		WebtoonDAO webtoonDAO = mysqlDAOFactory.getWebtoonsDAO();
 		
-		return webtoonDAO.getWebtoonInfo(webtoon_id);
+		return webtoonDAO.getWebtoonInfo(curruntUser_facebookID, webtoon_id);
 	}
 	
 	// 2014.07.11 soo 상세보기 작가 뽑아오기 DAO
