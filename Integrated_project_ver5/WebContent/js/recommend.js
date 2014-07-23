@@ -48,8 +48,7 @@ function calculateDateRange(first_update) {
 	var now = new Date();
 
 	var from_date = new Date(update_token[0], update_token[1], update_token[2]);
-	/*var to_date = new Date(now.getFullYear(), now.getMonth(), now.getDate());*/
-	var to_date = new Date(2011, 10, 01);
+	var to_date = new Date(now.getFullYear(), now.getMonth(), now.getDate());
 
 	var checkDate = (to_date.getTime() - from_date.getTime()) / 1000 / 60;
 	
