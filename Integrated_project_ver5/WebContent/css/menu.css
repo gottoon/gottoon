@@ -255,12 +255,12 @@ body.openmenu {
 	background-image: url('../img/menu/afterLogout.png');
 }
 
-#DNABtn {
-	background-image: url('../img/menu/beforeDNA.png');
+#moreBtn {
+	background-image: url('../img/menu/beforeMore.png');
 }
 
-#DNABtn:hover {
-	background-image: url('../img/menu/afterDNA.png');
+#moreBtn:hover {
+	background-image: url('../img/menu/afterMore.png');
 }
 
 
