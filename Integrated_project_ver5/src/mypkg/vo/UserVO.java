@@ -2,6 +2,7 @@ package mypkg.vo;
 
 public class UserVO {
 	private long users_facebookID_pk;
+	private String users_photo;
 	private String users_name;
 	private String users_email;
 	private String users_grade;
@@ -33,6 +34,17 @@ public class UserVO {
 	public UserVO(long users_facebookID_pk, String users_name,
 			String users_email, String users_grade, boolean users_blacklist) {
 		this.users_facebookID_pk = users_facebookID_pk;
+		this.users_name = users_name;
+		this.users_email = users_email;
+		this.users_grade = users_grade;
+		this.users_blacklist = users_blacklist;
+	}
+
+	public UserVO(long users_facebookID_pk, String users_photo,
+			String users_name, String users_email, String users_grade,
+			boolean users_blacklist) {
+		this.users_facebookID_pk = users_facebookID_pk;
+		this.users_photo = users_photo;
 		this.users_name = users_name;
 		this.users_email = users_email;
 		this.users_grade = users_grade;
@@ -77,5 +89,13 @@ public class UserVO {
 
 	public void setUsers_blacklist(boolean users_blacklist) {
 		this.users_blacklist = users_blacklist;
+	}
+
+	public String getUsers_photo() {
+		return users_photo;
+	}
+
+	public void setUsers_photo(String users_photo) {
+		this.users_photo = users_photo;
 	}
 }

@@ -39,9 +39,7 @@ public class UserDAO {
 			e.printStackTrace();
 		}
 	}
-	
-	
-	
+
 	// soo 웹툰 추천
 	public List<UserVO> getExceptBlacklistAllUsers() {
 		List<UserVO> users = new ArrayList<UserVO>();
@@ -85,7 +83,7 @@ public class UserDAO {
 
 		return users;
 	}
-	
+
 	// 7.18 영규꺼
 	public UserVO findUserGrade(long users_facebookID) {
 		Connection conn = null;
@@ -122,19 +120,19 @@ public class UserDAO {
 		}
 		return userGrade;
 	}
-	
+
 	// 7.18 영규꺼
 	public void setUserGrade(long users_facebookID, int SetGrade) {
 		Connection conn = null;
 		Statement stmt = null;
-		
+
 		try {
 			conn = pool.getConnection();
 			stmt = conn.createStatement();
-			
-			String sqlQuery = "update users set users_grade=" + SetGrade +" where users_facebookID_pk="
-					+ users_facebookID;
-			
+
+			String sqlQuery = "update users set users_grade=" + SetGrade
+					+ " where users_facebookID_pk=" + users_facebookID;
+
 			stmt.executeUpdate(sqlQuery);
 
 		} catch (SQLException ex) {
@@ -152,7 +150,7 @@ public class UserDAO {
 			}
 		}
 	}
-	
+
 	// soo 챠트용 7.18
 	public List<UserVO> getAllUsers() {
 		System.out.println("getAllUsers 시작");
@@ -171,6 +169,7 @@ public class UserDAO {
 
 			while (rset.next()) {
 				long users_facebookID = rset.getLong("users_facebookID_pk");
+				String userPhoto = rset.getString("users_photo");
 				String userName = rset.getString("users_name");
 				String userEmail = rset.getString("users_email");
 				String userGrade = rset.getString("users_grade");
@@ -179,8 +178,8 @@ public class UserDAO {
 				// isBlacklist = true;
 				// }
 
-				UserVO user = new UserVO(users_facebookID, userName, userEmail,
-						userGrade, isBlacklist);
+				UserVO user = new UserVO(users_facebookID, userPhoto, userName,
+						userEmail, userGrade, isBlacklist);
 
 				users.add(user);
 			}
@@ -200,9 +199,10 @@ public class UserDAO {
 
 		return users;
 	}
-	
+
 	// bj 유저 추가 7.18
-	public boolean addUser(long users_facebookID, String name, String email) {
+	public boolean addUser(long users_facebookID, String name, String email,
+			String photoUrl) {
 		System.out.println("addUser 시작 ");
 		boolean checkSuccess = false;
 		// String userName = "";
@@ -213,13 +213,14 @@ public class UserDAO {
 			conn = pool.getConnection();
 			stmt = conn.createStatement();
 
-			String sqlstr = "insert into users (users_facebookID_pk,users_name,users_email,users_grade,users_blacklist) values ("
+			String sqlstr = "insert into users (users_facebookID_pk,users_photo,users_name,users_email,users_grade,users_blacklist) values ("
 					+ users_facebookID
 					+ ",'"
+					+ photoUrl
+					+ "','"
 					+ name
 					+ "','"
-					+ email
-					+ "','1', false)";
+					+ email + "','1', false)";
 			System.out.println(sqlstr);
 
 			int rset = stmt.executeUpdate(sqlstr);
@@ -233,5 +234,5 @@ public class UserDAO {
 		}
 		return checkSuccess;
 	}
-	
+
 }

@@ -87,13 +87,13 @@
 	/* 로그인 */
 	function login() {
 		console.log('로그인 실행 ');
-
+		var photoUrl ="";
 		/* make the API call */
 		FB.api("/me/picture", function(response) {
 			console.log('사진이야!!');
 			if (response) {
 				/* handle the result */
-				console.log(response);
+				photoUrl =  response.data.url;
 				$('#userImg').attr('src', response.data.url);
 			}
 		});
@@ -112,6 +112,7 @@
 					"curruntUserName" : curruntUserName,
 					"curruntUserEmail" : curruntUserEmail,
 					"CurruntUser_facebookID" : CurruntUser_facebookID,
+					"currentUserPhoto" : photoUrl
 				},
 
 				success : function(data) {

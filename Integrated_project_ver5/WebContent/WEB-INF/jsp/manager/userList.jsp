@@ -60,6 +60,7 @@
 			<table class="table table-hover" id="userList">
 				<thead>
 					<tr>
+						<th>사진</th>
 						<th data-sort="string">이름</th>
 						<th data-sort="int">레벨</th>
 						<th data-sort="string">블랙리스트</th>
@@ -70,7 +71,7 @@
 				<tbody>
 					<c:forEach var="user" items="${allUsers}">
 						<tr name="${user.users_name}">
-
+							<td><img src="${user.users_photo}"/ class ="users_photo"></td>
 							<td id="<c:out value="${user.users_facebookID_pk}" />"><c:out
 									value="${user.users_name}" /></td>
 							<td><c:out value="${user.users_grade}" /></td>

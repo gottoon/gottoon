@@ -12,7 +12,7 @@ $(document)
 									function() {
 
 										var userID = $(this).parents("td")
-												.siblings("td:first")
+												.siblings("td:nth-of-type(2)")
 												.attr('id');
 										console.log("userID = " + userID);
 

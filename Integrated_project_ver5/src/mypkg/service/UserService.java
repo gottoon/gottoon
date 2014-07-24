@@ -56,8 +56,9 @@ public class UserService {
 		System.out.println("adf" + user_facebookID);
 		String name = request.getParameter("curruntUserName");
 		String email = request.getParameter("curruntUserEmail");
+		String photoUrl = request.getParameter("currentUserPhoto");
 
-		return this.addUser(user_facebookID, name, email);
+		return this.addUser(user_facebookID, name, email,photoUrl);
 	}
 
 	// doGetUserGrade - bj 7.18 
@@ -91,11 +92,11 @@ public class UserService {
 	}
 
 	// addUser - bj 7.18 
-	public boolean addUser(long user_facebookID, String name, String email) {
+	public boolean addUser(long user_facebookID, String name, String email,String photoUrl) {
 
 		MySqlDAOFactory mysqlDAOFactory = new MySqlDAOFactory();
 		UserDAO userDAO = mysqlDAOFactory.getUserDAO();
-		return userDAO.addUser(user_facebookID, name, email);
+		return userDAO.addUser(user_facebookID, name, email,photoUrl);
 	}
 
 	public List<UserVO> getAllUsers() {
