@@ -25,8 +25,6 @@
 <link rel="stylesheet" type="text/css"
 	href="<c:url value='/css/manager/list.css'/>">
 <link rel="stylesheet" type="text/css"
-	href="<c:url value='/css//manager/webtoonList.css'/>">
-<link rel="stylesheet" type="text/css"
 	href="<c:url value='/css//manager/userList.css'/>">
 <script type="text/javascript"
 	src="<c:url value='/js/manager/userList.js'/>"></script>
@@ -55,37 +53,39 @@
 
 	<br />
 	<br />
-	<section id="userTable">
 
-		<table class="table table-hover" id="userList">
-			<thead>
-				<tr>
-					<th data-sort="string">이름</th>
-					<th data-sort="int">레벨</th>
-					<th data-sort="string">블랙리스트</th>
+	<div class="container">
+		<section id="userTable">
 
-					<th>keywords</th>
-				</tr>
-			</thead>
-			<tbody>
-				<c:forEach var="user" items="${allUsers}">
-					<tr name="${user.users_name}">
+			<table class="table table-hover" id="userList">
+				<thead>
+					<tr>
+						<th data-sort="string">이름</th>
+						<th data-sort="int">레벨</th>
+						<th data-sort="string">블랙리스트</th>
 
-						<td id="<c:out value="${user.users_facebookID_pk}" />"><c:out
-								value="${user.users_name}" /></td>
-						<td><c:out value="${user.users_grade}" /></td>
-						<td><c:out value="${user.users_blacklist}" /></td>
-
-						<td><button class="keywordBtn" data-toggle="modal">keywords</button></td>
+						<th>keywords</th>
 					</tr>
-				</c:forEach>
-			</tbody>
+				</thead>
+				<tbody>
+					<c:forEach var="user" items="${allUsers}">
+						<tr name="${user.users_name}">
 
-		</table>
-	</section>
+							<td id="<c:out value="${user.users_facebookID_pk}" />"><c:out
+									value="${user.users_name}" /></td>
+							<td><c:out value="${user.users_grade}" /></td>
+							<td><c:out value="${user.users_blacklist}" /></td>
+
+							<td><button class="keywordBtn" data-toggle="modal">keywords</button></td>
+						</tr>
+					</c:forEach>
+				</tbody>
+
+			</table>
+		</section>
 
 
-
+	</div>
 
 	<!-- Modal -->
 	<div class="modal fade" id="myModal" tabindex="-1" role="dialog"
