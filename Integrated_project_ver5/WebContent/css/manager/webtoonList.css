@@ -1,16 +1,19 @@
 @CHARSET "UTF-8";
-
+	
+	
 td {
 	width: :100%;
-	font-size: 11px;
+	font-size: 1.5em;
 	border-left: 1px dotted #3b5998;
 	border-top: #3b5998;
+	text-align:center;
 }
 
 th {
+	text-align:center;
 	background-color: #3b5998;
 	color: white;
-	font-size: 14px;
+	font-size: 2.5em;
 	border-left: 1px dotted #3b5998;
 }
 
