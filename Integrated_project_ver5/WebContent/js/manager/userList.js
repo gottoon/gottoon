@@ -38,23 +38,18 @@ $(document)
 														for (var i = 0; i < json.length; i++) {
 															var name = json[i].keywords_name;
 															var keywords_id_fk = json[i].keywords_id_fk;
-															var count = (json[i].count) * 25;
-															console.log(count);
+															var count = json[i].count * 13;
 
 															$('#keywords')
 																	.append(
-																			' <input type="checkbox">'
+
+																			'<div class="col-md-3"><div class="inputDiv"><label><input class="inputbox" type="checkbox"><span>'
 																					+ name
-																					);
-															$('.checkbox input')
+																					+ '</span></label></div></div>');
+															$('.inputbox')
 																	.attr(
 																			"value",
 																			keywords_id_fk);
-															$('.checkbox label')
-																	.css(
-																			"font-size",
-																			count
-																					+ "px");
 
 														}
 

@@ -1,6 +1,49 @@
 @CHARSET "UTF-8";
 
-
-.ck-button label {
-	width:100%;
+.inputDiv {
+    margin:4px;
+    border-radius:4px;
+    background-color:#8b9dc3;
+    border:1px solid #3b5998;
+    float:left;
+    box-shadow:1px 1px 1px black;
 }
+
+.modal-body{
+	height:auto;
+}
+
+#keywords{
+	height:auto;
+}
+
+.inputDiv:hover {
+    background:#CC3333;
+}
+
+.inputDiv label {
+    float:left;
+    width:7em;
+}
+
+.inputDiv label span {
+    text-align:center;
+    padding:3px 0px;
+    display:block;
+    height:30px;
+    border-radius:3px;
+}
+
+.inputDiv label input {
+    position:absolute;
+   	display:inline-block;
+   	height:30px;
+}
+
+.inputDiv input:checked + span {
+    background-color:#CC3333;
+    
+    color:#fff;
+}
+
+

@@ -26,6 +26,8 @@
 	href="<c:url value='/css/manager/list.css'/>">
 <link rel="stylesheet" type="text/css"
 	href="<c:url value='/css//manager/webtoonList.css'/>">
+<link rel="stylesheet" type="text/css"
+	href="<c:url value='/css//manager/userList.css'/>">
 <script type="text/javascript" src="<c:url value='/js/manager/userList.js'/>"></script>
 <script type="text/javascript" src="<c:url value='/js/manager/stupidtable.js'/>"></script>
 
