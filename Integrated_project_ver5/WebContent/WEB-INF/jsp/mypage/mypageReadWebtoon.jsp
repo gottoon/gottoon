@@ -11,6 +11,9 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Cache-Control" content="no-cache"/>
+<meta http-equiv="Expires" content="0"/>
+<meta http-equiv="Pragma" content="no-cache"/>
 
 <link rel="stylesheet" media="screen" type="text/css"
 	href="<c:url value='/css/myPageStar.css'/>" />
@@ -57,9 +60,7 @@
 					$("#grade").append(" <b>Level : 9 / 경배하라! 웹툰 신이다!</b>");
 					$(".gradeImg").append('<img src="<c:url value="/img/gradeImg/grade_level9.png"/>" width="200" height="200" border="0">');
 				};
-			}
-			});	
-}); 
+			
 	
 </script>
 

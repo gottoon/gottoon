@@ -3,9 +3,11 @@
  */
 
 $(document).ready(function() {
-			$.ajax({
+		
+	alert("시작");
+	$.ajax({
 				type : "POST",
-				url : "/mypageReadWebtoon",
+				url : "/Integrated_project_ver5/action/mypageReadWebtoon",
 				data : {
 					todo : "readWebtoonCount" 
 			},
