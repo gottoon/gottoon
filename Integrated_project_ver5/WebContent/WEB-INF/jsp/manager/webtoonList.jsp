@@ -22,9 +22,9 @@
 	src="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
 
 <link rel="stylesheet" type="text/css"
-	href="<c:url value='/css/manager/webtoonList.css'/>">
-<link rel="stylesheet" type="text/css"
 	href="<c:url value='/css/manager/list.css'/>">
+<link rel="stylesheet" type="text/css"
+	href="<c:url value='/css/manager/webtoonList.css'/>">
 
 <script type="text/javascript"
 	src="<c:url value='/js/manager/webtoonList.js'/>"></script>
@@ -36,14 +36,22 @@
 
 	<div class="container">
 		<section id="searchBar">
-			제목 검색: <input type='text' id='txtFilter'
-				onkeyup='{filter();return false}'
-				onkeypress='javascript:if(event.keyCode==13){ filter(); return false;}'>
-			<br />
+			<div class=container>
+				<div class="col-md-2">
+
+					<img src="<c:url value='/img/manager/toonSearch.png'/>" />
+				</div>
+				<div class="col-md-8">
+					<input type='text' id='txtFilter' onkeyup='{filter();return false}'
+						onkeypress='javascript:if(event.keyCode==13){ filter(); return false;}'
+						value="제목" onfocus="clearInput(this)">
+
+				</div>
+			</div>
 
 		</section>
 
-
+		<br /> <br />
 
 		<section id="webtoonTable">
 			<table class="table table-hover" id="webtoonList">

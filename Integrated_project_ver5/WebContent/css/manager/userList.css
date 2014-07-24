@@ -27,6 +27,10 @@ th:focus {
 	background-color: yellow;
 }
 
+.users_photo{
+	border-radius:25px;
+	box-shadow:1px 1px 1px #3b5998;
+}
 #keywords {
 	height: 500px;
 }
@@ -54,10 +58,6 @@ input {
 	border: 1px solid;
 }
 
-.users_photo{
-	border-radius:25px;
-	box-shadow:1px 1px 1px #3b5998;
-}
 
 
 

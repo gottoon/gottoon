@@ -42,11 +42,11 @@ $(document)
 
 															$('#keywords')
 																	.append(
-																			'<div class="ck-button"> <label> <input type="checkbox"><span>'
+																			'<div class="col-md-3"><div class="inputDiv"><label><input class="inputbox" type="checkbox"><span>'
 																					+ name
-																					+ '</span> </label> </div>');
+																					+ '</span></label></div></div>');
 															$(
-																	'.ck-button input')
+																	'.inputbox')
 																	.attr(
 																			"value",
 																			keywords_id_fk);
