@@ -60,7 +60,7 @@
 			$("#facebookBtn").show();
 
 		} else {
-			$("#welcomeUser").html('<p>Please log into Facebook.</p>');
+			$("#welcomeUser").html('<p>Facebook 로그인/회원가입하기 !</p>');
 			$("#facebookBtn").show();
 
 			FB
@@ -87,13 +87,13 @@
 	/* 로그인 */
 	function login() {
 		console.log('로그인 실행 ');
-		var photoUrl ="";
+		var photoUrl = "";
 		/* make the API call */
 		FB.api("/me/picture", function(response) {
 			console.log('사진이야!!');
 			if (response) {
 				/* handle the result */
-				photoUrl =  response.data.url;
+				photoUrl = response.data.url;
 				$('#userImg').attr('src', response.data.url);
 			}
 		});
@@ -295,7 +295,8 @@
 	<header>
 		<nav>
 			<div id="navbar">
-				<a href="#" class="menubtn">menu</a>
+				<a href="#" class="menubtn"><img
+					src="<c:url value='/img/menu/menu.png'/>">gottoon</a>
 				<!-- use captain icon for toggle menu -->
 				<div id="hamburgermenu">
 					<ul>
