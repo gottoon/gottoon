@@ -84,6 +84,7 @@
 	</div>
 	
 	<script type="text/javascript">
+	
 		var webtoonCount = 0;
 		var num = 0;
 		var viewCount = 10;

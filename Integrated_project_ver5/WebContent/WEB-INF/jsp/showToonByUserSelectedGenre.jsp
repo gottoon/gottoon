@@ -10,9 +10,8 @@
 <meta http-equiv="Expires" content="-1" />
 <title>선택된 장르 웹툰</title>
 
-<link href='http://fonts.googleapis.com/css?family=Lato:300,400,700,900'
-	rel='stylesheet' type='text/css'>
 <link rel="stylesheet" href="<c:url value='/css/showToon.css'/>" />
+
 <script src='http://codepen.io/assets/libs/fullpage/jquery.js'></script>
 <script type="text/javascript"
 	src="http://code.jquery.com/jquery-1.6.1.min.js"></script>
@@ -23,8 +22,12 @@
 <script src="<c:url value='/js/showToon.js'/>"></script>
 <script src="<c:url value='/js/bar.js'/>"></script>
 
+
 </head>
 <body>
+<!-- <div id="pgcontainer">
+ --> <%-- <c:import url="/WEB-INF/jsp/menu.jsp"></c:import> --%>
+
 
 
 
@@ -189,6 +192,6 @@
 
 
 
-
-</body>
+<!-- </div>
+ --></body>
 </html>
