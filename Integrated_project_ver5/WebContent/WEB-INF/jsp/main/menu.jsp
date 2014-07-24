@@ -45,12 +45,12 @@
 	function statusChangeCallback(response) {
 		console.log('statusChangeCallback 안녕하세요 스테터스 콜백 시전 ');
 		if (response.status === 'connected') {
-			
-			if(<%=session.getAttribute("CurrentUser") %> == null){
-				login();	
+
+			if (
+<%=session.getAttribute("CurrentUser")%>
+	== null) {
+				login();
 			}
-			
-			
 
 		} else if (response.status === 'not_authorized') {
 			document.getElementById('welcomUser').innerHTML = 'Please log '
@@ -195,11 +195,15 @@
 
 	//managerBtn
 	$(document).ready(function() {
-		$('#managerBtn').click(function(event) {
-			if (
+		var userGrade =
 <%=session.getAttribute("userGrade")%>
-	>= 10) {
+	if (userGrade >= 10) {
+			$('#managerBtn img').hide();
+		}
+		$('#managerBtn').click(function(event) {
+			if (userGrade >= 10) {
 				alert('하');
+
 			} else {
 				alert('레벨 10 이상만 들어갈수 있어요 !');
 				event.preventDefault();
@@ -277,8 +281,8 @@
 
 						<li><form id="managerForm"
 								action="<c:url value='/action/manager'/>" method="post">
-								<%-- <c:if test="${userGradeInt >= 10}"> --%>
 								<button id="managerBtn" type="submit">
+									<img src="<c:url value='/img/menu/lock.png'/>" />
 									<p>매니져</p>
 								</button>
 								<input type="hidden" name="todo" value="manager">

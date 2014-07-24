@@ -246,6 +246,19 @@ body.openmenu {
 #managerBtn:hover {
 	background-image: url('../img/menu/afterManager.png');
 }
+#managerBtn img{
+	width:40px;
+	height:30px;
+	background-color:red;
+		display:inline-block;
+		border:1px solid black;
+}
+#managerBtn p{
+	margin-left:75px;
+	display:inline-block;
+	text-align:right;
+}
+
 
 #logoutBtn {
 	background-image: url('../img/menu/beforeLogout.png');
@@ -269,9 +282,9 @@ body.openmenu {
 	position: fixed;
     top: 50%;
     left: 50%;
-    width: 300px;
+    width: 500px;
     line-height: 200px;
-    height: 200px;
+    height: 500px;
     margin-left: -150px;
     margin-top: -100px;
     background-color: rgba(0,0,0,0.5);
@@ -282,21 +295,25 @@ body.openmenu {
     outline: 9999px solid rgba(0,0,0,0.5);
 }
 #goGenreModal button{
-	width:100px;
-	height:60px;
+	width:200px;
+	height:120px;
 	margin-top:40px;
-	text-align:left;
+	margin-right:205px;
+	text-align:center;
+	font-size:18px;
 	border: none;
-	height: 60px;
 	background-position: left 5px;
 	background-size: 100% 70%;
 	background-repeat : no-repeat;
 	background-color:white;
 	background-image: url('../img/menu/beforeExplorer.png');
-	box-shadow:2px 2px 2px black;
+	box-shadow:2px 2px 2px grey;
 	border-radius:25px;
 }
 #goGenreModal button:hover {
+	width:180px;
+	height:110px;
+	box-shadow:2px 2px 2px grey;
 	background-image: url('../img/menu/afterExplorer.png');
 }
 
