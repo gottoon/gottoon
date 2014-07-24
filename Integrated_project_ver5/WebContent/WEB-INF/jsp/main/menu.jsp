@@ -50,6 +50,8 @@
 <%=session.getAttribute("CurrentUser")%>
 	== null) {
 				login();
+			} else {
+				welcomUser();
 			}
 
 		} else if (response.status === 'not_authorized') {
@@ -85,9 +87,6 @@
 	/* 로그인 */
 	function login() {
 		console.log('로그인 실행 ');
-		FB.api('/me', function(response) {
-			console.log('Successful login for: ' + response.name);
-		});
 
 		/* make the API call */
 		FB.api("/me/picture", function(response) {
@@ -121,6 +120,8 @@
 							"<h2>안녕하세요 " + response.name + "님 !</h2>");
 					if (userGrade == 1) {
 						newbieCheck();
+					} else {
+						location.reload();
 					}
 
 				}
@@ -197,9 +198,47 @@
 	$(document).ready(function() {
 		var userGrade =
 <%=session.getAttribute("userGrade")%>
-	if (userGrade >= 10) {
-			$('#managerBtn img').hide();
+	console.log("asdfaeee " + userGrade);
+
+		if (userGrade >= 1) {
+			console.log('더 평가하기 없애');
+			$('#genreBtn img').hide();
+			if (userGrade >= 2) {
+
+				$('#moreBtn img').hide();
+				$('#recommendBtn img').hide();
+				$('#mypageBtn img').hide();
+
+				if (userGrade >= 10) {
+					$('#managerBtn img').hide();
+				}
+
+			}
+
 		}
+		//버튼 클릭 
+		$('#moreBtn').click(function(event) {
+			if (userGrade >= 2) {
+			} else {
+				alert('레벨 2 이상만 들어갈수 있어요 !');
+				event.preventDefault();
+			}
+		});
+		$('#recommendBtn').click(function(event) {
+			if (userGrade >= 2) {
+			} else {
+				alert('레벨 2 이상만 들어갈수 있어요 !');
+				event.preventDefault();
+			}
+		});
+		$('#mypageBtn').click(function(event) {
+			if (userGrade >= 2) {
+			} else {
+				alert('레벨 2 이상만 들어갈수 있어요 !');
+				event.preventDefault();
+			}
+		});
+
 		$('#managerBtn').click(function(event) {
 			if (userGrade >= 10) {
 				alert('하');
@@ -211,6 +250,24 @@
 		});
 	});
 	//managerBtn
+
+	function welcomUser() {
+
+		FB.api('/me', function checkUser(response) {
+
+			$("#welcomeUser").html("<h2>안녕하세요 " + response.name + "님 !</h2>");
+		});
+		/* make the API call */
+		FB.api("/me/picture", function(response) {
+			console.log('사진이야!!');
+			if (response) {
+				/* handle the result */
+				console.log(response);
+				$('#userImg').attr('src', response.data.url);
+			}
+		});
+
+	}
 </script>
 
 
@@ -246,6 +303,7 @@
 							<form id="genreForm" action="<c:url value='/action/genre'/>"
 								method="post">
 								<button id="genreBtn" type="submit">
+									<img src="<c:url value='/img/menu/lock.png'/>" />
 									<p>장르 선택</p>
 								</button>
 								<input type="hidden" name="todo" value="showGenres">
@@ -255,6 +313,7 @@
 							<form id="moreForm" action="<c:url value='/action/userGenre'/>"
 								method="post">
 								<button id="moreBtn" type="submit">
+									<img src="<c:url value='/img/menu/lock.png'/>" />
 									<p>평가 하기</p>
 								</button>
 								<input type="hidden" name="todo" value="">
@@ -264,6 +323,7 @@
 								action="<c:url value='/action/recommend'/>" method="post">
 								<%-- 	<c:if test="${userGradeInt >= 2}"> --%>
 								<button id="recommendBtn" type="submit">
+									<img src="<c:url value='/img/menu/lock.png'/>" />
 									<p>추천해줘</p>
 								</button>
 								<input type="hidden" name="todo" value="recommend">
@@ -275,6 +335,7 @@
 								action="<c:url value='/action/mypageReadWebtoon'/>"
 								method="post">
 								<button id="mypageBtn" type="submit">
+									<img src="<c:url value='/img/menu/lock.png'/>" />
 									<p>마이페이지</p>
 								</button>
 							</form></li>
