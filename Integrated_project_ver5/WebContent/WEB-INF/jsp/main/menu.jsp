@@ -217,6 +217,13 @@
 
 		}
 		//버튼 클릭 
+		$('#genreBtn').click(function(event) {
+			if (userGrade >= 2) {
+			} else {
+				alert('레벨 2 이상만 들어갈수 있어요 !');
+				event.preventDefault();
+			}
+		});
 		$('#moreBtn').click(function(event) {
 			if (userGrade >= 2) {
 			} else {

@@ -31,9 +31,6 @@
 <title>authors</title>
 </head>
 <body>
-
-	<c:import url="/WEB-INF/jsp/manager/managerMenu.jsp"></c:import>
-
 	<section id="searchBar">
 		이름검색: <input type='text' id='txtFilter'
 			onkeyup='{filter();return false}'
@@ -43,7 +40,7 @@
 	</section>
 
 
-	<section id="authors">
+	<section id="authorList">
 
 		<table class="table table-hover" id="authorList">
 			<thead>
@@ -57,7 +54,7 @@
 				<c:forEach var="author" items="${allAuthors}">
 					<tr name="${author.authors_name}">
 
-						<td><c:out value="${author.authors_name}" /></td>
+						<td><c:out value="${author.authors_name}"  /></td>
 
 						<td><form>
 								<input type="hidden" name="keywords_id_pk"

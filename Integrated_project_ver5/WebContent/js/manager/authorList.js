@@ -7,7 +7,7 @@ $(document).ready(function() {
 });
 
 $(document).ready(function() {
-	$('#authors button').click(function(e) {
+	$('.authorBtn').click(function(e) {
 		e.preventDefault();
 	});
 });
@@ -23,6 +23,7 @@ $(document)
 
 										var authorID = $(this)
 												.siblings("input").attr('value');
+										console.log()
 										console.log("authorID = " + authorID);
 
 										$
@@ -70,3 +71,17 @@ $(document)
 												});
 									});
 				});
+
+
+function filter() {
+	if ($('#txtFilter').val() == "")
+		$("#authorList tr").css('display', '');
+	else {
+		$("#authorList tr").css('display', 'none');
+		$("#authorList th").css('display', '');
+		$("#authorList tr[name*='" + $('#txtFilter').val() + "']").css('display',
+				'');
+	}
+	return false;
+}
+
