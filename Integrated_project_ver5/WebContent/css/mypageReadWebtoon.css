@@ -33,3 +33,130 @@ height: 1.5em;
 width: 15em;
 vertical-align: -0.2em;
 }
+
+  @media (min-width: @screen-small) {
+    margin-left:  (@gutter / -2);
+    margin-right: (@gutter / -2);
+  }
+ 
+  // 컬럼들의 콘텐츠를 정렬하기 위해 중첩된 행들에 음수 마진을 줍니다
+  .row {
+    margin-left:  (@gutter / -2);
+    margin-right: (@gutter / -2);
+  }
+}
+ 
+// 추가적인 매우 작은 기기용 컬럼을 생성합니다
+.make-xs-column(@columns; @gutter: @grid-gutter-width) {
+  position: relative;
+  // 컬럼이 비어있을때 없어지는걸 방지합니다
+  min-height: 1px;
+  // 패딩으로 내부 간격
+  padding-left:  (@gutter / 2);
+  padding-right: (@gutter / 2);
+ 
+  // 가능한 컬럼수를 기반으로 너비를 계산합니다
+  @media (min-width: @grid-float-breakpoint) {
+    float: left;
+    width: percentage((@columns / @grid-columns));
+  }
+}
+ 
+// 작은 기기용 컬럼을 생성합니다
+.make-sm-column(@columns; @gutter: @grid-gutter-width) {
+  position: relative;
+  // 컬럼이 비어있을때 없어지는걸 방지합니다
+  min-height: 1px;
+  // 패딩으로 내부 간격
+  padding-left:  (@gutter / 2);
+  padding-right: (@gutter / 2);
+ 
+  // 가능한 컬럼수를 기반으로 너비를 계산합니다
+  @media (min-width: @screen-small) {
+    float: left;
+    width: percentage((@columns / @grid-columns));
+  }
+}
+ 
+// 작은 기기용 컬럼 오프셋을 생성합니다
+.make-sm-column-offset(@columns) {
+  @media (min-width: @screen-small) {
+    margin-left: percentage((@columns / @grid-columns));
+  }
+}
+.make-sm-column-push(@columns) {
+  @media (min-width: @screen-small) {
+    left: percentage((@columns / @grid-columns));
+  }
+}
+.make-sm-column-pull(@columns) {
+  @media (min-width: @screen-small) {
+    right: percentage((@columns / @grid-columns));
+  }
+}
+ 
+// 중간 기기용 컬럼을 생성합니다
+.make-md-column(@columns; @gutter: @grid-gutter-width) {
+  position: relative;`
+  // 컬럼이 비어있을때 없어지는걸 방지합니다
+  min-height: 1px;
+  // 패딩으로 내부 간격
+  padding-left:  (@gutter / 2);
+  padding-right: (@gutter / 2);
+ 
+  // 가능한 컬럼수를 기반으로 너비를 계산합니다
+  @media (min-width: @screen-medium) {
+    float: left;
+    width: percentage((@columns / @grid-columns));
+  }
+}
+ 
+// 중간 기기용 컬럼 오프셋을 생성합니다
+.make-md-column-offset(@columns) {
+  @media (min-width: @screen-medium) {
+    margin-left: percentage((@columns / @grid-columns));
+  }
+}
+.make-md-column-push(@columns) {
+  @media (min-width: @screen-medium) {
+    left: percentage((@columns / @grid-columns));
+  }
+}
+.make-md-column-pull(@columns) {
+  @media (min-width: @screen-medium) {
+    right: percentage((@columns / @grid-columns));
+  }
+}
+ 
+// 큰 기기용 컬럼을 생성합니다
+.make-lg-column(@columns; @gutter: @grid-gutter-width) {
+  position: relative;
+  // 컬럼이 비어있을때 없어지는걸 방지합니다
+  min-height: 1px;
+  // 패딩으로 내부 간격
+  padding-left:  (@gutter / 2);
+  padding-right: (@gutter / 2);
+ 
+  // 가능한 컬럼수를 기반으로 너비를 계산합니다
+  @media (min-width: @screen-large) {
+    float: left;
+    width: percentage((@columns / @grid-columns));
+  }
+}
+ 
+// 큰 기기용 컬럼 오프셋을 생성합니다
+.make-lg-column-offset(@columns) {
+  @media (min-width: @screen-large) {
+    margin-left: percentage((@columns / @grid-columns));
+  }
+}
+.make-lg-column-push(@columns) {
+  @media (min-width: @screen-large) {
+    left: percentage((@columns / @grid-columns));
+  }
+}
+.make-lg-column-pull(@columns) {
+  @media (min-width: @screen-large) {
+    right: percentage((@columns / @grid-columns));
+  }
+}

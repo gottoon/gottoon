@@ -53,9 +53,8 @@ $(document).ready(function() {
 			todo : "getCount"
 		},
 		success : function(data) {
-			$("meter").val([ data ]);
+			/*$("meter").val([ data ]);*/
 			console.log("ajax 결과값 " + data);
-
 		}
 	});
 

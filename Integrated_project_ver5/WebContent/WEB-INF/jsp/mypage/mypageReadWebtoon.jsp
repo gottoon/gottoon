@@ -14,77 +14,15 @@
 
 <link rel="stylesheet" media="screen" type="text/css"
 	href="<c:url value='/css/myPageStar.css'/>" />
-<script src="<c:url value='/js/mypageReadWebtoon.js'/>"></script>
-<script src="<c:url value='/js/MyPageAndStarPoint.js'/>"></script>
 
-
-
-
-<%--<link rel="stylesheet" href="<c:url value='/css/mypageReadWebtoon.css'/>" />
-<script src="<c:url value='/js/mypageReadWebtoon.js'/>"></script> --%>
-
-<script type="text/javascript">
-
-				
-				var grade = ${grade}
-				console.log("${grade}");
-				
-				if (grade == 1) {
-					$("#grade").append(" <b>Level : 1 / 웹툰이라고 알어?</b>");
-					$(".gradeImg").append('<img src="<c:url value="/img/gradeImg/grade_level1.png"/>" width="200" height="200" border="0">');
-				} else if (grade == 2) {
-					$("#grade").append(" <b>Level : 2 / 웹툰은 보고 다니냐?</b>");
-					$(".gradeImg").append('<img src="<c:url value="/img/gradeImg/grade_level2.png"/>" width="200" height="200" border="0">');
-				} else if (grade == 3) {
-					$("#grade").append(" <b>Level : 3 / 웹툰 초보자</b>");
-					$(".gradeImg").append('<img src="<c:url value="/img/gradeImg/grade_level3.png"/>" width="200" height="200" border="0">');
-				} else if (grade == 4) {
-					$("#grade").append(" <b>Level : 4 / 웹툰 좀 보네?</b>");
-					$(".gradeImg").append('<img src="<c:url value="/img/gradeImg/grade_level4.png"/>" width="200" height="200" border="0">');
-				} else if (grade == 5) {
-					$("#grade").append(" <b>Level : 5 / 웹툰 중수</b>");
-					$(".gradeImg").append('<img src="<c:url value="/img/gradeImg/grade_level5.png"/>" width="200" height="200" border="0">');
-				} else if (grade == 6) {
-					$("#grade").append(" <b>Level : 6 / 장기 고색이시군요.</b>");
-					$(".gradeImg").append('<img src="<c:url value="/img/gradeImg/grade_level6.png"/>" width="200" height="200" border="0">');
-				} else if (grade == 7) {
-					$("#grade").append(" <b>Level : 7 / 웹툰 진짜 좋아하나봐?</b>");
-					$(".gradeImg").append('<img src="<c:url value="/img/gradeImg/grade_level7.png"/>" width="200" height="200" border="0">');
-				} else if (grade == 8) {
-					$("#grade").append(" <b>Level : 8 / 업계 종사자세요?</b>");
-					$(".gradeImg").append('<img src="<c:url value="/img/gradeImg/grade_level8.png"/>" width="200" height="200" border="0">');
-				} else if (grade == 9) {
-					$("#grade").append(" <b>Level : 9 / 경배하라! 웹툰 신이다!</b>");
-					$(".gradeImg").append('<img src="<c:url value="/img/gradeImg/grade_level9.png"/>" width="200" height="200" border="0">');
-				};
-			}
-			});	
-}); 
-	
-</script>
-
-<script src='http://codepen.io/assets/libs/fullpage/jquery.js'></script> 
 <style>
 meter {
--webkit-appearance: meter;
-box-sizing: border-box;
-display: inline-block;
-height: 1.5em;
-width: 15em;
-vertical-align: -0.2em;
-}
-
-.thumbnail {
-	display: block;
-	padding: 4px;
-	margin-bottom: 30px;
-	line-height: 2.42857143;
-	background-color: #fff;
-	border: 1px solid #ddd;
-	border-radius: 10px;
-	-webkit-transition: all .2s ease-in-out;
-	-o-transition: all .2s ease-in-out;
-	transition: all .2s ease-in-out;
+	-webkit-appearance: meter;
+	box-sizing: border-box;
+	display: inline-block;
+	height: 1.5em;
+	width: 15em;
+	vertical-align: -0.2em;
 }
 
 body {
@@ -96,88 +34,115 @@ body {
 }
 
 h2,div {
-	font-size: 20px;
+	font-size: 18px;
 	text-align: center;
 } 
 
-a{
-width:12em; 
-border:0px solid #000000;
-word-break:break-all;
+table.grade_table {
+	/* margin : auto; */
+	margin-left: 15%;
+	margin-bottom: 50px;
 }
-</style>
 
+a {
+	width: 12em;
+	border: 0px solid #000000;
+	word-break: break-all;
+	padding-top: 17px;
+	padding-bottom: 18px;
+	color: #79b3d4;
+	font-size: 14px;
+	font-weight: normal;
+	background-color: #fff;
+	cursor: pointer;
+	display: block;
+	
+}
+
+section.contains{
+	background-color: #e5e5e5;
+}
+
+</style>
 
 <title>MYPAGE READ WEBTOON</title>
 </head>
 
 <body>
 	<%-- MYPAGE READ WEBTOON --%>
-	
-	
-		<div class="show-modalStar">
+
+
+	<div class="show-modalStar">
 		<div class="modalStar">
 			<div>저장 부아악!</div>
 		</div>
 	</div>
 
-<div class="show-modalDeleteStar">
+	<div class="show-modalDeleteStar">
 		<div class="modalDeleteStar">
-			<div>삭제  끄아악!</div>
+			<div>삭제 끄아악!</div>
 		</div>
 	</div>
-	
-	
-	
-	
-	
+
 	<section>
-	<div>
-	<h2>지금까지 총 ${fn:length(readToon)} 편의 웹툰을 보셨습니다.</h2>
-	
-	<meter id="meter" low=35 high=70 max=100 value=0>
-		<input name="show" />
-	</meter>
-	</div>
-	
+		
+
 		<article>
 			<nav>
 				<div>
-					<p id="grade"></p>
-					<table border='0' cellpadding='0' align="center">
+					<div>
+					<table class="grade_table" border="0" cellpadding="0" align="center">
 						<tr>
-							<td class="gradeImg"></td>
+							<td class="gradeImg"><p id="grade"></p></td>
 						</tr>
 					</table>
+					</div>
+					<div>
+			<h2>지금까지 총 ${fn:length(readToon)} 편의 웹툰을 보셨습니다.</h2>
+			
+			<meter id="gauge" low=35 high=70 max=100 value=0>
+				<!-- <input name="showGauge" /> -->
+			</meter>
+		</div>
 				</div>
+				
+				
 			</nav>
 		</article>
 	</section>
 
-	<section class="container">
-		<table border='0' cellpadding='0' align="center">
-			<tr>
-				<td><c:forEach var="WebtoonVO" items="${readToon}" varStatus="status">
-		<link href='http://fonts.googleapis.com/css?family=Lato:300,400,700,900'
-			rel='stylesheet' type='text/css'>
-				<div class="col-xs-12 col-sm-6 col-md-6 col-lg-4">
-							<div class="thumbnail">
-								<div class="caption">
-									<article>
+	<section class="contains">
+		<div class="gallery">
+			<!-- <div class="table-responsive"> -->
 
-										<form method="post" action="webtoon">
-										<input type="hidden" name="webtoon_id" value="${WebtoonVO.webtoons_id_pk}" />
-										<input type="hidden" name="todo" value="showWebtoonDetails" />
-										<%-- <input type="image" width="100%" height="100%" src="<c:url value='${WebtoonVO.webtoons_thumbnail}'/>" /> --%>
-										<input type="image" width="100%" height="100%" src="<c:url value='${WebtoonVO.webtoons_thumbnail}'/>" />
-										</form>
-
-		<!-- <table id="fb-root" class="showToon" border="1"> -->
-
-
-				<input type="hidden" id="rate" value="${WebtoonVO.webtoon_rate }">
-					 <input type="hidden" id="id" value="${WebtoonVO.webtoons_id_pk }">
-					<form id="myForm">
+			<table class="table" border='0' cellpadding='0' align="center">
+				<tr>
+					<td><c:forEach var="WebtoonVO" items="${readToon}"
+							varStatus="status">
+							<link
+								href='http://fonts.googleapis.com/css?family=Lato:300,400,700,900'
+								rel='stylesheet' type='text/css'>
+							<div class="gallery-item">
+								<div class="vcard">
+									<div id="image">
+									
+									<form method="post" action="webtoon">
+										<input type="hidden" name="webtoon_id"
+											value="${WebtoonVO.webtoons_id_pk}" /> <input type="hidden"
+											name="todo" value="showWebtoonDetails" /> <input
+											type="image"
+											src="<c:url value='${WebtoonVO.webtoons_thumbnail}'/>" alt
+											class="photo" />
+									</form>
+									</div>
+									<!-- <table id="fb-root" class="showToon" border="1"> -->
+									<div id="title"><a href="${WebtoonVO.webtoons_url}" target="_blank">${WebtoonVO.webtoons_title}</a></div>
+									
+									<div id="desc">
+									<input type="hidden" id="rate"
+										value="${WebtoonVO.webtoon_rate }"> <input
+										type="hidden" id="id" value="${WebtoonVO.webtoons_id_pk }">
+									<form id="myForm">
 						<p>별점 : ${WebtoonVO.webtoon_rate }</p>
 						<div class="product-review-stars">
 							<input type="checkbox"
@@ -208,22 +173,21 @@ word-break:break-all;
 								title="Sucks big time">★</label>
 						</div>
 					</form>
-<!-- 		</table>
+									<!-- 		</table>
  -->
-		
-
-
-
-
-
-										<br> <a href="${WebtoonVO.webtoons_url}" target="_blank">${WebtoonVO.webtoons_title}</a>
-									</article>
 								</div>
 							</div>
-						</div>
-					</c:forEach></td>
-			</tr>
-		</table>
+							</div>
+							<!-- </div> -->
+						</c:forEach></td>
+						
+				</tr>
+			</table>
+		</div>
 	</section>
+
+	<script src="<c:url value='/js/mypageReadWebtoon.js'/>"></script>
+	<script src="<c:url value='/js/MyPageAndStarPoint.js'/>"></script>
+	<script src='http://codepen.io/assets/libs/fullpage/jquery.js'></script>
 </body>
 </html>
