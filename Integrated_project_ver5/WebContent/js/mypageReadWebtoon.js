@@ -9,11 +9,17 @@ $(document).ready(function() {
 					todo : "readWebtoonCount"
 			},
 			success : function(data) {
-				/*$("#gauge").hide();
+				$("#gauge").hide();
 				console.log(data);
 				
+				// 계산 바꿔야함
+				// 0~19는 1 
+				// 20~39는 2
 				//최소 20개 2등급
-				if ([ data ] >= 1 && [ data ] <= 19) {	
+				if([ data ] == 0) {
+					$("#grade").append(" <b>Level : 2 / 웹툰은 보고 다니냐?</b>");
+					$(".gradeImg").append('<img src="../img/gradeImg/grade_level2.png" width="200" height="200" border="0">');
+				} else if ([ data ] >= 1 && [ data ] <= 19) {	
 					$("#gauge").show();
 					$("#gauge").val([ data ] * 5); //1당 5
 					$("#grade").append(" <b>Level : 2 / 웹툰은 보고 다니냐?</b>");
@@ -56,8 +62,7 @@ $(document).ready(function() {
 				} else {
 					$("#gauge").show();
 					$("#gauge").val([ data ] * 0);
-					
-				}*/
+				}
 			}
 			});		
 			

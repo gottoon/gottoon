@@ -34,15 +34,35 @@ body {
 }
 
 h2,div {
-	font-size: 20px;
+	font-size: 18px;
 	text-align: center;
 } 
+
+table.grade_table {
+	/* margin : auto; */
+	margin-left: 15%;
+	margin-bottom: 50px;
+}
 
 a {
 	width: 12em;
 	border: 0px solid #000000;
 	word-break: break-all;
+	padding-top: 17px;
+	padding-bottom: 18px;
+	color: #79b3d4;
+	font-size: 14px;
+	font-weight: normal;
+	background-color: #fff;
+	cursor: pointer;
+	display: block;
+	
 }
+
+section.contains{
+	background-color: #e5e5e5;
+}
+
 </style>
 
 <title>MYPAGE READ WEBTOON</title>
@@ -65,24 +85,28 @@ a {
 	</div>
 
 	<section>
-		<div>
+		
+
+		<article>
+			<nav>
+				<div>
+					<div>
+					<table class="grade_table" border="0" cellpadding="0" align="center">
+						<tr>
+							<td class="gradeImg"><p id="grade"></p></td>
+						</tr>
+					</table>
+					</div>
+					<div>
 			<h2>지금까지 총 ${fn:length(readToon)} 편의 웹툰을 보셨습니다.</h2>
 			
 			<meter id="gauge" low=35 high=70 max=100 value=0>
 				<!-- <input name="showGauge" /> -->
 			</meter>
 		</div>
-
-		<article>
-			<nav>
-				<div>
-					<p id="grade"></p>
-					<table class="grade_table" border="0" cellpadding="0" align="center">
-						<tr>
-							<td class="gradeImg"></td>
-						</tr>
-					</table>
 				</div>
+				
+				
 			</nav>
 		</article>
 	</section>
@@ -101,6 +125,7 @@ a {
 							<div class="gallery-item">
 								<div class="vcard">
 									<div id="image">
+									
 									<form method="post" action="webtoon">
 										<input type="hidden" name="webtoon_id"
 											value="${WebtoonVO.webtoons_id_pk}" /> <input type="hidden"
@@ -111,6 +136,7 @@ a {
 									</form>
 									</div>
 									<!-- <table id="fb-root" class="showToon" border="1"> -->
+									<div id="title"><a href="${WebtoonVO.webtoons_url}" target="_blank">${WebtoonVO.webtoons_title}</a></div>
 									
 									<div id="desc">
 									<input type="hidden" id="rate"
@@ -149,7 +175,6 @@ a {
 					</form>
 									<!-- 		</table>
  -->
-									<br> <a href="${WebtoonVO.webtoons_url}" target="_blank">${WebtoonVO.webtoons_title}</a>
 								</div>
 							</div>
 							</div>

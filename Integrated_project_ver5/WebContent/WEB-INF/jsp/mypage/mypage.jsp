@@ -39,16 +39,22 @@
     margin-top: 0%;
  }
  
- .gallery-item {
+.gallery-item {
     display: inline-block;
     vertical-align: top;
-    margin-bottom: 1.5rem;
+    margin-top: .5%;
+    margin-left: .5%;
+	margin-right: .5%;
+	margin-bottom: 5%;
+	border: 1px solid gray;
+	border-radius : 5px;
+	background-color: #ffffff;
 }
 
 .gallery-item .vcard {
-    width: 95%;
+    width: 100%;
     text-align: center;
-    margin-bottom: 0px;
+    margin-bottom: 20px;
 }
 
 .gallery-item .vcard .photo {
@@ -59,16 +65,19 @@ h1, h2 {
 	text-align: center;
     margin-top: 0;
 }
+
 h1, h2, h3, h4 {
 	text-align: center;
     line-height: 1;
 }
+
 ul, ol {    
 	text-align: center;
     margin: 0 0 1em;
     padding: 0;
     list-style: none;
 }
+
 img {
 	text-align: center;
     border: none;
@@ -77,6 +86,28 @@ img {
     max-width: 100%;
 }
 
+div#title {
+	height: 60px;
+	margin-top: 10px;
+	margin-bottom: 10px;
+	margin-left: 25px;
+	margin-right: 25px;
+}
+
+div#image {
+	width: 100%;
+	/* float : left; */
+}
+
+div#desc {
+	border-top: 1px solid #F3F3F5;
+	margin-left: 10px;
+	margin-right: 10px;
+	margin-bottom: 30px;
+}
+
+
+/* 큰화면에서 테스트 */
 @media all and (min-width: 1800px) {
 body {
         font-size: 25px;
@@ -85,8 +116,9 @@ body {
    
 .gallery .gallery-item {
         width: 15%;
+        
     }
-
+	
 }
 
 @media all and (min-width: 1200px) and (max-width: 1799px) {
@@ -96,7 +128,8 @@ body {
     }
    
 .gallery .gallery-item {
-        width: 18%;
+        /* width: 18%; */
+        width: 220px;
     }
 }
 @media all and (min-width: 1024px) and (max-width: 1199px){
@@ -106,7 +139,8 @@ body {
     }
    
 .gallery .gallery-item {
-        width: 18%;
+        /* width: 18%; */
+        width: 200px;
     }
 
 }
@@ -119,7 +153,8 @@ body {
     }
    
 .gallery .gallery-item {
-        width: 20%;
+        /* width: 20%; */
+        width: 200px;
     }
 
 }
@@ -131,7 +166,8 @@ body {
     }
    
 .gallery .gallery-item {
-        width: 30%;
+        /* width: 30%; */
+        width: 250px;
     }
 
 }
@@ -143,7 +179,8 @@ body {
     }
    
 .gallery .gallery-item {
-        width: 30%;
+        /* width: 30%; */
+        width: 200px;
     }
 
 }
@@ -160,38 +197,19 @@ div#image {
 }
 
 div#desc {
-	float : Left;
-} 
-
-}
-/* .photo {
-position: relative;
-right: 93px;
-}   
-
-form#myForm {
-position: relative;
-bottom: 210px;
-left: 120px;
+	float : right;
+	width: 50%;
 }
 
-a#mya {
-position: relative;
-bottom: 210px;
-left: 120px;
-}
-
-.gallery-item .vcard {
-width: 95%;
-text-align: center;
-margin-bottom: -160px;
-}
-   */
 .gallery .gallery-item {
-        width: 100%;
+       width: 100%;
     }
- 
+
+
 }
+
+
+    
 </style>
 <title>MYPAGE</title>
 </head>
@@ -212,13 +230,13 @@ margin-bottom: -160px;
 					<form name="Mypagetap"
 						action="<c:url value='/action/mypageReadWebtoon'/>" method="POST">
 						<input type="hidden" name="todo" value="mypageReadWebtoon">
-						<input class="btn btn-success btn-lg" type="submit"
+						<input class="btn btn-primary btn-lg" type="submit"
 							value="내가 본 웹툰" />
 					</form>
 				</li>
 			<li><form name="Mypagetap" action="<c:url value='/action/mypageRecommendWebtoon'/>" method="POST">
 					<input type="hidden" name="todo" value="mypageRecommend"> <input
-						class="btn btn-success btn-lg" type="submit" value="신작 / 찜 툰" />
+						class="btn btn-primary btn-lg" type="submit" value="신작 / 찜 툰" />
 				</form></li>
 		</ul>
 	</div>
