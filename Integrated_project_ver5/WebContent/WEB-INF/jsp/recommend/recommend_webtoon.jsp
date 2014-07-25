@@ -6,48 +6,34 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>Show Recommended Webtoons</title>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta name="viewprot" content="width=device-width">
 <link rel="stylesheet" href="<c:url value='/css/recommend.css'/>" />
-<link rel="stylesheet" href="<c:url value='/css/showToon.css'/>" />
+<link rel="stylesheet" href="<c:url value='/css/recommendStar.css'/>" />
 <script	src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
 <script src="<c:url value='/js/recommend.js'/>"></script>
 <script src="<c:url value='/js/showToon.js'/>"></script>
-<!-- <style>
-#webtoon_table {
-	background-color : #4963CE;
-}
-</style> -->
+<title>Show Recommended Webtoons</title>
 </head>
 <body>
-<div class="show-modalStar">
-		<div class="modalStar">
-			<div>저장 부아악!</div>
-		</div>
-	</div>
-
-<div class="show-modalDeleteStar">
-		<div class="modalDeleteStar">
-			<div>삭제  끄아악!</div>
-		</div>
-	</div>
-	<div class="top-header">
-	
-<div id="pgcontainer">
-<c:import url="/WEB-INF/jsp/main/menu.jsp"></c:import>
-
-		<h1>Hello :)
-		<span>${CurrentUser}'s<br />Recommend Webtoons!</span>
-		</h1>
-		<div class="nav">
-			<div id="go_mypage">
-				<form method="post" action="<c:url value='/action/mypageReadWebtoon'/>">
-					<input type="submit" id="reset" value="마이페이지" />
-				</form>
+	<div id="pgcontainer">
+		<c:import url="/WEB-INF/jsp/main/menu.jsp"></c:import>
+		<div class="show-modalStar">
+			<div class="modalStar">
+				<div>저장 부아악!</div>
 			</div>
+		</div>
+		<div class="show-modalDeleteStar">
+			<div class="modalDeleteStar">
+				<div>삭제  끄아악!</div>
+			</div>
+		</div>
+		
+		<div class="header">
+			<h1>추천 웹툰 List 입니다</h1>		
+		</div>
+		<div class="nav">
 			<div class="selectViewfree">
-				<!--  07.20 희철 -->
 				<div id="viewCharge">
 					<form method = "post" action="<c:url value='/action/recommend'/>">
 						<input type = "hidden" name = "filterviewfree" value ="false">
@@ -68,13 +54,7 @@
 				</div>
 			</div>
 		</div>
-	<div class="section">
-		<div class="sec-header">
-			<h3>추천 웹툰 List</h3>
-		</div>
-		<div class="article">
-			<div align="center" id="webtoons">
-			</div>
+		<div class="section" id="webtoons">
 		</div>
 	</div>
 	
@@ -82,26 +62,24 @@
 	
 		var webtoonCount = 0;
 		var num = 0;
-		var viewCount = 10;
+		var viewCount = 5;
 		
  		$(document).ready(function(){
 			<c:forEach var="webtoonInfo" items="${recommendWebtoons}" varStatus="status">
-				$('#webtoons').append('<table class="webtoon_table" border="1" cellpadding="5">'
-					+ '<tr><td colspan="2"></td></tr><tr><td></td><td></td></tr>'
-					+ '<tr><td></td><td></td></tr></table><br id="webtoonBreak"/>');
-				$('td').eq(-5).append('<div class="test" style="position:relative;">'
-						+ '<div class="main_image">'
-						+ '<img src="${webtoonInfo.webtoons_main_image}" width="300" height="382">'
-						+ '<form method="post" action="webtoon">'
+				$('#webtoons').append('<div class="webtoon"><table class="webtoon_table" border="1" cellpadding="5">'
+					+ '<tr><td colspan="2"></td></tr><tr><td colspan="2" class="td_test"></td></tr>'
+					+ '<tr><td class="td_test" width="50%"></td><td width="50%" class="td_test"></td></tr></table></div>');
+				$('td').eq(-4).append('<div class="test" style="position:relative;">'
+						+ '<div class="main_image_div">'
+						+ '<img class="main_image" src="${webtoonInfo.webtoons_main_image}" width="300px" height="400px">'
+						+ '<form method="post" action="webtoon" class="detail_form">'
 						+ '<input type="hidden" name="webtoon_id" value="${webtoonInfo.webtoons_id_pk}" />'
 						+ '<input type="hidden" name="todo" value="showWebtoonDetails" />'
 						+ '<button class="submit" type="submit">'
-						+ '<span class="black_overlay"></span>'
+						+ '<span>${webtoonInfo.webtoons_title}</span>'
 						+ '</button></form>'
-						+ '<h2><span>${webtoonInfo.webtoons_title}</span></h2>'
 						+ '</div>'
 						+ '</div>');
-				$('td').eq(-4).text("별점 평가하기");
 				$('td').eq(-3).append('<form id="myForm">'
 							+ '<input type="hidden" name="webtoons_id_pk" value="${webtoonInfo.webtoons_id_pk}" />'
 							+ '<input type="hidden"	name="webtoons_title" value="${webtoonInfo.webtoons_title}" />'
@@ -122,9 +100,16 @@
 							+ 'value="1^${webtoonInfo.webtoons_id_pk}" onclick=onclickStart(this) class="visuallyhidden">'
 							+ '<label for="${status.count*status.count*status.count+5}" title="Sucks big time">★</label></div></form>');
 				$('td').eq(-2).append('<form method="post" action="#">'
+							+ '<input type="hidden" name="webtoon_id" value="${webtoonInfo.webtoons_id_pk}" />'
+							+ '<div class="heart"><input type="checkbox" id="${webtoonInfo.webtoons_title}" '
+							+ 'class="visuallyhidden" name="reserve" onclick=onclickStart(this) />'
+							+ '<label for="${webtoonInfo.webtoons_title}" title="reserve_heart">❤</label></div>'
+							+ '</form>'
+						/* '<form method="post" action="#">'
 								+ '<input type="hidden" name="webtoon_id" value="${webtoonInfo.webtoons_id_pk}" />'
 								+ '<input type="button" class="button" id="reserve" value="찜하기" onclick="seeReserve(this.form);" />'
-								+ '</form>');
+								+ '</form>' */
+								);
 				$('td').eq(-1).append('<a href="${webtoonInfo.webtoons_url}">'
 							+ '<button class="button">바로보기</button></a>');
 				webtoonCount = "${status.count}";
@@ -133,11 +118,11 @@
 					$('.test').eq(webtoonCount - 1).append('<img class="end_label" src="../img/labels/end.png" />');
 				
 				if (calculateDateRange("${webtoonInfo.webtoons_first_update}"))
-					$('.main_image').eq(webtoonCount - 1).append('<img class="new_label" src="../img/labels/new.png" />');
+					$('.test').eq(webtoonCount - 1).append('<img class="new_label" src="../img/labels/new.png" />');
 
 				getHighRatedWebtoonsAuthor("${webtoonInfo.authors_name}", "${webtoonInfo.webtoons_id_pk}", function(result) {
 					label_index = "${status.count}";
-					$('.main_image').eq(label_index - 1).append('<div class="author_label"><span class="author_span">'+ result + '<br />작가웹툰!!</span></div>');
+					$('.test').eq(label_index - 1).append('<div class="author_label"><span class="author_span">'+ result + '<br />작가웹툰!!</span></div>');
 	 			});
 	 			
 			</c:forEach>
@@ -148,10 +133,8 @@
 				$('.webtoon_table').eq(num).show();	 
 			}
 			
-			checkButton();
+			/* checkButton(); */
 		});
 	</script>
-	</div>
-</div>	
 </body>
 </html>
