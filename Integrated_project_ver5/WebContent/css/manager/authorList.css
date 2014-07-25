@@ -1,0 +1,108 @@
+@CHARSET "UTF-8";
+
+
+td {
+	width: :100%;
+	font-size: 1.5em;
+	border-left: 1px dotted #3b5998;
+	border-top: #3b5998;
+	text-align: center;
+}
+
+th {
+	text-align: center;
+	background-color: #3b5998;
+	color: white;
+	font-size: 2.5em;
+	border-left: 1px dotted #3b5998;
+}
+
+th:hover {
+	color: black;
+	background-color: white;
+}
+
+th:focus {
+	background-color: yellow;
+}
+
+.users_photo{
+	border-radius:25px;
+	box-shadow:1px 1px 1px #3b5998;
+}
+#keywords {
+	height: 500px;
+}
+
+input {
+	display: inline-block;
+}
+
+#searchBar {
+	margin-top: 30px;
+}
+
+#searchBar img {
+	width: 100px;
+	display: inline-block;
+}
+
+#searchBar input {
+	width: 100%;
+	height: 100px;
+	font-size: 5em;
+	color: lightgray;
+	bold: 2;
+	display: inline-block;
+	border: 1px solid;
+}
+
+
+
+
+.inputDiv {
+	margin: 4px;
+	border-radius: 4px;
+	background-color: #8b9dc3;
+	border: 1px solid #3b5998;
+	float: left;
+	box-shadow: 1px 1px 1px black;
+}
+
+.modal-body {
+	height: auto;
+}
+
+#keywords {
+	height: auto;
+}
+
+.inputDiv:hover {
+	background: #CC3333;
+}
+
+.inputDiv label {
+	float: left;
+	width: 9em;
+	margin-bottom: 0;
+}
+
+.inputDiv label span {
+	text-align: center;
+	padding: 3px 0px;
+	display: block;
+	height: 30px;
+	border-radius: 3px;
+}
+
+.inputDiv label input {
+	position: absolute;
+	display: inline-block;
+	height: 30px;
+	margin-top:0;
+}
+
+.inputDiv input:checked+span {
+	background-color: #CC3333;
+	color: #fff;
+}

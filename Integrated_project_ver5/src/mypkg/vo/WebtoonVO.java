@@ -114,7 +114,7 @@ public class WebtoonVO implements Serializable {
 		this.webtoons_url = webtoons_url;
 	}
 
-	// 2014.07.11 soo 생성자 추가 (웹툰 상세보기)
+	// 2014.07.11 soo 생성자 추가 (웹툰 상세보기) - 내가 본거&찜한거
 	// 생성자 8번
 	public WebtoonVO(int webtoon_id_pk, String genres_name, String webtoons_title,
 			String webtoons_summary, String webtoons_update_days,
@@ -139,7 +139,30 @@ public class WebtoonVO implements Serializable {
 		this.webtoon_rate = user_webtoon_rate;
 	}
 	
-	//생성자 9번 - bj 7.18
+	// 2014.07.11 soo 생성자 추가 (웹툰 상세보기) - 내가 안본거
+	// 생성자 9번
+	public WebtoonVO(int webtoon_id_pk, String genres_name, String webtoons_title,
+			String webtoons_summary, String webtoons_update_days,
+			String webtoons_completed, String webtoon_viewfree, String webtoon_professional,
+			String webtoons_pgrating, String webtoons_publisher, double webtoons_average_rate,
+			String webtoons_main_image, String webtoons_url, String webtoons_first_update) {
+		this.webtoons_id_pk = webtoon_id_pk;
+		this.genres_name = genres_name;
+		this.webtoons_title = webtoons_title;
+		this.webtoons_summary = webtoons_summary;
+		this.webtoons_update_days = webtoons_update_days;
+		this.webtoons_completed = webtoons_completed;
+		this.webtoon_viewfree = webtoon_viewfree;
+		this.webtoon_professional = webtoon_professional;
+		this.webtoons_pgrating = webtoons_pgrating;
+		this.webtoons_publisher = webtoons_publisher;
+		this.webtoons_average_rate = webtoons_average_rate;
+		this.webtoons_main_image = webtoons_main_image;
+		this.webtoons_url = webtoons_url;
+		this.webtoons_first_update = webtoons_first_update;
+	}
+	
+	//생성자 10번 - bj 7.18
 	public WebtoonVO(int webtoon_id_pk, int genre_id_fk, String webtoons_title,
 			String webtoons_summary, String webtoons_update_days,
 			String webtoons_completed, boolean webtoons_viewfree,
@@ -157,7 +180,7 @@ public class WebtoonVO implements Serializable {
 		this.webtoons_publisher = webtoons_publisher;
 		this.webtoons_average_rate = webtoons_average_rate;
 	}
-	//생성자 10번 - bj 7.18
+	//생성자 11번 - bj 7.18
 	public WebtoonVO(int webtoons_id_pk, int genre_id_fk,
 			String webtoons_title, String webtoons_summary,
 			String webtoons_update_days, String webtoons_completed,

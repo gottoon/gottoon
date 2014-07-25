@@ -67,6 +67,9 @@ public class ManagerCommand implements Command {
 			this.doGetWebtoonsByAuthorID(request);
 		} else if (todo.equals("addWebtoon")) {
 			this.doAddWebtoon(request);
+		}else if(todo.equals("mansony")){
+			this.doGetAllKeywords(request);
+			commandResult = new CommandResult("/WEB-INF/jsp/manager/mansonyTest.jsp");
 		}
 
 		return commandResult;

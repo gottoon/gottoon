@@ -60,7 +60,7 @@
 			$("#facebookBtn").show();
 
 		} else {
-			$("#welcomeUser").html('<p>Please log into Facebook.</p>');
+			$("#welcomeUser").html('<p>Facebook 로그인/회원가입하기 !</p>');
 			$("#facebookBtn").show();
 
 			FB
@@ -87,13 +87,13 @@
 	/* 로그인 */
 	function login() {
 		console.log('로그인 실행 ');
-
+		var photoUrl = "";
 		/* make the API call */
 		FB.api("/me/picture", function(response) {
 			console.log('사진이야!!');
 			if (response) {
 				/* handle the result */
-				console.log(response);
+				photoUrl = response.data.url;
 				$('#userImg').attr('src', response.data.url);
 			}
 		});
@@ -112,6 +112,7 @@
 					"curruntUserName" : curruntUserName,
 					"curruntUserEmail" : curruntUserEmail,
 					"CurruntUser_facebookID" : CurruntUser_facebookID,
+					"currentUserPhoto" : photoUrl
 				},
 
 				success : function(data) {
@@ -203,7 +204,8 @@
 		if (userGrade >= 1) {
 			console.log('더 평가하기 없애');
 			$('#genreBtn img').hide();
-			if (userGrade >= 1) {
+
+			if (userGrade >= 2) {
 
 				$('#moreBtn img').hide();
 				$('#recommendBtn img').hide();
@@ -217,22 +219,29 @@
 
 		}
 		//버튼 클릭 
+		$('#genreBtn').click(function(event) {
+			if (userGrade >= 2) {
+			} else {
+				alert('레벨 2 이상만 들어갈수 있어요 !');
+				event.preventDefault();
+			}
+		});
 		$('#moreBtn').click(function(event) {
-			if (userGrade >= 1) {
+			if (userGrade >= 2) {
 			} else {
 				alert('레벨 2 이상만 들어갈수 있어요 !');
 				event.preventDefault();
 			}
 		});
 		$('#recommendBtn').click(function(event) {
-			if (userGrade >= 1) {
+			if (userGrade >= 2) {
 			} else {
 				alert('레벨 2 이상만 들어갈수 있어요 !');
 				event.preventDefault();
 			}
 		});
 		$('#mypageBtn').click(function(event) {
-			if (userGrade >= 1) {
+			if (userGrade >= 2) {
 			} else {
 				alert('레벨 2 이상만 들어갈수 있어요 !');
 				event.preventDefault();
@@ -287,7 +296,8 @@
 	<header>
 		<nav>
 			<div id="navbar">
-				<a href="#" class="menubtn">menu</a>
+				<a href="#" class="menubtn"><img
+					src="<c:url value='/img/menu/menu.png'/>">gottoon</a>
 				<!-- use captain icon for toggle menu -->
 				<div id="hamburgermenu">
 					<ul>
@@ -332,8 +342,7 @@
 							</form></li>
 
 						<li><form id="mypageForm"
-								action="<c:url value='/action/mypageReadWebtoon'/>"
-								method="post">
+								action="<c:url value='/action/mypageReadWebtoon'/>" method="post">
 								<button id="mypageBtn" type="submit">
 									<img src="<c:url value='/img/menu/lock.png'/>" />
 									<p>마이페이지</p>

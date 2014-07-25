@@ -25,16 +25,15 @@ public class ChartCommand implements Command {
 		System.out.println("todo = " + todo);
 
 		if (todo.equals("keywordChart")) {
-
-			commandResult = new CommandResult("/chart/chart.html");
+			commandResult = new CommandResult("/chart/keywordChart.jsp");
 		} else if (todo.equals("authorChart")) {
-			commandResult = new CommandResult("/chart/authorChart.html");
+			commandResult = new CommandResult("/chart/authorChart.jsp");
 		} else if (todo.equals("genreChart")) {
-			commandResult = new CommandResult("/chart/genreChart.html");
+			commandResult = new CommandResult("/chart/genreChart.jsp");
 		} else if (todo.equals("publisherChart")) {
-			commandResult = new CommandResult("/chart/publisherChart.html");
+			commandResult = new CommandResult("/chart/publisherChart.jsp");
 		} else if (todo.equals("userWebtoonChart")) {
-			commandResult = new CommandResult("/chart/userWebtoonChart.html");
+			commandResult = new CommandResult("/chart/userWebtoonChart.jsp");
 		}
 
 		return commandResult;

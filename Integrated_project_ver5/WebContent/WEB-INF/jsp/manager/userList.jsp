@@ -25,54 +25,68 @@
 <link rel="stylesheet" type="text/css"
 	href="<c:url value='/css/manager/list.css'/>">
 <link rel="stylesheet" type="text/css"
-	href="<c:url value='/css//manager/webtoonList.css'/>">
-<script type="text/javascript" src="<c:url value='/js/manager/userList.js'/>"></script>
-<script type="text/javascript" src="<c:url value='/js/manager/stupidtable.js'/>"></script>
+	href="<c:url value='/css//manager/userList.css'/>">
+<script type="text/javascript"
+	src="<c:url value='/js/manager/userList.js'/>"></script>
+<script type="text/javascript"
+	src="<c:url value='/js/manager/stupidtable.js'/>"></script>
 
 </head>
 <body>
+
+
 	<section id="searchBar">
-		이름검색: <input type='text' id='txtFilter'
-			onkeyup='{filter();return false}'
-			onkeypress='javascript:if(event.keyCode==13){ filter(); return false;}'>
-		<br />
+		<div class=container>
+			<div class="col-md-2">
+
+				<img src="<c:url value='/img/manager/search.png'/>" />
+			</div>
+			<div class="col-md-8">
+				<input type='text' id='txtFilter' onkeyup='{filter();return false}'
+					onkeypress='javascript:if(event.keyCode==13){ filter(); return false;}'
+					value="이름" onfocus="clearInput(this)">
+
+			</div>
+		</div>
 
 	</section>
 
+	<br />
+	<br />
 
-	<section id="userTable">
+	<div class="container">
+		<section id="userTable">
 
-		<table class="table table-hover" id="userList">
-			<thead>
-				<tr>
-					<th data-sort="string">users_name</th>
-					<th>users_email</th>
-					<th data-sort="int">users_grade</th>
-					<th data-sort="string">users_blacklist</th>
+			<table class="table table-hover" id="userList">
+				<thead>
+					<tr>
+						<th>사진</th>
+						<th data-sort="string">이름</th>
+						<th data-sort="int">레벨</th>
+						<th data-sort="string">블랙리스트</th>
 
-					<th>keywords</th>
-				</tr>
-			</thead>
-			<tbody>
-				<c:forEach var="user" items="${allUsers}">
-					<tr name="${user.users_name}">
-
-						<td id="<c:out value="${user.users_facebookID_pk}" />"><c:out
-								value="${user.users_name}" /></td>
-						<td><c:out value="${user.users_email}" /></td>
-						<td><c:out value="${user.users_grade}" /></td>
-						<td><c:out value="${user.users_blacklist}" /></td>
-
-						<td><button class="keywordBtn" data-toggle="modal">keywords</button></td>
+						<th>keywords</th>
 					</tr>
-				</c:forEach>
-			</tbody>
+				</thead>
+				<tbody>
+					<c:forEach var="user" items="${allUsers}">
+						<tr name="${user.users_name}">
+							<td><img src="${user.users_photo}"/ class ="users_photo"></td>
+							<td id="<c:out value="${user.users_facebookID_pk}" />"><c:out
+									value="${user.users_name}" /></td>
+							<td><c:out value="${user.users_grade}" /></td>
+							<td><c:out value="${user.users_blacklist}" /></td>
 
-		</table>
-	</section>
+							<td><button class="keywordBtn" data-toggle="modal">keywords</button></td>
+						</tr>
+					</c:forEach>
+				</tbody>
+
+			</table>
+		</section>
 
 
-
+	</div>
 
 	<!-- Modal -->
 	<div class="modal fade" id="myModal" tabindex="-1" role="dialog"

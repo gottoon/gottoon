@@ -3,14 +3,16 @@
  */
 
 $(document).ready(function() {
-	$('#authors button').click(function(e) {
+	$("#authorList").stupidtable();
+});
+
+$(document).ready(function() {
+	$('.authorBtn').click(function(e) {
 		e.preventDefault();
 	});
 });
 
-$(document).ready(function() {
-	$("#authorList").stupidtable();
-});
+
 
 $(document)
 		.ready(
@@ -21,6 +23,7 @@ $(document)
 
 										var authorID = $(this)
 												.siblings("input").attr('value');
+										console.log()
 										console.log("authorID = " + authorID);
 
 										$
@@ -49,13 +52,12 @@ $(document)
 
 															$('#webtoons')
 																	.append(
-																			' <div class="checkbox"><label><input type="checkbox">'
-																					+ webtoonTitle
-																					+ '</label></div>');
-															$(
-																	'.ck-button input')
-																	.attr(
-																			"value",
+																			'<div class="col-md-3"><div class="inputDiv"><label><input class="inputbox" type="checkbox"><span>'
+																			+ webtoonTitle
+																			+ '</span></label></div></div>');
+															$('.inputbox')
+															.attr(
+																	"value",
 																			keywords_id_pk);
 														}
 
@@ -68,3 +70,23 @@ $(document)
 												});
 									});
 				});
+
+
+function filter() {
+	if ($('#txtFilter').val() == "")
+		$("#authorList tr").css('display', '');
+	else {
+		$("#authorList tr").css('display', 'none');
+		$("#authorList th").css('display', '');
+		$("#authorList tr[name*='" + $('#txtFilter').val() + "']").css('display',
+				'');
+	}
+	return false;
+}
+
+function clearInput(input) {
+	if (input.defaultValue == input.value) {
+		input.value = "";
+	}
+}
+

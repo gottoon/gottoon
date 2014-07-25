@@ -22,74 +22,85 @@
 	src="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
 
 <link rel="stylesheet" type="text/css"
-	href="<c:url value='/css/manager/webtoonList.css'/>">
-<link rel="stylesheet" type="text/css"
 	href="<c:url value='/css/manager/list.css'/>">
+<link rel="stylesheet" type="text/css"
+	href="<c:url value='/css/manager/webtoonList.css'/>">
 
-<script type="text/javascript" src="<c:url value='/js/manager/webtoonList.js'/>"></script>
-<script type="text/javascript" src="<c:url value='/js/manager/stupidtable.js'/>"></script>
+<script type="text/javascript"
+	src="<c:url value='/js/manager/webtoonList.js'/>"></script>
+<script type="text/javascript"
+	src="<c:url value='/js/manager/stupidtable.js'/>"></script>
 
 </head>
 <body>
 
-	<section id="searchBar">
-		제목 검색: <input type='text' id='txtFilter'
-			onkeyup='{filter();return false}'
-			onkeypress='javascript:if(event.keyCode==13){ filter(); return false;}'>
-		<br />
+	<div class="container">
+		<section id="searchBar">
+			<div class=container>
+				<div class="col-md-2">
 
-	</section>
+					<img src="<c:url value='/img/manager/toonSearch.png'/>" />
+				</div>
+				<div class="col-md-8">
+					<input type='text' id='txtFilter' onkeyup='{filter();return false}'
+						onkeypress='javascript:if(event.keyCode==13){ filter(); return false;}'
+						value="제목" onfocus="clearInput(this)">
 
+				</div>
+			</div>
 
+		</section>
 
-	<section id="webtoonTable">
-		<table class="table table-hover" id="webtoonList">
-			<thead>
-				<tr>
-					<th data-sort="int">ID</th>
-					<th data-sort="string">title</th>
-					<th data-sort="string">summary</th>
-					<th data-sort="string">update_days</th>
-					<th data-sort="string">completed</th>
-					<th data-sort="string">viewfree</th>
-					<th data-sort="string">professional</th>
-					<th data-sort="string">pgrating</th>
-					<th data-sort="string">publisher</th>
-					<th data-sort="float">average_rate</th>
-					<th>thumbnail</th>
-					<th>url</th>
-					<th data-sort="string">first_update</th>
-					<th data-sort="string">genres_name</th>
-					<th>keywords</th>
-				</tr>
-			</thead>
-			<tbody>
-				<c:forEach var="webtoon" items="${allWebtoons}">
-					<tr name="${webtoon.webtoons_title}">
-						<td><c:out value="${webtoon.webtoons_id_pk}" /></td>
-						<td><c:out value="${webtoon.webtoons_title}" /></td>
-						<td><c:out value="${webtoon.webtoons_summary}" /></td>
-						<td><c:out value="${webtoon.webtoons_update_days}" /></td>
-						<td><c:out value="${webtoon.webtoons_completed}" /></td>
-						<td><c:out value="${webtoon.webtoons_viewfree}" /></td>
-						<td><c:out value="${webtoon.webtoons_professional}" /></td>
-						<td><c:out value="${webtoon.webtoons_pgrating}" /></td>
-						<td><c:out value="${webtoon.webtoons_publisher}" /></td>
-						<td><c:out value="${webtoon.webtoons_average_rate}" /></td>
-						<td><c:out value="${webtoon.webtoons_thumbnail}" /></td>
-						<td><a href="<c:url value='${webtoon.webtoons_url}' />">link</a></td>
-						<td><c:out value="${webtoon.webtoons_first_update}" /></td>
-						<td><c:out value="${webtoon.genres_name}" /></td>
-						<td><button class="keywordBtn" data-toggle="modal">keywords</button></td>
+		<br /> <br />
+
+		<section id="webtoonTable">
+			<table class="table table-hover" id="webtoonList">
+				<thead>
+					<tr>
+						<th data-sort="int">ID</th>
+						<th data-sort="string">제목</th>
+						<th data-sort="string">줄거리</th>
+						<th data-sort="string">연재요일</th>
+						<th data-sort="string">완결</th>
+						<th data-sort="string">유/무료</th>
+						<th data-sort="string">프로/아마</th>
+						<th data-sort="string">관람가</th>
+						<th data-sort="string">제공처</th>
+						<th data-sort="float">평균별점</th>
+						<th>썸네일</th>
+						<th>바로가기</th>
+						<th data-sort="string">처음 연재일</th>
+						<th data-sort="string">장르</th>
+						<th>키워드</th>
 					</tr>
-				</c:forEach>
-			</tbody>
+				</thead>
+				<tbody>
+					<c:forEach var="webtoon" items="${allWebtoons}">
+						<tr name="${webtoon.webtoons_title}">
+							<td><c:out value="${webtoon.webtoons_id_pk}" /></td>
+							<td><c:out value="${webtoon.webtoons_title}" /></td>
+							<td><c:out value="${webtoon.webtoons_summary}" /></td>
+							<td><c:out value="${webtoon.webtoons_update_days}" /></td>
+							<td><c:out value="${webtoon.webtoons_completed}" /></td>
+							<td><c:out value="${webtoon.webtoons_viewfree}" /></td>
+							<td><c:out value="${webtoon.webtoons_professional}" /></td>
+							<td><c:out value="${webtoon.webtoons_pgrating}" /></td>
+							<td><c:out value="${webtoon.webtoons_publisher}" /></td>
+							<td><c:out value="${webtoon.webtoons_average_rate}" /></td>
+							<td><c:out value="${webtoon.webtoons_thumbnail}" /></td>
+							<td><a href="<c:url value='${webtoon.webtoons_url}' />">link</a></td>
+							<td><c:out value="${webtoon.webtoons_first_update}" /></td>
+							<td><c:out value="${webtoon.genres_name}" /></td>
+							<td><button class="keywordBtn" data-toggle="modal">keywords</button></td>
+						</tr>
+					</c:forEach>
+				</tbody>
 
-		</table>
+			</table>
 
-	</section>
+		</section>
 
-
+	</div>
 
 
 

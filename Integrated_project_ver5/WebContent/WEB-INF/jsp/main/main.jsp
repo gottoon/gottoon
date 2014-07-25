@@ -91,11 +91,11 @@
 
 						<!--페북 로그인 버튼, 로그인 후 환영 인사  -->
 
-						<div class="col-md-8">
+						<div class="col-md-7">
 							<div id="welcomeUser"></div>
 							
 						</div>
-						<div class="col-md-4">
+						<div class="col-md-5">
 						<div id="userPic">
 								<img id="userImg" /></img>
 							</div>
