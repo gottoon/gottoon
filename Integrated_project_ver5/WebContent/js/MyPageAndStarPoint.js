@@ -1,17 +1,28 @@
 $(document).ready(function() {
+	
 	var count = 0;
-
 	var details = $('table .product-review-stars');
 	console.log("웹툰 갯 수 " + details.length);
+	
+	
 	details.each(function() {
 		var detailsIndex = details.index(this);
 		console.log("===================================");
 		console.log("사용자가 평가했던 별점 " + $('table #rate').eq(detailsIndex).val());
 		console.log("사용자가 평가했던 웹툰 아이디 : " + $('table #id').eq(detailsIndex).val());
+        console.log("===================================");
 //		var webtoonId = "^" + $('table #id').eq(detailsIndex).val();
 //		var rate = $('table #rate').eq(detailsIndex).val();
 //		var value = rate + webtoonId;
+		
+		
+		
 		$(".product-review-stars input:checkbox[value="+"'"+$('table #rate').eq(detailsIndex).val()+"^"+$('table #id').eq(detailsIndex).val()+"'"+"]").attr("checked", true);
+
+	
+		
+		//		self.close();
+
 //		var rateValue = rate + "^" + webtoonId;
 		// console.log("웹툰의 아이디+별점 : "
 		// +$('.product-review-stars
@@ -19,7 +30,6 @@ $(document).ready(function() {
 		// ]').eq(detailsIndex).val());
 		// $("input:radio[name='NAME']:radio[value='VALUE']").attr("checked",true);예제
 //		console.log("읽은 웹툰의 아이디 + 별점 " + value);
-		console.log("===================================");
 //		console.log("하핳하하하" + rate + webtoonId);
 		// $(".product-review-stars input:checkbox[value = "+ "'" + rate +
 		// webtoonId + "'" + "]").attr("checked", true);
@@ -42,9 +52,38 @@ $(document).ready(function() {
 		// .attr("checked" , true));
 
 	});
+	
 
+	
+	
+//	$.one(function(){
+//
+//		
+//		$.ajax({
+//		    url: "",
+//		    context: document.body,
+//		    success: function(s,x){
+//		        $(this).html(s);
+//		    }
+//		});
+//		self.close();
+////	location.reload();
+//	
+//});
+//	opener.location.reload(true);  
+//	self.close(); 
+	
+	
+	
+	
+		
+		
+		
 	count++;
 	console.log("반복 횟 수 " + count);
+	
+	
+	
 
 	$.ajax({
 		type : "POST",
@@ -57,6 +96,9 @@ $(document).ready(function() {
 			console.log("ajax 결과값 " + data);
 		}
 	});
+	
+
+
 
 });
 

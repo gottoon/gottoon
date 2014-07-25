@@ -204,7 +204,8 @@
 		if (userGrade >= 1) {
 			console.log('더 평가하기 없애');
 			$('#genreBtn img').hide();
-			if (userGrade >= 1) {
+
+			if (userGrade >= 2) {
 
 				$('#moreBtn img').hide();
 				$('#recommendBtn img').hide();

@@ -2,7 +2,7 @@
  * 
  */
 $(document).ready(function() {
-			$.ajax({
+	$.ajax({
 				type : "POST",
 				url : "/Integrated_project_ver5/action/mypageReadWebtoon",
 				data : {
