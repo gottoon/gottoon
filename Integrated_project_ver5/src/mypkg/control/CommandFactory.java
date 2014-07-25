@@ -36,7 +36,6 @@ public class CommandFactory {
 		case "/recommend":
 			target = new RecommendCommand();
 			break;
-
 		case "/mypageReadWebtoon":
 			target = new MypageCommand();
 			break;

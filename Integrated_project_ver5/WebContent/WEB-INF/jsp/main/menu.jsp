@@ -196,8 +196,10 @@
 
 	//managerBtn
 	$(document).ready(function() {
+
 		var userGrade = 10
 <%-- <%=session.getAttribute("userGrade")%> --%>
+
 	console.log("asdfaeee " + userGrade);
 
 		if (userGrade >= 1) {

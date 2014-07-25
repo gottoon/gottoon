@@ -11,6 +11,9 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Cache-Control" content="no-cache" />
+<meta http-equiv="Expires" content="0" />
+<meta http-equiv="Pragma" content="no-cache" />
 
 <link rel="stylesheet" media="screen" type="text/css"
 	href="<c:url value='/css/myPageStar.css'/>" />
@@ -26,7 +29,8 @@ meter {
 }
 
 body {
-	font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+	font-family: "Helvetica Neue", Helvetica,
+		Arial, sans-serif;
 	font-size: 12px;
 	line-height: 1.42857143;
 	color: #333;
@@ -36,12 +40,14 @@ body {
 h2,div {
 	font-size: 18px;
 	text-align: center;
-} 
+}
+
 
 table.grade_table {
 	/* margin : auto; */
 	margin-left: 15%;
 	margin-bottom: 50px;
+
 }
 
 a {
@@ -85,8 +91,6 @@ section.contains{
 	</div>
 
 	<section>
-		
-
 		<article>
 			<nav>
 				<div>
@@ -110,6 +114,7 @@ section.contains{
 			</nav>
 		</article>
 	</section>
+
 
 	<section class="contains">
 		<div class="gallery">
@@ -173,8 +178,8 @@ section.contains{
 								title="Sucks big time">★</label>
 						</div>
 					</form>
-									<!-- 		</table>
- -->
+									<!-- 		</table>-->
+
 								</div>
 							</div>
 							</div>
