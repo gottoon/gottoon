@@ -52,13 +52,12 @@ $(document)
 
 															$('#webtoons')
 																	.append(
-																			' <div class="checkbox"><label><input type="checkbox">'
-																					+ webtoonTitle
-																					+ '</label></div>');
-															$(
-																	'.ck-button input')
-																	.attr(
-																			"value",
+																			'<div class="col-md-3"><div class="inputDiv"><label><input class="inputbox" type="checkbox"><span>'
+																			+ webtoonTitle
+																			+ '</span></label></div></div>');
+															$('.inputbox')
+															.attr(
+																	"value",
 																			keywords_id_pk);
 														}
 
@@ -83,5 +82,11 @@ function filter() {
 				'');
 	}
 	return false;
+}
+
+function clearInput(input) {
+	if (input.defaultValue == input.value) {
+		input.value = "";
+	}
 }
 

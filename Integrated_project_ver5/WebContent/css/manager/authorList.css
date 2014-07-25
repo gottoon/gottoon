@@ -83,7 +83,7 @@ input {
 
 .inputDiv label {
 	float: left;
-	width: 7em;
+	width: 9em;
 	margin-bottom: 0;
 }
 
@@ -99,6 +99,7 @@ input {
 	position: absolute;
 	display: inline-block;
 	height: 30px;
+	margin-top:0;
 }
 
 .inputDiv input:checked+span {

@@ -75,10 +75,9 @@ function filter() {
 	return false;
 }
 
-
-//input 값 초기화 
-function clearInput(input){
-	if(input.defaultValue == input.value){
-		input.value ="";
+// input 값 초기화
+function clearInput(input) {
+	if (input.defaultValue == input.value) {
+		input.value = "";
 	}
 }
