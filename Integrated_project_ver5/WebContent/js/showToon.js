@@ -1,14 +1,4 @@
 $(document).ready(function() {
-//	var viewCount = 10;
-//	var num = 0;
-//	$('.webtoon_table').hide();
-//
-//	for (; num < viewCount; num++) {
-//		$('.webtoon_table').eq(num).show();
-//		checkButton();
-//	}
-
-
 	$.ajax({
 		type : "POST",
 		url : "userWebtoon",
@@ -33,6 +23,9 @@ $(document).ready(function() {
 			}
 		}
 	});
+	if (data <= 1) {
+		$("#button").show();
+	}
 });
 
 /* 별점 CRUD */
@@ -76,7 +69,7 @@ function onclickStart(param) {
 		success : function(data) {
 			if (data != 0) {
 
-				if ([ data ] == 20) {
+				if ([ data ] <= 1) {
 
 					$('.show-modal').show(function() {
 						$('.modal').fadeIn('normal');
@@ -110,51 +103,11 @@ function onclickStart(param) {
 		}
 	});
 }
-// function onclickStart(param) {
-// var rateAndId = param.value;
-// var strArray = rateAndId.split("^");
-// console.log("별점 : "+strArray[0] + " , 아이디 : " + strArray[1]);
-//
-// $.ajax({
-// type : "POST",
-// url : "userWebtoon",
-// data : {
-// rate : strArray[0],
-// Id : strArray[1],
-// todo : "insertWebtoon"
-// },
-// success : function(data) {
-// if (data != 0) {
-//
-// if ([ data ] == 2) {
-//
-// $('.show-modal').show(function() {
-// $('.modal').fadeIn('normal');
-// });
-//
-// $('.close-modal').click(function() {
-// $('.modal').fadeOut('fast');
-//
-// });
-// }
-//
-// $("meter").val([ data ]);
-//
-// $('.show-modal1').show(function() {
-// $('.modal1').fadeIn('fast');
-// $('.modal1').fadeOut('slow');
-// });
-// }
-// }
-// });
-// }
-/* 버튼생성 */
 
 $(document).ready(function() {
 	$("#button").hide();
 	$("#showButton").click(function(event) {
 		$("#button").show();
 	});
+	
 });
-
-/* 게이지 */
