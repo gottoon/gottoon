@@ -1,104 +1,133 @@
 @media screen and (max-width:401px) {
-	#webtoons {
+	.webtoon {
 		width : 70%;
-		margin-left : 7%;
+		height : auto;
+		float : left;
+		margin : 5%;
 	}
 	
-	#common_webtoon_info {
-		width : 81%;
-		margin-left : 10%;
+	.main_image {
+		width : 300px;
+		height : 250px;
 	}
 	
-	#other_webtoon_info {
-		width : 100%;
-		/* margin-left : 5%; */
+	button span {
+		padding-top : 186px;
+		bottom : 253px;
 	}
+	
+	.product-review-stars {
+		height : 55px;
+		font-size : 16px;
+	}
+	
 }
 
 @media screen and (min-width:402px) and (max-width:990px) {
-	#webtoons {
-		width : 55%;
-		margin-left : 22.5%;
+	.webtoon {
+		width : 30%;
+		height : auto;
+		float : left;
+		margin : 1%;
 	}
 	
-	#common_webtoon_info {
-		width : 55%;
-		margin-left : 23%;
+	.main_image {
+		width : 300px;
+		height : 300px;
 	}
 	
-	#other_webtoon_info {
-		width : 70%;
-		margin-left : 15%;
+	button span {
+		padding-top : 237px;
+		bottom : 304px;
+	}
+	
+	.product-review-stars {
+		height : 55px;
+		font-size : 21px;
 	}
 }
 
 @media screen and (min-width:991px) {
-	#webtoons {
-		width : 35%;
-		margin-left : 32.5%;
+	.webtoon {
+		width : 18%;
+		height : auto;
+		float : left;
+		margin : 1%;
 	}
 	
-	#common_webtoon_info {
-		width : 35%;
-		margin-left : 32.5%;
+	.main_image {
+		width : 300px;
+		height : 400px;
 	}
 	
-	#other_webtoon_info {
-		width : 60%;
-		margin-left : 20%;
+	button span {
+		padding-top : 336px;
+		bottom : 403px;
+	}
+	
+	.product-review-stars {
+		height : 55px;
+		font-size : 20px;
 	}
 }
 
-td, .top-header, .sec-header, 
-#header, #footer {
-	text-align : center;
-}
-
-#webtoon_details {
-	font-size : 7px;
-}
-
-.top-header h1 span {
-	display : block;
-	font-size : 70%;
-	margin-top : 10px;
-}
-
-#option, #option_table, #webtoon_image {
+.test {
 	width : 100%;
 }
 
-#webtoon_image {
-	/* width : 400px; */
-	height : 100%;
+/* 태균 별점
+.product-review-stars {
+	unicode-bidi: bidi-override;
+	direction: rtl;
+	width: 100%; 가로
+	font-size : 20px;
 }
+ */
 
-.label {
+/*  웹툰 타이틀
+ h2 span {
+	font-size : 20px;
+}
+ */
+ 
+ .label {
 	position : absolute;
 	width : 25%;
 }
 
 .end_label, .new_label {
 	float:left;
+	position : absolute;
+	top : 0; 
+	left : 0; 
 }
-
 
 .author_label {
+	position : absolute;
 	display: inline-block;
+	top : 0; 
 	float : right;
 	width : 50%;
+	text-overflow : ellipsis;
+	overflow : visible;
+	clear : both;
+	left : 115px;
 }
 
-.webtoon_main_image {
-/*  	opacity : 0.6;
-	background-color : black;
-	z-index : 5000 */
+.author_label span {
+	color : white; 
+	font : bold 15px/20px Helvetica, Sans-Serif; 
+	letter-spacing : -1px;  
+	/* background : #3b5998; */
+	background : black;
+	padding : 1px;
+	float : right; 
 }
 
-.main_image { 
+.main_image_div { 
    position : relative; 
    width : 100%; /* for IE 6 */
-   height : 400px;
+   /* height : 400px; */
    
 	/* display: none; */
 	/* position: relative;
@@ -120,56 +149,105 @@ h2 {
    width : 100%;
 }
 
-h2 span {
+button span {
+	position : relative;
+	display : inline-block;
 	color : white; 
 	font : bold 22px/45px Helvetica, Sans-Serif; 
 	letter-spacing : -1px;  
-	/* background : #3b5998; */
- 	padding : 10px;
-	/* padding-left : 106px; 
-	padding-right : 106px; 
-	padding-top : 330px; 
-	padding-bottom : 50px;  */
-}
-
-.end_label, .new_label {
-	position : absolute;
-	top : 0; 
-	left : 0; 
-}
-
-.author_label {
-	position : absolute;
-	top : 0; 
-	/* left : 100px; */
-	text-overflow : ellipsis;
-	overflow : visible;
-	clear : both;
-}
-
-.author_label span {
-	color : white; 
-	font : bold 15px/20px Helvetica, Sans-Serif; 
-	letter-spacing : -1px;  
-	/* background : #3b5998; */
-	padding : 1px;
-	float : right; 
+	width : 108%;
+	line-height : 70px;
+	left : -8px;
+	background: -webkit-linear-gradient(top, rgba(255,255,255,0) 0%,rgba(0,0,0,0.9) 100%); /* Chrome10+,Safari5.1+ */
 }
 
 .black_overlay {
-	position : relative;
+/* 	position: relative;
+    z-index: 1000; Something high
+    height: 200px;
+    width: 200px;
+    background: white;
+    top: 50%;
+    left: 50%;
+    margin-left: -100px; Negative half width
+    margin-top: -100px; Negative half height
+    box-shadow: 0 0 0 2038px rgba(0,0,0,.5); The semi-transparent bg. Something weird about Safari and numbers bigger than this
+    -webkit-transition: 1s; */
+	
+	/* position : relative;
 	background : black;
-	opacity : 0.7;
- 	padding-left : 150px; 
-	padding-right : 150px; 
-	padding-top : 385px; 
-	/* padding-bottom : 45px; */
+	opacity : 0.6;
+ 	padding-left : 120px; 
+	padding-right : 120px; 
+	padding-top : 402px; 
+	padding-bottom : 2px; */
 }
 
-.submit {
-	width : 300px;
+.submit, .detail_form {
+	width : 100%;
 	height : 0px;
-	padding : 0;
-	border : 0;
-	
+	/* padding : 0;
+	border : 0; */
+}
+
+.webtoon_table {
+	border : 1px;
+	cellpadding : 6px;
+	width : 100%;
+}
+
+.button {
+	background:-webkit-gradient( linear, left top, left bottom, color-stop(0.05, #3b5898), color-stop(1, #427bd6) );
+	background:-moz-linear-gradient( center top, #3b5898 5%, #427bd6 100% );
+	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#3b5898', endColorstr='#427bd6');
+	background-color:#3b5898;
+	-webkit-border-top-left-radius:20px;
+	-moz-border-radius-topleft:20px;
+	border-top-left-radius:20px;
+	-webkit-border-top-right-radius:20px;
+	-moz-border-radius-topright:20px;
+	border-top-right-radius:20px;
+	-webkit-border-bottom-right-radius:20px;
+	-moz-border-radius-bottomright:20px;
+	border-bottom-right-radius:20px;
+	-webkit-border-bottom-left-radius:20px;
+	-moz-border-radius-bottomleft:20px;
+	border-bottom-left-radius:20px;
+	text-indent:0;
+	border:1px solid #3381ed;
+	display:inline-block;
+	color:#ffffff;
+	font-family:Verdana;
+	font-size:15px;
+	font-weight:bold;
+	font-style:normal;
+	height:40px;
+	line-height:30px;
+	width:90%;
+	text-decoration:none;
+	text-align:center;
+}
+
+.button:hover {
+	background:-webkit-gradient( linear, left top, left bottom, color-stop(0.05, #427bd6), color-stop(1, #3b5898) );
+	background:-moz-linear-gradient( center top, #427bd6 5%, #3b5898 100% );
+	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#427bd6', endColorstr='#3b5898');
+	background-color:#427bd6;
+}
+
+.button:active {
+	position:relative;
+	top:1px;
+}
+
+.webtoon {
+	-moz-box-shadow:    3px 3px 2px 3px #000;
+	-webkit-box-shadow: 3px 3px 2px 3px #000;
+	box-shadow:         3px 3px 2px 3px #000;
+	padding : 5px;
+	border-radius: 5px;
+}
+
+.author_label {
+	padding : 5px;
 }

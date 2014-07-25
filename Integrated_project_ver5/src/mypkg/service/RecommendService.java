@@ -45,7 +45,15 @@ public class RecommendService {
 				recommenders, userReadWebtoons, ratedWebtoons);
 
 		// 5. 중복제거된 웹툰 객체로 정보 뽑아오기
-		return this.completeRecommendWebtoons(repeatWebtoonRemove, viewfreeValue);
+		List<WebtoonVO> completed =  this.completeRecommendWebtoons(repeatWebtoonRemove, viewfreeValue);
+		List<WebtoonVO> infinite = new ArrayList<WebtoonVO>();
+		
+		for (int i = 0; i < 5; i++) {
+			infinite.add(completed.get(i));
+			System.out.println(completed.get(i));
+		}
+		
+		return infinite;
 	} // @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ return
 	
 	public List<UserGenreMapsVO> getSelectedGenres(long user_facebookID) {
