@@ -29,20 +29,28 @@ public class UserService {
 
 		if (count >= 1 && count <= 19) {
 			setGrade = 2;
+			System.out.println("유저 2등급으로 저장");
 		} else if (count >= 20 && count <= 39) {
 			setGrade = 3;
+			System.out.println("유저 3등급으로 저장");
 		} else if (count >= 40 && count <= 79) {
 			setGrade = 4;
+			System.out.println("유저 4등급으로 저장");
 		} else if (count >= 80 && count <= 119) {
 			setGrade = 5;
+			System.out.println("유저 5등급으로 저장");
 		} else if (count >= 120 && count <= 179) {
 			setGrade = 6;
+			System.out.println("유저 6등급으로 저장");
 		} else if (count >= 180 && count <= 239) {
 			setGrade = 7;
+			System.out.println("유저 7등급으로 저장");
 		} else if (count >= 240 && count <= 319) {
 			setGrade = 8;
+			System.out.println("유저 8등급으로 저장");
 		} else if (count >= 320) {
 			setGrade = 9;
+			System.out.println("유저 9등급으로 저장");
 		} 
 		
 		userDAO.setUserGrade(CurrentUser_facebookID, setGrade);

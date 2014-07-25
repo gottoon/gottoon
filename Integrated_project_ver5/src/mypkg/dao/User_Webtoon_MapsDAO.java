@@ -286,7 +286,6 @@ public class User_Webtoon_MapsDAO {
 	
 	//2014.07.20 박태균 웹툰 수정 메소드 
 	public void updateReadWebtoon(int webtoons_id_pk, int user_webtoon_rate, long users_facebookID_fk) {
-		System.out.println("여기 들어오나");
 		Connection conn = null;
 		Statement stmt = null;
 

@@ -1,9 +1,4 @@
 @CHARSET "UTF-8";
-
-
-
-
-
 .modalStar {
   background-color: #dbd9d9;
   display: none;
@@ -50,7 +45,7 @@
 	clip: rect(1px, 1px, 1px, 1px);
 }
 
-.product-review-stars label:after {
+/* .product-review-stars label:after {
 	content: "★";
 	color: inherit;
 	-webkit-transform: scale(4);
@@ -61,29 +56,40 @@
 	opacity: 0;
 	color: inherit;
 	visibility: hidden;
-}
+} 
 
 .product-review-stars input:checked+label:after {
 	visibility: visible;
 	-webkit-transform: scale(1);
 	opacity: 1;
-}
+}*/
 
 .product-review-stars {
 	unicode-bidi: bidi-override;
 	direction: rtl;
-	width: auto; /*가로*/
+	width: 100%; /*가로*/
 }
+
+
 /*밑은 별의 모양 */
 .product-review-stars label {
 	font-family: "icomoon";
-	font-size: 2em;
+	font-size: 34px;
 	position: relative;
 	cursor: pointer;
 	color: gray;
 	/* #DFE3E4 */
 }
 
+@media all and (max-width: 526px){
+.product-review-stars label {
+font-family: "icomoon";
+font-size: 1.5em;
+position: relative;
+cursor: pointer;
+color: gray;
+}
+}
 .product-review-stars input:checked ~ label:before {
 	opacity: 1;
 }

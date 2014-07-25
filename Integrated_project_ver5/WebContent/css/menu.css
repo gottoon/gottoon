@@ -28,7 +28,8 @@ html {
 
 body {
 	width: 100%;
-	font-family: "Nanum Gothic",'Helvetica Neue', Helvetica, Arial, sans-serif,;
+	font-family: "Nanum Gothic", 'Helvetica Neue', Helvetica, Arial,
+		sans-serif,;
 	font-size: 62.5%;
 	line-height: 1;
 }
@@ -188,8 +189,8 @@ body.openmenu {
 }
 
 #hamburgermenu li p:hover {
-	color:#3b5998;
-	text-shadow:1px 1px 1px ;
+	color: #3b5998;
+	text-shadow: 1px 1px 1px;
 }
 
 #hamburgermenu li button {
@@ -198,17 +199,25 @@ body.openmenu {
 	height: 60px;
 	background-position: left 5px;
 	background-size: 20% 55%;
-	background-repeat : no-repeat;
-	background-color:white;
+	background-repeat: no-repeat;
+	background-color: white;
 }
 
-#hamburgermenu li button:hover {
-	
+#hamburgermenu button img {
+	width: 40px;
+	height: 30px;
+	background-color: red;
+	display: inline-block;
+	border: 1px solid black;
 }
 
+#hamburgermenu button p {
+	margin-left: 75px;
+	text-align: right;
+}
 
 #homeBtn {
-	background: url('../img/menu/beforeHome.png') ;
+	background: url('../img/menu/beforeHome.png');
 }
 
 #homeBtn : hover {
@@ -263,54 +272,59 @@ body.openmenu {
 	background-image: url('../img/menu/afterMore.png');
 }
 
-
-#goGenreModal{
-	display:none;
+#goGenreModal {
+	display: none;
 	position: fixed;
-    top: 50%;
-    left: 50%;
-    width: 300px;
-    line-height: 200px;
-    height: 200px;
-    margin-left: -150px;
-    margin-top: -100px;
-    background-color: rgba(0,0,0,0.5);
-    text-align: center;
-  	color:black;
-    /* needed styles for the overlay */
-    z-index: 100; /* keep on top of other elements on the page */
-    outline: 9999px solid rgba(0,0,0,0.5);
+	top: 50%;
+	left: 50%;
+	width: 500px;
+	line-height: 200px;
+	height: 500px;
+	margin-left: -150px;
+	margin-top: -100px;
+	background-color: rgba(0, 0, 0, 0.5);
+	text-align: center;
+	color: black;
+	/* needed styles for the overlay */
+	z-index: 100; /* keep on top of other elements on the page */
+	outline: 9999px solid rgba(0, 0, 0, 0.5);
 }
-#goGenreModal button{
-	width:100px;
-	height:60px;
-	margin-top:40px;
-	text-align:left;
+
+#goGenreModal button {
+	width: 200px;
+	height: 120px;
+	margin-top: 40px;
+	margin-right: 205px;
+	text-align: center;
+	font-size: 18px;
 	border: none;
-	height: 60px;
 	background-position: left 5px;
 	background-size: 100% 70%;
-	background-repeat : no-repeat;
-	background-color:white;
+	background-repeat: no-repeat;
+	background-color: white;
 	background-image: url('../img/menu/beforeExplorer.png');
-	box-shadow:2px 2px 2px black;
-	border-radius:25px;
+	box-shadow: 2px 2px 2px grey;
+	border-radius: 25px;
 }
+
 #goGenreModal button:hover {
+	width: 180px;
+	height: 110px;
+	box-shadow: 2px 2px 2px grey;
 	background-image: url('../img/menu/afterExplorer.png');
 }
 
-#wait{
+#wait {
 	position: fixed;
-    top: 50%;
-    left: 50%;
-    width: 300px;
-    line-height: 200px;
-    height: 200px;
-    margin-left: -150px;
-    margin-top: -100px;
-    text-align: center;
-    /* needed styles for the overlay */
-    z-index: 100; /* keep on top of other elements on the page */
-    outline: 9999px solid rgba(0,0,0,0.5);
+	top: 50%;
+	left: 50%;
+	width: 300px;
+	line-height: 200px;
+	height: 200px;
+	margin-left: -150px;
+	margin-top: -100px;
+	text-align: center;
+	/* needed styles for the overlay */
+	z-index: 100; /* keep on top of other elements on the page */
+	outline: 9999px solid rgba(0, 0, 0, 0.5);
 }
