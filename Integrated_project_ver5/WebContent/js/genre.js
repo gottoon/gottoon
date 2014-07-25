@@ -1,5 +1,5 @@
-	
 
+// 아무것도 클릭 안할때
 function Validate() {
 			if (!validateForm()) {
 				alert("하나 찍으라고 부왁!!");
@@ -19,4 +19,5 @@ function Validate() {
 			return false;
 		}
 		
+	
 	
