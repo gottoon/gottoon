@@ -1,142 +1,270 @@
- input[id="cb1"] + label {
-        display: inline-block;
-        width: 300px;
-        height: 400px;
-         background: url(../img/genreImg/SF.png);
-        border-radius: 7px;
-        cursor: pointer;
+winput[id="cb1"]+label {
+	display: inline-block;
+	width: 250px;
+	height: 350px;
+	background: url(../img/genreImg/SF.png);
+	border-radius: 7px;
+	cursor: pointer;
+	height: 350px;
+}
+
+input[id="cb1"]:checked+label {
+	background: url(../img/genreImg/SF1.png);
+}
+
+input[id="cb1"] {
+	display: none;
+}
+
+input[id="cb2"]+label {
+	display: inline-block;
+	width: 250px;
+	height: 350px;
+	background: url(../img/genreImg/comic.png);
+	border-radius: 7px;
+	cursor: pointer;
+	height: 350px;
+}
+
+input[id="cb2"]:checked+label {
+	background: url(../img/genreImg/comic1.png);
+}
+
+input[id="cb2"] {
+	display: none;
+}
+
+input[id="cb3"]+label {
+	display: inline-block;
+	width: 250px;
+	height: 350px;
+	background: url(../img/genreImg/fear.png);
+	border-radius: 7px;
+	cursor: pointer;
+	height: 350px;
+}
+
+input[id="cb3"]:checked+label {
+	background: url(../img/genreImg/fear1.png);
+}
+
+input[id="cb3"] {
+	display: none;
+}
+
+input[id="cb4"]+label {
+	display: inline-block;
+	width: 250px;
+	height: 350px;
+	background: url(../img/genreImg/drama.png);
+	border-radius: 7px;
+	cursor: pointer;
+	height: 350px;
+}
+
+input[id="cb4"]:checked+label {
+	background: url(../img/genreImg/drama1.png);
+}
+
+input[id="cb4"] {
+	display: none;
+}
+
+input[id="cb5"]+label {
+	display: inline-block;
+	width: 250px;
+	height: 350px;
+	background: url(../img/genreImg/romance.png);
+	border-radius: 7px;
+	cursor: pointer;
+	height: 350px;
+}
+
+input[id="cb5"]:checked+label {
+	background: url(../img/genreImg/romance1.png);
+}
+
+input[id="cb5"] {
+	display: none;
+}
+
+input[id="cb6"]+label {
+	display: inline-block;
+	width: 250px;
+	height: 350px;
+	background: url(../img/genreImg/thriller.png);
+	border-radius: 7px;
+	cursor: pointer;
+	height: 350px;
+}
+
+input[id="cb6"]:checked+label {
+	background: url(../img/genreImg/thriller1.png);
+}
+
+input[id="cb6"] {
+	display: none;
+}
+
+input[id="cb7"]+label {
+	display: inline-block;
+	width: 250px;
+	height: 350px;
+	background: url(../img/genreImg/sports.png);
+	border-radius: 7px;
+	cursor: pointer;
+	height: 350px;
+}
+
+input[id="cb7"]:checked+label {
+	background: url(../img/genreImg/sports1.png);
+}
+
+input[id="cb7"] {
+	display: none;
+}
+
+input[id="cb8"]+label {
+	display: inline-block;
+	width: 250px;
+	height: 350px;
+	background: url(../img/genreImg/action.png);
+	border-radius: 7px;
+	cursor: pointer;
+	height: 350px;
+}
+
+input[id="cb8"]:checked+label {
+	background: url(../img/genreImg/action1.png);
+}
+
+input[id="cb8"] {
+	display: none;
+}
+
+input[id="cb9"]+label {
+	display: inline-block;
+	width: 250px;
+	height: 350px;
+	background: url(../img/genreImg/daily.png);
+	border-radius: 7px;
+	cursor: pointer;
+	height: 350px;
+}
+
+input[id="cb9"]:checked+label {
+	background: url(../img/genreImg/daily1.png);
+}
+
+input[id="cb9"] {
+	display: none;
+}
+
+input[id="cb10"]+label {
+	display: inline-block;
+	width: 250px;
+	height: 350px;
+	background: url(../img/genreImg/fantasy.png);
+	border-radius: 7px;
+	cursor: pointer;
+	height: 350px;
+}
+
+input[id="cb10"]:checked+label {
+	background: url(../img/genreImg/fantasy1.png);
+}
+
+input[id="cb10"] {
+	display: none;
+}
+
+.button {
+	border-top: 1px solid #96d1f8;
+	background: #65a9d7;
+	background: -webkit-gradient(linear, left top, left bottom, from(#3e779d),
+		to(#65a9d7));
+	background: -moz-linear-gradient(top, #3e779d, #65a9d7);
+	padding: 8.5px 17px;
+	-webkit-border-radius: 8px;
+	-moz-border-radius: 8px;
+	border-radius: 8px;
+	-webkit-box-shadow: rgba(0, 0, 0, 1) 0 1px 0;
+	-moz-box-shadow: rgba(0, 0, 0, 1) 0 1px 0;
+	box-shadow: rgba(0, 0, 0, 1) 0 1px 0;
+	text-shadow: rgba(0, 0, 0, .4) 0 1px 0;
+	color: white;
+	font-size: 20px;
+	font-family: Georgia, Serif;
+	text-decoration: none;
+	vertical-align: middle;
+}
+
+.button:hover {
+	border-top-color: #28597a;
+	background: #28597a;
+	color: #ccc;
+}
+
+.button:active {
+	border-top-color: #1b435e;
+	background: #1b435e;
+}
+
+@media screen and (max-width:401px) {
+	#genre {
+		width : 30%;
+		margin-left : 7%;
+	}
+	
+	#common_webtoon_info {
+		width : 81%;
+		margin-left : 10%;
+	}
+	
+	#other_webtoon_info {
+		width : 100%;
+		/* margin-left : 5%; */
+	}
+}
+
+@media screen and (min-width:402px) and (max-width:990px) {
+	#webtoons {
+		width : 55%;
+		margin-left : 22.5%;
+	}
+	
+	#common_webtoon_info {
+		width : 55%;
+		margin-left : 23%;
+	}
+	
+	#other_webtoon_info {
+		width : 70%;
+		margin-left : 15%;
+	}
+}
+
+@media screen and (min-width:991px) {
+	#webtoons {
+		width : 35%;
+		margin-left : 32.5%;
+	}
+	
+	#common_webtoon_info {
+		width : 35%;
+		margin-left : 32.5%;
+	}
+	
+	#other_webtoon_info {
+		width : 60%;
+		margin-left : 20%;
+	}
+}
+/*   @media screen and (max-width: 768px) {
+      .genretable {
+          table-layout: fixed;
+          word-wrap: normal|break-word|initial|inherit;
+              width: 300px;
+               columns: 3px;
       }
- input[id="cb1"]:checked + label {
-         background: url(../img/genreImg/SF1.png) ;
-      }
- input[id="cb1"] {
-        display: none;
-      }
- input[id="cb2"] + label {
-        display: inline-block;
-        width: 300px;
-        height: 400px;
-         background: url(../img/genreImg/comic.png);
-        border-radius: 7px;
-        cursor: pointer;
-      }
- input[id="cb2"]:checked + label {
-         background: url(../img/genreImg/comic1.png) ;
-      }
- input[id="cb2"] {
-        display: none;
-      }
-      input[id="cb3"] + label {
-        display: inline-block;
-        width: 300px;
-        height: 400px;
-         background: url(../img/genreImg/fear.png);
-        border-radius: 7px;
-        cursor: pointer;
-      }
- input[id="cb3"]:checked + label {
-         background: url(../img/genreImg/fear1.png) ;
-      }
- input[id="cb3"] {
-        display: none;
-      }
-      input[id="cb4"] + label {
-        display: inline-block;
-        width: 300px;
-        height: 400px;
-         background: url(../img/genreImg/drama.png);
-        border-radius: 7px;
-        cursor: pointer;
-      }
- input[id="cb4"]:checked + label {
-         background: url(../img/genreImg/drama1.png) ;
-      }
- input[id="cb4"] {
-        display: none;
-      }
-      input[id="cb5"] + label {
-        display: inline-block;
-        width: 300px;
-        height: 400px;
-         background: url(../img/genreImg/romance.png);
-        border-radius: 7px;
-        cursor: pointer;
-      }
- input[id="cb5"]:checked + label {
-         background: url(../img/genreImg/romance1.png) ;
-      }
- input[id="cb5"] {
-        display: none;
-      }
-      input[id="cb6"] + label {
-        display: inline-block;
-        width: 300px;
-        height: 400px;
-         background: url(../img/genreImg/thriller.png);
-        border-radius: 7px;
-        cursor: pointer;
-      }
- input[id="cb6"]:checked + label {
-         background: url(../img/genreImg/thriller1.png) ;
-      }
- input[id="cb6"] {
-        display: none;
-      }
-      input[id="cb7"] + label {
-        display: inline-block;
-        width: 300px;
-        height: 400px;
-         background: url(../img/genreImg/sports.png);
-        border-radius: 7px;
-        cursor: pointer;
-      }
- input[id="cb7"]:checked + label {
-         background: url(../img/genreImg/sports1.png) ;
-      }
- input[id="cb7"] {
-        display: none;
-      }
-      input[id="cb8"] + label {
-        display: inline-block;
-        width: 300px;
-        height: 400px;
-         background: url(../img/genreImg/action.png);
-        border-radius: 7px;
-        cursor: pointer;
-      }
- input[id="cb8"]:checked + label {
-         background: url(../img/genreImg/action1.png) ;
-      }
- input[id="cb8"] {
-        display: none;
-      }
-      input[id="cb9"] + label {
-        display: inline-block;
-        width: 300px;
-        height: 400px;
-         background: url(../img/genreImg/daily.png);
-        border-radius: 7px;
-        cursor: pointer;
-      }
- input[id="cb9"]:checked + label {
-         background: url(../img/genreImg/daily1.png) ;
-      }
- input[id="cb9"] {
-        display: none;
-      }
-      input[id="cb10"] + label {
-        display: inline-block;
-        width: 300px;
-        height: 400px;
-         background: url(../img/genreImg/fantasy.png);
-        border-radius: 7px;
-        cursor: pointer;
-      }
- input[id="cb10"]:checked + label {
-         background: url(../img/genreImg/fantasy1.png) ;
-      }
- input[id="cb10"] {
-        display: none;
-      }
-      
-   
+  } */

@@ -76,16 +76,18 @@
 			<div align="center" id="webtoons">
 			</div>
 		</div>
+		
 	</div>
 	
 	<script type="text/javascript">
+
 		var webtoonCount = 0;
 		var num = 0;
 		var viewCount = 10;
 		
  		$(document).ready(function(){
 			<c:forEach var="webtoonInfo" items="${recommendWebtoons}" varStatus="status">
-				$('#webtoons').append('<table class="webtoon_table" border="1" cellpadding="5">'
+				$('').append('<table class="webtoon_table" border="1" cellpadding="5">'
 					+ '<tr><td colspan="2"></td></tr><tr><td></td><td></td></tr>'
 					+ '<tr><td></td><td></td></tr></table><br id="webtoonBreak"/>');
 				$('td').eq(-5).append('<div class="test" style="position:relative;">'
