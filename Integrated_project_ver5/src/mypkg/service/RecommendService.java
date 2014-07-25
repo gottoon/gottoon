@@ -48,9 +48,13 @@ public class RecommendService {
 		List<WebtoonVO> completed =  this.completeRecommendWebtoons(repeatWebtoonRemove, viewfreeValue);
 		List<WebtoonVO> infinite = new ArrayList<WebtoonVO>();
 		
-		for (int i = 0; i < 5; i++) {
+		int webtoonIndex = 5;
+		if (completed.size() < 5) {
+			webtoonIndex = completed.size();
+		} 
+		
+		for (int i = 0; i < webtoonIndex; i++) {
 			infinite.add(completed.get(i));
-			System.out.println(completed.get(i));
 		}
 		
 		return infinite;
