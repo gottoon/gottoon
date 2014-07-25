@@ -26,7 +26,7 @@
 
 <!--매니져 css  -->
 <link rel="stylesheet" type="text/css"
-	href="<c:url value='/css/manager/manager.css'/>">
+	href="<c:url value='/css/manager/managerMenu.css'/>">
 
 
 
@@ -37,160 +37,180 @@
 
 </head>
 <body>
-	<div id="pgcontainer">
-		<!-- Single button -->
+	<div id="pgcontainer"></div>
 
-		<nav>
+
+
+	<section id="webtoonMenu">
+		<div class="overlay"></div>
+		<img src="<c:url value='/img/manager/webtoonMenu.png'/>"  class="menuImg"/>
+		<article>
 			<ul>
-				<!--웹툰 메뉴  -->
-				<li><div class="btn-group">
-						<button type="button" class="btn btn-primary dropdown-toggle"
-							data-toggle="dropdown">
-							웹툰 <span class="caret"></span>
+				<li><form method="POST"
+						action="<c:url value='/action/manager'/>">
+						<button type="submit">
+						<img src="<c:url value='/img/menu/lock.png'/>" />
+							<p>모든 웹툰 보기</p>
 						</button>
-						<ul class="dropdown-menu" role="menu">
-							<li><form method="POST"
-									action="<c:url value='/action/manager'/>">
-									<button type="submit">
-										<p>모든 웹툰 보기</p>
-									</button>
-									<input type="hidden" name="todo" value="getAllWebtoons" />
-								</form></li>
-							<li><form method="POST"
-									action="<c:url value='/action/manager'/>">
-									<button type="submit">
-										<p>모든 장르 보기</p>
-									</button>
-									<input type="hidden" name="todo" value="getAllGenres" />
-								</form></li>
-							<li><form method="POST"
-									action="<c:url value='/action/manager'/>">
-									<button type="submit">
-										<p>웹툰 연관성 점수 보기</p>
-									</button>
-									<input type="hidden" name="todo" value="getRelativeRate" />
-								</form></li>
-							<li><form method="POST"
-									action="<c:url value='/action/manager'/>">
-									<button type="submit">
-										<p>웹툰 등록하기</p>
-									</button>
-									<input type="hidden" name="todo" value="addWebtoon" />
-								</form></li>
-							<li class="divider"></li>
-						</ul>
-					</div></li>
+						<input type="hidden" name="todo" value="getAllWebtoons" />
+					</form></li>
 
-				<!--챠트 메뉴  -->
-				<li><div class="btn-group">
-						<button type="button" class="btn btn-danger dropdown-toggle"
-							data-toggle="dropdown">
-							챠트보기 <span class="caret"></span>
+				<li><form method="POST"
+						action="<c:url value='/action/manager'/>">
+						<button type="submit">
+						<img src="<c:url value='/img/menu/lock.png'/>" />
+							<p>웹툰 연관성 점수 보기</p>
 						</button>
-						<ul class="dropdown-menu" role="menu">
-
-							<li><form method="POST"
-									action="<c:url value='/action/chart'/>">
-									<button type="submit">
-										<p>키워드 차트 보기</p>
-									</button>
-									<input type="hidden" name="todo" value="keywordChart" />
-								</form></li>
-							<li class="divider"></li>
-							<li><form method="POST"
-									action="<c:url value='/action/chart'/>">
-									<button type="submit">
-										<p>작가 차트 보기</p>
-									</button>
-									<input type="hidden" name="todo" value="authorChart" />
-								</form></li>
-							<li><form method="POST"
-									action="<c:url value='/action/chart'/>">
-									<button type="submit">
-										<p>장르 차트 보기</p>
-									</button>
-									<input type="hidden" name="todo" value="genreChart" />
-								</form></li>
-							<li class="divider"></li>
-							<li><form method="POST"
-									action="<c:url value='/action/chart'/>">
-									<button type="submit">
-										<p>제공처 차트 보기</p>
-									</button>
-									<input type="hidden" name="todo" value="publisherChart" />
-								</form></li>
-							<li class="divider"></li>
-							<li><form method="POST"
-									action="<c:url value='/action/chart'/>">
-									<button type="submit">
-										<p>유저&웹툰 차트 보기</p>
-									</button>
-									<input type="hidden" name="todo" value="userWebtoonChart" />
-								</form></li>
-							<li class="divider"></li>
-						</ul>
-					</div></li>
-
-
-
-				<li><div class="btn-group">
-						<button type="button" class="btn btn-success dropdown-toggle"
-							data-toggle="dropdown">
-							키워드 <span class="caret"></span>
+						<input type="hidden" name="todo" value="getRelativeRate" />
+					</form></li>
+				<li><form method="POST"
+						action="<c:url value='/action/manager'/>">
+						<button type="submit">
+						<img src="<c:url value='/img/menu/lock.png'/>" />
+							<p>웹툰 등록하기</p>
 						</button>
-						<ul class="dropdown-menu" role="menu">
-
-							<li><form method="POST"
-									action="<c:url value='/action/manager'/>">
-									<button type="submit">
-										<p>모든 키워드 보기</p>
-									</button>
-									<input type="hidden" name="todo" value="getAllKeywords" />
-								</form></li>
-							<li class="divider"></li>
-						</ul>
-					</div></li>
-
-				<!-- 작가 메뉴  -->
-				<li><div class="btn-group">
-						<button type="button" class="btn btn-info dropdown-toggle"
-							data-toggle="dropdown">
-							작가 <span class="caret"></span>
-						</button>
-						<ul class="dropdown-menu" role="menu">
-
-							<li><form method="POST"
-									action="<c:url value='/action/manager'/>">
-									<button type="submit">
-										<p>모든 작가 보기</p>
-									</button>
-									<input type="hidden" name="todo" value="getAllAuthors" />
-								</form></li>
-							<li class="divider"></li>
-						</ul>
-					</div></li>
-				<li>
-					<!--유저 메뉴  -->
-					<div class="btn-group">
-						<button type="button" class="btn btn-warning dropdown-toggle"
-							data-toggle="dropdown">
-							유저 <span class="caret"></span>
-						</button>
-						<ul class="dropdown-menu" role="menu">
-
-							<li><form method="POST"
-									action="<c:url value='/action/manager'/>">
-									<button type="submit">
-										<p>모든 유저 보기</p>
-									</button>
-									<input type="hidden" name="todo" value="getAllUsers" />
-								</form></li>
-							<li class="divider"></li>
-						</ul>
-					</div>
-				</li>
+						<input type="hidden" name="todo" value="addWebtoon" />
+					</form></li>
 			</ul>
-		</nav>
-		</div>
+		</article>
+	</section>
+
+	<section id="chartMenu">
+		<div class="overlay"></div>
+		<img src="<c:url value='/img/manager/chartMenu.png'/>"  class="menuImg"/>
+		<article>
+			<ul>
+				<!--챠트 메뉴  -->
+
+				<li><form method="POST" action="<c:url value='/action/chart'/>">
+						<button type="submit">
+						<img src="<c:url value='/img/menu/lock.png'/>" />
+							<p>키워드 차트</p>
+						</button>
+						<input type="hidden" name="todo" value="keywordChart" />
+					</form></li>
+				<li><form method="POST" action="<c:url value='/action/chart'/>">
+						<button type="submit">
+						<img src="<c:url value='/img/menu/lock.png'/>" />
+							<p>작가 차트</p>
+						</button>
+						<input type="hidden" name="todo" value="authorChart" />
+					</form></li>
+
+				<li><form method="POST" action="<c:url value='/action/chart'/>">
+						<button type="submit">
+						<img src="<c:url value='/img/menu/lock.png'/>" />
+							<p>제공처 차트</p>
+						</button>
+						<input type="hidden" name="todo" value="publisherChart" />
+					</form></li>
+				<li><form method="POST" action="<c:url value='/action/chart'/>">
+						<button type="submit">
+						<img src="<c:url value='/img/menu/lock.png'/>" />
+							<p>유저&웹툰 차트</p>
+						</button>
+						<input type="hidden" name="todo" value="userWebtoonChart" />
+					</form></li>
+				<li><form method="POST" action="<c:url value='/action/chart'/>">
+						<button type="submit">
+						<img src="<c:url value='/img/menu/lock.png'/>" />
+							<p>장르 차트</p>
+						</button>
+						<input type="hidden" name="todo" value="genreChart" />
+					</form></li>
+			</ul>
+		</article>
+	</section>
+
+
+
+	<section id="authorMenu">
+		<div class="overlay"></div>
+
+		<img src="<c:url value='/img/manager/authorMenu.png'/>" class="menuImg"/>
+		<article>
+			<ul>
+				<li><form method="POST"
+						action="<c:url value='/action/manager'/>">
+						<button type="submit">
+						<img src="<c:url value='/img/menu/lock.png'/>" />
+							<p>작가</p>
+						</button>
+						<input type="hidden" name="todo" value="getAllAuthors" />
+					</form></li>
+
+			</ul>
+		</article>
+	</section>
+
+
+
+
+
+	<section id="userMenu">
+		<div class="overlay"></div>
+		<img src="<c:url value='/img/manager/userMenu.png'/>" class="menuImg"/>
+		<article>
+			<ul>
+				<li><form method="POST"
+						action="<c:url value='/action/manager'/>">
+						<button type="submit">
+						<img src="<c:url value='/img/menu/lock.png'/>" />
+							<p>유저</p>
+						</button>
+						<input type="hidden" name="todo" value="getAllUsers" />
+					</form></li>
+			</ul>
+		</article>
+	</section>
+
+
+
+
+	<section id="keywordMenu">
+		<div class="overlay"></div>
+		<img src="<c:url value='/img/manager/keywordMenu.png'/>" class="menuImg" />
+		<article>
+			<ul>
+				<li><form method="POST"
+						action="<c:url value='/action/manager'/>">
+						<button type="submit">
+						<img src="<c:url value='/img/menu/lock.png'/>" />
+							<p>키워드</p>
+						</button>
+						<input type="hidden" name="todo" value="getAllKeywords" />
+					</form></li>
+			</ul>
+		</article>
+	</section>
+
+
+
+
+	<section id="genreMenu">
+		<div class="overlay"></div>
+		<img src="<c:url value='/img/manager/genreMenu.png'/>" class="menuImg" />
+		<article>
+			<ul>
+				<li><form method="POST"
+						action="<c:url value='/action/manager'/>">
+						<button type="submit">
+						<img src="<c:url value='/img/menu/lock.png'/>" />
+							<p>장르</p>
+						</button>
+						<input type="hidden" name="todo" value="getAllGenres" />
+					</form></li>
+			</ul>
+		</article>
+	</section>
+
+
+
+
+
+
+
+
+
 </body>
 </html>
