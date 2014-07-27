@@ -25,7 +25,7 @@ $(document).ready(function() {
 					$("#grade").append(" <b>Level : 2 / 웹툰은 보고 다니냐?</b>");
 					$(".gradeImg").append('<img src="../img/gradeImg/grade_level2.png" width="200" height="200" border="0">');
 				} else if ([ data ] >= 21 && [ data ] <= 39) {	
-					$("#gauge").show();
+					$("#gauge").show();	
 					$("#gauge").val(([ data ] -20) * 5 ); //1당 5
 					$("#grade").append(" <b>Level : 3 / 웹툰 초보자</b>");
 					$(".gradeImg").append('<img src="../img/gradeImg/grade_level3.png" width="200" height="200" border="0">');
@@ -65,7 +65,9 @@ $(document).ready(function() {
 				}
 			}
 			});		
-			
+
+
+	
 			/*$('input[id=gauge]').change(function(data) {
 				console.log(data);
 			});*/
