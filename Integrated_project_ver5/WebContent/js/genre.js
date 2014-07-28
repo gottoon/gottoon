@@ -19,4 +19,10 @@ function Validate() {
 			return false;
 		}
 		
-		
+		/*$(document).ready(function() {
+			$(".but").hide();
+			$(".check").click(function(event) {
+				$(".but").show();
+			});
+			
+		});*/
