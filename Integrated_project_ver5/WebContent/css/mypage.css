@@ -28,17 +28,17 @@
 .gallery-item {
     display: inline-block;
     vertical-align: top;
-    margin-top: .5%;
-    margin-left: .5%;
-	margin-right: .5%;
-	margin-bottom: 5%;
+    margin-top: 10px;
+	margin-left: 10px;
+	margin-right: 10px;
+	margin-bottom: 50px;
 	border: 1px solid gray;
 	border-radius : 5px;
 	background-color: #ffffff;
 }
 
 .gallery-item .vcard {
-    width: 100%;
+    width: 218px;
     text-align: center;
     margin-bottom: 20px;
 }
@@ -87,8 +87,6 @@ div#image {
 
 div#desc {
 	border-top: 1px solid #F3F3F5;
-	margin-left: 10px;
-	margin-right: 10px;
 	margin-bottom: 30px;
 }
 
@@ -126,7 +124,7 @@ body {
    
 .gallery .gallery-item {
         /* width: 18%; */
-        width: 200px;
+        width: 220px;
     }
 
 }
@@ -140,8 +138,12 @@ body {
    
 .gallery .gallery-item {
         /* width: 20%; */
-        width: 200px;
+        width: 230px;
     }
+    
+.gallery-item .vcard {
+    width: 228px;
+}
 
 }
 
@@ -155,6 +157,10 @@ body {
         /* width: 30%; */
         width: 250px;
     }
+    
+.gallery-item .vcard {
+    width: 248px;
+}
 
 }
 
@@ -169,28 +175,66 @@ body {
         width: 200px;
     }
 
+.gallery-item .vcard {
+    width: 198px;
 }
 
-@media all and (max-width: 526px){
+
+
+}
+
+@media all and (min-width: 518px) and (max-width: 526px){
 body {
         font-size: 15px;
         font-size: 1.125rem;
     }
     
 div#image {
-	width: 50%;
-	float : left;
+	width: 100%;
 }
 
 div#desc {
-	float : right;
-	width: 50%;
+	width: 220px;
 }
 
-.gallery .gallery-item {
-       width: 100%;
+.gallery-item {
+	margin-bottom: 20px;
+}
+
+.gallery.gallery-item {
+       width: 200px;
     }
 
+.gallery-item.vcard {
+    width: 198px;
+}
+
+a#title_link {
+	width: 170px;
+}
 
 }
 
+@media all and (min-width: 320px) and (max-width: 517px) {
+.gallery-item {
+	width: 400px;
+}
+	
+.gallery-item .vcard {
+	width: 398px;
+	height: 142px;
+}
+	
+div#image {
+	width: 45%;
+	float: left;
+}
+
+.gallery-item .vcard .photo	{
+	margin-left: 10px;
+	margin-bottom: 4px;
+}
+	
+div#desc {
+}
+}

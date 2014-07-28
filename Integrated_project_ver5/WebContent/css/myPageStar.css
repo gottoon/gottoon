@@ -81,14 +81,15 @@
 	color: gray;
 	/* #DFE3E4 */
 }
+@media all and (min-width: 527px) and (max-width: 599px) {
+	.product-review-stars label {
+		font-size: 30px
+	}
+}
 
 @media all and (max-width: 526px){
 .product-review-stars label {
-font-family: "icomoon";
-font-size: 1.5em;
-position: relative;
-cursor: pointer;
-color: gray;
+	font-size: 27px;
 }
 }
 .product-review-stars input:checked ~ label:before {

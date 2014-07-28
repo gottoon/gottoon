@@ -53,12 +53,16 @@ public class MypageCommand implements Command {
 			int count = this.doReadWebtoonCount(request, CurrentUser_facebookID);
 			this.doSetUserGrade(CurrentUser_facebookID, count);
 			commandResult = new CommandResult("text/plain", Integer.toString(count));
-		} else if (todo.equals("mypageRecommend")) {
-			System.out.println("신작/찜 웹툰 실행");
-			this.doRecommendNew(request, CurrentUser_facebookID);
+		} else if (todo.equals("mypageWishWebtoon")) {
+			System.out.println("찜 웹툰 실행");
 			this.doViewWishList(request, CurrentUser_facebookID);
-			commandResult = new CommandResult("/WEB-INF/jsp/mypage/mypageRecommendWebtoon.jsp");
+			commandResult = new CommandResult("/WEB-INF/jsp/mypage/mypageWishWebtoon.jsp");
+		} else if (todo.equals("mypageNewWebtoon")) {
+			System.out.println("신작 웹툰 실행");
+			this.doRecommendNew(request, CurrentUser_facebookID);
+			commandResult = new CommandResult("/WEB-INF/jsp/mypage/mypageNewWebtoon.jsp");
 		} 
+
 
 		return commandResult;
 	}
@@ -94,7 +98,7 @@ public class MypageCommand implements Command {
 
 		List<WebtoonVO> webtoonVO = webtoonService.getNewToon();
 
-		request.setAttribute("recommendNewWebtoon", webtoonVO);
+		request.setAttribute("newWebtoon", webtoonVO);
 	}
 	
 	// 찜한 웹툰

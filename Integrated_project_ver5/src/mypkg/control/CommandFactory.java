@@ -40,13 +40,13 @@ public class CommandFactory {
 			target = new MypageCommand();
 			break;
 
-		case "/mypageRecommendWebtoon":
+		case "/mypageWishWebtoon":
 			target = new MypageCommand();
 			break;
 
-//		case "/mypageSetting":
-//			target = new MypageCommand();
-//			break;
+		case "/mypageNewWebtoon":
+			target = new MypageCommand();
+			break;
 
 		case "/chart":
 			target = new ChartCommand();

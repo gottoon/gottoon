@@ -1,4 +1,4 @@
-<%-- MYPAGE READ WEBTOON --%>
+<%-- MYPAGE RECOMMEND WEBTOON --%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@page session="true" import="java.util.*, mypkg.*"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
@@ -11,9 +11,6 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<meta http-equiv="Cache-Control" content="no-cache" />
-<meta http-equiv="Expires" content="0" />
-<meta http-equiv="Pragma" content="no-cache" />
 
 <link rel="stylesheet" media="screen" type="text/css"
 	href="<c:url value='/css/myPageStar.css'/>" />
@@ -21,74 +18,26 @@
 	href="<c:url value='/css/mypage.css'/>" />
 <link rel="stylesheet" media="screen" type="text/css"
 	href="<c:url value='/css/mypageContents.css'/>" />
-	
-<title>MYPAGE READ WEBTOON</title>
+<script src="<c:url value='/js/MyPageAndStarPoint.js'/>"></script>
+
+<title>MYPAGE RECOMMEND</title>
 </head>
-
 <body>
-	<%-- MYPAGE READ WEBTOON --%>
+	<%-- MYPAGE RECOMMEND --%>
 
-	<div class="show-modalStar">
-		<div class="modalStar">
-			<div>저장 부아악!</div>
-		</div>
-	</div>
+	<h2>내가 찜한 웹툰</h2>
+	<hr>
 
-	<div class="show-modalDeleteStar">
-		<div class="modalDeleteStar">
-			<div>삭제 끄아악!</div>
-		</div>
-	</div>
-
-	<section>
-		<article>
-			<nav>
-				<div>
-					<table class="state" border='0' cellpadding='0' align="center">
-						<tr>
-							<td id="state_image"><div class="gradeImg">
-									<p id="grade"></p>
-									<img src="<c:url value='/img/gradeImg/level_star.jpg' />" />
-								</div></td>
-
-							<td id="state_gauge"><div>
-									<h2>지금까지 총 ${fn:length(readToon)} 편의 웹툰을 보셨습니다.</h2>
-
-									<div id="gauge_meter">
-										<meter id="gauge" low=35 high=70 max=100 value=0
-											style="display: none;">
-											<!-- <input name="showGauge" /> -->
-										</meter>
-									</div>
-
-									<div id="progress">
-										<div class="progress-bar">
-											<canvas id="inactiveProgress" class="progress-inactive"
-												height="275px" width="275px"></canvas>
-											<canvas id="activeProgress" class="progress-active"
-												height="275px" width="275px"></canvas>
-											<p></p>
-										</div>
-										<div id="progressControllerContainer">
-											<input type="range" id="progressController" min="0" max="100"
-												value=0 />
-										</div>
-									</div>
-								</div></td>
-							<td>
-					</table>
-				</div>
-			</nav>
-		</article>
-	</section>
+	<c:if test="${fn:length(wishList)==0}">
+		<hr>
+		<p>찜한 웹툰이 없습니다.</p>
+	</c:if>
 
 	<section class="contains">
 		<div class="gallery">
-			<!-- <div class="table-responsive"> -->
-
 			<table class="table" border='0' cellpadding='0' align="center">
 				<tr>
-					<td><c:forEach var="WebtoonVO" items="${readToon}"
+					<td><c:forEach var="WebtoonVO" items="${wishList}"
 							varStatus="status">
 							<link
 								href='http://fonts.googleapis.com/css?family=Lato:300,400,700,900'
@@ -117,6 +66,7 @@
 											value="${WebtoonVO.webtoon_rate }"> <input
 											type="hidden" id="id" value="${WebtoonVO.webtoons_id_pk }">
 										<form id="myForm">
+											<p>별점 : ${WebtoonVO.webtoon_rate }</p>
 											<div class="product-review-stars">
 												<input type="checkbox"
 													id="${status.count*status.count*status.count+1}"
@@ -150,19 +100,10 @@
 									</div>
 								</div>
 							</div>
-							<!-- </div> -->
 						</c:forEach></td>
 				</tr>
 			</table>
 		</div>
 	</section>
-
-
-
-	<script
-		src="//cdnjs.cloudflare.com/ajax/libs/less.js/1.7.3/less.min.js"></script>
-	<script src="<c:url value='/js/mypageReadWebtoon.js'/>"></script>
-	<script src="<c:url value='/js/MyPageAndStarPoint.js'/>"></script>
-	<script src='http://codepen.io/assets/libs/fullpage/jquery.js'></script>
 </body>
 </html>

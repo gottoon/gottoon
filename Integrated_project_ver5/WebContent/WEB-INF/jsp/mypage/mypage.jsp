@@ -13,7 +13,6 @@
 <script
 	src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
 <style>
-
 </style>
 <title>MYPAGE</title>
 </head>
@@ -22,27 +21,33 @@
 		<c:import url="/WEB-INF/jsp/main/menu.jsp"></c:import>
 		<%=session.getAttribute("CurrentUser")%>
 
+		<div role="main">
+			<div id="contents">
+				<div>
+					<h1>마이페이지</h1>	
+				</div>
+				<section class="page">
+					<div>
+						<form name="Mypagetap"
+							action="<c:url value='/action/mypageReadWebtoon'/>" method="POST">
+							<input type="hidden" name="todo" value="mypageReadWebtoon">
+							<input class="btn btn-primary btn-lg" type="submit"
+								value="내가 본 웹툰" />
+						</form>
+						<form name="Mypagetap"
+							action="<c:url value='/action/mypageWishWebtoon'/>" method="POST">
+							<input type="hidden" name="todo" value="mypageWishWebtoon">
+							<input class="btn btn-primary btn-lg" type="submit" value="찜 웹툰" />
 
-<div role="main"><!-- 추가부분  -->
-	<div id="contents"><!-- 추가부분  -->
-		<h1>마이페이지</h1>
-
-
-<section class="page"><!-- 추가부분  -->
-			<ul>
-				<li class="active">
-					<form name="Mypagetap"
-						action="<c:url value='/action/mypageReadWebtoon'/>" method="POST">
-						<input type="hidden" name="todo" value="mypageReadWebtoon">
-						<input class="btn btn-primary btn-lg" type="submit"
-							value="내가 본 웹툰" />
-					</form>
-				</li>
-			<li><form name="Mypagetap" action="<c:url value='/action/mypageRecommendWebtoon'/>" method="POST">
-					<input type="hidden" name="todo" value="mypageRecommend"> <input
-						class="btn btn-primary btn-lg" type="submit" value="신작 / 찜 툰" />
-				</form></li>
-		</ul>
-	</div>
-	</body>
-	</html>
+						</form>
+						<form name="Mypagetap"
+							action="<c:url value='/action/mypageNewWebtoon'/>" method="POST">
+							<input type="hidden" name="todo" value="mypageNewWebtoon">
+							<input class="btn btn-primary btn-lg" type="submit" value="신작 웹툰" />
+						</form>
+					</div>
+				</section>
+			</div>
+		</div>
+</body>
+</html>

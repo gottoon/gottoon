@@ -21,12 +21,14 @@
 	href="<c:url value='/css/mypage.css'/>" />
 <link rel="stylesheet" media="screen" type="text/css"
 	href="<c:url value='/css/mypageContents.css'/>" />
-	
+
+
 <title>MYPAGE READ WEBTOON</title>
 </head>
 
 <body>
 	<%-- MYPAGE READ WEBTOON --%>
+
 
 	<div class="show-modalStar">
 		<div class="modalStar">
@@ -40,56 +42,100 @@
 		</div>
 	</div>
 
-	<section>
-		<article>
-			<nav>
-				<div>
-					<table class="state" border='0' cellpadding='0' align="center">
-						<tr>
-							<td id="state_image"><div class="gradeImg">
-									<p id="grade"></p>
-									<img src="<c:url value='/img/gradeImg/level_star.jpg' />" />
-								</div></td>
+	<h2>신작 웹툰</h2>
 
-							<td id="state_gauge"><div>
-									<h2>지금까지 총 ${fn:length(readToon)} 편의 웹툰을 보셨습니다.</h2>
 
-									<div id="gauge_meter">
-										<meter id="gauge" low=35 high=70 max=100 value=0
-											style="display: none;">
-											<!-- <input name="showGauge" /> -->
-										</meter>
-									</div>
+	<c:if test="${fn:length(newWebtoon)==0}">
+		<hr>
+		<p>신작 웹툰이 없습니다.</p>
+	</c:if>
 
-									<div id="progress">
-										<div class="progress-bar">
-											<canvas id="inactiveProgress" class="progress-inactive"
-												height="275px" width="275px"></canvas>
-											<canvas id="activeProgress" class="progress-active"
-												height="275px" width="275px"></canvas>
-											<p></p>
+	<c:if test="${fn:length(newWebtoon)!=0}">
+		<section class="contains">
+			<div class="gallery">
+				<table class="table" border='0' cellpadding='0' align="center">
+
+					<tr>
+						<td><c:forEach var="WebtoonVO" items="${newWebtoon}"
+								varStatus="status">
+								<c:if test="${WebtoonVO.webtoons_publisher=='네이버'}">
+									<h3>네이버 신작</h3>
+									<link
+										href='http://fonts.googleapis.com/css?family=Lato:300,400,700,900'
+										rel='stylesheet' type='text/css'>
+									<div class="gallery-item">
+										<div class="vcard">
+											<div id="image">
+
+												<form method="post" action="webtoon">
+													<input type="hidden" name="webtoon_id"
+														value="${WebtoonVO.webtoons_id_pk}" /> <input
+														type="hidden" name="todo" value="showWebtoonDetails" /> <input
+														type="image"
+														src="<c:url value='${WebtoonVO.webtoons_thumbnail}'/>" alt
+														class="photo" />
+												</form>
+											</div>
+											<!-- <table id="fb-root" class="showToon" border="1"> -->
+											<div id="title">
+												<a id="title_link" href="${WebtoonVO.webtoons_url}"
+													target="_blank">${WebtoonVO.webtoons_title}</a>
+											</div>
+
+											<div id="desc">
+												<input type="hidden" id="rate"
+													value="${WebtoonVO.webtoon_rate }"> <input
+													type="hidden" id="id" value="${WebtoonVO.webtoons_id_pk }">
+												<form id="myForm">
+													<p>별점 : ${WebtoonVO.webtoon_rate }</p>
+													<div class="product-review-stars">
+														<input type="checkbox"
+															id="${status.count*status.count*status.count+1}"
+															name="rating" value="5^${WebtoonVO.webtoons_id_pk}"
+															onclick=onclickStart(this) class="visuallyhidden">
+														<label for="${status.count*status.count*status.count+1}"
+															title="Rocks!">★</label> <input type="checkbox"
+															id="${status.count*status.count*status.count+2}"
+															name="rating" value="4^${WebtoonVO.webtoons_id_pk}"
+															onclick=onclickStart(this) class="visuallyhidden">
+														<label for="${status.count*status.count*status.count+2}"
+															title="Pretty good">★</label> <input type="checkbox"
+															id="${status.count*status.count*status.count+3}"
+															name="rating" value="3^${WebtoonVO.webtoons_id_pk}"
+															onclick=onclickStart(this) class="visuallyhidden">
+														<label for="${status.count*status.count*status.count+3}"
+															title="Meh">★</label> <input type="checkbox"
+															id="${status.count*status.count*status.count+4}"
+															name="rating" value="2^${WebtoonVO.webtoons_id_pk}"
+															onclick=onclickStart(this) class="visuallyhidden">
+														<label for="${status.count*status.count*status.count+4}"
+															title="Kinda bad">★</label> <input type="checkbox"
+															id="${status.count*status.count*status.count+5}"
+															name="rating" value="1^${WebtoonVO.webtoons_id_pk}"
+															onclick=onclickStart(this) class="visuallyhidden">
+														<label for="${status.count*status.count*status.count+5}"
+															title="Sucks big time">★</label>
+													</div>
+												</form>
+												<!-- </table> -->
+											</div>
 										</div>
-										<div id="progressControllerContainer">
-											<input type="range" id="progressController" min="0" max="100"
-												value=0 />
-										</div>
 									</div>
-								</div></td>
-							<td>
-					</table>
-				</div>
-			</nav>
-		</article>
-	</section>
+								</c:if>
+							</c:forEach></td>
+					</tr>
+				</table>
+			</div>
+		</section>
 
-	<section class="contains">
-		<div class="gallery">
-			<!-- <div class="table-responsive"> -->
 
-			<table class="table" border='0' cellpadding='0' align="center">
-				<tr>
-					<td><c:forEach var="WebtoonVO" items="${readToon}"
-							varStatus="status">
+		<table class="table" border='0' cellpadding='0' align="center">
+			<tr>
+				<td><c:forEach var="WebtoonVO" items="${newWebtoon}"
+						varStatus="status">
+						<c:if test="${WebtoonVO.webtoons_publisher=='다음'}">
+							<hr>
+							<h3>다음 신작</h3>
 							<link
 								href='http://fonts.googleapis.com/css?family=Lato:300,400,700,900'
 								rel='stylesheet' type='text/css'>
@@ -117,6 +163,7 @@
 											value="${WebtoonVO.webtoon_rate }"> <input
 											type="hidden" id="id" value="${WebtoonVO.webtoons_id_pk }">
 										<form id="myForm">
+											<p>별점 : ${WebtoonVO.webtoon_rate }</p>
 											<div class="product-review-stars">
 												<input type="checkbox"
 													id="${status.count*status.count*status.count+1}"
@@ -150,19 +197,12 @@
 									</div>
 								</div>
 							</div>
-							<!-- </div> -->
-						</c:forEach></td>
-				</tr>
-			</table>
+						</c:if>
+					</c:forEach></td>
+			</tr>
+		</table>
 		</div>
-	</section>
-
-
-
-	<script
-		src="//cdnjs.cloudflare.com/ajax/libs/less.js/1.7.3/less.min.js"></script>
-	<script src="<c:url value='/js/mypageReadWebtoon.js'/>"></script>
-	<script src="<c:url value='/js/MyPageAndStarPoint.js'/>"></script>
-	<script src='http://codepen.io/assets/libs/fullpage/jquery.js'></script>
+		</section>
+	</c:if>
 </body>
 </html>
