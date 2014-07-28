@@ -7,7 +7,7 @@
  * Copyright 2013, Codrops http://www.codrops.com
  */
 $(function() {
-	var menuwidth = 200; // pixel value for sliding menu width
+	var menuwidth = 180; // pixel value for sliding menu width
 	var menuspeed = 250; // milliseconds for sliding menu animation time
 
 	var $bdy = $('body');
