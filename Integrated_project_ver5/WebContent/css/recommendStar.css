@@ -5,7 +5,7 @@
 }
 
 /*end decoration*/
-.visuallyhidden {
+.visuallyhidden, .visuallyhiddenHeart {
 	position: absolute !important;
 	clip: rect(1px, 1px, 1px, 1px);
 	clip: rect(1px, 1px, 1px, 1px);
@@ -131,69 +131,4 @@
   padding: 50px;
   border-radius: 5px;
   z-index: 10;
-}
-
- /* ======================================
- 하트 수정 */
-.visuallyhidden {
-	position: absolute !important;
-	clip: rect(1px, 1px, 1px, 1px);
-	clip: rect(1px, 1px, 1px, 1px);
-}
-
-.heart {
-	background-image: -webkit-linear-gradient(top, #f4f1ee, #fff);
-	background-image: linear-gradient(top, #f4f1ee, #fff);
-	border-radius: 50%;
-	box-shadow: 0px 8px 10px 0px rgba(0, 0, 0, .3), inset 0px 4px 1px 1px white, inset 0px -3px 1px 1px rgba(204,198,197,.5);
-	float:left;
-	width: 50px;			
-	height: 50px;
-	position: relative;
-	-webkit-transition: all .1s linear;
-	transition: all .1s linear;
-}
-
- .heart label {
-  font-family: "icomoon";
-	font-size: 30px;
-	position: relative;
-	cursor: pointer;
-	color: gray;
-	left: 10px;
-	top: 7px;
-}
-
-.heart label:after {
-  content: "❤";
-  color: inherit;
-	-webkit-transform: scale(4);
-	position: absolute;
-	z-index: 4;
-	left: 0px;
-	transition: all .4s;
-	opacity: 0;
-	color: inherit;
-	visibility: hidden;
-}
-
-.heart input+label:before {
-	content: "❤";
-  position: absolute;
-	right: 0;
-	opacity: 0;
-}
-
-.heart input+label:nth-of-type(1):after,
-.heart input+label:nth-of-type(1):before,
-.heart input+label:nth-of-type(1):hover:before,
-.heart input+label:nth-of-type(1):hover ~ label:before,
-.heart input:nth-of-type(1):checked ~ label:before {
-	color: red;
-}
-		
-.heart input:checked+label:after {
-	visibility: visible;
-	-webkit-transform: scale(1);
-	opacity: 1;
 }

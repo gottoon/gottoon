@@ -7,12 +7,62 @@
 <head>
 <title>Show Recommended Webtoons</title>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<link rel="stylesheet" href="<c:url value='/css/recommend.css'/>" />
-<link rel="stylesheet" href="<c:url value='/css/showToon.css'/>" />
-<script
-	src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+<%-- <link rel="stylesheet" href="<c:url value='/css/recommend.css'/>" /> --%>
+<link rel="stylesheet" href="<c:url value='/css/recommendStar.css'/>" />
+<script	src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
 <script src="<c:url value='/js/recommend.js'/>"></script>
 <script src="<c:url value='/js/webtoonDetailAndStarPoint.js'/>"></script>
+
+<style>
+.article {
+	width : 90%;
+	height : 500px;
+	clear : both;
+	margin : 5%;
+	
+}
+
+#left-section {
+	width : 50%;
+	height : 100%;
+	float : left;
+}
+
+#right-section {
+	width : 50%;
+	height : 100%;
+	float : right;
+}
+
+/* img#webtoon_image {
+	width : 100%;
+	height : 100%;
+	border-left: 1px solid #ccc;
+	border-right: 1px solid #ccc;
+} */
+
+.label_image {
+	margin : 0;
+	width : 100%;
+	height : 100%;
+	border-left: 2px solid #ccc;
+	border-right: 3px solid #ccc;
+	border-top: 2px solid #ccc;
+	border-bottom: 10px solid #ccc;
+}
+
+.webtoonInfo {
+	margin : 0;
+	width : 100%;
+	height : 100%;
+	border-left: 3px solid #ccc;
+	border-right: 10px solid #ccc;
+	border-top: 2px solid #ccc;
+	border-bottom: 10px solid #ccc;
+}
+
+
+</style>
 </head>
 <body>
 	<div id="pgcontainer">
@@ -28,8 +78,65 @@
 				<div>삭제  끄아악!</div>
 			</div>
 		</div>
-
-		<div id="container">
+	</div>
+	
+	<div class="article">
+		<div id="left-section">
+			<table class="label_image" border="1">
+				<tr>
+					<td>
+						<img id="webtoon_image" src="${webtoonDetail.webtoons_main_image}" />
+					</td>
+				</tr>
+			</table>
+		</div>
+		<div id="right-section">
+			<table class="webtoonInfo" border="1">
+				<tr>
+					<td>
+						<p>test1</p>
+			<p>test2</p>
+			<p>test3</p>
+			<p>test4</p>
+			<p>test5</p>
+			<p>test6</p>
+					</td>
+				</tr>
+			</table>
+		</div>
+	</div>
+	
+	
+	<%-- <div class="container">
+		<div class="pageseparator"></div>
+		<div class="two">
+			<div id="add_label">
+						<table>
+							<tr>
+								<td>
+									<div class="image_label">
+										<div class="image">
+											<!-- width="500px" height="380px" -->
+											<img id="webtoon_image" src="${webtoonDetail.webtoons_main_image}" width="500px" height="380px"/>
+										</div>
+									</div>
+								</td>
+							</tr>
+						</table>
+					</div>
+			<br />
+			<br />
+			<p>test1</p>
+			<p>test2</p>
+			<p>test3</p>
+			<p>test4</p>
+			<p>test5</p>
+			<p>test6</p>
+			
+		</div>
+	</div> --%>
+	
+		<%-- <div id="container">
 			<div id="header">
 				<h1>${webtoonDetail.webtoons_title}</h1>
 			</div>
@@ -60,7 +167,7 @@
 								<td>
 									<input type="hidden" id="rate" value="${webtoonDetail.webtoon_rate}">
 						 			<input type="hidden" id="id" value="${webtoonDetail.webtoons_id_pk}">		
-									<%-- <c:import url="/WEB-INF/jsp/star.jsp"></c:import> --%>
+									<c:import url="/WEB-INF/jsp/star.jsp"></c:import>
 									<div class="product-review-stars" align="center">
 										<input type="checkbox" id="${status.count*status.count*status.count+1}" name="rating" 
 											value="5^${webtoonDetail.webtoons_id_pk}" onclick=onclickStart(this) class="visuallyhidden" />
@@ -147,18 +254,18 @@
 				data-layout="standard" data-action="like" data-show-faces="true"
 				data-share="false">
 			</div>
-		</div>
-	</div>
+		</div> --%>
+	
 
 	<script>
 	if ("${webtoonDetail.webtoons_completed}" === '완')
-		$('.left_label').after('<img class="end_label" src="../img/labels/end.png" />');
+		$('.image').before('<div class="end_label"><img src="../img/labels/end.png" /></div>');
 	
 	if (calculateDateRange("${webtoonDetail.webtoons_first_update}"))
-		$('.left_label').after('<img class="new_label" src="../img/labels/new.png" />');
+		$('.image_label').append('<img class="new_label" src="../img/labels/new.png" />');
 	
 	getHighRatedWebtoonsAuthor("${authorsName}", "${webtoonDetail.webtoons_id_pk}", function(result) {
-		$('.right_label').append('<div class="author_label"><span class="author_span">'+ result + '<br />작가웹툰!!</span></div>');
+		$('.image').before('<div class="author_label"><span class="author_span">'+ result + '<br />작가웹툰!!</span></div>');
 	});
 	</script>
 </body>

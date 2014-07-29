@@ -1,3 +1,7 @@
+body {
+	overflow : hidden;
+}
+
 @media screen and (max-width:401px) {
 	.webtoon {
 		width : 70%;
@@ -11,7 +15,7 @@
 		height : 250px;
 	}
 	
-	button span {
+	.black_overlay {
 		padding-top : 186px;
 		bottom : 253px;
 	}
@@ -36,7 +40,7 @@
 		height : 300px;
 	}
 	
-	button span {
+	.black_overlay {
 		padding-top : 237px;
 		bottom : 304px;
 	}
@@ -60,8 +64,8 @@
 		height : 400px;
 	}
 	
-	button span {
-		padding-top : 336px;
+	.black_overlay {
+		padding-top : 405px;
 		bottom : 403px;
 	}
 	
@@ -71,8 +75,25 @@
 	}
 }
 
-.test {
+.webtoon {
+	text-align : center;	
+}
+
+.label_div {
 	width : 100%;
+}
+
+.nav {
+	width : 100%;
+	margin-left : 35%;
+	float : left;
+	
+	/* margin : 0 auto; */
+}
+
+.main_image {
+	border-top-left-radius: 5px;
+	border-top-right-radius: 5px;
 }
 
 /* 태균 별점
@@ -149,38 +170,35 @@ h2 {
    width : 100%;
 }
 
-button span {
+.black_overlay {
 	position : relative;
 	display : inline-block;
 	color : white; 
-	font : bold 22px/45px Helvetica, Sans-Serif; 
 	letter-spacing : -1px;  
 	width : 108%;
 	line-height : 70px;
 	left : -8px;
-	background: -webkit-linear-gradient(top, rgba(255,255,255,0) 0%,rgba(0,0,0,0.9) 100%); /* Chrome10+,Safari5.1+ */
+	background: -webkit-linear-gradient(top, rgba(255,255,255,0) 0%,rgba(0,0,0,0.9) 100%); Chrome10+,Safari5.1+
 }
+	/* font : bold 22px/45px Helvetica, Sans-Serif; */
+	/* font-size : 15px;  */
+	/* font-size : 1.5vw; */
 
-.black_overlay {
-/* 	position: relative;
-    z-index: 1000; Something high
-    height: 200px;
-    width: 200px;
-    background: white;
-    top: 50%;
-    left: 50%;
-    margin-left: -100px; Negative half width
-    margin-top: -100px; Negative half height
-    box-shadow: 0 0 0 2038px rgba(0,0,0,.5); The semi-transparent bg. Something weird about Safari and numbers bigger than this
-    -webkit-transition: 1s; */
-	
-	/* position : relative;
-	background : black;
-	opacity : 0.6;
- 	padding-left : 120px; 
-	padding-right : 120px; 
-	padding-top : 402px; 
-	padding-bottom : 2px; */
+.image_title {
+	position : absolute;
+	display : inline-block;
+	color : white; 
+	font-size : 2vw;
+	letter-spacing : -1px;  
+	width : 100%;
+	line-height : -1px;
+	left : 0px;
+	bottom : 10px;
+	padding-left : 1px;
+	padding-right : 1px;
+	z-index : 10;
+	/* font : bold 22px/45px Helvetica, Sans-Serif; */
+	/* background: -webkit-linear-gradient(top, rgba(255,255,255,0) 0%,rgba(0,0,0,0.9) 100%); Chrome10+,Safari5.1+ */
 }
 
 .submit, .detail_form {
@@ -196,23 +214,88 @@ button span {
 	width : 100%;
 }
 
+/* =====================================================================
+							찜하기 버튼
+===================================================================== */
+
+/* .visuallyhidden {
+	position: absolute !important;
+	clip: rect(1px, 1px, 1px, 1px);
+	clip: rect(1px, 1px, 1px, 1px);
+} */
+
+.heart {
+	/* background-image: -webkit-linear-gradient(top, #f4f1ee, #fff);
+	background-image: linear-gradient(top, #f4f1ee, #fff); */
+	border-radius: 50%;
+	border : 1px solid gray;
+	/* box-shadow: 0px 8px 10px 0px rgba(0, 0, 0, .3), inset 0px 4px 1px 1px white, inset 0px -3px 1px 1px rgba(204,198,197,.5); */
+	/* float:left; */
+	width: 45px;			
+	height: 45px;
+	position: relative;
+	-webkit-transition: all .1s linear;
+	transition: all .1s linear;
+	margin-left : 25px;
+}
+
+ .heart label {
+  font-family: "icomoon";
+	font-size: 30px;
+	position: relative;
+	cursor: pointer;
+	color: gray;
+	/* left: 10px; */
+	top: 2px;
+}
+
+.heart label:after {
+  content: "❤";
+  color: inherit;
+	-webkit-transform: scale(4);
+	position: absolute;
+	z-index: 4;
+	left: 0px;
+	transition: all .4s;
+	opacity: 0;
+	color: inherit;
+	visibility: hidden;
+}
+
+.heart input+label:before {
+	content: "❤";
+  position: absolute;
+	right: 0;
+	opacity: 0;
+}
+
+.heart input+label:nth-of-type(1):after,
+.heart input+label:nth-of-type(1):before,
+.heart input+label:nth-of-type(1):hover:before,
+.heart input+label:nth-of-type(1):hover ~ label:before,
+.heart input:nth-of-type(1):checked ~ label:before {
+	color: red;
+}
+		
+.heart input:checked+label:after {
+	visibility: visible;
+	-webkit-transform: scale(1);
+	opacity: 1;
+}
+
+
+/* =====================================================================
+								버튼
+===================================================================== */
+
 .button {
 	background:-webkit-gradient( linear, left top, left bottom, color-stop(0.05, #3b5898), color-stop(1, #427bd6) );
 	background:-moz-linear-gradient( center top, #3b5898 5%, #427bd6 100% );
 	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#3b5898', endColorstr='#427bd6');
 	background-color:#3b5898;
-	-webkit-border-top-left-radius:20px;
-	-moz-border-radius-topleft:20px;
-	border-top-left-radius:20px;
-	-webkit-border-top-right-radius:20px;
-	-moz-border-radius-topright:20px;
-	border-top-right-radius:20px;
-	-webkit-border-bottom-right-radius:20px;
-	-moz-border-radius-bottomright:20px;
-	border-bottom-right-radius:20px;
-	-webkit-border-bottom-left-radius:20px;
-	-moz-border-radius-bottomleft:20px;
-	border-bottom-left-radius:20px;
+	-webkit-border-radius : 20px;
+	-moz-border-radius : 20px;
+	border-radius : 20px;
 	text-indent:0;
 	border:1px solid #3381ed;
 	display:inline-block;
@@ -228,12 +311,12 @@ button span {
 	text-align:center;
 }
 
-.button:hover {
+/* .button:hover {
 	background:-webkit-gradient( linear, left top, left bottom, color-stop(0.05, #427bd6), color-stop(1, #3b5898) );
 	background:-moz-linear-gradient( center top, #427bd6 5%, #3b5898 100% );
 	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#427bd6', endColorstr='#3b5898');
 	background-color:#427bd6;
-}
+} */
 
 .button:active {
 	position:relative;
@@ -241,13 +324,417 @@ button span {
 }
 
 .webtoon {
-	-moz-box-shadow:    3px 3px 2px 3px #000;
-	-webkit-box-shadow: 3px 3px 2px 3px #000;
-	box-shadow:         3px 3px 2px 3px #000;
-	padding : 5px;
+	-moz-box-shadow:    0px 0px 0px 1px #777;
+	-webkit-box-shadow: 0px 0px 0px 1px #777;
+	box-shadow:         0px 0px 0px 1px #777;
+	/* padding : 5px; */
 	border-radius: 5px;
 }
 
 .author_label {
 	padding : 5px;
 }
+
+
+/* =====================================================================
+							완결,신작 라벨
+===================================================================== */
+
+.ribbon-wrapper {
+  width: 85px;
+  height: 88px;
+  overflow: hidden;
+  position: absolute;
+  top: -3px;
+  left: -4px;
+}
+
+.ribbon-end, .ribbon-new {
+  /* color: #333; */
+  text-align: center;
+  /* text-shadow: rgba(255,255,255,0.5) 0px 1px 0px; */
+  -webkit-transform: rotate(-45deg);
+  -moz-transform:    rotate(-45deg);
+  -ms-transform:     rotate(-45deg);
+  -o-transform:      rotate(-45deg);
+  position: relative;
+  left: -27px;
+  width: 111px;
+  -webkit-box-shadow: 0px 0px 3px rgba(0,0,0,0.3);
+  -moz-box-shadow:    0px 0px 3px rgba(0,0,0,0.3);
+  box-shadow:         0px 0px 3px rgba(0,0,0,0.3);
+}
+
+.ribbon-end:before, .ribbon-end:after {
+  content: "";
+  border-top:   3px solid #810d05;   
+  border-left:  3px solid transparent;
+  border-right: 3px solid transparent;
+  position:absolute;
+  bottom: -3px;
+}
+
+.ribbon-new:before, .ribbon-new:after {
+  content: "";
+  border-top:   3px solid #6e8900;   
+  border-left:  3px solid transparent;
+  border-right: 3px solid transparent;
+  position:absolute;
+  bottom: -3px;
+}
+
+.ribbon-end:before, .ribbon-new:before {
+  left: 0;
+}
+.ribbon-end:after, .ribbon-new:after {
+  right: 0;
+}
+
+.ribbon-end {
+	font: 19px Sans-Serif;
+	padding: 4px 0;
+	top: 12px;
+	background-color: #f24437;
+	background-image: -webkit-gradient(linear, left top, left bottom, from(#f24437), to(#d02718)); 
+	background-image: -webkit-linear-gradient(top, #f24437, #d02718); 
+	background-image:    -moz-linear-gradient(top, #f24437, #d02718); 
+	background-image:     -ms-linear-gradient(top, #f24437, #d02718); 
+	background-image:      -o-linear-gradient(top, #f24437, #d02718); 
+	color: #FFF5F5;
+}
+
+.ribbon-new {
+	font: bold 15px Sans-Serif;
+	padding: 7px 0;
+	top: 12px;
+	background-color: #77d42a;
+	background-image: -webkit-gradient(linear, left top, left bottom, from(#77d42a), to(#51A70C)); 
+	background-image: -webkit-linear-gradient(top, #77d42a, #51A70C); 
+	background-image:    -moz-linear-gradient(top, #77d42a, #51A70C); 
+	background-image:     -ms-linear-gradient(top, #77d42a, #51A70C); 
+	background-image:      -o-linear-gradient(top, #77d42a, #51A70C); 
+	color: #306108;
+}
+
+/* =====================================================================
+							작가 추천
+===================================================================== */
+
+/* .content-box {
+width: 100%; assumes you have this in a container with a set width
+height: 400px;
+margin: 0 auto;
+position: relative; So we can position the banner within the box
+background: gray;
+border: 5px solid white;
+box-shadow: 0 0 10px rgba(0,0,0,.3);
+-moz-box-shadow: 0 0 10px rgba(0,0,0,.3);
+-webkit-box-shadow: 0 0 10px rgba(0,0,0,.3);
+}
+ */
+#ribbon-container {
+position: absolute;
+top: 250px;
+left: -20px;
+overflow: visible; /* so we can see the pseudo-elements we're going to add to the anchor */
+font-size: 18px; /* font-size and line-height must be equal so we can account for the height of the banner */
+line-height: 18px;
+z-index : 10;
+}
+
+#ribbon-container:before {
+content:"";
+height: 0;
+width: 0;
+display: block;
+position: absolute;
+top: 3px;
+right: 0;
+border-top: 29px solid rgba(0,0,0,.3); /* These 4 border properties create the first part of our drop-shadow */
+border-bottom: 29px solid rgba(0,0,0,.3); 
+border-right: 29px solid rgba(0,0,0,.3);
+border-left: 29px solid transparent;
+}
+
+#ribbon-container:after { /* This adds the second part of our dropshadow */
+content:"";
+height: 3px;
+background: rgba(0,0,0,.3);
+display: block;
+position: absolute;
+bottom: -3px;
+left: 58px;
+right:3px;
+}
+
+#ribbon-container span {
+display:block;
+padding:20px;
+position:relative; /* allows us to position our pseudo-elements properly */
+background:#0089d0;
+overflow:visible;
+height:58px;
+/* margin-left:29px; */
+color:#fff;
+text-decoration:none;
+}
+
+#ribbon-container span:after { /* this creates the "folded" part of our ribbon */
+content:""; 
+height: 0;
+width: 0;
+display:block;
+position:absolute;
+bottom:-15px;
+left:0;
+border-top: 15px solid #004a70; 
+border-left: 15px solid transparent;
+}
+
+#ribbon-container span:before { /* this creates the "forked" part of our ribbon */
+content:"";
+height: 0;
+width: 0;
+display:block;
+position:absolute;
+top:0;
+right:-29px;
+border-top: 29px solid #0089d0; 
+border-bottom: 29px solid #0089d0; 
+border-right: 29px solid transparent;
+border-left: 29px solid transparent;
+}
+
+#ribbon-container span:hover {
+background:#009ff1;
+}
+
+#ribbon-container span:hover:before { /* this makes sure that the "forked" part of the ribbon changes color with the anchor on :hover */
+border-top: 29px solid #009ff1; 
+border-bottom: 29px solid #009ff1;
+}
+
+
+/* =====================================================================
+						유,무료 선택 - 말풍선
+===================================================================== */
+
+.header {
+	/* margin-bottom : 100px; */
+	margin : 3em 0 18em 0;
+}
+
+#header-title {
+	width : 25%;
+	margin-left : 6%;
+	margin-top : 1%;
+	font-size : 3vw;
+}
+
+br#title-br {
+	line-height : 0em;
+}
+
+div#bubble {
+	float : left;
+	margin-left : 15%; 
+	position: relative;
+	width : 70%;
+	height: 140px;
+	padding: 0px;
+	background: #FFFFFF;
+	-webkit-border-radius: 100px;
+	-moz-border-radius: 100px;
+	border-radius: 100px;
+	border: #3b5898 solid 5px;
+}
+
+div#bubble:before {
+	content: '';
+	position: absolute;
+	border-style: solid;
+	border-width: 65px 15px 0;
+	border-color: #3b5898 transparent;
+	display: block;
+	width: 0;
+	z-index: 0;
+	bottom: -65px;
+	left: 66px;
+}
+
+div#bubble:after {
+	content: '';
+	position: absolute;
+	border-style: solid;
+	border-width: 50px 12px 0;
+	border-color: #FFFFFF transparent;
+	display: block;
+	width: 0;
+	z-index: 1;
+	bottom: -46px;
+	left: 69px;
+}
+
+.viewfree {
+	font-size : 1.6vw;
+	position : absolute;
+	display : inline-block;
+	color : black; 
+	letter-spacing : -1px;  
+	width : 105%;
+	line-height : 40px;
+	bottom : 2px;
+	left : -1px;
+	background: #D38585;
+	border-radius : 100em;
+	/* background: rgba(255,255,255,0); */
+}
+
+.rainy-weather {
+  /* margin: 3em auto; */
+  width: 20%;
+  height: 70px;
+  position: relative;
+  float : left;
+}
+ 
+.cloud-main {
+  width: 70%;
+  height: 60%;
+  background: #D38585;
+  border-radius: 100em;
+  position: absolute;
+  z-index: 100;
+  top: -75px;
+  text-align : center;
+  /* box-shadow: 0 3px 5px rgba(0,0,0, 0.3); */
+  /* background: linear-gradient(#F2F2F2 70%, #E5E5E5); */
+}
+ 
+.cloud-top-right {
+  width: 30%;
+  height: 75%;
+  margin: 0 auto;
+  background: #D38585;
+  position: absolute;
+  border-radius: 100em;
+  top: -94px;
+  right: 66px;
+}
+ 
+.cloud-top-left {
+  width: 25%;
+  height: 60%;
+  margin: 0 auto;
+  background: #D38585;
+  position: absolute;
+  border-radius: 100em;
+  top: -88px;
+  right: 107px;
+}
+
+.cloud-bottom-left {
+  width: 30%;
+  height: 75%;
+  margin: 0 auto;
+  background: #D38585;
+  position: absolute;
+  border-radius: 100em;
+  top: -72px;
+  right: 107px;
+}
+ 
+.cloud-bottom-right {
+  width: 30%;
+  height: 73%;
+  margin: 0 auto;
+  background: #D38585;
+  position: absolute;
+  border-radius: 100em;
+  top: -67px;
+  right: 70px;
+}
+
+/* .selectViewfree {
+	padding-bottom : 13%;
+	text-align : center;
+	both : clear;
+	position : relative;
+}
+
+div#viewNone, div#viewCharge, div#viewFree {
+	float : left;
+	margin-left : 10%; 
+	position: relative;
+	width : 20%;
+	height: 60px;
+	padding: 0px;
+	background: #FFFFFF;
+	-webkit-border-radius: 41px;
+	-moz-border-radius: 41px;
+	border-radius: 41px;
+	border: #3b5898 solid 5px;
+}
+
+div#viewNone:after, div#viewCharge:after,
+div#viewFree:after {
+	content: '';
+	position: absolute;
+	border-style: solid;
+	border-width: 18px 7px 0;
+	border-color: #FFFFFF transparent;
+	display: block;
+	width: 0;
+	z-index: 1;
+	bottom: -18px;
+}
+
+div#viewNone:before, div#viewCharge:before,
+div#viewFree:before {
+	content: '';
+	position: absolute;
+	border-style: solid;
+	border-width: 22px 11px 0;
+	border-color: #3b5898 transparent;
+	display: block;
+	width: 0;
+	z-index: 0;
+	bottom: -27px;
+}
+
+div#viewNone:before {
+	left: 28px;
+}
+
+div#viewNone:after {
+	left: 32px;
+}
+
+div#viewCharge:before {
+	left: 44px;
+}
+
+div#viewCharge:after {
+	left: 48px;
+}
+
+div#viewFree:before {
+	left: 60px;
+}
+
+div#viewFree:after {
+	left: 64px;
+}
+
+.bubbleButton {
+	position : absolute;
+	display : inline-block;
+	color : black; 
+	letter-spacing : -1px;  
+	width : 80%;
+	line-height : 42px;
+	bottom : 4px;
+	left : 12px;
+	font-size : 1.4vw;
+	background: rgba(255,255,255,1);
+} */

@@ -30,29 +30,102 @@
 		</div>
 		
 		<div class="header">
-			<h1>추천 웹툰 List 입니다</h1>		
+			<div id="bubble">
+				<p id="header-title">이런 웹툰<br id="title-br" />어때요?</p>
+				<div class="nav">
+			<div class="rainy-weather">
+				<div class="cloud-main">
+					<form method = "post" action="<c:url value='/action/recommend'/>">
+						<input type = "hidden" name = "filterviewfree" value ="null">
+						<button class="viewfree-button" type="submit" name="select">
+							<span class="viewfree">전체보기</span>
+						</button>
+					</form>
+				</div>
+				<div class="cloud-top-right"></div>
+				<div class="cloud-top-left"></div>
+				<div class="cloud-bottom-right"></div>
+				<div class="cloud-bottom-left"></div>
+			</div>
+			<div class="rainy-weather">
+				<div class="cloud-main">
+					<form method = "post" action="<c:url value='/action/recommend'/>">
+						<input type = "hidden" name = "filterviewfree" value ="false">
+						<button class="viewfree-button" type="submit" name="select">
+							<span class="viewfree">유료만보기</span>
+						</button>
+					</form>
+				</div>
+				<div class="cloud-top-right"></div>
+				<div class="cloud-top-left"></div>
+				<div class="cloud-bottom-right"></div>
+				<div class="cloud-bottom-left"></div>
+			</div>
+			<div class="rainy-weather">
+				<div class="cloud-main">
+					<form method = "post" action="<c:url value='/action/recommend'/>">
+						<input type = "hidden" name = "filterviewfree" value ="true">
+						<button class="viewfree-button" type="submit" name="select">
+							<span class="viewfree">무료만보기</span>
+						</button>
+					</form>
+				</div>
+				<div class="cloud-top-right"></div>
+				<div class="cloud-top-left"></div>
+				<div class="cloud-bottom-right"></div>
+				<div class="cloud-bottom-left"></div>
+			</div>
 		</div>
-		<div class="nav">
+			</div>		
+		</div>
+		
+		<%-- <div class="nav">
 			<div class="selectViewfree">
+				<div id="viewNone">
+					<form method = "post" action="<c:url value='/action/recommend'/>">
+						<input type = "hidden" name = "filterviewfree" value ="null">
+						<button class="viewfree-button" type="submit" name="select">
+							<span class="bubbleButton">전체보기</span>
+						</button>
+					</form>
+				</div>
 				<div id="viewCharge">
 					<form method = "post" action="<c:url value='/action/recommend'/>">
 						<input type = "hidden" name = "filterviewfree" value ="false">
-						<input type="submit" name="select" value="유료만보기" >
+						<button class="viewfree-button" type="submit" name="select">
+							<span class="bubbleButton">유료만보기</span>
+						</button>
 					</form>
 				</div>
 				<div id="viewFree">
 					<form method = "post" action="<c:url value='/action/recommend'/>">
 						<input type = "hidden" name = "filterviewfree" value ="true">
-						<input type="submit" name="select" value="무료만보기" >
+						<button class="viewfree-button" type="submit" name="select">
+							<span class="bubbleButton">무료만보기</span>
+						</button>
+					</form>
+				</div>
+			</div> --%>
+			<%-- <div class="selectViewfree">
+				<div id="viewCharge">
+					<form method = "post" action="<c:url value='/action/recommend'/>">
+						<input type = "hidden" name = "filterviewfree" value ="false">
+						<input class="button" type="submit" name="select" value="유료만보기" >
+					</form>
+				</div>
+				<div id="viewFree">
+					<form method = "post" action="<c:url value='/action/recommend'/>">
+						<input type = "hidden" name = "filterviewfree" value ="true">
+						<input class="button" type="submit" name="select" value="무료만보기" >
 					</form>
 				</div>
 				<div id="viewNone">
 					<form method = "post" action="<c:url value='/action/recommend'/>">
 						<input type = "hidden" name = "filterviewfree" value ="null">
-						<input type="submit" name="select" value="전체보기" >
+						<input class="button" type="submit" name="select" value="전체보기" >
 					</form>
 				</div>
-			</div>
+			</div> --%>
 		</div>
 		<div class="section" id="webtoons">
 		</div>
@@ -68,16 +141,17 @@
 			<c:forEach var="webtoonInfo" items="${recommendWebtoons}" varStatus="status">
 				$('#webtoons').append('<div class="webtoon"><table class="webtoon_table" border="1" cellpadding="5">'
 					+ '<tr><td colspan="2"></td></tr><tr><td colspan="2" class="td_test"></td></tr>'
-					+ '<tr><td class="td_test" width="50%"></td><td width="50%" class="td_test"></td></tr></table></div>');
-				$('td').eq(-4).append('<div class="test" style="position:relative;">'
+					+ '<tr><td class="td_test" width="40%"></td><td width="60%" class="td_test"></td></tr></table></div>');
+				$('td').eq(-4).append('<div class="label_div" style="position:relative;">'
 						+ '<div class="main_image_div">'
 						+ '<img class="main_image" src="${webtoonInfo.webtoons_main_image}" width="300px" height="400px">'
 						+ '<form method="post" action="webtoon" class="detail_form">'
 						+ '<input type="hidden" name="webtoon_id" value="${webtoonInfo.webtoons_id_pk}" />'
 						+ '<input type="hidden" name="todo" value="showWebtoonDetails" />'
 						+ '<button class="submit" type="submit">'
-						+ '<span>${webtoonInfo.webtoons_title}</span>'
+						+ '<span class="black_overlay"></span>'
 						+ '</button></form>'
+						+ '<span class="image_title">${webtoonInfo.webtoons_title}</span>'
 						+ '</div>'
 						+ '</div>');
 				$('td').eq(-3).append('<form id="myForm">'
@@ -102,7 +176,7 @@
 				$('td').eq(-2).append('<form method="post" action="#">'
 							+ '<input type="hidden" name="webtoon_id" value="${webtoonInfo.webtoons_id_pk}" />'
 							+ '<div class="heart"><input type="checkbox" id="${webtoonInfo.webtoons_title}" '
-							+ 'class="visuallyhidden" name="reserve" onclick=onclickStart(this) />'
+							+ 'class="visuallyhiddenHeart" name="reserve" onclick=seeReserve(this.form) />'
 							+ '<label for="${webtoonInfo.webtoons_title}" title="reserve_heart">❤</label></div>'
 							+ '</form>'
 						/* '<form method="post" action="#">'
@@ -115,14 +189,18 @@
 				webtoonCount = "${status.count}";
 				var completed = "${webtoonInfo.webtoons_completed}";
 				if (completed === '완')
-					$('.test').eq(webtoonCount - 1).append('<img class="end_label" src="../img/labels/end.png" />');
+					/* $('.label_div').eq(webtoonCount - 1).append('<img class="end_label" src="../img/labels/end.png" />'); */
+					$('.label_div').eq(webtoonCount - 1).append('<div class="ribbon-wrapper">'
+															+ '<div class="ribbon-end">완결</div></div>');
 				
 				if (calculateDateRange("${webtoonInfo.webtoons_first_update}"))
-					$('.test').eq(webtoonCount - 1).append('<img class="new_label" src="../img/labels/new.png" />');
+					/* $('.label_div').eq(webtoonCount - 1).append('<img class="new_label" src="../img/labels/new.png" />'); */
+					$('.label_div').eq(webtoonCount - 1).append('<div class="ribbon-wrapper">'
+															+ '<div class="ribbon-new">NEW!</div></div>');
 
 				getHighRatedWebtoonsAuthor("${webtoonInfo.authors_name}", "${webtoonInfo.webtoons_id_pk}", function(result) {
 					label_index = "${status.count}";
-					$('.test').eq(label_index - 1).append('<div class="author_label"><span class="author_span">'+ result + '<br />작가웹툰!!</span></div>');
+					$('.label_div').eq(label_index - 1).append('<div class="author_label"><span class="author_span">'+ result + '<br />작가웹툰!!</span></div>');
 	 			});
 	 			
 			</c:forEach>
