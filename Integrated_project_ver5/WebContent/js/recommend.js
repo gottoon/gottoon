@@ -48,7 +48,8 @@ function calculateDateRange(first_update) {
 	var now = new Date();
 
 	var from_date = new Date(update_token[0], update_token[1], update_token[2]);
-	var to_date = new Date(now.getFullYear(), now.getMonth(), now.getDate());
+/*	var to_date = new Date(now.getFullYear(), now.getMonth(), now.getDate());*/
+	var to_date = new Date(2010, 07, 01);
 
 	var checkDate = (to_date.getTime() - from_date.getTime()) / 1000 / 60;
 	
@@ -75,7 +76,7 @@ function getHighRatedWebtoonsAuthor(recommendAuthor, webtoon_id, callback) {
 	});
 }
 
-function overlay(webtoon_id) {
+/*function overlay(webtoon_id) {
 	$.ajax({
 		type : "POST",
 		url : "webtoon",
@@ -84,4 +85,4 @@ function overlay(webtoon_id) {
 			console.log(data);
 		}
 	});
-}
+}*/

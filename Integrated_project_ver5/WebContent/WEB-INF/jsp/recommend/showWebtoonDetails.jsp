@@ -7,10 +7,9 @@
 <head>
 <title>Show Recommended Webtoons</title>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<link rel="stylesheet" href="<c:url value='/css/recommend.css'/>" />
-<link rel="stylesheet" href="<c:url value='/css/showToon.css'/>" />
-<script
-	src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+<link rel="stylesheet" href="<c:url value='/css/details.css'/>" />
+<link rel="stylesheet" href="<c:url value='/css/recommendStar.css'/>" />
+<script	src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
 <script src="<c:url value='/js/recommend.js'/>"></script>
 <script src="<c:url value='/js/webtoonDetailAndStarPoint.js'/>"></script>
 </head>
@@ -28,8 +27,95 @@
 				<div>삭제  끄아악!</div>
 			</div>
 		</div>
-
-		<div id="container">
+	</div>
+	
+	<div class="article">
+		<div id="left-section">
+			<div id="image">
+				<img id="webtoon_image" src="${webtoonDetail.webtoons_main_image}" />
+			</div>
+			<div id="option-button">
+				<div id="webtoon-star">
+					<c:import url="/WEB-INF/jsp/star.jsp"></c:import>
+				</div>
+				<div id="reserve-view">
+					<c:import url="/WEB-INF/jsp/reserve-view.jsp"></c:import>
+				</div>
+			</div>
+		</div>
+		<div id="right-section">
+			<div>
+			</div>
+			<table border="1" cellpadding="6">
+						<tr>
+							<th>장르</th>
+							<td>${webtoonDetail.genres_name}</td>
+							<th>작가</th>
+							<td>${authorsName}</td>
+						</tr>
+						<tr>
+							<th>유/무료</th>
+							<td>${webtoonDetail.webtoon_viewfree}</td>
+							<th>완결유무</th>
+							<td>${webtoonDetail.webtoons_completed}</td>
+						</tr>
+						<tr>
+							<th>연재요일</th>
+							<td colspan="3">${webtoonDetail.webtoons_update_days}</td>
+						</tr>
+						<tr>
+							<th>작가구분</th>
+							<td>${webtoonDetail.webtoon_professional}</td>
+							<th>관람등급</th>
+							<td>${webtoonDetail.webtoons_pgrating}</td>
+						</tr>
+						<tr>
+							<th>제공처</th>
+							<td>${webtoonDetail.webtoons_publisher}</td>
+							<th>연재시작일</th>
+							<td>${webtoonDetail.webtoons_first_update}</td>
+						</tr>
+						<tr>
+							<th colspan="4">줄거리</th>
+						</tr>
+						<tr>
+							<td colspan="4">${webtoonDetail.webtoons_summary}</td>
+						</tr>
+					</table>
+		</div>
+	</div>
+	
+	
+	<%-- <div class="container">
+		<div class="pageseparator"></div>
+		<div class="two">
+			<div id="add_label">
+						<table>
+							<tr>
+								<td>
+									<div class="image_label">
+										<div class="image">
+											<!-- width="500px" height="380px" -->
+											<img id="webtoon_image" src="${webtoonDetail.webtoons_main_image}" width="500px" height="380px"/>
+										</div>
+									</div>
+								</td>
+							</tr>
+						</table>
+					</div>
+			<br />
+			<br />
+			<p>test1</p>
+			<p>test2</p>
+			<p>test3</p>
+			<p>test4</p>
+			<p>test5</p>
+			<p>test6</p>
+			
+		</div>
+	</div> --%>
+	
+		<%-- <div id="container">
 			<div id="header">
 				<h1>${webtoonDetail.webtoons_title}</h1>
 			</div>
@@ -60,7 +146,7 @@
 								<td>
 									<input type="hidden" id="rate" value="${webtoonDetail.webtoon_rate}">
 						 			<input type="hidden" id="id" value="${webtoonDetail.webtoons_id_pk}">		
-									<%-- <c:import url="/WEB-INF/jsp/star.jsp"></c:import> --%>
+									<c:import url="/WEB-INF/jsp/star.jsp"></c:import>
 									<div class="product-review-stars" align="center">
 										<input type="checkbox" id="${status.count*status.count*status.count+1}" name="rating" 
 											value="5^${webtoonDetail.webtoons_id_pk}" onclick=onclickStart(this) class="visuallyhidden" />
@@ -147,18 +233,18 @@
 				data-layout="standard" data-action="like" data-show-faces="true"
 				data-share="false">
 			</div>
-		</div>
-	</div>
+		</div> --%>
+	
 
 	<script>
 	if ("${webtoonDetail.webtoons_completed}" === '완')
-		$('.left_label').after('<img class="end_label" src="../img/labels/end.png" />');
+		$('.image').before('<div class="end_label"><img src="../img/labels/end.png" /></div>');
 	
 	if (calculateDateRange("${webtoonDetail.webtoons_first_update}"))
-		$('.left_label').after('<img class="new_label" src="../img/labels/new.png" />');
+		$('.image_label').append('<img class="new_label" src="../img/labels/new.png" />');
 	
 	getHighRatedWebtoonsAuthor("${authorsName}", "${webtoonDetail.webtoons_id_pk}", function(result) {
-		$('.right_label').append('<div class="author_label"><span class="author_span">'+ result + '<br />작가웹툰!!</span></div>');
+		$('.image').before('<div class="author_label"><span class="author_span">'+ result + '<br />작가웹툰!!</span></div>');
 	});
 	</script>
 </body>
