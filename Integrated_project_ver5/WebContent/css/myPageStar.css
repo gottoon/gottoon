@@ -81,17 +81,7 @@
 	color: gray;
 	/* #DFE3E4 */
 }
-@media all and (min-width: 527px) and (max-width: 599px) {
-	.product-review-stars label {
-		font-size: 30px
-	}
-}
 
-@media all and (max-width: 526px){
-.product-review-stars label {
-	font-size: 27px;
-}
-}
 .product-review-stars input:checked ~ label:before {
 	opacity: 1;
 }
@@ -111,6 +101,25 @@
 	-moz-backface-visibility: hidden; /* Firefox */
 	-ms-backface-visibility: hidden; /* Internet Explorer */
 }
+
+@media all and (min-width: 527px) and (max-width: 599px) {
+	.product-review-stars label {
+		font-size: 30px
+	}
+}
+
+@media all and (max-width: 517px) {
+	.product-review-stars {
+		/* width: 100%; */
+		width: 400px;
+		margin-top: 15px;
+	}
+	
+	.product-review-stars label {
+	font-size: 27px;
+	}
+}
+
 
 .product-review-stars input+label:hover:before,.product-review-stars input+label:hover 
 	 ~ label:before {

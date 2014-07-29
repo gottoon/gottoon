@@ -21,7 +21,7 @@
 	href="<c:url value='/css/mypage.css'/>" />
 <link rel="stylesheet" media="screen" type="text/css"
 	href="<c:url value='/css/mypageContents.css'/>" />
-	
+
 <title>MYPAGE READ WEBTOON</title>
 </head>
 
@@ -41,45 +41,44 @@
 	</div>
 
 	<section>
-		<article>
-			<nav>
-				<div>
-					<table class="state" border='0' cellpadding='0' align="center">
-						<tr>
-							<td id="state_image"><div class="gradeImg">
-									<p id="grade"></p>
-									<img src="<c:url value='/img/gradeImg/level_star.jpg' />" />
-								</div></td>
-
-							<td id="state_gauge"><div>
-									<h2>지금까지 총 ${fn:length(readToon)} 편의 웹툰을 보셨습니다.</h2>
-
-									<div id="gauge_meter">
-										<meter id="gauge" low=35 high=70 max=100 value=0
-											style="display: none;">
-											<!-- <input name="showGauge" /> -->
-										</meter>
-									</div>
-
-									<div id="progress">
-										<div class="progress-bar">
-											<canvas id="inactiveProgress" class="progress-inactive"
-												height="275px" width="275px"></canvas>
-											<canvas id="activeProgress" class="progress-active"
-												height="275px" width="275px"></canvas>
-											<p></p>
-										</div>
-										<div id="progressControllerContainer">
-											<input type="range" id="progressController" min="0" max="100"
-												value=0 />
-										</div>
-									</div>
-								</div></td>
-							<td>
-					</table>
+		<div class="state">
+			<div id="state_image">
+				<div class="gradeImg">
+					<div id="level">
+						<div>
+							<p id="grade" />
+						</div>
+					</div>
 				</div>
-			</nav>
-		</article>
+
+				<div id="state_gauge">
+					<div>
+						<h2>지금까지 총 ${fn:length(readToon)} 편의 웹툰을 보셨습니다.</h2>
+
+						<div id="gauge_meter">
+							<meter id="gauge" low=35 high=70 max=100 value=0
+								style="display: none;">
+								<!-- <input name="showGauge" /> -->
+							</meter>
+						</div>
+
+						<div id="progress">
+							<div class="progress-bar">
+								<canvas id="inactiveProgress" class="progress-inactive"
+									height="275px" width="275px"></canvas>
+								<canvas id="activeProgress" class="progress-active"
+									height="275px" width="275px"></canvas>
+								<p></p>
+							</div>
+							<div id="progressControllerContainer">
+								<input type="range" id="progressController" min="0" max="100"
+									value=0 />
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
 	</section>
 
 	<section class="contains">
@@ -109,7 +108,7 @@
 									<!-- <table id="fb-root" class="showToon" border="1"> -->
 									<div id="title">
 										<a id="title_link" href="${WebtoonVO.webtoons_url}"
-											target="_blank">${WebtoonVO.webtoons_title}</a>
+											target="_blank"><strong>${WebtoonVO.webtoons_title}</strong></a>
 									</div>
 
 									<div id="desc">
@@ -123,27 +122,27 @@
 													name="rating" value="5^${WebtoonVO.webtoons_id_pk}"
 													onclick=onclickStart(this) class="visuallyhidden">
 												<label for="${status.count*status.count*status.count+1}"
-													title="Rocks!">★</label> <input type="checkbox"
+													title="최고에요">★</label> <input type="checkbox"
 													id="${status.count*status.count*status.count+2}"
 													name="rating" value="4^${WebtoonVO.webtoons_id_pk}"
 													onclick=onclickStart(this) class="visuallyhidden">
 												<label for="${status.count*status.count*status.count+2}"
-													title="Pretty good">★</label> <input type="checkbox"
+													title="좋아요">★</label> <input type="checkbox"
 													id="${status.count*status.count*status.count+3}"
 													name="rating" value="3^${WebtoonVO.webtoons_id_pk}"
 													onclick=onclickStart(this) class="visuallyhidden">
 												<label for="${status.count*status.count*status.count+3}"
-													title="Meh">★</label> <input type="checkbox"
+													title="그럭저럭">★</label> <input type="checkbox"
 													id="${status.count*status.count*status.count+4}"
 													name="rating" value="2^${WebtoonVO.webtoons_id_pk}"
 													onclick=onclickStart(this) class="visuallyhidden">
 												<label for="${status.count*status.count*status.count+4}"
-													title="Kinda bad">★</label> <input type="checkbox"
+													title="재미없음">★</label> <input type="checkbox"
 													id="${status.count*status.count*status.count+5}"
 													name="rating" value="1^${WebtoonVO.webtoons_id_pk}"
 													onclick=onclickStart(this) class="visuallyhidden">
 												<label for="${status.count*status.count*status.count+5}"
-													title="Sucks big time">★</label>
+													title="시간이 아깝다">★</label>
 											</div>
 										</form>
 										<!-- </table> -->
@@ -156,8 +155,6 @@
 			</table>
 		</div>
 	</section>
-
-
 
 	<script
 		src="//cdnjs.cloudflare.com/ajax/libs/less.js/1.7.3/less.min.js"></script>

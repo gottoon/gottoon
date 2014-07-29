@@ -43,10 +43,9 @@
 	</div>
 
 	<h2>신작 웹툰</h2>
-
+	<hr>
 
 	<c:if test="${fn:length(newWebtoon)==0}">
-		<hr>
 		<p>신작 웹툰이 없습니다.</p>
 	</c:if>
 
@@ -87,34 +86,33 @@
 													value="${WebtoonVO.webtoon_rate }"> <input
 													type="hidden" id="id" value="${WebtoonVO.webtoons_id_pk }">
 												<form id="myForm">
-													<p>별점 : ${WebtoonVO.webtoon_rate }</p>
 													<div class="product-review-stars">
 														<input type="checkbox"
 															id="${status.count*status.count*status.count+1}"
 															name="rating" value="5^${WebtoonVO.webtoons_id_pk}"
 															onclick=onclickStart(this) class="visuallyhidden">
 														<label for="${status.count*status.count*status.count+1}"
-															title="Rocks!">★</label> <input type="checkbox"
+															title="부왁! 최고!">★</label> <input type="checkbox"
 															id="${status.count*status.count*status.count+2}"
 															name="rating" value="4^${WebtoonVO.webtoons_id_pk}"
 															onclick=onclickStart(this) class="visuallyhidden">
 														<label for="${status.count*status.count*status.count+2}"
-															title="Pretty good">★</label> <input type="checkbox"
+															title="좋아요">★</label> <input type="checkbox"
 															id="${status.count*status.count*status.count+3}"
 															name="rating" value="3^${WebtoonVO.webtoons_id_pk}"
 															onclick=onclickStart(this) class="visuallyhidden">
 														<label for="${status.count*status.count*status.count+3}"
-															title="Meh">★</label> <input type="checkbox"
+															title="그럭저럭">★</label> <input type="checkbox"
 															id="${status.count*status.count*status.count+4}"
 															name="rating" value="2^${WebtoonVO.webtoons_id_pk}"
 															onclick=onclickStart(this) class="visuallyhidden">
 														<label for="${status.count*status.count*status.count+4}"
-															title="Kinda bad">★</label> <input type="checkbox"
+															title="재미없음">★</label> <input type="checkbox"
 															id="${status.count*status.count*status.count+5}"
 															name="rating" value="1^${WebtoonVO.webtoons_id_pk}"
 															onclick=onclickStart(this) class="visuallyhidden">
 														<label for="${status.count*status.count*status.count+5}"
-															title="Sucks big time">★</label>
+															title="시간이 아깝다">★</label>
 													</div>
 												</form>
 												<!-- </table> -->
@@ -163,34 +161,33 @@
 											value="${WebtoonVO.webtoon_rate }"> <input
 											type="hidden" id="id" value="${WebtoonVO.webtoons_id_pk }">
 										<form id="myForm">
-											<p>별점 : ${WebtoonVO.webtoon_rate }</p>
 											<div class="product-review-stars">
 												<input type="checkbox"
 													id="${status.count*status.count*status.count+1}"
 													name="rating" value="5^${WebtoonVO.webtoons_id_pk}"
 													onclick=onclickStart(this) class="visuallyhidden">
 												<label for="${status.count*status.count*status.count+1}"
-													title="Rocks!">★</label> <input type="checkbox"
+													title="부왁! 최고!">★</label> <input type="checkbox"
 													id="${status.count*status.count*status.count+2}"
 													name="rating" value="4^${WebtoonVO.webtoons_id_pk}"
 													onclick=onclickStart(this) class="visuallyhidden">
 												<label for="${status.count*status.count*status.count+2}"
-													title="Pretty good">★</label> <input type="checkbox"
+													title="좋아요">★</label> <input type="checkbox"
 													id="${status.count*status.count*status.count+3}"
 													name="rating" value="3^${WebtoonVO.webtoons_id_pk}"
 													onclick=onclickStart(this) class="visuallyhidden">
 												<label for="${status.count*status.count*status.count+3}"
-													title="Meh">★</label> <input type="checkbox"
+													title="그럭저럭">★</label> <input type="checkbox"
 													id="${status.count*status.count*status.count+4}"
 													name="rating" value="2^${WebtoonVO.webtoons_id_pk}"
 													onclick=onclickStart(this) class="visuallyhidden">
 												<label for="${status.count*status.count*status.count+4}"
-													title="Kinda bad">★</label> <input type="checkbox"
+													title="재미없음">★</label> <input type="checkbox"
 													id="${status.count*status.count*status.count+5}"
 													name="rating" value="1^${WebtoonVO.webtoons_id_pk}"
 													onclick=onclickStart(this) class="visuallyhidden">
 												<label for="${status.count*status.count*status.count+5}"
-													title="Sucks big time">★</label>
+													title="시간이 아깝다">★</label>
 											</div>
 										</form>
 										<!-- </table> -->

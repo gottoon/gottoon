@@ -1,83 +1,95 @@
 @CHARSET "UTF-8";
 
 [role="main"] {
-    padding-top: 1rem;
-    padding-bottom: 2rem;
+	padding-top: 1rem;
+	padding-bottom: 2rem;
 }
+
 .page {
-    background-color: #fff;
-    color: #333;
-    padding: 2.25rem;
-    position: relative;
-}
-.page .stepout {
-    margin: 0 -2.25rem -6.5%;
+	background-color: #fff;
+	color: #333;
+	padding: 10px;
+	position: relative;
 }
 
 .contents {
-    margin: 0 auto;
-    padding-left: 5%;
-    padding-right: 5%;
-    max-width: 75em;
+	margin: 0 auto;
+	padding-left: 5%;
+	padding-right: 5%;
+	max-width: 75em;
 }
 
 .gallery {
-    margin-top: 0%;
- }
- 
+	margin-top: 0%;
+}
+
 .gallery-item {
-    display: inline-block;
-    vertical-align: top;
-    margin-top: 10px;
+	display: inline-block;
+	vertical-align: top;
+	margin-top: 10px;
 	margin-left: 10px;
 	margin-right: 10px;
 	margin-bottom: 50px;
 	border: 1px solid gray;
-	border-radius : 5px;
+	border-radius: 5px;
 	background-color: #ffffff;
 }
 
 .gallery-item .vcard {
-    width: 218px;
-    text-align: center;
-    margin-bottom: 20px;
+	width: 218px;
+	text-align: center;
+	/* margin-bottom: 20px; */
 }
 
 .gallery-item .vcard .photo {
-width: 100%;
+	width: 100%;
 }
 
-h1, h2 {
-	text-align: center;
-    margin-top: 0;
+input.btn.btn-primary.btn-lg {
+	width: 100%;
+	border-radius: 0;
+	
+}
+.nav-pills>li+li {
+	margin-left: 0px;
 }
 
-h1, h2, h3, h4 {
+
+h1,h2 {
 	text-align: center;
-    /* line-height: 1; */
+	margin-top: 0;
 }
 
-ul, ol {    
+h1,h2,h3,h4 {
 	text-align: center;
-    margin: 0 0 1em;
-    padding: 0;
-    list-style: none;
+	/* line-height: 1; */
+}
+
+ul,ol {
+	text-align: center;
+	margin: 0 0 0;
+	padding: 0;
+	list-style: none;
 }
 
 img {
 	text-align: center;
-    border: none;
-    margin: 0;
-    padding: 0;
-    max-width: 100%;
+	border: none;
+	margin: 0;
+	padding: 0;
+	max-width: 160px;
+	max-height: 160px;
+}
+
+div#level {
+	background: url(../img/gradeImg/level_star.jpg);
+	width: 160px;
+	height: 136px;
+	margin: auto;
 }
 
 div#title {
-	height: 60px;
-	margin-top: 10px;
-	margin-bottom: 10px;
-	margin-left: 25px;
-	margin-right: 25px;
+	margin: 10px;
 }
 
 div#image {
@@ -87,154 +99,130 @@ div#image {
 
 div#desc {
 	border-top: 1px solid #F3F3F5;
-	margin-bottom: 30px;
+	/* margin-bottom: 30px; */
 }
-
 
 /* 큰화면에서 테스트 */
 @media all and (min-width: 1800px) {
-body {
-        font-size: 25px;
-        font-size: 1.125rem;
-    }
-   
-.gallery .gallery-item {
-        width: 15%;
-        
-    }
-	
+	body {
+		font-size: 25px;
+		font-size: 1.125rem;
+	}
+	.gallery .gallery-item {
+		width: 15%;
+	}
 }
 
 @media all and (min-width: 1200px) and (max-width: 1799px) {
-body {
-        font-size: 20px;
-        font-size: 1.125rem;
-    }
-   
-.gallery .gallery-item {
-        /* width: 18%; */
-        width: 220px;
-    }
-}
-@media all and (min-width: 1024px) and (max-width: 1199px){
-body {
-        font-size: 15px;
-        font-size: 1.125rem;
-    }
-   
-.gallery .gallery-item {
-        /* width: 18%; */
-        width: 220px;
-    }
-
+	body {
+		font-size: 20px;
+		font-size: 1.125rem;
+	}
+	.gallery .gallery-item {
+		/* width: 18%; */
+		width: 220px;
+	}
 }
 
-
-@media all and (min-width: 768px) and (max-width: 1023px){
-body {
-        font-size: 15px;
-        font-size: 1.125rem;
-    }
-   
-.gallery .gallery-item {
-        /* width: 20%; */
-        width: 230px;
-    }
-    
-.gallery-item .vcard {
-    width: 228px;
+@media all and (min-width: 1024px) and (max-width: 1199px) {
+	body {
+		font-size: 15px;
+		font-size: 1.125rem;
+	}
+	.gallery .gallery-item {
+		/* width: 18%; */
+		width: 220px;
+	}
 }
 
+@media all and (min-width: 768px) and (max-width: 1023px) {
+	body {
+		font-size: 15px;
+		font-size: 1.125rem;
+	}
+	.gallery .gallery-item {
+		/* width: 20%; */
+		width: 230px;
+	}
+	.gallery-item .vcard {
+		width: 228px;
+	}
 }
 
-@media all and (min-width: 600px) and (max-width: 767px){
-body {
-        font-size: 15px;
-        font-size: 1.125rem;
-    }
-   
-.gallery .gallery-item {
-        /* width: 30%; */
-        width: 250px;
-    }
-    
-.gallery-item .vcard {
-    width: 248px;
+@media all and (min-width: 600px) and (max-width: 767px) {
+	body {
+		font-size: 15px;
+		font-size: 1.125rem;
+	}
+	.gallery .gallery-item {
+		/* width: 30%; */
+		width: 250px;
+	}
+	.gallery-item .vcard {
+		width: 248px;
+	}
 }
 
+@media all and (min-width: 527px) and (max-width: 599px) {
+	body {
+		font-size: 15px;
+		font-size: 1.125rem;
+	}
+	.gallery .gallery-item {
+		/* width: 30%; */
+		width: 200px;
+	}
+	.gallery-item .vcard {
+		width: 198px;
+	}
 }
 
-@media all and (min-width: 527px) and (max-width: 599px){
-body {
-        font-size: 15px;
-        font-size: 1.125rem;
-    }
-   
-.gallery .gallery-item {
-        /* width: 30%; */
-        width: 200px;
-    }
-
-.gallery-item .vcard {
-    width: 198px;
+@media all and (min-width: 518px) and (max-width: 526px) {
+	body {
+		font-size: 15px;
+		font-size: 1.125rem;
+	}
+	div#image {
+		width: 100%;
+	}
+	div#desc {
+		width: 220px;
+	}
+	.gallery-item {
+		margin-bottom: 20px;
+	}
+	.gallery.gallery-item {
+		width: 200px;
+	}
+	.gallery-item.vcard {
+		width: 198px;
+	}
 }
 
-
-
-}
-
-@media all and (min-width: 518px) and (max-width: 526px){
-body {
-        font-size: 15px;
-        font-size: 1.125rem;
-    }
-    
-div#image {
-	width: 100%;
-}
-
-div#desc {
-	width: 220px;
-}
-
-.gallery-item {
-	margin-bottom: 20px;
-}
-
-.gallery.gallery-item {
-       width: 200px;
-    }
-
-.gallery-item.vcard {
-    width: 198px;
-}
-
-a#title_link {
-	width: 170px;
-}
-
-}
-
-@media all and (min-width: 320px) and (max-width: 517px) {
-.gallery-item {
-	width: 400px;
-}
+@media all and (max-width: 517px) {
+	.gallery-item {
+		/* width: 90%; */
+		width: 400px;
+		margin-bottom: 20px;
+	}
+	.gallery-item .vcard {
+		/* width: 100%; */
+		width: 398px;
+		height: 145px;
+	}
 	
-.gallery-item .vcard {
-	width: 398px;
-	height: 142px;
-}
+	div#image {
+		/* width: 45%; */
+		width: 180px;
+		height: 145px;
+		float: left;
+	}
 	
-div#image {
-	width: 45%;
-	float: left;
-}
-
-.gallery-item .vcard .photo	{
-	margin-left: 10px;
-	margin-bottom: 4px;
-}
-	
-div#desc {
-}
+	div#title{
+		height: 60px;
+		margin-top: 0px;
+		margin-bottom: 10px;
+		margin-left: 0px;
+		margin-right: 0px;	
+	}
 }
