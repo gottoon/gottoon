@@ -88,6 +88,7 @@
 						</c:if>
 					</div>
 					<div class="star">
+						<%-- <c:import url="/WEB-INF/jsp/star.jsp"></c:import> --%>
 						<form id="myForm">
 							<input type="hidden" name="webtoons_id_pk" value="${webtoonInfo.webtoons_id_pk}" />
 							<input type="hidden" name="webtoons_title" value="${webtoonInfo.webtoons_title}" />
@@ -106,6 +107,7 @@
 						</form>
 					</div>
 					<div class="option-button">
+						<%-- <c:import url="/WEB-INF/jsp/reserve-view.jsp"></c:import> --%>
 						<div class="reserve">
 							<form method="post" action="#">
 								<input type="hidden" name="webtoon_id" value="${webtoonInfo.webtoons_id_pk}" />

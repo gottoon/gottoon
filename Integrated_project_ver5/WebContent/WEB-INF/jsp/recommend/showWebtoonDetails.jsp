@@ -7,62 +7,11 @@
 <head>
 <title>Show Recommended Webtoons</title>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<%-- <link rel="stylesheet" href="<c:url value='/css/recommend.css'/>" /> --%>
+<link rel="stylesheet" href="<c:url value='/css/details.css'/>" />
 <link rel="stylesheet" href="<c:url value='/css/recommendStar.css'/>" />
 <script	src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
 <script src="<c:url value='/js/recommend.js'/>"></script>
 <script src="<c:url value='/js/webtoonDetailAndStarPoint.js'/>"></script>
-
-<style>
-.article {
-	width : 90%;
-	height : 500px;
-	clear : both;
-	margin : 5%;
-	
-}
-
-#left-section {
-	width : 50%;
-	height : 100%;
-	float : left;
-}
-
-#right-section {
-	width : 50%;
-	height : 100%;
-	float : right;
-}
-
-/* img#webtoon_image {
-	width : 100%;
-	height : 100%;
-	border-left: 1px solid #ccc;
-	border-right: 1px solid #ccc;
-} */
-
-.label_image {
-	margin : 0;
-	width : 100%;
-	height : 100%;
-	border-left: 2px solid #ccc;
-	border-right: 3px solid #ccc;
-	border-top: 2px solid #ccc;
-	border-bottom: 10px solid #ccc;
-}
-
-.webtoonInfo {
-	margin : 0;
-	width : 100%;
-	height : 100%;
-	border-left: 3px solid #ccc;
-	border-right: 10px solid #ccc;
-	border-top: 2px solid #ccc;
-	border-bottom: 10px solid #ccc;
-}
-
-
-</style>
 </head>
 <body>
 	<div id="pgcontainer">
@@ -82,27 +31,57 @@
 	
 	<div class="article">
 		<div id="left-section">
-			<table class="label_image" border="1">
-				<tr>
-					<td>
-						<img id="webtoon_image" src="${webtoonDetail.webtoons_main_image}" />
-					</td>
-				</tr>
-			</table>
+			<div id="image">
+				<img id="webtoon_image" src="${webtoonDetail.webtoons_main_image}" />
+			</div>
+			<div id="option-button">
+				<div id="webtoon-star">
+					<c:import url="/WEB-INF/jsp/star.jsp"></c:import>
+				</div>
+				<div id="reserve-view">
+					<c:import url="/WEB-INF/jsp/reserve-view.jsp"></c:import>
+				</div>
+			</div>
 		</div>
 		<div id="right-section">
-			<table class="webtoonInfo" border="1">
-				<tr>
-					<td>
-						<p>test1</p>
-			<p>test2</p>
-			<p>test3</p>
-			<p>test4</p>
-			<p>test5</p>
-			<p>test6</p>
-					</td>
-				</tr>
-			</table>
+			<div>
+			</div>
+			<table border="1" cellpadding="6">
+						<tr>
+							<th>장르</th>
+							<td>${webtoonDetail.genres_name}</td>
+							<th>작가</th>
+							<td>${authorsName}</td>
+						</tr>
+						<tr>
+							<th>유/무료</th>
+							<td>${webtoonDetail.webtoon_viewfree}</td>
+							<th>완결유무</th>
+							<td>${webtoonDetail.webtoons_completed}</td>
+						</tr>
+						<tr>
+							<th>연재요일</th>
+							<td colspan="3">${webtoonDetail.webtoons_update_days}</td>
+						</tr>
+						<tr>
+							<th>작가구분</th>
+							<td>${webtoonDetail.webtoon_professional}</td>
+							<th>관람등급</th>
+							<td>${webtoonDetail.webtoons_pgrating}</td>
+						</tr>
+						<tr>
+							<th>제공처</th>
+							<td>${webtoonDetail.webtoons_publisher}</td>
+							<th>연재시작일</th>
+							<td>${webtoonDetail.webtoons_first_update}</td>
+						</tr>
+						<tr>
+							<th colspan="4">줄거리</th>
+						</tr>
+						<tr>
+							<td colspan="4">${webtoonDetail.webtoons_summary}</td>
+						</tr>
+					</table>
 		</div>
 	</div>
 	
