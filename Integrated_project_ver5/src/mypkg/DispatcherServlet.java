@@ -23,38 +23,35 @@ public class DispatcherServlet extends HttpServlet {
 		super.init(conf);
 	}
 
-	protected void dispatch(HttpServletRequest request,
-			HttpServletResponse response, String page) throws ServletException,
-			IOException {
+	protected void dispatch(HttpServletRequest request, HttpServletResponse response, String page) throws ServletException, IOException {
 		System.out.println("dispatch 시작 ");
 		System.out.println("dispatch = " + page);
-		RequestDispatcher dispatcher = getServletContext()
-				.getRequestDispatcher(page);
+		RequestDispatcher dispatcher = getServletContext().getRequestDispatcher(page);
 		dispatcher.forward(request, response);
 	}
 
-	protected void sendContent(HttpServletRequest request,
-			HttpServletResponse response, CommandResult commandResult)
+	protected void sendContent(HttpServletRequest request, HttpServletResponse response, CommandResult commandResult)
 			throws ServletException, IOException {
 		System.out.println("sendContent 시작 ");
 		response.setContentType("text/html;charset=UTF-8");
 		response.setCharacterEncoding("UTF-8");
-		System.out.println(commandResult.getContent());
+		System.out.println("1 :"+commandResult.getContent());
 		PrintWriter out = response.getWriter();
-		System.out.println(commandResult.getContentType());
+		System.out.println("2 :"+commandResult.getContentType());
 
-		if (commandResult.getContentType().equalsIgnoreCase(
-				"text/plain")) {
+		if (commandResult.getContentType().contains("text/plain")) {
+			System.out.println("if 1");
 			out.println(commandResult.getContent());
-		} else if (commandResult.getContent().equalsIgnoreCase("json")) {
-			out.println(commandResult.getJsonObject());
+		} else if (commandResult.getContentType().contains("json")) {
+			response.setContentType("application/json");
+			System.out.println("if 2");
+			out.println(commandResult.getContent());
 		}
-
+		out.flush();
 		out.close();
 	}
 
-	protected void process(HttpServletRequest request,
-			HttpServletResponse response) throws ServletException, IOException {
+	protected void process(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		System.out.println("프로세스 시작 ");
 		CommandResult commandResult;
 
@@ -76,13 +73,11 @@ public class DispatcherServlet extends HttpServlet {
 		}
 	}
 
-	protected void doGet(HttpServletRequest request,
-			HttpServletResponse response) throws ServletException, IOException {
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		process(request, response);
 	}
 
-	protected void doPost(HttpServletRequest request,
-			HttpServletResponse response) throws ServletException, IOException {
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		process(request, response);
 	}
 }

@@ -38,10 +38,11 @@ public class WebtoonVO implements Serializable {
 	}
 
 	// 생성자 3번
-	public WebtoonVO(String webtoons_title, String webtoons_publisher, int webtoons_id_pk) {
+	public WebtoonVO(String webtoons_title, String webtoons_publisher, int webtoons_id_pk, String webtoons_url) {
 		this.webtoons_title = webtoons_title;
 		this.webtoons_publisher = webtoons_publisher;
 		this.webtoons_id_pk = webtoons_id_pk;
+		this.webtoons_url = webtoons_url;
 	}
 	
 	// 7.18 영규꺼 7.22 id 추가

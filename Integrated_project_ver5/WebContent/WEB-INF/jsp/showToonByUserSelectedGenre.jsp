@@ -10,25 +10,19 @@
 <meta http-equiv="Expires" content="-1" />
 <title>선택된 장르 웹툰</title>
 
-<link rel="stylesheet" href="<c:url value='/css/showToon.css'/>" />
-
 <script src='http://codepen.io/assets/libs/fullpage/jquery.js'></script>
+
 <script type="text/javascript"
 	src="http://code.jquery.com/jquery-1.6.1.min.js"></script>
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7/jquery.js"></script>
 <script src="http://malsup.github.com/jquery.form.js"></script>
-<script
-	src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
 <script src="<c:url value='/js/showToon.js'/>"></script>
 <script src="<c:url value='/js/bar.js'/>"></script>
-
+<link rel="stylesheet" href="<c:url value='/css/showToon.css'/>" />
+<link href='http://fonts.googleapis.com/css?family=Lato:300,400,700,900'rel='stylesheet' type='text/css'>
 
 </head>
 <body>
-	<%--  	<c:import url="/WEB-INF/jsp/main/menu.jsp"></c:import>
- --%>
-
-
 
 	<div class="show-modalStar">
 		<div class="modalStar">
@@ -42,11 +36,19 @@
 		</div>
 	</div>
 
-
-	<meter id="meter" value="0" max="1">
-		<input name="show" />
-
-	</meter>
+	<div class="meterContainer">
+		<div aria-hidden="true" class="meterBackground">
+			<div aria-hidden="true" class="meterBar">
+				<label class="progressValue"> <span class="progressNumber"></span>
+					<meter max="10" value="0" class="leaseMeter"></meter>
+				</label>
+				<!--progressValue-->
+			</div>
+			<!--meterBar-->
+		</div>
+		<!--meterBackground-->
+	</div>
+	<!--meterContainer-->
 	<br>
 	<br>
 	<h1>읽으신 웹툰만 선택해 주세요</h1>
@@ -54,169 +56,15 @@
 
 
 
+	<input type ="hidden" id = "count" value ="0">
+
 
 	<form id="button" class="recommand" method="post" action="recommend">
 		<input type="hidden" name="todo" value="recommendWebtoons" /> <input
 			class="show-modal open-modal" type="submit" value="추천해줭 " />
 	</form>
 
-
-
-
-
-
-
-	<table class="bigTable">
-		<tr>
-			<td><c:forEach var="userWebtoonVO" items="${showWebtoons}"
-					varStatus="status">
-					<link
-						href='http://fonts.googleapis.com/css?family=Lato:300,400,700,900'
-						rel='stylesheet' type='text/css'>
-
-
-<table  class = "webtoonTalbe">
-					<section>
-						<div id="poster">
-							<!-- Poster image -->
-							<img src="http://www.codepen.kamilczujowski.de/images/picture.jpg"
-								alt="© Kamil Czujowski // @kamilczujowski " />
-
-							<!-- Love button -->
-							<!-- 	<a href="#" id="love"></a> -->
-						</div>
-						<!-- Add Comment -->
-						<div id="add">
-							<p>
-								<span>웹툰 타이틀 : ${userWebtoonVO.webtoons_title}</span>
-							</p>
-
-						</div>
-						<!-- Break line -->
-						
-						<hr />
-						<hr />
-						<hr />
-						<hr />
-						<hr />
-						
-						<div id="comments">
-							<section>
-								<!-- 1-->
-								<img src="http://www.codepen.kamilczujowski.de/images/person1.jpg"
-									alt="© Kamil Czujowski // @kamilczujowski " />
-								<article>
-
-									<form id="myForm">
-
-
-										<div class="product-review-stars">
-											<input type="checkbox"
-												id="${status.count*status.count*status.count+1}" name="rating"
-												value="5^${userWebtoonVO.webtoons_id_pk}"
-												onclick=onclickStart(this) class="visuallyhidden"> <label
-												for="${status.count*status.count*status.count+1}"
-												title="Rocks!">★</label> <input type="checkbox"
-												id="${status.count*status.count*status.count+2}" name="rating"
-												value="4^${userWebtoonVO.webtoons_id_pk}"
-												onclick=onclickStart(this) class="visuallyhidden"> <label
-												for="${status.count*status.count*status.count+2}"
-												title="Pretty good">★</label> <input type="checkbox"
-												id="${status.count*status.count*status.count+3}" name="rating"
-												value="3^${userWebtoonVO.webtoons_id_pk}"
-												onclick=onclickStart(this) class="visuallyhidden"> <label
-												for="${status.count*status.count*status.count+3}" title="Meh">★</label>
-											<input type="checkbox"
-												id="${status.count*status.count*status.count+4}" name="rating"
-												value="2^${userWebtoonVO.webtoons_id_pk}"
-												onclick=onclickStart(this) class="visuallyhidden"> <label
-												for="${status.count*status.count*status.count+4}"
-												title="Kinda bad">★</label> <input type="checkbox"
-												id="${status.count*status.count*status.count+5}" name="rating"
-												value="1^${userWebtoonVO.webtoons_id_pk}"
-												onclick=onclickStart(this) class="visuallyhidden"> <label
-												for="${status.count*status.count*status.count+5}"
-												title="Sucks big time">★</label>
-										</div>
-									</form>
-
-
-
-											<p>간략한  설명 </p>
-								</article>
-							</section>
-							
-						</div>
-					</section>
-</table>
-
-
-
-
-					<%-- <table class="webtoon_table">
-
-						<tr>
-							<td>웹툰 타이틀 : ${userWebtoonVO.webtoons_title} <br>
-							<br>
-
-								<div>이미지</div> <br>
-							<br>
-							<br>
-							<br>
-							<br>
-							<br>
-							<br>
-
-
-								<form id="myForm">
-
-
-									<div class="product-review-stars">
-										<input type="checkbox"
-											id="${status.count*status.count*status.count+1}" name="rating"
-											value="5^${userWebtoonVO.webtoons_id_pk}"
-											onclick=onclickStart(this) class="visuallyhidden"> <label
-											for="${status.count*status.count*status.count+1}" title="Rocks!">★</label>
-										<input type="checkbox"
-											id="${status.count*status.count*status.count+2}" name="rating"
-											value="4^${userWebtoonVO.webtoons_id_pk}"
-											onclick=onclickStart(this) class="visuallyhidden"> <label
-											for="${status.count*status.count*status.count+2}"
-											title="Pretty good">★</label> <input type="checkbox"
-											id="${status.count*status.count*status.count+3}" name="rating"
-											value="3^${userWebtoonVO.webtoons_id_pk}"
-											onclick=onclickStart(this) class="visuallyhidden"> <label
-											for="${status.count*status.count*status.count+3}" title="Meh">★</label>
-										<input type="checkbox"
-											id="${status.count*status.count*status.count+4}" name="rating"
-											value="2^${userWebtoonVO.webtoons_id_pk}"
-											onclick=onclickStart(this) class="visuallyhidden"> <label
-											for="${status.count*status.count*status.count+4}"
-											title="Kinda bad">★</label> <input type="checkbox"
-											id="${status.count*status.count*status.count+5}" name="rating"
-											value="1^${userWebtoonVO.webtoons_id_pk}"
-											onclick=onclickStart(this) class="visuallyhidden"> <label
-											for="${status.count*status.count*status.count+5}"
-											title="Sucks big time">★</label>
-									</div>
-								</form>
-							</td>
-						</tr>
-
-					</table>
- --%>
-					<script src='http://codepen.io/assets/libs/fullpage/jquery.js'></script>
-				</c:forEach></td>
-		</tr>
-
-
-
-	</table>
-
-
-
-
-
+<div id= "layout"></div>
 	<div class="container">
 		<div class="modal">
 			<div>더 평가하면 더 정확한 추천을 해드릴수 있어요</div>
@@ -227,8 +75,6 @@
 			</form>
 		</div>
 	</div>
-
-
 
 </body>
 </html>
