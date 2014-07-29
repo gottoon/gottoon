@@ -15,6 +15,7 @@ import mypkg.service.GenreService;
 import mypkg.service.ManagerService;
 import mypkg.service.UserService;
 import mypkg.service.WebtoonService;
+import mypkg.vo.WebtoonVO;
 
 //다 bj 꺼 
 public class ManagerCommand implements Command {
@@ -37,7 +38,7 @@ public class ManagerCommand implements Command {
 
 		if (todo.equals("manager")) {
 			commandResult = new CommandResult(
-					"/WEB-INF/jsp/manager/managerMenu.jsp");
+					"/WEB-INF/jsp/manager/managerForm_test.jsp");
 
 		} else if (todo.equals("getAuthors")) {
 			String authors = doGetAllAuthors(response);
@@ -67,9 +68,14 @@ public class ManagerCommand implements Command {
 			this.doGetWebtoonsByAuthorID(request);
 		} else if (todo.equals("addWebtoon")) {
 			this.doAddWebtoon(request);
-		}else if(todo.equals("mansony")){
+		} else if (todo.equals("addWebtoonInfo")) {
+			this.doAddWebtoonInfo(request);
+		}
+
+		else if (todo.equals("mansony")) {
 			this.doGetAllKeywords(request);
-			commandResult = new CommandResult("/WEB-INF/jsp/manager/mansonyTest.jsp");
+			commandResult = new CommandResult(
+					"/WEB-INF/jsp/manager/mansonyTest.jsp");
 		}
 
 		return commandResult;
@@ -183,4 +189,44 @@ public class ManagerCommand implements Command {
 
 	}
 
+	public void doAddWebtoonInfo(HttpServletRequest request) {
+		System.out.println("doAddWebtoonInfo 시작");
+	//	int genre_id_fk = Integer.parseInt(request.getParameter("genre_id_fk"));
+			int genre_id_fk = 1;
+		String webtoons_title = request.getParameter("webtoons_title");
+		String webtoons_summary = request.getParameter("webtoons_summary");
+		String webtoons_update_days = request
+				.getParameter("webtoons_update_days");
+		String webtoons_completed = request.getParameter("webtoons_completed");
+		boolean webtoons_professional = Boolean.parseBoolean(request
+				.getParameter("webtoons_professional"));
+		String webtoons_pgrating = request.getParameter("webtoons_pgrating");
+		String webtoons_publisher = request.getParameter("webtoons_publisher");
+		// String webtoons_main_image;
+		// String webtoons_thumbnail;
+		String webtoons_url = request.getParameter("webtoons_url");
+	//	String webtoons_first_update = request.getParameter("webtoons_first_update");
+			String webtoons_first_update = "2232.10.3";
+		String webtoon_viewfree = request.getParameter("webtoons_viewfree");
+		String authors_name = request.getParameter("authors_name");
+		System.out.println("=====================================");
+		System.out.println("webtoons_title"+webtoons_title);
+		System.out.println("webtoons_summary"+webtoons_summary);
+		System.out.println("authors_name"+authors_name);
+		System.out.println("webtoons_url"+webtoons_url);
+		System.out.println("webtoons_update_days"+webtoons_update_days);
+		System.out.println("webtoons_completed"+webtoons_completed);
+		System.out.println("webtoon_viewfree"+webtoon_viewfree);
+		System.out.println("webtoons_professional"+webtoons_professional);
+		System.out.println("webtoons_pgrating"+webtoons_pgrating);
+
+		WebtoonVO webtoonVO = new WebtoonVO(genre_id_fk, webtoons_title,
+				webtoons_summary, webtoons_update_days, webtoons_completed,
+				webtoons_professional, webtoons_pgrating, webtoons_publisher,
+				webtoons_url, webtoons_first_update, webtoon_viewfree,
+				authors_name);
+
+		webtoonService.addWebtoon(webtoonVO);
+
+	}
 }

@@ -27,7 +27,7 @@
 		<div id="pgcontainer">
 			<c:import url="/WEB-INF/jsp/main/menu.jsp"></c:import>
 			<div class="row">
-					<section id="carousel">
+				<section id="carousel">
 					<div id="content">
 						<!--회전 효과    -->
 						<div id="this-carousel-id" class="carousel slide">
@@ -79,34 +79,30 @@
 						</div>
 					</div>
 				</section>
-					<!--회전 효과  bj  -->
+				<!--회전 효과  bj  -->
+
+
 			</div>
 			<div class="row">
 				<section id="loginSection">
 					<article id=loginArticle>
 
-
-
-
-
-						<!--페북 로그인 버튼, 로그인 후 환영 인사  -->
-
-						<div class="col-md-7">
-							<div id="welcomeUser"></div>
-							
-						</div>
-						<div class="col-md-5">
-						<div id="userPic">
-								<img id="userImg" /></img>
+						<div class="talkbox">
+							<div id="loginMent"></div>
+							<div>
+								<form id="loginForm" method="post"
+									action="<c:url value='/action/user'/>">
+									<input id="loginInput" type="hidden" name="todo"
+										value="checkUser" />
+									<button id="facebookBtn" type="button"
+										onclick="checkLoginState()"><img src="<c:url value='/img/menu/facebook.svg'/>"></button>
+								</form>
 							</div>
-							<form id="loginForm" method="post"
-								action="<c:url value='/action/user'/>">
-								<input id="loginInput" type="hidden" name="todo"
-									value="checkUser" />
-								<button id="facebookBtn" type="button"
-									onclick="checkLoginState()"></button>
-							</form>
 						</div>
+						<div id="guider">
+							<img src="<c:url value='/img/menu/guider.svg'/>">
+						</div>
+
 					</article>
 
 				</section>

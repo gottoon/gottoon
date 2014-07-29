@@ -60,7 +60,7 @@
 			$("#facebookBtn").show();
 
 		} else {
-			$("#welcomeUser").html('<p>Facebook 로그인/회원가입하기 !</p>');
+			$("#loginMent").html('<p>Facebook으로 로그인/회원가입 하시오.</p>');
 			$("#facebookBtn").show();
 
 			FB
@@ -117,8 +117,7 @@
 
 				success : function(data) {
 					var userGrade = data;
-					$("#welcomeUser").html(
-							"<h2>안녕하세요 " + response.name + "님 !</h2>");
+					
 					if (userGrade == 1) {
 						newbieCheck();
 					} else {
@@ -264,7 +263,8 @@
 
 		FB.api('/me', function checkUser(response) {
 
-			$("#welcomeUser").html("<h2>안녕하세요 " + response.name + "님 !</h2>");
+			$("#welcomeUser").html("<h3> " + response.name + "</h3>");
+			$(".talkbox").html("<p>안녕하세요  <b>"+response.name +"</b> 님!<br /> <b>갓툰</b>의 세계에 오신것을 환영합니다! </p>")
 		});
 		/* make the API call */
 		FB.api("/me/picture", function(response) {
@@ -298,7 +298,24 @@
 			<div id="navbar">
 				<a href="#" class="menubtn"><img
 					src="<c:url value='/img/menu/menu.png'/>">gottoon</a>
-				<!-- use captain icon for toggle menu -->
+				<div id="userInfo">
+					<ul>
+						<li>
+							<div id="welcomeUser"></div>
+
+						</li>
+						<li><div id="userPic">
+								<img id="userImg" /></img>
+							</div></li>
+
+					</ul>
+				</div>
+
+
+
+
+
+
 				<div id="hamburgermenu">
 					<ul>
 

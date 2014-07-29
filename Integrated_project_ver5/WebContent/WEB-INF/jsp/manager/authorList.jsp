@@ -33,6 +33,8 @@
 <title>authors</title>
 </head>
 <body>
+
+
 	<section id="searchBar">
 		<div class=container>
 			<div class="col-md-2">
@@ -104,5 +106,6 @@
 			</div>
 		</div>
 	</div>
+
 </body>
 </html>

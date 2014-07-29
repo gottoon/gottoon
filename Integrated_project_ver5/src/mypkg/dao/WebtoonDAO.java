@@ -55,7 +55,7 @@ public class WebtoonDAO {
 					+ "from webtoons as w inner join webtoon_author_maps as wam "
 					+ "on w.webtoons_id_pk = wam.webtoons_id_fk "
 					+ "inner join authors as a on a.authors_id_pk = wam.authors_id_fk "
-					+ "where webtoons_id_pk = "	+ webtoon_id;
+					+ "where webtoons_id_pk = " + webtoon_id;
 
 			ResultSet rset = stmt.executeQuery(sql);
 
@@ -66,11 +66,12 @@ public class WebtoonDAO {
 			boolean webtoons_viewfree = rset.getBoolean("webtoons_viewfree");
 			String webtoons_main_image = rset.getString("webtoons_main_image");
 			String webtoons_url = rset.getString("webtoons_url");
-			String webtoons_first_update = rset.getString("webtoons_first_update");
-			
+			String webtoons_first_update = rset
+					.getString("webtoons_first_update");
+
 			webtoon = new WebtoonVO(webtoon_id, webtoons_title, authors_name,
-						webtoons_completed, webtoons_viewfree, webtoons_main_image, 
-						webtoons_url, webtoons_first_update);
+					webtoons_completed, webtoons_viewfree, webtoons_main_image,
+					webtoons_url, webtoons_first_update);
 		} catch (SQLException e) {
 			e.printStackTrace();
 		} finally {
@@ -87,16 +88,17 @@ public class WebtoonDAO {
 		return webtoon;
 	}
 
-	//2014.07.11 soo 웹툰 상세보기 정보 뽑아오기 (웹툰 본거 or 찜한거 - 별점 가져오기)
-	public WebtoonVO getMyWebtoonInfo(long curruntUser_facebookID, int webtoon_id) {
+	// 2014.07.11 soo 웹툰 상세보기 정보 뽑아오기 (웹툰 본거 or 찜한거 - 별점 가져오기)
+	public WebtoonVO getMyWebtoonInfo(long curruntUser_facebookID,
+			int webtoon_id) {
 		WebtoonVO webtoonInfo = null;
 		Connection conn = null;
 		Statement stmt = null;
-		
+
 		try {
 			conn = pool.getConnection();
 			stmt = conn.createStatement();
-			
+
 			String sql = "select g.genres_name, w.webtoons_title, w.webtoons_summary, "
 					+ "w.webtoons_update_days, w.webtoons_completed, w.webtoons_viewfree, "
 					+ "w.webtoons_professional, w.webtoons_pgrating, w.webtoons_publisher, "
@@ -104,37 +106,43 @@ public class WebtoonDAO {
 					+ "w.webtoons_first_update, uwm.user_webtoon_rate "
 					+ "from webtoons w inner join genres g on w.genre_id_fk = g.genres_id_pk "
 					+ "inner join user_webtoon_maps as uwm on uwm.webtoons_id_fk = w.webtoons_id_pk "
-					+ "where w.webtoons_id_pk = " + webtoon_id
-					+ " and uwm.users_facebookID_fk = " + curruntUser_facebookID;
-			
-//			장르, (중분류), 타이틀, 작가이름, 줄거리, 연재요일, 완결유무, 유/무료, 
-//			프로/아마, 관람등급, 제공처, 평균평점, 메인 이미지(07.21 추가), (썸네일)
-//			주소, 연재시작일, (댓글), (좋아요)
-			
-//			중분류, 썸네일, 댓글, 좋아요
-			
+					+ "where w.webtoons_id_pk = "
+					+ webtoon_id
+					+ " and uwm.users_facebookID_fk = "
+					+ curruntUser_facebookID;
+
+			// 장르, (중분류), 타이틀, 작가이름, 줄거리, 연재요일, 완결유무, 유/무료,
+			// 프로/아마, 관람등급, 제공처, 평균평점, 메인 이미지(07.21 추가), (썸네일)
+			// 주소, 연재시작일, (댓글), (좋아요)
+
+			// 중분류, 썸네일, 댓글, 좋아요
+
 			ResultSet rset = stmt.executeQuery(sql);
-			
+
 			rset.next();
 			String genres_name = rset.getString("genres_name");
 			String webtoons_title = rset.getString("webtoons_title");
 			String webtoons_summary = rset.getString("webtoons_summary");
-			String webtoons_update_days = rset.getString("webtoons_update_days");
+			String webtoons_update_days = rset
+					.getString("webtoons_update_days");
 			String webtoons_completed = rset.getString("webtoons_completed");
 			boolean webtoons_viewfree = rset.getBoolean("webtoons_viewFree");
-			boolean webtoons_professional = rset.getBoolean("webtoons_professional");
+			boolean webtoons_professional = rset
+					.getBoolean("webtoons_professional");
 			String webtoons_pgrating = rset.getString("webtoons_pgrating");
 			String webtoons_publisher = rset.getString("webtoons_publisher");
-			double webtoons_average_rate = rset.getDouble("webtoons_average_rate");
+			double webtoons_average_rate = rset
+					.getDouble("webtoons_average_rate");
 			String webtoons_main_image = rset.getString("webtoons_main_image");
 			String webtoons_url = rset.getString("webtoons_url");
-			String webtoons_first_update = rset.getString("webtoons_first_update");
+			String webtoons_first_update = rset
+					.getString("webtoons_first_update");
 			int user_webtoon_rate = rset.getInt("user_webtoon_rate");
-			System.out.println("별점 점"+user_webtoon_rate);
-			System.out.println("웹툰 아이디디디"+webtoon_id);
+			System.out.println("별점 점" + user_webtoon_rate);
+			System.out.println("웹툰 아이디디디" + webtoon_id);
 			String webtoon_viewfree = null;
 			String webtoon_professional = null;
-			
+
 			if (webtoons_viewfree == true) {
 				webtoon_viewfree = "무료";
 			} else {
@@ -145,36 +153,39 @@ public class WebtoonDAO {
 			} else {
 				webtoon_professional = "아마추어작가";
 			}
-			
-			webtoonInfo = new WebtoonVO(webtoon_id, genres_name, webtoons_title,
-					webtoons_summary, webtoons_update_days,
-					webtoons_completed,	webtoon_viewfree, webtoon_professional,
-					webtoons_pgrating, webtoons_publisher, webtoons_average_rate,
-					webtoons_main_image, webtoons_url, webtoons_first_update, user_webtoon_rate);
+
+			webtoonInfo = new WebtoonVO(webtoon_id, genres_name,
+					webtoons_title, webtoons_summary, webtoons_update_days,
+					webtoons_completed, webtoon_viewfree, webtoon_professional,
+					webtoons_pgrating, webtoons_publisher,
+					webtoons_average_rate, webtoons_main_image, webtoons_url,
+					webtoons_first_update, user_webtoon_rate);
 		} catch (SQLException e) {
 			e.printStackTrace();
 		} finally {
 			try {
-				if (stmt != null) stmt.close();
-				if (conn != null) conn.close();
+				if (stmt != null)
+					stmt.close();
+				if (conn != null)
+					conn.close();
 			} catch (SQLException e) {
 				e.printStackTrace();
 			}
 		}
-		
+
 		return webtoonInfo;
 	}
-	
-	//2014.07.23 soo 걍 웹툰 상세보기 정보 뽑아오기
+
+	// 2014.07.23 soo 걍 웹툰 상세보기 정보 뽑아오기
 	public WebtoonVO getWebtoonInfo(int webtoon_id) {
 		WebtoonVO webtoonInfo = null;
 		Connection conn = null;
 		Statement stmt = null;
-		
+
 		try {
 			conn = pool.getConnection();
 			stmt = conn.createStatement();
-			
+
 			String sql = "select g.genres_name, w.webtoons_title, w.webtoons_summary, "
 					+ "w.webtoons_update_days, w.webtoons_completed, w.webtoons_viewfree, "
 					+ "w.webtoons_professional, w.webtoons_pgrating, w.webtoons_publisher, "
@@ -182,32 +193,36 @@ public class WebtoonDAO {
 					+ "w.webtoons_first_update "
 					+ "from webtoons w inner join genres g on w.genre_id_fk = g.genres_id_pk "
 					+ "where w.webtoons_id_pk = " + webtoon_id;
-			
-//			장르, (중분류), 타이틀, 작가이름, 줄거리, 연재요일, 완결유무, 유/무료, 
-//			프로/아마, 관람등급, 제공처, 평균평점, 메인 이미지(07.21 추가), (썸네일)
-//			주소, 연재시작일, (댓글), (좋아요)
-			
-//			중분류, 썸네일, 댓글, 좋아요
-			
+
+			// 장르, (중분류), 타이틀, 작가이름, 줄거리, 연재요일, 완결유무, 유/무료,
+			// 프로/아마, 관람등급, 제공처, 평균평점, 메인 이미지(07.21 추가), (썸네일)
+			// 주소, 연재시작일, (댓글), (좋아요)
+
+			// 중분류, 썸네일, 댓글, 좋아요
+
 			ResultSet rset = stmt.executeQuery(sql);
-			
+
 			rset.next();
 			String genres_name = rset.getString("genres_name");
 			String webtoons_title = rset.getString("webtoons_title");
 			String webtoons_summary = rset.getString("webtoons_summary");
-			String webtoons_update_days = rset.getString("webtoons_update_days");
+			String webtoons_update_days = rset
+					.getString("webtoons_update_days");
 			String webtoons_completed = rset.getString("webtoons_completed");
 			boolean webtoons_viewfree = rset.getBoolean("webtoons_viewFree");
-			boolean webtoons_professional = rset.getBoolean("webtoons_professional");
+			boolean webtoons_professional = rset
+					.getBoolean("webtoons_professional");
 			String webtoons_pgrating = rset.getString("webtoons_pgrating");
 			String webtoons_publisher = rset.getString("webtoons_publisher");
-			double webtoons_average_rate = rset.getDouble("webtoons_average_rate");
+			double webtoons_average_rate = rset
+					.getDouble("webtoons_average_rate");
 			String webtoons_main_image = rset.getString("webtoons_main_image");
 			String webtoons_url = rset.getString("webtoons_url");
-			String webtoons_first_update = rset.getString("webtoons_first_update");
+			String webtoons_first_update = rset
+					.getString("webtoons_first_update");
 			String webtoon_viewfree = null;
 			String webtoon_professional = null;
-			
+
 			if (webtoons_viewfree == true) {
 				webtoon_viewfree = "무료";
 			} else {
@@ -218,42 +233,45 @@ public class WebtoonDAO {
 			} else {
 				webtoon_professional = "아마추어작가";
 			}
-			
-			webtoonInfo = new WebtoonVO(webtoon_id, genres_name, webtoons_title,
-					webtoons_summary, webtoons_update_days,
-					webtoons_completed,	webtoon_viewfree, webtoon_professional,
-					webtoons_pgrating, webtoons_publisher, webtoons_average_rate,
-					webtoons_main_image, webtoons_url, webtoons_first_update);
+
+			webtoonInfo = new WebtoonVO(webtoon_id, genres_name,
+					webtoons_title, webtoons_summary, webtoons_update_days,
+					webtoons_completed, webtoon_viewfree, webtoon_professional,
+					webtoons_pgrating, webtoons_publisher,
+					webtoons_average_rate, webtoons_main_image, webtoons_url,
+					webtoons_first_update);
 		} catch (SQLException e) {
 			e.printStackTrace();
 		} finally {
 			try {
-				if (stmt != null) stmt.close();
-				if (conn != null) conn.close();
+				if (stmt != null)
+					stmt.close();
+				if (conn != null)
+					conn.close();
 			} catch (SQLException e) {
 				e.printStackTrace();
 			}
 		}
-		
+
 		return webtoonInfo;
 	}
-	
-	//2014.07.14 soo 웹툰 상세보기 정보 뽑아오기
+
+	// 2014.07.14 soo 웹툰 상세보기 정보 뽑아오기
 	public boolean updateWebtoonRate(int webtoons_id, double rate) {
 		boolean result = false;
-		
+
 		Connection conn = null;
 		Statement stmt = null;
-		
+
 		try {
 			conn = pool.getConnection();
 			stmt = conn.createStatement();
-			
+
 			String sql = "update webtoons set webtoons_average_rate = " + rate
 					+ " where webtoons_id_pk = " + webtoons_id;
-			
+
 			int checkSuccess = stmt.executeUpdate(sql);
-			
+
 			if (checkSuccess != 0) {
 				result = true;
 			}
@@ -261,8 +279,10 @@ public class WebtoonDAO {
 			e.printStackTrace();
 		} finally {
 			try {
-				if (stmt != null) stmt.close();
-				if (conn != null) conn.close();
+				if (stmt != null)
+					stmt.close();
+				if (conn != null)
+					conn.close();
 			} catch (SQLException e) {
 				e.printStackTrace();
 			}
@@ -270,30 +290,33 @@ public class WebtoonDAO {
 
 		return result;
 	}
-	
-	//2014.07.17 soo 4점 이상 읽은 웹툰 작가 가져오기
-	public String findHighRatedWebtoonsAuthors(long users_facebookID, String author_name) {
+
+	// 2014.07.17 soo 4점 이상 읽은 웹툰 작가 가져오기
+	public String findHighRatedWebtoonsAuthors(long users_facebookID,
+			String author_name) {
 		String webtoon_title = null;
 		Connection conn = null;
 		Statement stmt = null;
-		
+
 		try {
 			conn = pool.getConnection();
 			stmt = conn.createStatement();
-			
+
 			String sql = "select * from (select w.webtoons_title, a.authors_name from webtoons as w "
 					+ "inner join user_webtoon_maps as uw on w.webtoons_id_pk = uw.webtoons_id_fk "
 					+ "inner join webtoon_author_maps as wam on w.webtoons_id_pk = wam.webtoons_id_fk "
 					+ "inner join authors as a on a.authors_id_pk = wam.authors_id_fk "
-					+ "where uw.users_facebookID_fk = " + users_facebookID
-					+ " and a.authors_name = '" + author_name
+					+ "where uw.users_facebookID_fk = "
+					+ users_facebookID
+					+ " and a.authors_name = '"
+					+ author_name
 					+ "' and uw.user_webtoon_rate > 3 and uw.user_webtoon_isread = 1 "
 					+ "order by uw.user_webtoon_rate desc) as result "
 					+ "group by authors_name";
-			
+
 			ResultSet rset = stmt.executeQuery(sql);
 
-			while(rset.next()) {
+			while (rset.next()) {
 				webtoon_title = rset.getString("webtoons_title");
 			}
 		} catch (SQLException e) {
@@ -308,10 +331,10 @@ public class WebtoonDAO {
 				e.printStackTrace();
 			}
 		}
-		
+
 		return webtoon_title;
 	}
-	
+
 	// 7.18 영규꺼 // 7.22 id 추가
 	public List<WebtoonVO> findReadToon(long users_facebookID) {
 		Connection conn = null;
@@ -326,9 +349,9 @@ public class WebtoonDAO {
 			String sqlQuery = "select w.webtoons_id_pk as webtoonID ,uwm.user_webtoon_rate as rate,  w.webtoons_title as title, w.webtoons_thumbnail as thumbnail, w.webtoons_url as url "
 					+ " from user_webtoon_maps as uwm"
 					+ " inner join webtoons as w on w.webtoons_id_pk=uwm.webtoons_id_fk"
-					+ " where uwm.users_facebookID_fk=" + users_facebookID
+					+ " where uwm.users_facebookID_fk="
+					+ users_facebookID
 					+ " and uwm.user_webtoon_isread=1";
-			
 
 			ResultSet rset = stmt.executeQuery(sqlQuery);
 			while (rset.next()) {
@@ -337,8 +360,9 @@ public class WebtoonDAO {
 				String toon_title = rset.getString("title");
 				String toon_thumbnail = rset.getString("thumbnail");
 				String toon_url = rset.getString("url");
-				
-				readToon.add(new WebtoonVO(toon_id, toon_title, toon_thumbnail, toon_url , toon_rate));
+
+				readToon.add(new WebtoonVO(toon_id, toon_title, toon_thumbnail,
+						toon_url, toon_rate));
 			}
 
 		} catch (SQLException ex) {
@@ -384,8 +408,8 @@ public class WebtoonDAO {
 				String toon_publisher = rset.getString("publisher");
 				String toon_url = rset.getString("url");
 
-				newToon.add(new WebtoonVO(toon_id, toon_title, toon_days, toon_summary,
-						toon_publisher, toon_url));
+				newToon.add(new WebtoonVO(toon_id, toon_title, toon_days,
+						toon_summary, toon_publisher, toon_url));
 			}
 
 		} catch (SQLException ex) {
@@ -405,7 +429,7 @@ public class WebtoonDAO {
 
 		return newToon;
 	}
-	
+
 	// 7.18 영규꺼 // 7.22 id 추가
 	public List<WebtoonVO> findWishList(long users_facebookID) {
 		Connection conn = null;
@@ -420,7 +444,8 @@ public class WebtoonDAO {
 			String sqlQuery = "select w.webtoons_id_pk as webtoonID, w.webtoons_title as title, w.webtoons_thumbnail as thumbnail, w.webtoons_url as url "
 					+ " from user_webtoon_maps as uwm"
 					+ " inner join webtoons as w on w.webtoons_id_pk=uwm.webtoons_id_fk"
-					+ " where uwm.users_facebookID_fk=" + users_facebookID
+					+ " where uwm.users_facebookID_fk="
+					+ users_facebookID
 					+ " and uwm.user_webtoon_isread=0";
 
 			ResultSet rset = stmt.executeQuery(sqlQuery);
@@ -430,7 +455,8 @@ public class WebtoonDAO {
 				String toon_thumbnail = rset.getString("thumbnail");
 				String toon_url = rset.getString("url");
 
-				wishList.add(new WebtoonVO(toon_id, toon_title, toon_thumbnail, toon_url));
+				wishList.add(new WebtoonVO(toon_id, toon_title, toon_thumbnail,
+						toon_url));
 			}
 
 		} catch (SQLException ex) {
@@ -450,8 +476,8 @@ public class WebtoonDAO {
 
 		return wishList;
 	}
-	
-	//bj 키워드별 웹툰  7.18
+
+	// bj 키워드별 웹툰 7.18
 	public List<Webtoon_keyword_mapsVO> getWebtoonsByKeywordID(int keywordID) {
 		Connection conn = null;
 		Statement stmt = null;
@@ -485,8 +511,8 @@ public class WebtoonDAO {
 		}
 		return keyword_mapsVOs;
 	}
-	
-	//태균,병진 웹툰 다 가져와  7.18 
+
+	// 태균,병진 웹툰 다 가져와 7.18
 	public List<WebtoonVO> getAllWebtoons() {
 		Connection conn = null;
 		Statement stmt = null;
@@ -541,8 +567,8 @@ public class WebtoonDAO {
 		}
 		return allWebtoons;
 	}
-	
-	//bj 웹툰 추가하기 7.18
+
+	// bj 웹툰 추가하기 7.18
 	public void addWebtoon(WebtoonVO webtoonVO) {
 		Connection conn = null;
 		Statement stmt = null;
@@ -556,26 +582,42 @@ public class WebtoonDAO {
 			String webtoons_summary = webtoonVO.getWebtoons_summary();
 			String webtoons_update_days = webtoonVO.getWebtoons_update_days();
 			String webtoons_completed = webtoonVO.getWebtoons_completed();
-			boolean webtoons_viewfree = webtoonVO.isWebtoons_viewfree();
 			boolean webtoons_professional = webtoonVO.isWebtoons_professional();
 			String webtoons_pgrating = webtoonVO.getWebtoons_pgrating();
-			String webtoons_publisher = webtoonVO.getWebtoons_publisher();
-			Double webtoons_average_rate = webtoonVO.getWebtoons_average_rate();
-			String webtoons_mail_image = webtoonVO.getWebtoons_main_image();
-			String webtoons_thumbnail = webtoonVO.getWebtoons_thumbnail();
+			String webtoons_publisher = "네이버";
 			String webtoons_url = webtoonVO.getWebtoons_url();
+			String webtoons_first_update = webtoonVO.getWebtoons_first_update();
+			String webtoons_viewfree = webtoonVO.getWebtoon_viewfree();
+			String authors_name = webtoonVO.getAuthors_name();
+			double webtoons_average_rate = 0.0;
 
 			String sqlstr = "insert into webtoons "
 					+ "(genre_id_fk,webtoons_title,webtoons_summary,webtoons_update_days,"
 					+ "webtoons_completed,webtoons_viewfree,webtoons_professional,"
-					+ "webtoons_pgrating,webtoons_publisher,webtoons_average_rate,"
-					+ "webtoons_mail_image,webtoons_thumbnail,webtoons_url) values ("
-					+ genre_id_fk + ",'" + webtoons_title + "','" + webtoons_summary
-					+ "','" + webtoons_update_days + "','" + webtoons_completed
-					+ "'," + webtoons_viewfree + "," + webtoons_professional + ",'"
-					+ webtoons_pgrating + "','" + webtoons_publisher + "'," 
-					+ webtoons_average_rate + ",'" + webtoons_mail_image + "','" 
-					+ webtoons_thumbnail + "','" + webtoons_url + "')";
+					+ "webtoons_pgrating,webtoons_publisher,webtoons_average_rate"
+					+ "webtoons_url,webtoons_first_update) values ("
+					+ genre_id_fk
+					+ ",'"
+					+ webtoons_title
+					+ "','"
+					+ webtoons_summary
+					+ "','"
+					+ webtoons_update_days
+					+ "','"
+					+ webtoons_completed
+					+ "','"
+					+ webtoons_viewfree
+					+ "',"
+					+ webtoons_professional
+					+ ",'"
+					+ webtoons_pgrating
+					+ "','"
+					+ webtoons_publisher
+					+ "',"
+					+ webtoons_average_rate
+					+ "'"
+					+ webtoons_url + "','" + webtoons_first_update + "')";
+			System.out.println(sqlstr);
 			stmt.executeUpdate(sqlstr);
 
 		} catch (Exception e) {
@@ -584,8 +626,8 @@ public class WebtoonDAO {
 		}
 
 	}
-	
-	//findAuthorToon - bj 7.18  // 7.22 id 추가
+
+	// findAuthorToon - bj 7.18 // 7.22 id 추가
 	public List<WebtoonVO> findAuthorToon(int authorId) {
 		Connection conn = null;
 		Statement stmt = null;
@@ -635,5 +677,5 @@ public class WebtoonDAO {
 
 		return authorToon;
 	}
-	
+
 }

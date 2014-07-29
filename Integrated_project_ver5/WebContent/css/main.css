@@ -4,35 +4,52 @@
 	.carousel-inner p {
 		font-size: 2em;
 	}
-	#welcomeUser p {
-		font-size: 2em;
+	.talkbox {
+		height: 80px;
+	}
+	.talkbox:before {
+		left: 140px;
+	}
+	.talkbox:after {
+		left: 140px;
+	}
+	.talkbox p {
+		font-size: 1.2em;
 	}
 	#carousel {
-		height: 300px;
+		height: 350px;
 	}
 	.carousel-inner {
-		height: 300px;
+		height: 350px;
 	}
-	
-	
 }
 
 @media screen and ( min-width: 600px ) {
 	.carousel-inner p {
 		font-size: 5em;
 	}
-	#welcomeUser p {
-		font-size: 2.5em;
+	.talkbox {
+		height: 120px;
+	}
+	.talkbox:before {
+		left: 500px;
+	}
+	.talkbox:after {
+		left: 500px;
+	}
+	.talkbox p {
+		font-size: 2em;
 	}
 	#carousel {
-		height: 500px;
+		height: 550px;
 	}
 	.carousel-inner {
-		height: 500px;
+		height: 550px;
 	}
 	.carousel-caption {
-		text-align:left;
-		margin-bottom: 400px;
+		color: white;
+		margin-bottom: 500px;
+		text-align: right;
 	}
 }
 
@@ -47,7 +64,7 @@
 #loginArticle {
 	margin-left: auto;
 	margin-right: auto;
-	margin-top: 50px;
+	margin-top: 10px;
 	margin-left: auto;
 }
 
@@ -65,31 +82,22 @@
 	transition: all 1s;
 	max-width: 100%;
 	min-width: 300px;
-	opacity: 0.7;
 	text-align: center;
+	opacity: 0.8;
 }
 
 #facebookBtn {
-	background-image: url('../img/main/facebook.png');
-	background-size: 100% 100%;
-	width: 150px;
-	height: 100px;
-	border-radius: 32px;
-	background-color: white;
+	width: 250px;
+	height: 50px;
+	background-color: #3b5998;
 	text-align: center;
-	display: none;
-	-webkit-box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.75);
-	-moz-box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.75);
-	box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.75);
+	border: none;
 }
 
-#facebookBtn:hover {
-	width: 130px;
-	height: 90px;
-	-webkit-box-shadow: inset 5px 5px 5px rgba(0, 0, 0, 0.75);
-	-moz-box-shadow: inset 5px 5px 5px rgba(0, 0, 0, 0.75);
-	box-shadow: inset 5px 5px 5px rgba(0, 0, 0, 0.75);
-	background-color: #3b5998;
+#facebookBtn img {
+	background-color: white;
+	height: 40px;
+	border-radius: 30px;
 }
 
 #carousel {
@@ -102,9 +110,8 @@
 }
 
 .carousel-caption {
-	display:fixed;
-	width:100%;
-	text-align:left;
+	width: 100%;
+	text-align: left;
 }
 
 .carousel .carousel-control {
@@ -122,13 +129,8 @@
 	-webkit-animation: rightThenLeft 4s linear;
 }
 
-#userImg {
-	width: 50px;
-	border-radius: 30px;
-}
-
 #loginArticle {
-	width: 70%;
+	width: 80%;
 }
 
 #loginArticle li {
@@ -138,5 +140,53 @@
 }
 
 #carousel {
-	max-width: 100%;
+	width: 100%;
+}
+
+.carousel-inner {
+	width: 100%;
+}
+
+.talkbox {
+	position: relative;
+	display: block;
+	width: 100%;
+	padding: 0px;
+	background: #FFFFFF;
+	-webkit-border-radius: 13px;
+	-moz-border-radius: 13px;
+	border-radius: 13px;
+	border: #000000 solid 2px;
+}
+
+.talkbox:after {
+	content: '';
+	position: absolute;
+	border-style: solid;
+	border-width: 20px 8px 0;
+	border-color: #FFFFFF transparent;
+	display: block;
+	width: 0;
+	z-index: 1;
+	bottom: -10px;
+}
+
+.talkbox:before {
+	content: '';
+	position: absolute;
+	border-style: solid;
+	border-width: 21px 9px 0;
+	border-color: #000000 transparent;
+	display: block;
+	width: 0;
+	z-index: 0;
+	bottom: -15px;
+}
+
+.talkbox p {
+	color: black;
+}
+
+.talkbox b {
+	color: #3b5998;
 }
