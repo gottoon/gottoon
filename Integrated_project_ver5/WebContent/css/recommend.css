@@ -71,7 +71,7 @@ body {
 	
 	.product-review-stars {
 		height : 55px;
-		font-size : 20px;
+		font-size : 19px;
 	}
 }
 
@@ -84,10 +84,10 @@ body {
 }
 
 .nav {
-	width : 100%;
-	margin-left : 35%;
-	float : left;
-	
+	width : 98%;
+	margin : 1em;
+	/* margin-left : 35%; */
+	/* float : left; */
 	/* margin : 0 auto; */
 }
 
@@ -96,21 +96,6 @@ body {
 	border-top-right-radius: 5px;
 }
 
-/* 태균 별점
-.product-review-stars {
-	unicode-bidi: bidi-override;
-	direction: rtl;
-	width: 100%; 가로
-	font-size : 20px;
-}
- */
-
-/*  웹툰 타이틀
- h2 span {
-	font-size : 20px;
-}
- */
- 
  .label {
 	position : absolute;
 	width : 25%;
@@ -148,19 +133,6 @@ body {
 .main_image_div { 
    position : relative; 
    width : 100%; /* for IE 6 */
-   /* height : 400px; */
-   
-	/* display: none; */
-	/* position: relative;
-	left: 0%;
-	top: 0%;
-	background-color: black;
-	-moz-opacity: 0.7;
-	opacity: .70;
-	filter: alpha(opacity=70);
-	width: 100%;
-	height: 400px;
-	z-index: 90; */
 }
 
 h2 { 
@@ -180,9 +152,6 @@ h2 {
 	left : -8px;
 	background: -webkit-linear-gradient(top, rgba(255,255,255,0) 0%,rgba(0,0,0,0.9) 100%); Chrome10+,Safari5.1+
 }
-	/* font : bold 22px/45px Helvetica, Sans-Serif; */
-	/* font-size : 15px;  */
-	/* font-size : 1.5vw; */
 
 .image_title {
 	position : absolute;
@@ -197,8 +166,6 @@ h2 {
 	padding-left : 1px;
 	padding-right : 1px;
 	z-index : 10;
-	/* font : bold 22px/45px Helvetica, Sans-Serif; */
-	/* background: -webkit-linear-gradient(top, rgba(255,255,255,0) 0%,rgba(0,0,0,0.9) 100%); Chrome10+,Safari5.1+ */
 }
 
 .submit, .detail_form {
@@ -225,28 +192,26 @@ h2 {
 } */
 
 .heart {
-	/* background-image: -webkit-linear-gradient(top, #f4f1ee, #fff);
-	background-image: linear-gradient(top, #f4f1ee, #fff); */
 	border-radius: 50%;
-	border : 1px solid gray;
-	/* box-shadow: 0px 8px 10px 0px rgba(0, 0, 0, .3), inset 0px 4px 1px 1px white, inset 0px -3px 1px 1px rgba(204,198,197,.5); */
-	/* float:left; */
-	width: 45px;			
-	height: 45px;
+	border : 1px solid #BFBFC4;
+	width: 40%;			
+	height: 42px;
 	position: relative;
-	-webkit-transition: all .1s linear;
-	transition: all .1s linear;
-	margin-left : 25px;
+	/* -webkit-transition: all .1s linear;
+	transition: all .1s linear; */
+	margin-left : 30%;
+	margin-bottom : 5%;
 }
 
  .heart label {
-  font-family: "icomoon";
+	font-family: "icomoon";
 	font-size: 30px;
 	position: relative;
 	cursor: pointer;
 	color: gray;
+	text-shadow: 0px 0px 5px red;
 	/* left: 10px; */
-	top: 2px;
+	/* top: 2px; */
 }
 
 .heart label:after {
@@ -289,45 +254,40 @@ h2 {
 ===================================================================== */
 
 .button {
-	background:-webkit-gradient( linear, left top, left bottom, color-stop(0.05, #3b5898), color-stop(1, #427bd6) );
-	background:-moz-linear-gradient( center top, #3b5898 5%, #427bd6 100% );
-	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#3b5898', endColorstr='#427bd6');
-	background-color:#3b5898;
 	-webkit-border-radius : 20px;
 	-moz-border-radius : 20px;
 	border-radius : 20px;
 	text-indent:0;
-	border:1px solid #3381ed;
+	border:1px solid #BFBFC4;
+	background-color : #ffffff;
 	display:inline-block;
-	color:#ffffff;
-	font-family:Verdana;
 	font-size:15px;
 	font-weight:bold;
 	font-style:normal;
 	height:40px;
-	line-height:30px;
-	width:90%;
+	line-height:50px;
+	width:80%;
+	margin-right : 15%;
 	text-decoration:none;
 	text-align:center;
 }
 
-/* .button:hover {
-	background:-webkit-gradient( linear, left top, left bottom, color-stop(0.05, #427bd6), color-stop(1, #3b5898) );
-	background:-moz-linear-gradient( center top, #427bd6 5%, #3b5898 100% );
-	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#427bd6', endColorstr='#3b5898');
-	background-color:#427bd6;
-} */
+.right-now {
+	position : relative;
+	bottom : 6px;
+}
 
-.button:active {
-	position:relative;
-	top:1px;
+.button:hover {
+	text-indent : -9999px;
+	background-image : url('../img/button/webtoon-view.png');
+	background-repeat : no-repeat;
+	background-position : center;
 }
 
 .webtoon {
-	-moz-box-shadow:    0px 0px 0px 1px #777;
-	-webkit-box-shadow: 0px 0px 0px 1px #777;
-	box-shadow:         0px 0px 0px 1px #777;
-	/* padding : 5px; */
+	-moz-box-shadow:    0px 0px 0px 1px #BFBFC4;
+	-webkit-box-shadow: 0px 0px 0px 1px #BFBFC4;
+	box-shadow:         0px 0px 0px 1px #BFBFC4;
 	border-radius: 5px;
 }
 
@@ -335,6 +295,22 @@ h2 {
 	padding : 5px;
 }
 
+.reserve {
+	width : 50%;
+	float : left;
+}
+
+.view-now {
+	width : 50%;
+	float : left;
+}
+
+.option-button {
+	border-top : 1px solid #BFBFC4;
+	margin-left : 10px;
+	margin-right : 10px;
+	padding-top : 5px;
+}
 
 /* =====================================================================
 							완결,신작 라벨
@@ -420,18 +396,6 @@ h2 {
 							작가 추천
 ===================================================================== */
 
-/* .content-box {
-width: 100%; assumes you have this in a container with a set width
-height: 400px;
-margin: 0 auto;
-position: relative; So we can position the banner within the box
-background: gray;
-border: 5px solid white;
-box-shadow: 0 0 10px rgba(0,0,0,.3);
--moz-box-shadow: 0 0 10px rgba(0,0,0,.3);
--webkit-box-shadow: 0 0 10px rgba(0,0,0,.3);
-}
- */
 #ribbon-container {
 position: absolute;
 top: 250px;
@@ -516,225 +480,36 @@ border-bottom: 29px solid #009ff1;
 
 
 /* =====================================================================
-						유,무료 선택 - 말풍선
+							유,무료 선택
 ===================================================================== */
 
 .header {
-	/* margin-bottom : 100px; */
-	margin : 3em 0 18em 0;
+	text-align : center;
+	margin-top : 2em;
 }
 
-#header-title {
-	width : 25%;
-	margin-left : 6%;
-	margin-top : 1%;
-	font-size : 3vw;
-}
-
-br#title-br {
-	line-height : 0em;
-}
-
-div#bubble {
+.viewfree-nav {
 	float : left;
-	margin-left : 15%; 
-	position: relative;
-	width : 70%;
-	height: 140px;
-	padding: 0px;
-	background: #FFFFFF;
-	-webkit-border-radius: 100px;
-	-moz-border-radius: 100px;
-	border-radius: 100px;
-	border: #3b5898 solid 5px;
+	width : 33.3%;
 }
 
-div#bubble:before {
-	content: '';
-	position: absolute;
-	border-style: solid;
-	border-width: 65px 15px 0;
-	border-color: #3b5898 transparent;
-	display: block;
-	width: 0;
-	z-index: 0;
-	bottom: -65px;
-	left: 66px;
+.viewfree-button {
+	width : 100%;
+	height : 50px;
 }
 
-div#bubble:after {
-	content: '';
-	position: absolute;
-	border-style: solid;
-	border-width: 50px 12px 0;
-	border-color: #FFFFFF transparent;
-	display: block;
-	width: 0;
-	z-index: 1;
-	bottom: -46px;
-	left: 69px;
-}
-
-.viewfree {
+/* .viewfree {
 	font-size : 1.6vw;
 	position : absolute;
 	display : inline-block;
 	color : black; 
 	letter-spacing : -1px;  
-	width : 105%;
+	width : 127px;
 	line-height : 40px;
 	bottom : 2px;
 	left : -1px;
-	background: #D38585;
+	background: #AFECF5;
 	border-radius : 100em;
-	/* background: rgba(255,255,255,0); */
-}
-
-.rainy-weather {
-  /* margin: 3em auto; */
-  width: 20%;
-  height: 70px;
-  position: relative;
-  float : left;
-}
- 
-.cloud-main {
-  width: 70%;
-  height: 60%;
-  background: #D38585;
-  border-radius: 100em;
-  position: absolute;
-  z-index: 100;
-  top: -75px;
-  text-align : center;
-  /* box-shadow: 0 3px 5px rgba(0,0,0, 0.3); */
-  /* background: linear-gradient(#F2F2F2 70%, #E5E5E5); */
-}
- 
-.cloud-top-right {
-  width: 30%;
-  height: 75%;
-  margin: 0 auto;
-  background: #D38585;
-  position: absolute;
-  border-radius: 100em;
-  top: -94px;
-  right: 66px;
-}
- 
-.cloud-top-left {
-  width: 25%;
-  height: 60%;
-  margin: 0 auto;
-  background: #D38585;
-  position: absolute;
-  border-radius: 100em;
-  top: -88px;
-  right: 107px;
-}
-
-.cloud-bottom-left {
-  width: 30%;
-  height: 75%;
-  margin: 0 auto;
-  background: #D38585;
-  position: absolute;
-  border-radius: 100em;
-  top: -72px;
-  right: 107px;
-}
- 
-.cloud-bottom-right {
-  width: 30%;
-  height: 73%;
-  margin: 0 auto;
-  background: #D38585;
-  position: absolute;
-  border-radius: 100em;
-  top: -67px;
-  right: 70px;
-}
-
-/* .selectViewfree {
-	padding-bottom : 13%;
-	text-align : center;
-	both : clear;
-	position : relative;
-}
-
-div#viewNone, div#viewCharge, div#viewFree {
-	float : left;
-	margin-left : 10%; 
-	position: relative;
-	width : 20%;
-	height: 60px;
-	padding: 0px;
-	background: #FFFFFF;
-	-webkit-border-radius: 41px;
-	-moz-border-radius: 41px;
-	border-radius: 41px;
-	border: #3b5898 solid 5px;
-}
-
-div#viewNone:after, div#viewCharge:after,
-div#viewFree:after {
-	content: '';
-	position: absolute;
-	border-style: solid;
-	border-width: 18px 7px 0;
-	border-color: #FFFFFF transparent;
-	display: block;
-	width: 0;
-	z-index: 1;
-	bottom: -18px;
-}
-
-div#viewNone:before, div#viewCharge:before,
-div#viewFree:before {
-	content: '';
-	position: absolute;
-	border-style: solid;
-	border-width: 22px 11px 0;
-	border-color: #3b5898 transparent;
-	display: block;
-	width: 0;
-	z-index: 0;
-	bottom: -27px;
-}
-
-div#viewNone:before {
-	left: 28px;
-}
-
-div#viewNone:after {
-	left: 32px;
-}
-
-div#viewCharge:before {
-	left: 44px;
-}
-
-div#viewCharge:after {
-	left: 48px;
-}
-
-div#viewFree:before {
-	left: 60px;
-}
-
-div#viewFree:after {
-	left: 64px;
-}
-
-.bubbleButton {
-	position : absolute;
-	display : inline-block;
-	color : black; 
-	letter-spacing : -1px;  
-	width : 80%;
-	line-height : 42px;
-	bottom : 4px;
-	left : 12px;
-	font-size : 1.4vw;
-	background: rgba(255,255,255,1);
+	background: rgba(255,255,255,0);
 } */
+
