@@ -20,42 +20,43 @@ public class WebtoonVO implements Serializable {
 	private String webtoons_thumbnail;
 	private String webtoons_url;
 	private String webtoons_first_update; // 2014.07.11 soo 여기부터
-	private String genres_name; 
+	private String genres_name;
 	private String webtoon_viewfree;
-	private String webtoon_professional; 
+	private String webtoon_professional;
 	private String authors_name; // 여기까지 추가
 	private int webtoon_rate;
-	
+
 	// 생성자 1번
 	public WebtoonVO(int webtoons_id_pk) {
 		this.webtoons_id_pk = webtoons_id_pk;
 	}
-	
+
 	// 생성자 2번
-	public WebtoonVO(String webtoons_title,	String webtoons_url) {
+	public WebtoonVO(String webtoons_title, String webtoons_url) {
 		this.webtoons_title = webtoons_title;
 		this.webtoons_url = webtoons_url;
 	}
 
 	// 생성자 3번
-	public WebtoonVO(String webtoons_title, String webtoons_publisher, int webtoons_id_pk) {
+	public WebtoonVO(String webtoons_title, String webtoons_publisher,
+			int webtoons_id_pk) {
 		this.webtoons_title = webtoons_title;
 		this.webtoons_publisher = webtoons_publisher;
 		this.webtoons_id_pk = webtoons_id_pk;
 	}
-	
+
 	// 7.18 영규꺼 7.22 id 추가
 	// 생성자 4번
-	public WebtoonVO(int webtoons_id_pk, String webtoons_title, String webtoons_thumbnail,
-			String webtoons_url ) {
+	public WebtoonVO(int webtoons_id_pk, String webtoons_title,
+			String webtoons_thumbnail, String webtoons_url) {
 		this.webtoons_id_pk = webtoons_id_pk;
 		this.webtoons_title = webtoons_title;
 		this.webtoons_thumbnail = webtoons_thumbnail;
 		this.webtoons_url = webtoons_url;
 	}
-	
-	public WebtoonVO(int webtoons_id_pk, String webtoons_title, String webtoons_thumbnail,
-			String webtoons_url ,int webtoon_rate ) {
+
+	public WebtoonVO(int webtoons_id_pk, String webtoons_title,
+			String webtoons_thumbnail, String webtoons_url, int webtoon_rate) {
 		this.webtoons_id_pk = webtoons_id_pk;
 		this.webtoons_title = webtoons_title;
 		this.webtoons_thumbnail = webtoons_thumbnail;
@@ -63,11 +64,11 @@ public class WebtoonVO implements Serializable {
 		this.webtoon_rate = webtoon_rate;
 	}
 
-	// 영규꺼 7.22 id 추가  
-	// 생성자 5번 
-	public WebtoonVO(int webtoons_id_pk, String webtoons_title, String webtoons_update_days,
-			String webtoons_summary, String webtoons_publisher,
-			String webtoons_url) {
+	// 영규꺼 7.22 id 추가
+	// 생성자 5번
+	public WebtoonVO(int webtoons_id_pk, String webtoons_title,
+			String webtoons_update_days, String webtoons_summary,
+			String webtoons_publisher, String webtoons_url) {
 		this.webtoons_id_pk = webtoons_id_pk;
 		this.webtoons_title = webtoons_title;
 		this.webtoons_update_days = webtoons_update_days;
@@ -78,8 +79,9 @@ public class WebtoonVO implements Serializable {
 
 	// 2014.07.15 soo 생성자 변경 (아래 삭제한거)
 	// 생성자 6번
-	public WebtoonVO(int webtoons_id_pk, String webtoons_title, String authors_name, 
-			String webtoons_completed, boolean webtoons_viewfree, String webtoons_main_image,
+	public WebtoonVO(int webtoons_id_pk, String webtoons_title,
+			String authors_name, String webtoons_completed,
+			boolean webtoons_viewfree, String webtoons_main_image,
 			String webtoons_url, String webtoons_first_update) {
 		this.webtoons_id_pk = webtoons_id_pk;
 		this.webtoons_title = webtoons_title;
@@ -90,7 +92,7 @@ public class WebtoonVO implements Serializable {
 		this.webtoons_url = webtoons_url;
 		this.webtoons_first_update = webtoons_first_update;
 	}
-	
+
 	// 생성자 7번
 	public WebtoonVO(int genre_id_fk, String webtoons_title,
 			String webtoons_summary, String webtoons_update_days,
@@ -116,11 +118,13 @@ public class WebtoonVO implements Serializable {
 
 	// 2014.07.11 soo 생성자 추가 (웹툰 상세보기) - 내가 본거&찜한거
 	// 생성자 8번
-	public WebtoonVO(int webtoon_id_pk, String genres_name, String webtoons_title,
-			String webtoons_summary, String webtoons_update_days,
-			String webtoons_completed, String webtoon_viewfree, String webtoon_professional,
-			String webtoons_pgrating, String webtoons_publisher, double webtoons_average_rate,
-			String webtoons_main_image, String webtoons_url, String webtoons_first_update, 
+	public WebtoonVO(int webtoon_id_pk, String genres_name,
+			String webtoons_title, String webtoons_summary,
+			String webtoons_update_days, String webtoons_completed,
+			String webtoon_viewfree, String webtoon_professional,
+			String webtoons_pgrating, String webtoons_publisher,
+			double webtoons_average_rate, String webtoons_main_image,
+			String webtoons_url, String webtoons_first_update,
 			int user_webtoon_rate) {
 		this.webtoons_id_pk = webtoon_id_pk;
 		this.genres_name = genres_name;
@@ -138,14 +142,16 @@ public class WebtoonVO implements Serializable {
 		this.webtoons_first_update = webtoons_first_update;
 		this.webtoon_rate = user_webtoon_rate;
 	}
-	
+
 	// 2014.07.11 soo 생성자 추가 (웹툰 상세보기) - 내가 안본거
 	// 생성자 9번
-	public WebtoonVO(int webtoon_id_pk, String genres_name, String webtoons_title,
-			String webtoons_summary, String webtoons_update_days,
-			String webtoons_completed, String webtoon_viewfree, String webtoon_professional,
-			String webtoons_pgrating, String webtoons_publisher, double webtoons_average_rate,
-			String webtoons_main_image, String webtoons_url, String webtoons_first_update) {
+	public WebtoonVO(int webtoon_id_pk, String genres_name,
+			String webtoons_title, String webtoons_summary,
+			String webtoons_update_days, String webtoons_completed,
+			String webtoon_viewfree, String webtoon_professional,
+			String webtoons_pgrating, String webtoons_publisher,
+			double webtoons_average_rate, String webtoons_main_image,
+			String webtoons_url, String webtoons_first_update) {
 		this.webtoons_id_pk = webtoon_id_pk;
 		this.genres_name = genres_name;
 		this.webtoons_title = webtoons_title;
@@ -161,8 +167,8 @@ public class WebtoonVO implements Serializable {
 		this.webtoons_url = webtoons_url;
 		this.webtoons_first_update = webtoons_first_update;
 	}
-	
-	//생성자 10번 - bj 7.18
+
+	// 생성자 10번 - bj 7.18
 	public WebtoonVO(int webtoon_id_pk, int genre_id_fk, String webtoons_title,
 			String webtoons_summary, String webtoons_update_days,
 			String webtoons_completed, boolean webtoons_viewfree,
@@ -180,7 +186,8 @@ public class WebtoonVO implements Serializable {
 		this.webtoons_publisher = webtoons_publisher;
 		this.webtoons_average_rate = webtoons_average_rate;
 	}
-	//생성자 11번 - bj 7.18
+
+	// 생성자 11번 - bj 7.18
 	public WebtoonVO(int webtoons_id_pk, int genre_id_fk,
 			String webtoons_title, String webtoons_summary,
 			String webtoons_update_days, String webtoons_completed,
@@ -207,9 +214,31 @@ public class WebtoonVO implements Serializable {
 		this.genres_name = genres_name;
 	}
 
+	// bj 웹툰 추가용
+	
 
 	public int getWebtoon_rate() {
 		return webtoon_rate;
+	}
+
+	public WebtoonVO(int genre_id_fk, String webtoons_title,
+			String webtoons_summary, String webtoons_update_days,
+			String webtoons_completed, boolean webtoons_professional,
+			String webtoons_pgrating, String webtoons_publisher,
+			String webtoons_url, String webtoons_first_update,
+			String webtoon_viewfree, String authors_name) {
+		this.genre_id_fk = genre_id_fk;
+		this.webtoons_title = webtoons_title;
+		this.webtoons_summary = webtoons_summary;
+		this.webtoons_update_days = webtoons_update_days;
+		this.webtoons_completed = webtoons_completed;
+		this.webtoons_professional = webtoons_professional;
+		this.webtoons_pgrating = webtoons_pgrating;
+		this.webtoons_publisher = webtoons_publisher;
+		this.webtoons_url = webtoons_url;
+		this.webtoons_first_update = webtoons_first_update;
+		this.webtoon_viewfree = webtoon_viewfree;
+		this.authors_name = authors_name;
 	}
 
 	public void setWebtoon_rate(int webtoon_rate) {
