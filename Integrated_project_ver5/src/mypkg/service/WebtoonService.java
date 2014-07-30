@@ -93,11 +93,11 @@ public class WebtoonService {
 	}
 
 	// 7.18 영규꺼
-	public List<WebtoonVO> getReadToon(long users_facebookID_pk) {
+	public List<WebtoonVO> getReadToon(long users_facebookID_pk, String num) {
 		MySqlDAOFactory mysqlFactory = new MySqlDAOFactory();
 		WebtoonDAO webtoonDAO = mysqlFactory.getWebtoonsDAO();
 
-		return webtoonDAO.findReadToon(users_facebookID_pk);
+		return webtoonDAO.findReadToon(users_facebookID_pk, num);
 	}
 
 	// 7.18 영규꺼

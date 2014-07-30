@@ -336,7 +336,7 @@ public class WebtoonDAO {
 	}
 
 	// 7.18 영규꺼 // 7.22 id 추가
-	public List<WebtoonVO> findReadToon(long users_facebookID) {
+	public List<WebtoonVO> findReadToon(long users_facebookID, String num) {
 		Connection conn = null;
 		Statement stmt = null;
 
@@ -346,12 +346,12 @@ public class WebtoonDAO {
 			conn = pool.getConnection();
 			stmt = conn.createStatement();
 
-			String sqlQuery = "select w.webtoons_id_pk as webtoonID ,uwm.user_webtoon_rate as rate,  w.webtoons_title as title, w.webtoons_thumbnail as thumbnail, w.webtoons_url as url "
+			String sqlQuery = String.format("select w.webtoons_id_pk as webtoonID ,uwm.user_webtoon_rate as rate,  w.webtoons_title as title, w.webtoons_thumbnail as thumbnail, w.webtoons_url as url "
 					+ " from user_webtoon_maps as uwm"
 					+ " inner join webtoons as w on w.webtoons_id_pk=uwm.webtoons_id_fk"
 					+ " where uwm.users_facebookID_fk="
 					+ users_facebookID
-					+ " and uwm.user_webtoon_isread=1";
+					+ " and uwm.user_webtoon_isread=1 limit %s , 10 ", num);;
 
 			ResultSet rset = stmt.executeQuery(sqlQuery);
 			while (rset.next()) {

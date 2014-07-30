@@ -65,6 +65,10 @@
 	</form>
 
 <div id= "layout"></div>
+
+
+
+
 	<div class="container">
 		<div class="modal">
 			<div>더 평가하면 더 정확한 추천을 해드릴수 있어요</div>

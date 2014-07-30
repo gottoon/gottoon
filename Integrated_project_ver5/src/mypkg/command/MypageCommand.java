@@ -9,6 +9,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import com.google.gson.Gson;
+
 import mypkg.control.Command;
 import mypkg.control.CommandResult;
 import mypkg.service.AuthorService;
@@ -63,21 +65,36 @@ public class MypageCommand implements Command {
 			commandResult = new CommandResult("/WEB-INF/jsp/mypage/mypageNewWebtoon.jsp");
 		} 
 
+		else if (todo.equals("readWebtoon")) {
+			System.out.println("Ajax : 읽은 웹툰 실행");
+			this.doReadWebtoon(request, CurrentUser_facebookID);
+			commandResult = new CommandResult("json",doReadWebtoon(request, CurrentUser_facebookID));
+			
+		}
 
 		return commandResult;
 	}
-
+	public String doReadWebtoon(HttpServletRequest request, long CurrentUser_facebookID){
+		
+		String num = request.getParameter("count");
+		
+		List<WebtoonVO> webtoonVO = webtoonService
+				.getReadToon(CurrentUser_facebookID, num);
+		
+			Gson gSon = new Gson();
+		 return gSon.toJson(webtoonVO);
+	}
 	// 내가 본 웹툰
 	public void doMypageReadWebtoon(HttpServletRequest request,
 			long CurrentUser_facebookID) throws ServletException, IOException {
 		
-		UserVO userVO = userService.getUserGrade(CurrentUser_facebookID);
+		/*UserVO userVO = userService.getUserGrade(CurrentUser_facebookID);
 		
 		List<WebtoonVO> webtoonVO = webtoonService
-				.getReadToon(CurrentUser_facebookID);
+				.getReadToon(CurrentUser_facebookID);*/
 		
-		request.setAttribute("grade", userVO.getUsers_grade().toString());
-		request.setAttribute("readToon", webtoonVO);
+		/*request.setAttribute("grade", userVO.getUsers_grade().toString());
+		request.setAttribute("readToon", webtoonVO);*/
 	}
 	
 	// 내가 본 웹툰 카운트

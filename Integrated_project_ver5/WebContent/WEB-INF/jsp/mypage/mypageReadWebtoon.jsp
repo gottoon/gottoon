@@ -24,7 +24,6 @@
 
 <title>MYPAGE READ WEBTOON</title>
 </head>
-
 <body>
 	<%-- MYPAGE READ WEBTOON --%>
 
@@ -53,7 +52,7 @@
 
 				<div id="state_gauge">
 					<div>
-						<h2>지금까지 총 ${fn:length(readToon)} 편의 웹툰을 보셨습니다.</h2>
+						<h2>지금까지 총 <strong>${fn:length(readToon)}</strong> 편의 웹툰을 보셨습니다.</h2>
 
 						<div id="gauge_meter">
 							<meter id="gauge" low=35 high=70 max=100 value=0
@@ -87,11 +86,8 @@
 
 			<table class="table" border='0' cellpadding='0' align="center">
 				<tr>
-					<td><c:forEach var="WebtoonVO" items="${readToon}"
+					<td> <%-- <c:forEach var="WebtoonVO" items="${readToon}"
 							varStatus="status">
-							<link
-								href='http://fonts.googleapis.com/css?family=Lato:300,400,700,900'
-								rel='stylesheet' type='text/css'>
 							<div class="gallery-item">
 								<div class="vcard">
 									<div id="image">
@@ -100,19 +96,20 @@
 											<input type="hidden" name="webtoon_id"
 												value="${WebtoonVO.webtoons_id_pk}" /> <input type="hidden"
 												name="todo" value="showWebtoonDetails" /> <input
-												type="image"
-												src="<c:url value='${WebtoonVO.webtoons_thumbnail}'/>" alt
-												class="photo" />
+												type="image" src="<c:url value='${WebtoonVO.webtoons_thumbnail}'/>" class="photo" />
 										</form>
 									</div>
-									<!-- <table id="fb-root" class="showToon" border="1"> -->
 									<div id="title">
 										<a id="title_link" href="${WebtoonVO.webtoons_url}"
 											target="_blank"><strong>${WebtoonVO.webtoons_title}</strong></a>
 									</div>
 
-									<div id="desc">
-										<input type="hidden" id="rate"
+									<div id="desc"> --%>
+									
+								<input type ="hidden" id = "readWebtoonCount" value ="0">
+									
+								<div id= "layout"></div>
+										<%-- <input type="hidden" id="rate"
 											value="${WebtoonVO.webtoon_rate }"> <input
 											type="hidden" id="id" value="${WebtoonVO.webtoons_id_pk }">
 										<form id="myForm">
@@ -144,13 +141,12 @@
 												<label for="${status.count*status.count*status.count+5}"
 													title="시간이 아깝다">★</label>
 											</div>
-										</form>
+										</form> --%>
 										<!-- </table> -->
 									</div>
 								</div>
 							</div>
-							<!-- </div> -->
-						</c:forEach></td>
+						 <%-- </c:forEach> --%></td>
 				</tr>
 			</table>
 		</div>

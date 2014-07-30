@@ -13,8 +13,7 @@
 <link rel="shortcut icon" href="../img/gradeImg/1406635516_97786.ico">
 <script
 	src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
-<style>
-</style>
+
 <title>MYPAGE</title>
 </head>
 <body>
@@ -33,25 +32,26 @@
 								action="<c:url value='/action/mypageReadWebtoon'/>"
 								method="POST">
 								<input type="hidden" name="todo" value="mypageReadWebtoon">
-								<input class="btn btn-primary btn-lg" type="submit"
+								<input id="button1" class="btn btn-primary btn-lg" type="submit"
 									value="내가 본 웹툰" />
 							</form></li>
 						<li><form name="Mypagetap"
 								action="<c:url value='/action/mypageWishWebtoon'/>"
 								method="POST">
 								<input type="hidden" name="todo" value="mypageWishWebtoon">
-								<input class="btn btn-primary btn-lg" type="submit" value="찜 웹툰" />
+								<input id="button2" class="btn btn-primary btn-lg" type="submit"
+									value="찜 웹툰" />
 							</form></li>
 						<li><form name="Mypagetap"
 								action="<c:url value='/action/mypageNewWebtoon'/>" method="POST">
 								<input type="hidden" name="todo" value="mypageNewWebtoon">
-								<input class="btn btn-primary btn-lg" type="submit"
+								<input id="button3" class="btn btn-primary btn-lg" type="submit"
 									value="신작 웹툰" />
 							</form></li>
 					</ul>
 				</section>
 			</div>
 		</div>
-		</div>
+	</div>
 </body>
 </html>

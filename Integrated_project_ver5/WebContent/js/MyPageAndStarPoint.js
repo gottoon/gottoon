@@ -93,6 +93,8 @@ $(document).ready(function() {
 		},
 		success : function(data) {
 			/*$("meter").val([ data ]);*/
+			
+			// 서클 프로그레스 바 //
 			$("#progressController").hide();
 			if([ data ] == 0) {
 			} else if ([ data ] >= 1 && [ data ] <= 19) {	
