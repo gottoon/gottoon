@@ -52,8 +52,9 @@
 
 				<div id="state_gauge">
 					<div>
-						<h2>지금까지 총 <strong>${fn:length(readToon)}</strong> 편의 웹툰을 보셨습니다.</h2>
-
+						<%-- <h2>지금까지 총 <strong>${fn:length(readToon)}</strong> 편의 웹툰을 보셨습니다.</h2> --%>
+						<h2>지금까지 총 <strong id="readWebtoonCount"></strong> 편의 웹툰을 보셨습니다.</h2>
+						
 						<div id="gauge_meter">
 							<meter id="gauge" low=35 high=70 max=100 value=0
 								style="display: none;">
@@ -106,8 +107,7 @@
 
 									<div id="desc"> --%>
 									
-								<input type ="hidden" id = "readWebtoonCount" value ="0">
-									
+								<input type ="hidden" id = "readWebtoonScrollCount" value ="0">
 								<div id= "layout"></div>
 										<%-- <input type="hidden" id="rate"
 											value="${WebtoonVO.webtoon_rate }"> <input

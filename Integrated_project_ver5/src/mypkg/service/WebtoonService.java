@@ -101,19 +101,19 @@ public class WebtoonService {
 	}
 
 	// 7.18 영규꺼
-	public List<WebtoonVO> getNewToon() {
+	public List<WebtoonVO> getNewToon(String num) {
 		MySqlDAOFactory mysqlFactory = new MySqlDAOFactory();
 		WebtoonDAO webtoonDAO = mysqlFactory.getWebtoonsDAO();
 
-		return webtoonDAO.findNewToon();
+		return webtoonDAO.findNewToon(num);
 	}
 
 	// 7.18 영규꺼
-	public List<WebtoonVO> getWishList(long users_facebookID_pk) {
+	public List<WebtoonVO> getWishList(long users_facebookID_pk, String num) {
 		MySqlDAOFactory mysqlFactory = new MySqlDAOFactory();
 		WebtoonDAO webtoonDAO = mysqlFactory.getWebtoonsDAO();
 
-		return webtoonDAO.findWishList(users_facebookID_pk);
+		return webtoonDAO.findWishList(users_facebookID_pk, num);
 	}
 
 	// 2014.7.16 bj 모든 웹툰 가져오기

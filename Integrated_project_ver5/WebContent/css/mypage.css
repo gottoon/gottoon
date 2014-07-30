@@ -103,18 +103,8 @@ div#desc {
 	/* margin-bottom: 30px; */
 }
 
-/* 큰화면에서 테스트 */
-@media all and (min-width: 1800px) {
-	body {
-		font-size: 25px;
-		font-size: 1.125rem;
-	}
-	.gallery .gallery-item {
-		width: 15%;
-	}
-}
 
-@media all and (min-width: 1200px) and (max-width: 1799px) {
+@media all and (min-width: 1200px){
 	body {
 		font-size: 20px;
 		font-size: 1.125rem;

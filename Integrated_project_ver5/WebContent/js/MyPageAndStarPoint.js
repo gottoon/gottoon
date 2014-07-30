@@ -95,7 +95,7 @@ $(document).ready(function() {
 			/*$("meter").val([ data ]);*/
 			
 			// 서클 프로그레스 바 //
-			$("#progressController").hide();
+			/*$("#progressController").hide();
 			if([ data ] == 0) {
 			} else if ([ data ] >= 1 && [ data ] <= 19) {	
 				$("#progressController").val([ data ] * 5); //1당 5
@@ -114,10 +114,10 @@ $(document).ready(function() {
 			} else if ([ data ] >= 321) {	
 				$("#progressController").val(100);
 			} else {
-			}	
+			}	*/
 			console.log("ajax 결과값 " + data);
 			
-			var $pc = $('#progressController');
+			/*var $pc = $('#progressController');
 			var $pCaption = $('.progress-bar p');
 			var iProgress = document.getElementById('inactiveProgress');
 			var aProgress = document.getElementById('activeProgress');
@@ -177,7 +177,7 @@ $(document).ready(function() {
 			}
 
 				var percentage = $pc.val() / 100;
-				drawProgress(aProgress, percentage, $pCaption);
+				drawProgress(aProgress, percentage, $pCaption);*/
 		}
 	});
 	

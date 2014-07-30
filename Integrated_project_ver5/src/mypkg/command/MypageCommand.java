@@ -44,11 +44,11 @@ public class MypageCommand implements Command {
 		
 		if (todo == null) {
 			System.out.println("내가 본 웹툰 실행");
-			this.doMypageReadWebtoon(request, CurrentUser_facebookID);
+			/*this.doMypageReadWebtoon(request, CurrentUser_facebookID);*/
 			commandResult = new CommandResult("/WEB-INF/jsp/mypage/mypageReadWebtoon.jsp");
 		} else if (todo.equals("mypageReadWebtoon")) {
 			System.out.println("내가 본 웹툰 실행");
-			this.doMypageReadWebtoon(request, CurrentUser_facebookID);
+			/*this.doMypageReadWebtoon(request, CurrentUser_facebookID);*/
 			commandResult = new CommandResult("/WEB-INF/jsp/mypage/mypageReadWebtoon.jsp");
 		} else if (todo.equals("readWebtoonCount")) {
 			System.out.println("웹툰 카운트 실행");
@@ -57,11 +57,11 @@ public class MypageCommand implements Command {
 			commandResult = new CommandResult("text/plain", Integer.toString(count));
 		} else if (todo.equals("mypageWishWebtoon")) {
 			System.out.println("찜 웹툰 실행");
-			this.doViewWishList(request, CurrentUser_facebookID);
+			/*this.doViewWishList(request, CurrentUser_facebookID);*/
 			commandResult = new CommandResult("/WEB-INF/jsp/mypage/mypageWishWebtoon.jsp");
 		} else if (todo.equals("mypageNewWebtoon")) {
 			System.out.println("신작 웹툰 실행");
-			this.doRecommendNew(request, CurrentUser_facebookID);
+			/*this.doRecommendNew(request, CurrentUser_facebookID);*/
 			commandResult = new CommandResult("/WEB-INF/jsp/mypage/mypageNewWebtoon.jsp");
 		} 
 
@@ -69,11 +69,23 @@ public class MypageCommand implements Command {
 			System.out.println("Ajax : 읽은 웹툰 실행");
 			this.doReadWebtoon(request, CurrentUser_facebookID);
 			commandResult = new CommandResult("json",doReadWebtoon(request, CurrentUser_facebookID));
-			
+		}
+		
+		else if (todo.equals("wishWebtoon")) {
+			System.out.println("Ajax : 찜 웹툰 실행");
+			this.doWishWebtoon(request, CurrentUser_facebookID);
+			commandResult = new CommandResult("json",doWishWebtoon(request, CurrentUser_facebookID));
+		}
+		
+		else if (todo.equals("newWebtoon")) {
+			System.out.println("Ajax : 신작 웹툰 실행");
+			this.doNewWebtoon(request);
+			commandResult = new CommandResult("json",doNewWebtoon(request));
 		}
 
 		return commandResult;
 	}
+	
 	public String doReadWebtoon(HttpServletRequest request, long CurrentUser_facebookID){
 		
 		String num = request.getParameter("count");
@@ -84,18 +96,42 @@ public class MypageCommand implements Command {
 			Gson gSon = new Gson();
 		 return gSon.toJson(webtoonVO);
 	}
-	// 내가 본 웹툰
-	public void doMypageReadWebtoon(HttpServletRequest request,
-			long CurrentUser_facebookID) throws ServletException, IOException {
+	
+	public String doWishWebtoon(HttpServletRequest request, long CurrentUser_facebookID){
 		
-		/*UserVO userVO = userService.getUserGrade(CurrentUser_facebookID);
+		String num = request.getParameter("count");
 		
 		List<WebtoonVO> webtoonVO = webtoonService
-				.getReadToon(CurrentUser_facebookID);*/
+				.getWishList(CurrentUser_facebookID, num);
 		
-		/*request.setAttribute("grade", userVO.getUsers_grade().toString());
-		request.setAttribute("readToon", webtoonVO);*/
+			Gson gSon = new Gson();
+		 return gSon.toJson(webtoonVO);
 	}
+	
+public String doNewWebtoon(HttpServletRequest request){
+		
+		String num = request.getParameter("count");
+		
+		List<WebtoonVO> webtoonVO = webtoonService
+				.getNewToon(num);
+		
+			Gson gSon = new Gson();
+		 return gSon.toJson(webtoonVO);
+	}
+	
+	
+	// 내가 본 웹툰
+	/*public void doMypageReadWebtoon(HttpServletRequest request,
+			long CurrentUser_facebookID) throws ServletException, IOException {
+		
+		UserVO userVO = userService.getUserGrade(CurrentUser_facebookID);
+		
+		List<WebtoonVO> webtoonVO = webtoonService
+				.getReadToon(CurrentUser_facebookID);
+		
+		request.setAttribute("grade", userVO.getUsers_grade().toString());
+		request.setAttribute("readToon", webtoonVO);
+	}*/
 	
 	// 내가 본 웹툰 카운트
 	public int doReadWebtoonCount(HttpServletRequest request,
@@ -110,21 +146,21 @@ public class MypageCommand implements Command {
 	}
 	
 	// 신작 웹툰
-	public void doRecommendNew(HttpServletRequest request,
+	/*public void doRecommendNew(HttpServletRequest request,
 			long CurrentUser_facebookID) throws ServletException, IOException {
 
 		List<WebtoonVO> webtoonVO = webtoonService.getNewToon();
 
 		request.setAttribute("newWebtoon", webtoonVO);
-	}
+	}*/
 	
 	// 찜한 웹툰
-	public void doViewWishList(HttpServletRequest request,
+	/*public void doViewWishList(HttpServletRequest request,
 			long CurrentUser_facebookID) throws ServletException, IOException {
 		
 		List<WebtoonVO> webtoonVO = webtoonService
 				.getWishList(CurrentUser_facebookID);
 
 		request.setAttribute("wishList", webtoonVO);
-	}
+	}*/
 }

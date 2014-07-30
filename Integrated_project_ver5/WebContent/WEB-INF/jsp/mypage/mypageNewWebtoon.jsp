@@ -41,15 +41,30 @@
 			<div>삭제 끄아악!</div>
 		</div>
 	</div>
-
-	<h2>신작 웹툰</h2>
-	<hr>
-
-	<c:if test="${fn:length(newWebtoon)==0}">
+	
+	<%-- <c:if test="${fn:length(newWebtoon)==0}">
 		<p>신작 웹툰이 없습니다.</p>
-	</c:if>
+	</c:if> --%>
+	
+	<table class="table" border='0' cellpadding='0' align="center">
+		<tr>
+			<td><input type="hidden" id="newWebtoonScrollCount" value="0">
+				<div id="layout"></div>
+				</div>
+				</div>
+				</div></td>
+		</tr>
+	</table>
+	</div>
+	</section>
 
-	<c:if test="${fn:length(newWebtoon)!=0}">
+	<script
+		src="//cdnjs.cloudflare.com/ajax/libs/less.js/1.7.3/less.min.js"></script>
+	<script src="<c:url value='/js/mypageNewWebtoon.js'/>"></script>
+	<script src="<c:url value='/js/MyPageAndStarPoint.js'/>"></script>
+	<script src='http://codepen.io/assets/libs/fullpage/jquery.js'></script>
+	
+	<%-- <c:if test="${fn:length(newWebtoon)!=0}">
 		<section class="contains">
 			<div class="gallery">
 				<table class="table" border='0' cellpadding='0' align="center">
@@ -197,6 +212,6 @@
 				</table>
 			</div>
 		</section>
-	</c:if>
+	</c:if> --%>
 </body>
 </html>
