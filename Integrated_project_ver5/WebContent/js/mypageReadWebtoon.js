@@ -71,7 +71,7 @@ $(document).ready(function() {
 			success : function(data) {
 				$("#gauge").hide();
 				$("#progressController").hide();
-				console.log(data);
+				console.log("유저 가 본 웹튼 카운트 : "+parseInt(data[0])+" 경험치 : "+data[1]+" 유저 등급 : "+parseInt(data[2]));
 				
 				toDoCheck();
 				
@@ -79,63 +79,103 @@ $(document).ready(function() {
 				// 0~19는 1 
 				// 20~39는 2
 				//최소 20개 2등급
-				if([ data ] == 0) {
-					$("#grade").append(" <b id='level'>2</b>");
+				if(parseInt(data[2]) == 1) {
+					$("#grade").append(" <b id='level'>1</b>");
 					$(".gradeImg").append('<img src="../img/gradeImg/grade_level2.png" width="200" height="200" border="0">');
-				} else if ([ data ] >= 1 && [ data ] <= 19) {	
+					
+				} else if (parseInt(data[2]) == 2) {	
 					$("#gauge").show();
-					$("#gauge").val([ data ] * 5); //1당 5
-					$("#progressController").val([ data ] * 5); 
+					$("#gauge").val(data[1]); 
+					$("#progressController").val(data[1]); 
 					$("#grade").append(" <b id='level'>2</b>");
 					$(".gradeImg").append('<img src="../img/gradeImg/grade_level2.png" width="200" height="200" border="0">');
-				} else if ([ data ] >= 21 && [ data ] <= 39) {	
+					
+				} else if (parseInt(data[2]) == 3) {	
 					$("#gauge").show();	
-					$("#gauge").val(([ data ] -20) * 5 ); //1당 5
-					$("#progressController").val(([ data ] - 20) * 5); 
+					$("#gauge").val(data[1]); 
+					$("#progressController").val(data[1]); 
 					$("#grade").append(" <b id='level'>3</b>");
 					$(".gradeImg").append('<img src="../img/gradeImg/grade_level3.png" width="200" height="200" border="0">');
-				} else if ([ data ] >= 41 && [ data ] <= 79) {	
+					
+				} else if (parseInt(data[2]) == 4 || parseInt(data[2]) == 5) {	
 					$("#gauge").show();
-					$("#gauge").val(([ data ] -40) * 2.5); //1당 2.5
-					$("#progressController").val(([ data ] -40) * 2.5);
+					$("#gauge").val(data[1]); 
+					$("#progressController").val(data[1]); 
 					$("#grade").append(" <b id='level'>4</b>");
 					$(".gradeImg").append('<img src="../img/gradeImg/grade_level4.png" width="200" height="200" border="0">');
-				} else if ([ data ] >= 81 && [ data ] <= 119) {	
+					
+				} else if (parseInt(data[2]) == 5) {	
 					$("#gauge").show();
-					$("#gauge").val(([ data ] -80) * 2.5); //1당 2.5
-					$("#progressController").val(([ data ] -80) * 2.5);
+					$("#gauge").val(data[1]); 
+					$("#progressController").val(data[1]); 
 					$("#grade").append(" <b id='level'>5</b>");
 					$(".gradeImg").append('<img src="../img/gradeImg/grade_level5.png" width="200" height="200" border="0">');
-				} else if ([ data ] >= 121 && [ data ] <= 179) {	
+					
+				} else if (parseInt(data[2]) == 6) {	
 					$("#gauge").show();
-					$("#gauge").val(([ data ] -120) * 1.66); //1당 1.66
-					$("#progressController").val(([ data ] -120) * 1.66); 
+					$("#gauge").val(data[1]); 
+					$("#progressController").val(data[1]);  
 					$("#grade").append(" <b id='level'>6</b>");
 					$(".gradeImg").append('<img src="../img/gradeImg/grade_level6.png" width="200" height="200" border="0">');
-				} else if ([ data ] >= 181 && [ data ] <= 239) {	
+					
+				} else if (parseInt(data[2]) == 7) {	
 					$("#gauge").show();
-					$("#gauge").val(([ data ] -180) * 1.66); //1당 1.66
-					$("#progressController").val(([ data ] -180) * 1.66);
+					$("#gauge").val(data[1]); 
+					$("#progressController").val(data[1]); 
 					$("#grade").append(" <b id='level'>7</b>");
 					$(".gradeImg").append('<img src="../img/gradeImg/grade_level7.png" width="200" height="200" border="0">');
-				} else if ([ data ] >= 241 && [ data ] <= 319) {	
+					
+				} else if (parseInt(data[2]) == 8) {	
 					$("#gauge").show();
-					$("#gauge").val(([ data ] -240) * 1.25); //1당 1.25
-					$("#progressController").val(([ data ] -240) * 1.25);
+					$("#gauge").val(data[1]); 
+					$("#progressController").val(data[1]); 
 					$("#grade").append(" <b id='level'>8</b>");
 					$(".gradeImg").append('<img src="../img/gradeImg/grade_level8.png" width="200" height="200" border="0">');
-				} else if ([ data ] >= 321) {	
+				
+				} else if (parseInt(data[2]) == 9) {	
+					$("#gauge").show();
+					$("#gauge").val(data[1]); 
+					$("#progressController").val(data[1]); 
+					$("#grade").append(" <b id='level'>9</b>");
+					$(".gradeImg").append('<img src="../img/gradeImg/grade_level9.png" width="200" height="200" border="0">');
+					
+				} else if (parseInt(data[2]) == 10) {	
+					$("#gauge").show();
+					$("#gauge").val(data[1]); 
+					$("#progressController").val(data[1]); 
+					$("#grade").append(" <b id='level'>10</b>");
+					$(".gradeImg").append('<img src="../img/gradeImg/grade_level10.png" width="200" height="200" border="0">');
+					
+				} else if (parseInt(data[2]) == 11) {	
+					$("#gauge").show();
+					$("#gauge").val(data[1]); 
+					$("#progressController").val(data[1]); 
+					$("#grade").append(" <b id='level'>11</b>");
+					$(".gradeImg").append('<img src="../img/gradeImg/grade_level11.png" width="200" height="200" border="0">');
+					
+				} else if (parseInt(data[2]) == 12) {	
+					$("#gauge").show();
+					$("#gauge").val(data[1]); 
+					$("#progressController").val(data[1]); 
+					$("#grade").append(" <b id='level'>12</b>");
+					$(".gradeImg").append('<img src="../img/gradeImg/grade_level12.png" width="200" height="200" border="0">');	
+				
+				} else if (parseInt(data[2]) == 13) {	
+					$("#gauge").show();
+					$("#gauge").val(data[1]); 
+					$("#progressController").val(data[1]); 
+					$("#grade").append(" <b id='level'>13</b>");
+					$(".gradeImg").append('<img src="../img/gradeImg/grade_level13.png" width="200" height="200" border="0">');
+					
+				} else if (parseInt(data[2]) == 14) {	
 					$("#gauge").show();
 					$("#gauge").val(100);
 					$("#progressController").val(100);
-					$("#grade").append(" <b id='level'>9</b>");
-					$(".gradeImg").append('<img src="../img/gradeImg/grade_level9.png" width="200" height="200" border="0">');
-				} else {
-					$("#gauge").show();
-					$("#gauge").val([ data ] * 0);
+					$("#grade").append(" <b id='level'>14</b>");
+					$(".gradeImg").append('<img src="../img/gradeImg/grade_level14.png" width="200" height="200" border="0">');
 				}
 				
-				$("#readWebtoonCount").append([ data ]);
+				$("#readWebtoonCount").append(parseInt(data[0]));
 				
 				$("#button1").css({"color":"#fff", "background-color":"#428bca", "border-color":"#357ebd"});
 			

@@ -21,11 +21,11 @@ public class UserService {
 	}
 
 	// 유저 등급 저장 7.18 영규꺼
-	public void doSetUserGrade(long CurrentUser_facebookID, int count) {
+	public void doSetUserGrade(long CurrentUser_facebookID, int grade) {
 		MySqlDAOFactory mysqlFactory = new MySqlDAOFactory();
 		UserDAO userDAO = mysqlFactory.getUserDAO();
 
-		int setGrade = 0;
+		/*int setGrade = 0;
 
 		if (count >= 1 && count <= 19) {
 			setGrade = 2;
@@ -51,9 +51,9 @@ public class UserService {
 		} else if (count >= 320) {
 			setGrade = 9;
 			System.out.println("유저 9등급으로 저장");
-		} 
+		} */
 		
-		userDAO.setUserGrade(CurrentUser_facebookID, setGrade);
+		userDAO.setUserGrade(CurrentUser_facebookID, grade);
 	}
 	
 	//doAddUser -bj 7.18 

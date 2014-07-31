@@ -677,5 +677,73 @@ public class WebtoonDAO {
 
 		return authorToon;
 	}
+	
+	// 7.31 영규 추가
+	public int getReadWebtoonCount(long users_facebookID_fk) {
+		System.out.println(users_facebookID_fk + " 사용자가 본 웹툰 카운트");
+		
+		int readWebtoonCount = 0;
+		
+		Connection conn = null;
+		Statement stmt = null;
+		try {
+			conn = pool.getConnection();
+			stmt = conn.createStatement();
+			
+			String sql = "select count(*) as count from user_webtoon_maps where users_facebookID_fk=" + users_facebookID_fk + " and user_webtoon_isread=1";
+			
+			ResultSet rset = stmt.executeQuery(sql);
+			
+			while (rset.next()) {
+				int webtoonCount = rset.getInt("count");
+
+				readWebtoonCount = webtoonCount;
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			try {
+				if (stmt != null) stmt.close();
+				if (conn != null) conn.close();
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+		}
+		
+		return readWebtoonCount;
+	}
+	
+	// 7.31 영규 추가
+	public int getAllWebtoonCount() {
+		int allWebtoonCount = 0;
+		
+		Connection conn = null;
+		Statement stmt = null;
+		try {
+			conn = pool.getConnection();
+			stmt = conn.createStatement();
+			
+			String sql = "select count(*) as count from webtoons";
+			
+			ResultSet rset = stmt.executeQuery(sql);
+			
+			while (rset.next()) {
+				int webtoonCount = rset.getInt("count");
+
+				allWebtoonCount = webtoonCount;
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			try {
+				if (stmt != null) stmt.close();
+				if (conn != null) conn.close();
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+		}
+		
+		return allWebtoonCount;
+	}
 
 }
