@@ -67,20 +67,20 @@ public class MypageCommand implements Command {
 
 		else if (todo.equals("readWebtoon")) {
 			System.out.println("Ajax : 읽은 웹툰 실행");
-			this.doReadWebtoon(request, CurrentUser_facebookID);
-			commandResult = new CommandResult("json",doReadWebtoon(request, CurrentUser_facebookID));
+			
+			commandResult = new CommandResult("application/json",this.doReadWebtoon(request, CurrentUser_facebookID));
 		}
 		
 		else if (todo.equals("wishWebtoon")) {
 			System.out.println("Ajax : 찜 웹툰 실행");
-			this.doWishWebtoon(request, CurrentUser_facebookID);
-			commandResult = new CommandResult("json",doWishWebtoon(request, CurrentUser_facebookID));
+			
+			commandResult = new CommandResult("application/json",this.doWishWebtoon(request, CurrentUser_facebookID));
 		}
 		
 		else if (todo.equals("newWebtoon")) {
 			System.out.println("Ajax : 신작 웹툰 실행");
-			this.doNewWebtoon(request);
-			commandResult = new CommandResult("json",doNewWebtoon(request));
+			
+			commandResult = new CommandResult("application/json",this.doNewWebtoon(request));
 		}
 
 		return commandResult;
@@ -89,34 +89,28 @@ public class MypageCommand implements Command {
 	public String doReadWebtoon(HttpServletRequest request, long CurrentUser_facebookID){
 		
 		String num = request.getParameter("count");
-		
-		List<WebtoonVO> webtoonVO = webtoonService
-				.getReadToon(CurrentUser_facebookID, num);
-		
-			Gson gSon = new Gson();
-		 return gSon.toJson(webtoonVO);
+		System.out.println("읽은 웹툰 무한 스크롤 카운트값 : "+num);
+		Gson gSon = new Gson();
+		 
+		return gSon.toJson(webtoonService.getReadToon(CurrentUser_facebookID, num));
 	}
 	
 	public String doWishWebtoon(HttpServletRequest request, long CurrentUser_facebookID){
 		
 		String num = request.getParameter("count");
-		
-		List<WebtoonVO> webtoonVO = webtoonService
-				.getWishList(CurrentUser_facebookID, num);
-		
-			Gson gSon = new Gson();
-		 return gSon.toJson(webtoonVO);
+		System.out.println("찜 웹툰 무한 스크롤 카운트값 : "+num);
+		Gson gSon = new Gson();
+		 
+		return gSon.toJson(webtoonService.getWishList(CurrentUser_facebookID, num));
 	}
 	
 public String doNewWebtoon(HttpServletRequest request){
 		
 		String num = request.getParameter("count");
-		
-		List<WebtoonVO> webtoonVO = webtoonService
-				.getNewToon(num);
-		
-			Gson gSon = new Gson();
-		 return gSon.toJson(webtoonVO);
+		System.out.println("신작 웹툰 무한 스크롤 카운트값 : "+num);
+		Gson gSon = new Gson();
+		 
+		return gSon.toJson(webtoonService.getNewToon(num));
 	}
 	
 	

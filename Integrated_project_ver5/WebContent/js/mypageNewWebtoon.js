@@ -10,11 +10,13 @@ function toDoCheck(){
 function scrollEvent(count){
 	console.log("scrollEvent의 Request와 count : "+ count.value);
 	$.ajax({
+		/*url : "/Integrated_project_ver5/action/mypageNewWebtoon",*/
+		url : "mypage",
 		type : "POST",
-		url : "/Integrated_project_ver5/action/mypageNewWebtoon",
+		dataType : "json",
 		data : {
-			count : count.value,
-			todo : "newWebtoon"
+			todo : "newWebtoon",
+			count : count.value
 	},
 	success : function(data) {
 		
@@ -52,7 +54,10 @@ function showScroll(data , count){
 }
 
 $(document).ready(function() {
-	$("#button3").css("background-color", "red");
+	$("#button3").css({"color":"#fff", "background-color":"#428bca", "border-color":"#357ebd"});
+	
+	toDoCheck();
+	
 	$(window).scroll(function() {//스크롤이 하단에 위치할때 뿌려주는 놈 
 		var documentHeight = $(document).height();
 		var scrollHeight = $(window).scrollTop() + $(window).height();

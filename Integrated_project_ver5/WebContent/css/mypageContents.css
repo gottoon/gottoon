@@ -1,4 +1,5 @@
 @CHARSET "UTF-8";
+/* 프로그레스 바  */
 #progress{
 width: 275px;
 height: 275px;
@@ -43,11 +44,6 @@ margin: 20px auto;
   padding: 10px 80px;
 }
 
-/* canvas#inactiveProgress, canvas#activeProgress {
-	height: 275px;
-	width: 275px;
-} */
-
 meter {
 	-webkit-appearance: meter;
 	box-sizing: border-box;
@@ -58,7 +54,6 @@ meter {
 }
 
 body {
-	font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
 	font-size: 12px;
 	line-height: 1.42857143;
 	color: #333;
@@ -68,6 +63,7 @@ body {
 h2, div {
 	font-size: 18px;
 	text-align: center;
+	font-family: "Nanum Gothic";
 }
 
 
@@ -98,19 +94,9 @@ div#state_gauge{
 }
 
 
-/* td#state_image {
-	padding-top: 5%;
-	padding-bottom: 5%;
-	padding-left: 13%;
-	padding-right: 13%;
+b#level, strong#readWebtoonCount {
+	color: crimson;
 }
-
-td#state_gauge {
-	padding-top: 5%;
-	padding-bottom: 5%;
-	padding-left: 13%;
-	padding-right: 13%;
-} */
 
 a#title_link {
 	/* width: 12em; */
@@ -130,8 +116,11 @@ a#title_link {
 
 section.contains {
 	background-color: #e5e5e5;
+	min-width: 320px;
 }
 
+
+/* 화면 크기별 크기 맞추기  */
 @media all and (min-width: 1800px) {
 	div#gauge_meter {
 		display: none;
@@ -143,6 +132,7 @@ section.contains {
 		display: none;
 	}
 }
+
 @media all and (min-width: 1024px) and (max-width: 1199px){
 	div#gauge_meter {
 		display: none;
@@ -156,14 +146,6 @@ section.contains {
 }
 
 @media all and (min-width: 600px) and (max-width: 767px){
-	/* td#state_image, td#state_gauge {
-	float: left;
-	padding-top: 5%;
-	padding-bottom: 5%;
-	padding-left: 28%;
-	padding-right: 28%;
-	} */
-	
 	div#gauge_meter {
 		display: none;
 	}
@@ -184,14 +166,6 @@ section.contains {
 
 
 @media all and (min-width: 527px) and (max-width: 599px){
-	/* td#state_image, td#state_gauge {
-	float: left;
-	padding-top: 5%;
-	padding-bottom: 5%;
-	padding-left: 28%;
-	padding-right: 28%;
-	} */
-	
 	div#gauge_meter {
 		display: none;
 	}
@@ -211,14 +185,6 @@ section.contains {
 }
 	
 @media all and (min-width: 518px) and (max-width: 526px){
-	/* td#state_image, td#state_gauge {
-	float: left;
-	padding-top: 5%;
-	padding-bottom: 5%;
-	padding-left: 28%;
-	padding-right: 28%;
-	} */
-	
 	div#progress {
 		display: none;
 	}
@@ -256,9 +222,10 @@ section.contains {
 	}
 }
 
- @media all and (min-width: 396px)and (max-width: 476px) {
+/* width: 476px 이하 타이틀, 별점 크기 맞추기  */
+@media all and (min-width: 396px)and (max-width: 476px) {
 	form#myForm {
-	margin: 5px;
+		margin: 5px;
 	}
 }
 
@@ -268,6 +235,25 @@ section.contains {
 	}
 	
 	form#myForm {
-	margin: 0px;
+		margin: 0px;
+	}
+}
+
+/* width: 476px 이하 별점 중간 맞추기  */
+@media all and (min-width: 435px) and (max-width: 476px){
+	form#myForm {
+	padding-top: 7px;
+	}
+}
+
+@media all and (min-width: 343px) and (max-width: 395px){
+	form#myForm {
+	padding-top: 8px;
+	}
+}
+
+@media all and (max-width: 342px){
+	form#myForm {
+	padding-top: 5px;
 	}
 }

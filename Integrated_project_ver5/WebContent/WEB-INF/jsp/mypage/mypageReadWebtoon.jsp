@@ -10,7 +10,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta http-equiv="Cache-Control" content="no-cache" />
 <meta http-equiv="Expires" content="0" />
 <meta http-equiv="Pragma" content="no-cache" />
@@ -22,10 +22,10 @@
 <link rel="stylesheet" media="screen" type="text/css"
 	href="<c:url value='/css/mypageContents.css'/>" />
 
-<title>MYPAGE READ WEBTOON</title>
+<title>MYPAGE - READ WEBTOON</title>
 </head>
 <body>
-	<%-- MYPAGE READ WEBTOON --%>
+	<%-- MYPAGE - READ WEBTOON --%>
 
 	<div class="show-modalStar">
 		<div class="modalStar">
@@ -52,14 +52,13 @@
 
 				<div id="state_gauge">
 					<div>
-						<%-- <h2>지금까지 총 <strong>${fn:length(readToon)}</strong> 편의 웹툰을 보셨습니다.</h2> --%>
-						<h2>지금까지 총 <strong id="readWebtoonCount"></strong> 편의 웹툰을 보셨습니다.</h2>
-						
+						<h2>
+							지금까지 총 <strong id="readWebtoonCount"></strong> 편의 웹툰을 보셨습니다.
+						</h2>
+
 						<div id="gauge_meter">
 							<meter id="gauge" low=35 high=70 max=100 value=0
-								style="display: none;">
-								<!-- <input name="showGauge" /> -->
-							</meter>
+								style="display: none;"> </meter>
 						</div>
 
 						<div id="progress">
@@ -83,70 +82,10 @@
 
 	<section class="contains">
 		<div class="gallery">
-			<!-- <div class="table-responsive"> -->
-
 			<table class="table" border='0' cellpadding='0' align="center">
 				<tr>
-					<td> <%-- <c:forEach var="WebtoonVO" items="${readToon}"
-							varStatus="status">
-							<div class="gallery-item">
-								<div class="vcard">
-									<div id="image">
-
-										<form method="post" action="webtoon">
-											<input type="hidden" name="webtoon_id"
-												value="${WebtoonVO.webtoons_id_pk}" /> <input type="hidden"
-												name="todo" value="showWebtoonDetails" /> <input
-												type="image" src="<c:url value='${WebtoonVO.webtoons_thumbnail}'/>" class="photo" />
-										</form>
-									</div>
-									<div id="title">
-										<a id="title_link" href="${WebtoonVO.webtoons_url}"
-											target="_blank"><strong>${WebtoonVO.webtoons_title}</strong></a>
-									</div>
-
-									<div id="desc"> --%>
-									
-								<input type ="hidden" id = "readWebtoonScrollCount" value ="0">
-								<div id= "layout"></div>
-										<%-- <input type="hidden" id="rate"
-											value="${WebtoonVO.webtoon_rate }"> <input
-											type="hidden" id="id" value="${WebtoonVO.webtoons_id_pk }">
-										<form id="myForm">
-											<div class="product-review-stars">
-												<input type="checkbox"
-													id="${status.count*status.count*status.count+1}"
-													name="rating" value="5^${WebtoonVO.webtoons_id_pk}"
-													onclick=onclickStart(this) class="visuallyhidden">
-												<label for="${status.count*status.count*status.count+1}"
-													title="최고에요">★</label> <input type="checkbox"
-													id="${status.count*status.count*status.count+2}"
-													name="rating" value="4^${WebtoonVO.webtoons_id_pk}"
-													onclick=onclickStart(this) class="visuallyhidden">
-												<label for="${status.count*status.count*status.count+2}"
-													title="좋아요">★</label> <input type="checkbox"
-													id="${status.count*status.count*status.count+3}"
-													name="rating" value="3^${WebtoonVO.webtoons_id_pk}"
-													onclick=onclickStart(this) class="visuallyhidden">
-												<label for="${status.count*status.count*status.count+3}"
-													title="그럭저럭">★</label> <input type="checkbox"
-													id="${status.count*status.count*status.count+4}"
-													name="rating" value="2^${WebtoonVO.webtoons_id_pk}"
-													onclick=onclickStart(this) class="visuallyhidden">
-												<label for="${status.count*status.count*status.count+4}"
-													title="재미없음">★</label> <input type="checkbox"
-													id="${status.count*status.count*status.count+5}"
-													name="rating" value="1^${WebtoonVO.webtoons_id_pk}"
-													onclick=onclickStart(this) class="visuallyhidden">
-												<label for="${status.count*status.count*status.count+5}"
-													title="시간이 아깝다">★</label>
-											</div>
-										</form> --%>
-										<!-- </table> -->
-									</div>
-								</div>
-							</div>
-						 <%-- </c:forEach> --%></td>
+					<td><input type="hidden" id="readWebtoonScrollCount" value="0">
+						<div id="layout"></div></td>
 				</tr>
 			</table>
 		</div>

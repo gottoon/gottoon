@@ -39,8 +39,6 @@ function scrollEvent(count){
 };
 
 function showScroll(request , count){
-
-	
 	if(request.length !== 0){
 		for(var i =0; i< request.length; i++){
 			count.value++;
@@ -58,7 +56,7 @@ function showScroll(request , count){
 			+'</article></section></div></section>');
 		}
 	}	
-};
+}
 
 $(document).ready(function() {//페이지가 로드되면 meter값 넣기 
 	

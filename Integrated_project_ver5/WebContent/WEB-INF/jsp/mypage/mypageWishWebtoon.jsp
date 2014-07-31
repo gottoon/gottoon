@@ -10,7 +10,10 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="Cache-Control" content="no-cache" />
+<meta http-equiv="Expires" content="0" />
+<meta http-equiv="Pragma" content="no-cache" />
 
 <link rel="stylesheet" media="screen" type="text/css"
 	href="<c:url value='/css/myPageStar.css'/>" />
@@ -19,25 +22,32 @@
 <link rel="stylesheet" media="screen" type="text/css"
 	href="<c:url value='/css/mypageContents.css'/>" />
 
-<title>MYPAGE RECOMMEND</title>
+<title>MYPAGE - WISH WEBTOON</title>
 </head>
 <body>
-	<%-- MYPAGE RECOMMEND --%>
+	<%-- MYPAGE - WISH WEBTOON --%>
 	
-	<%-- <c:if test="${fn:length(wishList)==0}">
-		<p>찜한 웹툰이 없습니다.</p>
-	</c:if> --%>
-
-	<table class="table" border='0' cellpadding='0' align="center">
-		<tr>
-			<td><input type="hidden" id="wishWebtoonScrollCount" value="0">
-				<div id="layout"></div>
-				</div>
-				</div>
-				</div></td>
-		</tr>
-	</table>
+	<div class="show-modalStar">
+		<div class="modalStar">
+			<div>저장 부아악!</div>
+		</div>
 	</div>
+
+	<div class="show-modalDeleteStar">
+		<div class="modalDeleteStar">
+			<div>삭제 끄아악!</div>
+		</div>
+	</div>
+	
+	<section class="contains">
+		<div class="gallery">
+			<table class="table" border='0' cellpadding='0' align="center">
+				<tr>
+					<td><input type="hidden" id="wishWebtoonScrollCount" value="0">
+						<div id="layout"></div></td>
+				</tr>
+			</table>
+		</div>
 	</section>
 
 	<script

@@ -10,11 +10,13 @@ function toDoCheck(){
 function scrollEvent(count){
 	console.log("scrollEvent의 Request와 count : "+ count.value);
 	$.ajax({
+		/*url : "/Integrated_project_ver5/action/mypageReadWebtoon",*/
+		url : "mypage",
 		type : "POST",
-		url : "/Integrated_project_ver5/action/mypageReadWebtoon",
+		dataType : "json",
 		data : {
+			todo : "readWebtoon",
 			count : count.value,
-			todo : "readWebtoon"
 	},
 	success : function(data) {
 		
@@ -47,14 +49,22 @@ function showScroll(data , count){
 					+'<input type="checkbox" id="'+count.value*count.value*count.value+4+'" name="rating" value="2^'+data[i].webtoons_id_pk+'" onclick=onclickStart(this) class="visuallyhidden"> <label for="'+count.value*count.value*count.value+4+'" title="Kinda bad">★</label>'
 					+'<input type="checkbox" id="'+count.value*count.value*count.value+5+'" name="rating" value="1^'+data[i].webtoons_id_pk+'" onclick=onclickStart(this) class="visuallyhidden"> <label for="'+count.value*count.value*count.value+5+'" title="Sucks big time">★</label>'
 					+'</div></form></div></div></div>');
+			
+				console.log("===================================");
+				console.log("사용자가 평가한 별점 " + data[i].webtoon_rate);
+				console.log("사용자가 평가한 웹툰의 아이디 : " +data[i].webtoons_id_pk);
+		        console.log("===================================");
+				$(".product-review-stars input:checkbox[value="+"'"+data[i].webtoon_rate+"^"+data[i].webtoons_id_pk+"'"+"]").attr("checked", true);
 		}
 	}	
 }
 
 $(document).ready(function() {
-	$.ajax({
+	$.ajax({	
+				/*url : "/Integrated_project_ver5/action/mypageReadWebtoon",*/
+				url : "mypage",
 				type : "POST",
-				url : "/Integrated_project_ver5/action/mypageReadWebtoon",
+				dataType : "json",
 				data : {
 					todo : "readWebtoonCount"
 			},
@@ -63,7 +73,8 @@ $(document).ready(function() {
 				$("#progressController").hide();
 				console.log(data);
 				
-				$("#button1").css("background-color", "red");
+				toDoCheck();
+				
 				// 계산 바꿔야함
 				// 0~19는 1 
 				// 20~39는 2
@@ -80,6 +91,7 @@ $(document).ready(function() {
 				} else if ([ data ] >= 21 && [ data ] <= 39) {	
 					$("#gauge").show();	
 					$("#gauge").val(([ data ] -20) * 5 ); //1당 5
+					$("#progressController").val(([ data ] - 20) * 5); 
 					$("#grade").append(" <b id='level'>3</b>");
 					$(".gradeImg").append('<img src="../img/gradeImg/grade_level3.png" width="200" height="200" border="0">');
 				} else if ([ data ] >= 41 && [ data ] <= 79) {	
@@ -123,8 +135,10 @@ $(document).ready(function() {
 					$("#gauge").val([ data ] * 0);
 				}
 				
-				/*$("#readWebtoonCount").append([ data ]);*/
+				$("#readWebtoonCount").append([ data ]);
 				
+				$("#button1").css({"color":"#fff", "background-color":"#428bca", "border-color":"#357ebd"});
+			
 				var $pc = $('#progressController');
 				var $pCaption = $('.progress-bar p');
 				var iProgress = document.getElementById('inactiveProgress');
@@ -177,7 +191,7 @@ $(document).ready(function() {
 
 					barCTX.beginPath();
 					barCTX.lineWidth = 20;
-					barCTX.strokeStyle = '#76e1e5';
+					barCTX.strokeStyle = '#0AD9E0';
 					barCTX.arc(137.5,137.5,111,startingAngle, endingAngle);
 					barCTX.stroke();
 
@@ -192,9 +206,10 @@ $(document).ready(function() {
 						var documentHeight = $(document).height();
 						var scrollHeight = $(window).scrollTop() + $(window).height();
 						if (scrollHeight == documentHeight) {
+							
 							toDoCheck();
 						}
 					});
-			}
-			});		
+				}
+			});	
 });	
