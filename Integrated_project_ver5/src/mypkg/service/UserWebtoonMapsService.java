@@ -57,8 +57,7 @@ public class UserWebtoonMapsService {
 	}
 
 	// 2014.07.14 soo 찜한 웹툰 정보 넣어서 성공/실패 여부 리턴 수정
-	public String doChangeReserveWebtoon(long users_facebookID_fk,
-			int webtoons_id) {
+	public String doChangeReserveWebtoon(long users_facebookID_fk, int webtoons_id) {
 		boolean result = false;
 		
 		int resultReserve = this.getCheckReserve(users_facebookID_fk, webtoons_id);
