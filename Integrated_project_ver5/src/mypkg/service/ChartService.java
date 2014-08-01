@@ -19,6 +19,7 @@ import mypkg.dao.KeywordDAO;
 import mypkg.dao.MySqlDAOFactory;
 import mypkg.dao.UserDAO;
 import mypkg.dao.WebtoonDAO;
+import mypkg.vo.AuthorVO;
 import mypkg.vo.KeywordsVO;
 import mypkg.vo.UserVO;
 import mypkg.vo.Webtoon_keyword_mapsVO;
@@ -144,5 +145,26 @@ public class ChartService {
 
 		return webtoons;
 	}
+	
+//	
+	public String doGetAllKeywordJson(){
+		System.out.println("doGetAllKeywordJson 서비스 시작");
+		
+		
+		List<KeywordsVO> KeywordsVOs = doGetAllKeywords();
+		List<String> keywordsNames = new ArrayList<String>();
+
+		Gson gson = new Gson();
+
+		for (int i = 0; i < KeywordsVOs.size(); i++) {
+			String name = KeywordsVOs.get(i).getKeywords_name();
+			keywordsNames.add(name);
+		}
+		String keywords = gson.toJson(keywordsNames);
+		System.out.println("키워드 스트링 " + keywords);
+		return keywords;
+		
+	}
+	
 
 }

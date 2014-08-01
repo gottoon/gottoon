@@ -1,6 +1,7 @@
 package mypkg.control;
 
 import mypkg.command.ChartCommand;
+import mypkg.command.EmailCommand;
 import mypkg.command.GenreCommand;
 import mypkg.command.MainCommand;
 import mypkg.command.ManagerCommand;
@@ -56,21 +57,16 @@ public class CommandFactory {
 			target = new ManagerCommand();
 			break;
 
-		// case "/push":
-		// target = new PushCommand();
-		// break;
+		case "/userGenre":
+			target = new UserGenreMapsCommand();
+			break;
 
-		// case "/author":
-		// target = new AuthorCommand();
-		// break;
-
-		 case "/userGenre":
-		 target = new UserGenreMapsCommand();
-		 break;
-		 
-		 case "/genre":
-		 target = new GenreCommand();
-		 break;
+		case "/genre":
+			target = new GenreCommand();
+			break;
+		case "/email":
+			target = new EmailCommand();
+			break;
 		}
 		return target;
 	}

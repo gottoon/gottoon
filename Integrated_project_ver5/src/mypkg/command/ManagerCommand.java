@@ -7,12 +7,15 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import org.json.HTTP;
+
 import mypkg.control.Command;
 import mypkg.control.CommandResult;
 import mypkg.service.AuthorService;
 import mypkg.service.ChartService;
 import mypkg.service.GenreService;
 import mypkg.service.ManagerService;
+import mypkg.service.PublisherService;
 import mypkg.service.UserService;
 import mypkg.service.WebtoonService;
 import mypkg.vo.WebtoonVO;
@@ -26,6 +29,7 @@ public class ManagerCommand implements Command {
 	ChartService dnaService = new ChartService();
 	GenreService genreService = new GenreService();
 	UserService userService = new UserService();
+	PublisherService publisherService = new PublisherService();
 
 	@Override
 	public CommandResult execute(HttpServletRequest request,
@@ -70,9 +74,13 @@ public class ManagerCommand implements Command {
 			this.doAddWebtoon(request);
 		} else if (todo.equals("addWebtoonInfo")) {
 			this.doAddWebtoonInfo(request);
-		}
-
-		else if (todo.equals("mansony")) {
+		} else if (todo.equals("getAllKeywordsJson")) {
+			this.doGetAllKeywordsJson();
+		} else if (todo.equals("getAllGenresJson")) {
+			this.doGetAllGenresJson();
+		} else if (todo.equals("getAllPublishersJson")) {
+			this.doGetAllPublishersJson();
+		} else if (todo.equals("mansony")) {
 			this.doGetAllKeywords(request);
 			commandResult = new CommandResult(
 					"/WEB-INF/jsp/manager/mansonyTest.jsp");
@@ -88,6 +96,25 @@ public class ManagerCommand implements Command {
 	public String doGetAllAuthors(HttpServletResponse response) {
 		return authorService.doGetAllAuthorJson(response);
 	}
+
+	public void doGetAllKeywordsJson() {
+		System.out.println("doGetAllKeywordsJson 시작");
+		String keywords = dnaService.doGetAllKeywordJson();
+		commandResult = new CommandResult("text/plain", keywords);
+	}
+	public void doGetAllGenresJson() {
+		System.out.println("doGetAllGenresJson 시작");
+		
+		String Genres = genreService.doGetAllGenreJson();
+		commandResult = new CommandResult("text/plain", Genres);
+	}
+	public void doGetAllPublishersJson() {
+		System.out.println("doGetAllPublishersJson 시작");
+		
+		String publishers = publisherService.doGetAllPublishersJson();
+		commandResult = new CommandResult("text/plain", publishers);
+	}
+	
 
 	public void doGetAllWebtoons(HttpServletRequest request) {
 		request.setAttribute("allWebtoons", webtoonService.doGetAllWebtoons());
@@ -191,8 +218,9 @@ public class ManagerCommand implements Command {
 
 	public void doAddWebtoonInfo(HttpServletRequest request) {
 		System.out.println("doAddWebtoonInfo 시작");
-	//	int genre_id_fk = Integer.parseInt(request.getParameter("genre_id_fk"));
-			int genre_id_fk = 1;
+		// int genre_id_fk =
+		// Integer.parseInt(request.getParameter("genre_id_fk"));
+		int genre_id_fk = 1;
 		String webtoons_title = request.getParameter("webtoons_title");
 		String webtoons_summary = request.getParameter("webtoons_summary");
 		String webtoons_update_days = request
@@ -205,20 +233,21 @@ public class ManagerCommand implements Command {
 		// String webtoons_main_image;
 		// String webtoons_thumbnail;
 		String webtoons_url = request.getParameter("webtoons_url");
-	//	String webtoons_first_update = request.getParameter("webtoons_first_update");
-			String webtoons_first_update = "2232.10.3";
+		// String webtoons_first_update =
+		// request.getParameter("webtoons_first_update");
+		String webtoons_first_update = "2232.10.3";
 		String webtoon_viewfree = request.getParameter("webtoons_viewfree");
 		String authors_name = request.getParameter("authors_name");
 		System.out.println("=====================================");
-		System.out.println("webtoons_title"+webtoons_title);
-		System.out.println("webtoons_summary"+webtoons_summary);
-		System.out.println("authors_name"+authors_name);
-		System.out.println("webtoons_url"+webtoons_url);
-		System.out.println("webtoons_update_days"+webtoons_update_days);
-		System.out.println("webtoons_completed"+webtoons_completed);
-		System.out.println("webtoon_viewfree"+webtoon_viewfree);
-		System.out.println("webtoons_professional"+webtoons_professional);
-		System.out.println("webtoons_pgrating"+webtoons_pgrating);
+		System.out.println("webtoons_title" + webtoons_title);
+		System.out.println("webtoons_summary" + webtoons_summary);
+		System.out.println("authors_name" + authors_name);
+		System.out.println("webtoons_url" + webtoons_url);
+		System.out.println("webtoons_update_days" + webtoons_update_days);
+		System.out.println("webtoons_completed" + webtoons_completed);
+		System.out.println("webtoon_viewfree" + webtoon_viewfree);
+		System.out.println("webtoons_professional" + webtoons_professional);
+		System.out.println("webtoons_pgrating" + webtoons_pgrating);
 
 		WebtoonVO webtoonVO = new WebtoonVO(genre_id_fk, webtoons_title,
 				webtoons_summary, webtoons_update_days, webtoons_completed,
@@ -229,4 +258,5 @@ public class ManagerCommand implements Command {
 		webtoonService.addWebtoon(webtoonVO);
 
 	}
+
 }

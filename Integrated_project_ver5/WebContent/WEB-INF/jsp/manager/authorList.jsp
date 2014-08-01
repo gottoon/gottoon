@@ -100,7 +100,7 @@
 				<br />
 				<div class="modal-body">
 					<section id=webtoons></section>
-
+<button type="button" class="btn btn-primary" data-dismiss="modal">Save changes</button>
 				</div>
 
 			</div>

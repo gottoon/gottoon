@@ -1,5 +1,173 @@
 @CHARSET "UTF-8";
-.btn btn-default btn-file {
-	width: 100%;
-	height:100px;
+
+*{
+	margin-right: auto;
+	margin-left: auto;
 }
+h4{
+	display:inline-block;
+	margin-top:10px;
+}
+
+.modal-footer{
+	text-align:center;
+}
+
+.modal-footer button{
+	margin-top:50px;
+	display:block;
+	width:100%;
+}
+
+.radio-inline{
+	margin-bottom:10px;
+}
+
+.glyphicon.glyphicon-question-sign{
+	font-size:1.2em;
+}
+
+.information{
+	margin-left:10px;
+	height:18px;
+	padding: 0;
+	border-radius:30px;
+	display:inline;
+	border:none;
+	background-color:white;
+	-webkit-box-shadow:1px 1px 1px lightgrey;
+	box-shadow:1px 1px 1px lightgrey;
+	
+}
+
+.centerDiv{
+	text-align: center;
+	width:90%;
+	
+}
+
+input[type="text"] , textarea {
+	margin-bottom:10px;
+}
+
+
+.fileinput-preview.thumbnail {
+	width: 100%;
+	height: 300px;
+	
+}
+
+.form-group {
+	font-size: 1em;
+
+	width: 70%;
+	height: auto;
+	border: 1px solid lightgrey;
+	border-radius: 5px;
+	-webkit-box-shadow: 1px 1px 1px lightgrey;
+	box-shadow: 1px 1px 1px lightgrey;
+}
+
+.form-group div div {
+	margin-top: 5px;
+	width: 70%;
+	border-bottom: 1px solid lightgrey;
+	margin-bottom: 5px;
+
+}
+
+.BtnAndP {
+	width: 80%;
+	text-align: center;
+	
+}
+
+.form-group label {
+	display: inline-block;
+	text-align: center;
+	font-size: 1.3em;
+	
+}
+
+.form-group button {
+	margin-top:10px;
+	margin-bottom:5px;
+}
+
+.form-group button:first-child {
+	width: 50%;
+}
+
+.form-group p {
+	margin-top: 5px;
+	font-size: 1.5em;
+}
+
+.inputDiv {
+	margin: 4px;
+	border-radius: 4px;
+	background-color: #8b9dc3;
+	border: 1px solid #3b5998;
+	float: left;
+	box-shadow: 1px 1px 1px black;
+}
+
+.modal-body {
+	height: auto;
+}
+
+#keywords {
+	height: auto;
+}
+
+.inputDiv:hover {
+	background: #CC3333;
+}
+
+.inputDiv label {
+	float: left;
+	width: 9em;
+	margin-bottom: 0;
+}
+
+.inputDiv label span {
+	text-align: center;
+	padding: 3px 0px;
+	display: block;
+	height: 30px;
+	border-radius: 3px;
+}
+
+.inputDiv label input {
+	position: absolute;
+	display: inline-block;
+	height: 30px;
+	margin-top: 0;
+}
+
+.inputDiv input:checked+ span {
+	background-color: #CC3333;
+	color: #fff;
+}
+
+#confirmWebtoon article{
+	width:90%;
+	text-align:center;
+} 
+
+#wait {
+	position: fixed;
+	top: 50%;
+	left: 50%;
+	width: 300px;
+	line-height: 200px;
+	height: 200px;
+	margin-left: -150px;
+	margin-top: -100px;
+	text-align: center;
+	/* needed styles for the overlay */
+	z-index: 100; /* keep on top of other elements on the page */
+	outline: 9999px solid rgba(0, 0, 0, 0.5);
+}
+
+

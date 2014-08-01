@@ -36,4 +36,8 @@ public class MySqlDAOFactory {
 	public KeywordDAO getKeywordDAO(){
 		return new KeywordDAO();
 	}
+	
+	public PublisherDAO getPublisherDAO(){
+		return new PublisherDAO();
+	}
 }

@@ -50,18 +50,23 @@
 <%=session.getAttribute("CurrentUser")%>
 	== null) {
 				login();
+				$("#logoutBtn").show();
+
 			} else {
 				welcomUser();
+				$("#logoutBtn").show();
 			}
 
 		} else if (response.status === 'not_authorized') {
 			document.getElementById('welcomUser').innerHTML = 'Please log '
 					+ 'into this app.';
 			$("#facebookBtn").show();
+			$("#logoutBtn").hide();
 
 		} else {
 			$("#loginMent").html('<p>Facebook으로 로그인/회원가입 하시오.</p>');
 			$("#facebookBtn").show();
+			$("#logoutBtn").hide();
 
 			FB
 					.login(function(response) {
@@ -117,7 +122,7 @@
 
 				success : function(data) {
 					var userGrade = data;
-					
+
 					if (userGrade == 1) {
 						newbieCheck();
 					} else {
@@ -142,20 +147,6 @@
 		js.src = "//connect.facebook.net/kr_KO/sdk.js";
 		fjs.parentNode.insertBefore(js, fjs);
 	}(document, 'script', 'facebook-jssdk'));
-
-	//ajax wait
-
-	$(document).ready(function() {
-		$(document).ajaxStart(function() {
-			$("#wait").css("display", "block");
-		});
-		$(document).ajaxComplete(function() {
-			$("#wait").css("display", "none");
-		});
-		$("button").click(function() {
-			$("#txt").load("demo_ajax_load.asp");
-		});
-	});
 
 	$(document).ready(function() {
 		$('#logoutBtn').click(function logout() {
@@ -187,18 +178,12 @@
 
 	//newbieCheck 
 
-	function newbieCheck() {
-		console.log('뉴비첵 시작');
-
-		$('#goGenreModal').show();
-	}
-	//newbieCheck
-
 	//managerBtn
 	$(document).ready(function() {
-		var userGrade = 10
-<%-- <%=session.getAttribute("userGrade")%> --%>
-	console.log("asdfaeee " + userGrade);
+		var userGrade =
+<%=session.getAttribute("userGrade")%>
+	;
+		console.log("asdfaeee " + userGrade);
 
 		if (userGrade >= 1) {
 			console.log('더 평가하기 없애');
@@ -263,8 +248,10 @@
 
 		FB.api('/me', function checkUser(response) {
 
-			$("#welcomeUser").html("<h3> " + response.name + "</h3>");
-			$(".talkbox").html("<p>안녕하세요  <b>"+response.name +"</b> 님!<br /> <b>갓툰</b>의 세계에 오신것을 환영합니다! </p>")
+			$("#welcomeUser").html("<h4> " + response.name + "</h4>");
+			$(".talkbox").html(
+					"<p>안녕하세요  <b>" + response.name
+							+ "</b> 님!<br /> <b>갓툰</b>의 세계에 오신것을 환영합니다! </p>")
 		});
 		/* make the API call */
 		FB.api("/me/picture", function(response) {
@@ -296,21 +283,22 @@
 	<header>
 		<nav>
 			<div id="navbar">
-				<a href="#" class="menubtn"><img
-					src="<c:url value='/img/menu/menu.png'/>">gottoon</a>
-				<div id="userInfo">
-					<ul>
-						<li>
-							<div id="welcomeUser"></div>
+				<div id="topNav">
+					<a href="#" class="menubtn"><img
+						src="<c:url value='/img/menu/menu.png'/>">gottoon</a>
+					<div id="userInfo">
+						<ul>
+							<li>
+								<div id="welcomeUser"></div>
 
-						</li>
-						<li><div id="userPic">
-								<img id="userImg" /></img>
-							</div></li>
+							</li>
+							<li><div id="userPic">
+									<img id="userImg" /></img>
+								</div></li>
 
-					</ul>
+						</ul>
+					</div>
 				</div>
-
 
 
 

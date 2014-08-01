@@ -119,6 +119,7 @@
 				<br />
 				<div class="modal-body">
 					<section id=keywords></section>
+					<button type="button" class="btn btn-primary" data-dismiss="modal">Save changes</button>
 				</div>
 			</div>
 		</div>

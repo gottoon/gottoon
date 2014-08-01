@@ -67,5 +67,27 @@ $(function() {
 	}
 });
 
+$(document).ready(function (){
+	
+	function newbieCheck(){
+		
+				$('#goGenreModal').show();
+	}
+	
+});
 
+
+//ajax wait
+
+$(document).ready(function() {
+	$(document).ajaxStart(function() {
+		$("#wait").css("display", "block");
+	});
+	$(document).ajaxComplete(function() {
+		$("#wait").css("display", "none");
+	});
+	$("button").click(function() {
+		$("#txt").load("demo_ajax_load.asp");
+	});
+});
 
