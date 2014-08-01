@@ -13,6 +13,7 @@
 <script	src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
 <script src="<c:url value='/js/recommend.js'/>"></script>
 <script src="<c:url value='/js/showToon.js'/>"></script>
+<script src="<c:url value='/js/webtoonDetailAndStarPoint.js'/>"></script>
 <title>Show Recommended Webtoons</title>
 </head>
 <body>
@@ -29,48 +30,44 @@
 			</div>
 		</div>
 		
-		<div class="header">
+		<!-- <div class="header">
 			<h1>???님을 위한 본격 맞춤 웹툰!</h1>
-		</div>
+		</div> -->
 		
 		<div class="nav">
-			<div class="viewfree-nav">
-				<form method = "post" action="<c:url value='/action/recommend'/>">
-					<input type = "hidden" name = "filterviewfree" value ="null">
-					<button class="viewfree-button" type="submit" name="select">
-						<span class="viewfree">전체보기</span>
-					</button>
-				</form>
-			</div>
-			<div class="viewfree-nav">
-				<form method = "post" action="<c:url value='/action/recommend'/>">
-					<input type = "hidden" name = "filterviewfree" value ="false">
-					<button class="viewfree-button" type="submit" name="select">
-						<span class="viewfree">유료만보기</span>
-					</button>
-				</form>
-			</div>
-			<div class="viewfree-nav">
-				<form method = "post" action="<c:url value='/action/recommend'/>">
-					<input type = "hidden" name = "filterviewfree" value ="true">
-					<button class="viewfree-button" type="submit" name="select">
-						<span class="viewfree">무료만보기</span>
-					</button>
-				</form>
-			</div>
+			<ul class="viewfree-nav">
+				<li>
+					<form method = "post" action="<c:url value='/action/recommend'/>">
+						<input type = "hidden" name = "filterviewfree" value ="null" />
+						<input class="viewfree-button" type="submit" value="전체보기" />
+					</form>
+				</li>
+				<li>
+					<form method = "post" action="<c:url value='/action/recommend'/>">
+						<input type = "hidden" name = "filterviewfree" value ="false" />
+						<input class="viewfree-button" type="submit" value="유료만보기" />
+					</form>
+				</li>
+				<li>
+					<form method = "post" action="<c:url value='/action/recommend'/>">
+						<input type = "hidden" name = "filterviewfree" value ="true" />
+						<input class="viewfree-button" type="submit" value="무료만보기" />
+					</form>
+				</li>
+			</ul>
 		</div>
 		
 		<div class="section" id="webtoons">
 			<c:forEach var="webtoonInfo" items="${recommendWebtoons}" varStatus="status">
 				<div class="webtoon">
-					<div class="label_div" style="position:relative;">
+					<div class="label_div">
 						<div class="main_image_div">
 							<img class="main_image" src="${webtoonInfo.webtoons_main_image}" width="300px" height="400px">
 							<form method="post" action="webtoon" class="detail_form">
 								<input type="hidden" name="webtoon_id" value="${webtoonInfo.webtoons_id_pk}" />
 								<input type="hidden" name="todo" value="showWebtoonDetails" />
 								<button class="submit" type="submit">
-									<span class="black_overlay"></span>
+									<!-- <span class="black_overlay"></span> -->
 								</button>
 							</form>
 							<span class="image_title">${webtoonInfo.webtoons_title}</span>
@@ -90,7 +87,8 @@
 					<div class="star">
 						<%-- <c:import url="/WEB-INF/jsp/star.jsp"></c:import> --%>
 						<form id="myForm">
-							<input type="hidden" name="webtoons_id_pk" value="${webtoonInfo.webtoons_id_pk}" />
+							<input type="hidden" id="rate" name="rate" value="${webtoonDetail.webtoon_rate}" />
+							<input type="hidden" id="id" name="webtoons_id_pk" value="${webtoonInfo.webtoons_id_pk}" />
 							<input type="hidden" name="webtoons_title" value="${webtoonInfo.webtoons_title}" />
 							<div class="product-review-stars">
 								<input type="checkbox" id="${status.count*status.count*status.count+1}" name="rating" value="5^${webtoonInfo.webtoons_id_pk}" onclick=onclickStart(this) class="visuallyhidden">

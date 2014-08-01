@@ -457,7 +457,7 @@ public class User_Webtoon_MapsDAO {
 
 	}
 	//2014.07.20 박태균 웹툰 삭제 
-	public void deleteReadWebtoon(int webtoons_id_pk) {
+	public void deleteReadWebtoon(long currentUser_facebookID, int webtoons_id_pk) {
 		System.out.println("삭제할 웹툰아이디 : " + webtoons_id_pk);
 		Connection conn = null;
 		Statement stmt = null;
@@ -465,7 +465,10 @@ public class User_Webtoon_MapsDAO {
 		try {
 			conn = pool.getConnection();
 			stmt = conn.createStatement();
-			String sql = "delete From user_webtoon_maps where webtoons_id_fk = " + webtoons_id_pk + ";";
+			
+			String sql = "delete From user_webtoon_maps where webtoons_id_fk = " + webtoons_id_pk 
+						+ " and users_facebookID_fk = " + currentUser_facebookID;
+			
 			stmt.executeUpdate(sql);
 
 			// String sql =

@@ -42,7 +42,8 @@ public class WebtoonCommand implements Command {
 		long curruntUser_facebookID = (long) session.getAttribute("CurrentUser");
 		
 		int webtoon_id = Integer.parseInt(request.getParameter("webtoon_id"));
-		System.out.println(webtoon_id);
+//		System.out.println("웹툰 아이디 = " + webtoon_id);
+		
 		WebtoonVO webtoonDetail = webtoonService.doGetWebtoonDetail(curruntUser_facebookID, webtoon_id);
 		String authorsName = webtoonService.doGetAuthors(webtoon_id);
 		

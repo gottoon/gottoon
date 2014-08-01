@@ -33,58 +33,94 @@
 		<div id="left-section">
 			<div id="image">
 				<img id="webtoon_image" src="${webtoonDetail.webtoons_main_image}" />
+				<c:if test="${webtoonDetail.webtoons_completed == '완'}">
+					<div class="ribbon-wrapper">
+						<div class="ribbon-end">완결</div>
+					</div>
+				</c:if>
+				<jsp:useBean id="now" class="java.util.Date" />
+				<c:if test="${webtoonDetail.webtoons_first_update gt now}">
+					<div class="ribbon-wrapper">
+						<div class="ribbon-new">NEW!</div>
+					</div>
+				</c:if>
 			</div>
 			<div id="option-button">
 				<div id="webtoon-star">
-					<c:import url="/WEB-INF/jsp/star.jsp"></c:import>
+					<input type="hidden" id="rate" value="${webtoonDetail.webtoon_rate}" />
+					<input type="hidden" id="id" value="${webtoonDetail.webtoons_id_pk}" />
+					<form id="myForm">
+						<div class="product-review-stars" align="center">
+							<input type="checkbox" id="${status.count*status.count*status.count+1}" name="rating" value="5^${webtoonDetail.webtoons_id_pk}" onclick=onclickStart(this) class="visuallyhidden" />
+							<label for="${status.count*status.count*status.count+1}" title="Rocks!">★</label>
+							<input type="checkbox" id="${status.count*status.count*status.count+2}" name="rating" value="4^${webtoonDetail.webtoons_id_pk}" onclick=onclickStart(this) class="visuallyhidden" />
+							<label for="${status.count*status.count*status.count+2}" title="Pretty good">★</label>
+							<input type="checkbox" id="${status.count*status.count*status.count+3}" name="rating" value="3^${webtoonDetail.webtoons_id_pk}" onclick=onclickStart(this) class="visuallyhidden" />
+							<label for="${status.count*status.count*status.count+3}" title="Meh">★</label>
+							<input type="checkbox" id="${status.count*status.count*status.count+4}" name="rating" value="2^${webtoonDetail.webtoons_id_pk}" onclick=onclickStart(this) class="visuallyhidden" />
+							<label for="${status.count*status.count*status.count+4}" title="Kinda bad">★</label>
+							<input type="checkbox" id="${status.count*status.count*status.count+5}" name="rating" value="1^${webtoonDetail.webtoons_id_pk}" onclick=onclickStart(this) class="visuallyhidden" />
+							<label for="${status.count*status.count*status.count+5}" title="Sucks big time">★</label>	
+						</div>
+					</form>
 				</div>
 				<div id="reserve-view">
-					<c:import url="/WEB-INF/jsp/reserve-view.jsp"></c:import>
+					<div id="reserve">
+							<form method="post" action="#">
+								<input type="hidden" name="webtoon_id" value="${webtoonDetail.webtoons_id_pk}" />
+								<div class="heart"><input type="checkbox" id="${webtoonDetail.webtoons_title}" class="visuallyhiddenHeart" name="reserve" onclick=seeReserve(this.form) />
+									<label for="${webtoonDetail.webtoons_title}" title="reserve_heart">❤</label>
+								</div>
+							</form>
+						</div>
+						<div id="view-now">
+							<a href="${webtoonDetail.webtoons_url}">
+								<button class="button view-now">
+									<span class="right-now">바로보기</span>
+								</button>
+							</a>
+						</div>
 				</div>
 			</div>
 		</div>
 		<div id="right-section">
-			<div>
+			<div id="webtoon-summary">
+				${webtoonDetail.webtoons_summary}
 			</div>
-			<table border="1" cellpadding="6">
-						<tr>
-							<th>장르</th>
-							<td>${webtoonDetail.genres_name}</td>
-							<th>작가</th>
-							<td>${authorsName}</td>
-						</tr>
-						<tr>
-							<th>유/무료</th>
-							<td>${webtoonDetail.webtoon_viewfree}</td>
-							<th>완결유무</th>
-							<td>${webtoonDetail.webtoons_completed}</td>
-						</tr>
-						<tr>
-							<th>연재요일</th>
-							<td colspan="3">${webtoonDetail.webtoons_update_days}</td>
-						</tr>
-						<tr>
-							<th>작가구분</th>
-							<td>${webtoonDetail.webtoon_professional}</td>
-							<th>관람등급</th>
-							<td>${webtoonDetail.webtoons_pgrating}</td>
-						</tr>
-						<tr>
-							<th>제공처</th>
-							<td>${webtoonDetail.webtoons_publisher}</td>
-							<th>연재시작일</th>
-							<td>${webtoonDetail.webtoons_first_update}</td>
-						</tr>
-						<tr>
-							<th colspan="4">줄거리</th>
-						</tr>
-						<tr>
-							<td colspan="4">${webtoonDetail.webtoons_summary}</td>
-						</tr>
-					</table>
+			<div id="webtoonInfo">
+				<div id="list-title">
+					<span>장르</span><br />
+					<span>작가</span><br />
+					<span>유료/무료</span><br />
+					<span>완결유무</span><br />
+					<span>연재요일</span><br />
+					<span>작가구분</span><br />
+					<span>관람등급</span><br />
+					<span>제공처</span><br />
+					<span>연재시작일</span>
+				</div>
+				<div id="list-contents">
+					<span>${webtoonDetail.genres_name}</span><br />
+					<span>${authorsName}</span><br />
+					<span>${webtoonDetail.webtoon_viewfree}</span><br />
+					<span>${webtoonDetail.webtoons_completed}</span><br />
+					<span>${webtoonDetail.webtoons_update_days}</span><br />
+					<span>${webtoonDetail.webtoon_professional}</span><br />
+					<span>${webtoonDetail.webtoons_pgrating}</span><br />
+					<span>${webtoonDetail.webtoons_publisher}</span><br />
+					<span>${webtoonDetail.webtoons_first_update}</span>
+				</div>
+			</div>
 		</div>
 	</div>
-	
+	<div id="goBack">
+		<form action="recommend" method="post">
+			<input type="hidden" name="todo" value="recommendWebtoons" />
+			<button class="button goBack">
+				<span class="goBack-span">뒤로가기</span>
+			</button>
+		</form>
+	</div>
 	
 	<%-- <div class="container">
 		<div class="pageseparator"></div>
@@ -235,8 +271,7 @@
 			</div>
 		</div> --%>
 	
-
-	<script>
+	<!-- <script>
 	if ("${webtoonDetail.webtoons_completed}" === '완')
 		$('.image').before('<div class="end_label"><img src="../img/labels/end.png" /></div>');
 	
@@ -246,6 +281,6 @@
 	getHighRatedWebtoonsAuthor("${authorsName}", "${webtoonDetail.webtoons_id_pk}", function(result) {
 		$('.image').before('<div class="author_label"><span class="author_span">'+ result + '<br />작가웹툰!!</span></div>');
 	});
-	</script>
+	</script> -->
 </body>
 </html>

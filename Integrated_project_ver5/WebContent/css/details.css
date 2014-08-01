@@ -1,73 +1,600 @@
-.article {
-	width : 90%;
-	height : 500px;
-	clear : both;
-	margin : 5%;
+@media screen and (max-width:401px) {
+	.article {
+		height : 700px;
+	}
+
+	#left-section, #right-section {
+		width : 90%;
+		height : 50%;
+		border: 1px solid #ccc;
+		margin : 0 auto;
+	}
 	
+	#left-section {
+		border-radius: 5px 5px 0 0;
+	}
+	
+	#right-section {
+		border-radius: 0 0 5px 5px;
+		padding : 0 3% 0 3%;
+	}
+	
+	#image {
+		width : 100%;
+		height : 76%;
+	}
+	
+	#webtoon_image {
+		width : 96%;
+		height : 96%;
+		margin: 2% 2% 3% 2%;
+	}
+	
+	#option-button {
+		margin-left : 4%;
+		margin-right : 4%;
+		height : 12%;
+	}
+	
+	#webtoon-star {
+		width : 100%;
+		height : 100%;
+		margin: 0 auto;
+		border-bottom : 1px solid lightgray;
+	}
+	
+	#reserve-view {
+		width : 100%;
+		margin: 0 auto;
+	}
+	
+	#reserve {
+		width : 40%;
+	}
+	
+	#view-now {
+		width : 60%;
+	}
+	
+	.product-review-stars {
+		line-height : 38px;
+	}
+	
+	.product-review-stars label {
+		font-size: 33px;
+	}
+	
+	.heart {
+		margin: 0 auto;
+		padding-left: 10%;
+		top: 5px;
+	}
+	
+	.heart label {
+		font-size: 28px;
+		width: 38px;			
+		height: 36px;
+		line-height: 40px;
+		top: -2px;
+	}
+	
+	.heart input+label:nth-of-type(1):after,
+	.heart input+label:nth-of-type(1):before,
+	.heart input+label:nth-of-type(1):hover:before,
+	.heart input+label:nth-of-type(1):hover ~ label:before,
+	.heart input:nth-of-type(1):checked ~ label:before,
+	.heart label:hover {
+		width: 38px;			
+		height: 36px;
+		line-height: 40px;
+		top: -2px
+	}
+	
+	.view-now {
+		width: 60%;
+		height: 36px;
+		line-height: 47px;
+		margin-right : 15%;
+		margin-top: 3px;
+		font-size: 12px;
+	}
+	
+	#webtoon-summary {
+		font-size: 14px;
+		height: 155px;
+		/* display: table-cell;
+		vertical-align: bottom; */
+		/* padding: 1vw 0 3% 0; */
+	}
+	
+	#webtoonInfo {
+		font-size: 13px;
+		height: 190px;
+	}
+	
+	#list-title {
+		width: 45%;
+		padding: 3% 5% 0 0;
+	}
+	
+	#list-contents {
+		width: 55%;
+		padding: 3% 0 0 5%;
+	}
+	
+	.goBack {
+		font-size: 13px;
+		height: 34px;
+		line-height: 29px;
+		width: 80px;
+		margin-top: 5px;
+		background-size: 24px;
+	}
 }
 
-#left-section {
-	width : 50%;
-	height : 100%;
-	float : left;
-	margin : 0;
-	/* background-color : rgb(231, 231, 231); */
-	border-left: 2px solid #ccc;
-	border-right: 3px solid #ccc;
-	border-top: 2px solid #ccc;
-	border-bottom: 10px solid #ccc;
+@media screen and (min-width:402px) and (max-width:768px) {
+	.article {
+		height : 700px;
+	}
+
+	#left-section, #right-section {
+		width : 65%;
+		height : 50%;
+		border: 1px solid #ccc;
+		margin : 0 auto;
+	}
+	
+	#left-section {
+		border-radius: 5px 5px 0 0;
+	}
+	
+	#right-section {
+		border-radius: 0 0 5px 5px;
+		padding : 0 3% 0 3%;
+	}
+	
+	#image {
+		width : 100%;
+		height : 76%;
+	}
+	
+	#webtoon_image {
+		width : 96%;
+		height : 95%;
+		margin: 2% 2% 3% 2%;
+	}
+	
+	#option-button {
+		margin-left : 4%;
+		margin-right : 4%;
+		height : 12%;
+	}
+	
+	#webtoon-star {
+		width : 100%;
+		height : 100%;
+		margin: 0 auto;
+		border-bottom : 1px solid lightgray;
+	}
+	
+	#reserve-view {
+		width : 100%;
+		margin: 0 auto;
+	}
+	
+	#reserve {
+		width : 40%;
+	}
+	
+	#view-now {
+		width : 60%;
+	}
+	
+	.product-review-stars {
+		line-height : 38px;
+	}
+	
+	.product-review-stars label {
+		font-size: 34px;
+	}
+	
+	.heart {
+		margin: 0 auto;
+		padding-left : 20%;
+		top: 5px;
+	}
+	
+	.heart label {
+		font-size: 28px;
+		width: 38px;			
+		height: 36px;
+		line-height: 40px;
+		top: -2px;
+	}
+	
+	.heart input+label:nth-of-type(1):after,
+	.heart input+label:nth-of-type(1):before,
+	.heart input+label:nth-of-type(1):hover:before,
+	.heart input+label:nth-of-type(1):hover ~ label:before,
+	.heart input:nth-of-type(1):checked ~ label:before,
+	.heart label:hover {
+		width: 38px;			
+		height: 36px;
+		line-height: 40px;
+		top: -2px
+	}
+	
+	.view-now {
+		width: 60%;
+		height: 36px;
+		line-height: 47px;
+		margin-right : 30%;
+		margin-top: 3px;
+		font-size: 12px;
+	}
+	
+	#webtoon-summary {
+		font-size: 14px;
+		height: 45%;
+		display: table-cell;
+		vertical-align: bottom;
+		padding: 4vw 0 3% 0;
+	}
+	
+	#webtoonInfo {
+		font-size: 13px;
+		height: 55%;
+	}
+	
+	#list-title {
+		width: 45%;
+		padding: 3% 5% 0 0;
+	}
+	
+	#list-contents {
+		width: 55%;
+		padding: 3% 0 0 5%;
+	}
+	
+	.goBack {
+		font-size: 15px;
+		height: 36px;
+		line-height: 33px;
+		width: 100px;
+		margin-top: 7px;
+		background-size: 30px;
+	}
+}
+
+@media screen and (min-width:769px) and (max-width:990px) {
+	.article {
+		height : 400px;
+	}
+	
+	#left-section, #right-section {
+		float: left;
+		width : 50%;
+		height : 100%;
+	}
+	
+	#left-section {
+		border-left: 2px solid #ccc;
+		border-right: 1px solid #444;
+		border-top: 2px solid #ccc;
+		border-bottom: 12px double #ccc;
+		border-radius: 10px 10px 10px 10px;
+		-moz-box-shadow: inset -18px 0px 15px -8px #777;
+		-webkit-box-shadow: inset -18px 0px 15px -8px #777;
+		box-shadow: inset -18px 0px 15px -8px #777;
+	}
+	
+	#right-section {
+		padding : 2% 3% 2% 3%;
+		border-left: 1px solid #444;
+		border-right: 12px double #ccc;
+		border-top: 2px solid #ccc;
+		border-bottom: 12px double #ccc;
+		border-radius: 10px 10px 10px 10px;
+		-moz-box-shadow: inset 18px 0px 15px -8px #777;
+		-webkit-box-shadow: inset 18px 0px 15px -8px #777;
+		box-shadow: inset 18px 0px 15px -8px #777;
+	}
+	
+	#image {
+		width : 100%;
+		height : 76%;
+	}
+	
+	#webtoon_image {
+		width : 92%;
+		height : 95%;
+		margin: 2% 6% 3% 2%;
+	}
+	
+	#option-button {
+		margin-left : 2%;
+		margin-right : 6%;
+		height : 12%;
+	}
+	
+	#webtoon-star {
+		width : 100%;
+		height : 100%;
+		margin: 0 auto;
+		border-bottom : 1px solid lightgray;
+	}
+	
+	#reserve-view {
+		width : 100%;
+		margin: 0 auto;
+	}
+	
+	#reserve {
+		width : 45%;
+	}
+	
+	#view-now {
+		width : 55%;
+	}
+	
+	.product-review-stars {
+		line-height : 45px;
+	}
+	
+	.product-review-stars label {
+		font-size: 40px;
+	}
+	
+	.heart {
+		margin-left : 50%;
+		top: 5px;
+	}
+	
+	.heart label {
+		font-size: 30px;
+		width: 42px;			
+		height: 40px;
+		line-height: 42px;
+		top: -2px;
+	}
+	
+	.heart input+label:nth-of-type(1):after,
+	.heart input+label:nth-of-type(1):before,
+	.heart input+label:nth-of-type(1):hover:before,
+	.heart input+label:nth-of-type(1):hover ~ label:before,
+	.heart input:nth-of-type(1):checked ~ label:before,
+	.heart label:hover {
+		width: 42px;			
+		height: 40px;
+		line-height: 42px;
+	}
+	
+	.view-now {
+		width: 60%;
+		height: 40px;
+		line-height: 50px;
+		margin-right : 35%;
+		margin-top: 3px;
+		font-size: 14px;
+	}
+	
+	#webtoon-summary {
+		font-size: 16px;
+		height: 40%;
+		padding: 1vw 5% 2% 5%;
+	}
+	
+	#webtoonInfo {
+		font-size: 14px;
+		height: 60%;
+	}
+	
+	#list-title {
+		width: 40%;
+		padding: 10px 15px 0 0;
+	}
+	
+	#list-contents {
+		width: 55%;
+		padding: 10px 0 0 15px;
+	}
+	
+	.goBack {
+		font-size: 15px;
+		height: 40px;
+		line-height: 38px;
+		width: 13%;
+		margin-top: 10px;
+	}
+}
+
+@media screen and (min-width:991px) {
+	.article {
+		height : 500px;
+	}
+
+	#left-section, #right-section {
+		float: left;
+		width : 50%;
+		height : 100%;
+	}
+	
+	#left-section {
+		border-left: 2px solid #ccc;
+		border-right: 1px solid #444;
+		border-top: 2px solid #ccc;
+		border-bottom: 12px double #ccc;
+		border-radius: 10px 10px 10px 10px;
+		-moz-box-shadow: inset -18px 0px 15px -8px #777;
+		-webkit-box-shadow: inset -18px 0px 15px -8px #777;
+		box-shadow: inset -18px 0px 15px -8px #777;
+	}
+	
+	#right-section {
+		padding : 30px 50px 30px 50px;
+		border-left: 1px solid #444;
+		border-right: 12px double #ccc;
+		border-top: 2px solid #ccc;
+		border-bottom: 12px double #ccc;
+		border-radius: 10px 10px 10px 10px;
+		-moz-box-shadow: inset 18px 0px 15px -8px #777;
+		-webkit-box-shadow: inset 18px 0px 15px -8px #777;
+		box-shadow: inset 18px 0px 15px -8px #777;
+	}
+	
+	#image {
+		width : 100%;
+		height : 88%;
+	}
+	
+	#webtoon_image {
+		width : 92%;
+		height : 96%;
+		margin: 2% 6% 3% 2%;
+	}
+	
+	#option-button {
+		margin-left : 2%;
+		margin-right : 6%;
+		height : 12%;
+	}
+	
+	#webtoon-star {
+		width : 53%;
+		height : 100%;
+		float : left;
+		margin-right: 2%;
+		border-right : 1px solid lightgray;
+	}
+	
+	#reserve-view {
+		width : 45%;
+		margin-top : 4px;
+		float : left;
+	}
+	
+	#reserve {
+		width : 35%;
+	}
+	
+	#view-now {
+		width : 65%;
+		font-size: 1.3vw;
+	}
+	
+	.product-review-stars {
+		line-height : 56px;
+	}
+	
+	.product-review-stars label {
+		font-size: 38px;
+		/* width: 4.5vw; */
+	}
+	
+	.heart {
+		margin-left : 30%;
+		top: 5px;
+	}
+	
+	.heart label {
+		font-size: 30px;
+		width: 42px;			
+		height: 40px;
+		line-height: 42px;
+	}
+	
+	.heart input+label:nth-of-type(1):after,
+	.heart input+label:nth-of-type(1):before,
+	.heart input+label:nth-of-type(1):hover:before,
+	.heart input+label:nth-of-type(1):hover ~ label:before,
+	.heart input:nth-of-type(1):checked ~ label:before,
+	.heart label:hover {
+		width: 42px;			
+		height: 40px;
+		line-height: 42px;
+	}
+	
+	.view-now {
+		width: 60%;
+		height: 40px;
+		line-height: 50px;
+		margin-right : 15%;
+		margin-top: 5px;
+	}
+	
+	#webtoon-summary {
+		font-size: 17px;
+		height: 40%;
+		padding: 10% 20px 10px 20px;
+	}
+	
+	#webtoonInfo {
+		font-size: 16px;
+		height: 60%;
+	}
+	
+	#list-title {
+		width: 40%;
+		padding: 10px 15px 0 0;
+	}
+	
+	#list-contents {
+		width: 55%;
+		padding: 10px 0 0 15px;
+	}
+	
+	.goBack {
+		font-size: 17px;
+		height: 45px;
+		line-height: 40px;
+		width: 10%;
+		margin-top: 10px;
+	}
+}
+
+/* body {
+	margin-top : 50px;	
+} */
+
+.article {
+	width : 90%;
+	clear : both;
+	margin : 85px 5% 5px 5%;
 }
 
 #right-section {
-	width : 50%;
-	height : 100%;
-	float : right;
-	margin : 0;
-	background-color : rgb(231, 231, 231);
-	border-left: 3px solid #ccc;
-	border-right: 10px solid #ccc;
-	border-top: 2px solid #ccc;
-	border-bottom: 10px solid #ccc;
-}
-
-#image {
-	width : 100%;
-	height : 90%;
+	font-family: Nanum Gothic;
 }
 
 #option-button {
+	width : 92%;
 	text-align : center;
-	width : 96%;
-	height : 10%;
-	border-top : 1px solid #E4E4E4;
-	margin-left : 1%;
-	margin-right : 1%;
-}
-
-#webtoon_image {
-	width : 100%;
-	height : 100%;
-}
-
-#webtoon-star, #reserve-view {
-	width : 50%;
-	height : 100%;
-	float : left;
-}
-
-#webtoon-star {
-	border-right : 1px solid #E4E4E4;
+	border-top : 1px solid lightgray;
 }
 
 #reserve-view {
-	margin-top : 4px;
+	height : 100%;
 	line-height : 50px;
 }
 
-.product-review-stars {
-	line-height : 50px;
-	font-size : 20px;
+#webtoonInfo {
+	border-top: 1px solid lightgray;
 }
+
+#list-title {
+	height: 100%;
+	float: left;
+	font-weight: bold;
+	text-align: right;
+	border-right: 1px solid lightgray;
+}
+
+#list-contents {
+	height: 100%;
+	float: left;
+	text-align: left;
+}
+
 
 /* =====================================================================
 							찜하기 버튼
@@ -80,37 +607,30 @@
 } */
 
 .heart {
-	border-radius: 50%;
-	border : 1px solid #BFBFC4;
-	width: 35%;			
+	width: 42px;			
 	height: 40px;
 	position: relative;
-	/* -webkit-transition: all .1s linear;
-	transition: all .1s linear; */
-	margin-left : 30%;
-	/* margin-top : 4px; */
-	/* margin-bottom : 5%; */
+	margin-bottom : 3%;
 }
 
  .heart label {
-	font-family: "icomoon";
-	font-size: 30px;
+	/* font-family: "icomoon"; */
 	position: relative;
 	cursor: pointer;
 	color: gray;
-	text-shadow: 0px 0px 5px red;
-	top: -4px;
-	/* left: 10px; */
+	border-radius: 50%;
+	border : 1px solid #BFBFC4;
 }
 
 .heart label:after {
-  content: "❤";
-  color: inherit;
-	-webkit-transform: scale(4);
+	content: "❤";
+	color: inherit;
+	/* -webkit-transform: scale(4); */
 	position: absolute;
 	z-index: 4;
-	left: 0px;
-	transition: all .4s;
+	left: -1px;
+	top: -1px;
+	/* transition: all .4s; */
 	opacity: 0;
 	color: inherit;
 	visibility: hidden;
@@ -118,7 +638,7 @@
 
 .heart input+label:before {
 	content: "❤";
-  position: absolute;
+	position: absolute;
 	right: 0;
 	opacity: 0;
 }
@@ -127,37 +647,47 @@
 .heart input+label:nth-of-type(1):before,
 .heart input+label:nth-of-type(1):hover:before,
 .heart input+label:nth-of-type(1):hover ~ label:before,
-.heart input:nth-of-type(1):checked ~ label:before {
+.heart input:nth-of-type(1):checked ~ label:before,
+.heart label:hover {
 	color: red;
+	border: 1px solid #727280;
+	border-radius: 50%;
 }
 		
 .heart input:checked+label:after {
 	visibility: visible;
-	-webkit-transform: scale(1);
+	/* -webkit-transform: scale(1); */
 	opacity: 1;
 }
 
+
 /* =====================================================================
-								버튼
+						바로보기, 뒤로가기 버튼
 ===================================================================== */
 
 .button {
 	-webkit-border-radius : 20px;
 	-moz-border-radius : 20px;
 	border-radius : 20px;
-	text-indent:0;
-	border:1px solid #BFBFC4;
+	text-indent: 0;
+	border: 1px solid #BFBFC4;
 	background-color : #ffffff;
-	display:inline-block;
-	font-size:15px;
-	font-weight:bold;
-	font-style:normal;
-	height:40px;
-	line-height:50px;
-	width:80%;
-	margin-right : 20%;
-	text-decoration:none;
-	text-align:center;
+	display: inline-block;
+	font-family: Nanum Gothic;
+	/* font-size: 0px; */
+	font-weight: bold;
+	font-style: normal;
+	color: rgba(255,255,255,0);
+	background-repeat : no-repeat;
+	background-position : center;
+}
+
+.view-now {
+	background-image : url('../img/button/webtoon-view.png');
+}
+
+.goBack {
+	background-image : url('../img/button/back.png');
 }
 
 .right-now {
@@ -166,23 +696,112 @@
 }
 
 .button:hover {
-	text-indent : -9999px;
-	background-image : url('../img/button/webtoon-view.png');
-	background-repeat : no-repeat;
-	background-position : center;
+	color: black;
+	text-indent : 0px;
+	text-decoration:none;
+	text-align:center;
+	background-image: none;
+	border: 1px solid #727280;
 }
 
 .author_label {
 	padding : 5px;
 }
 
-.reserve {
-	width : 50%;
+#reserve, #view-now {
 	float : left;
 }
 
-.view-now {
-	width : 50%;
-	float : left;
+#goBack {
+	text-align: center;
 }
 
+.option-button {
+	border-top : 1px solid #E4E4E4;
+	margin-left : 10px;
+	margin-right : 10px;
+	padding-top : 5px;
+}
+
+
+/* =====================================================================
+							완결,신작 라벨
+===================================================================== */
+
+.ribbon-wrapper {
+	width: 85px;
+	height: 88px;
+	overflow: hidden;
+	position: absolute;
+	font-family: Nanum Gothic;
+	top: -3px;
+	left: -4px;
+}
+
+.ribbon-end, .ribbon-new {
+	/* color: #333; */
+	text-align: center;
+	/* text-shadow: rgba(255,255,255,0.5) 0px 1px 0px; */
+	-webkit-transform: rotate(-45deg);
+	-moz-transform:    rotate(-45deg);
+	-ms-transform:     rotate(-45deg);
+	-o-transform:      rotate(-45deg);
+	position: relative;
+	left: -27px;
+	width: 111px;
+	-webkit-box-shadow: 0px 0px 3px rgba(0,0,0,0.3);
+	-moz-box-shadow:    0px 0px 3px rgba(0,0,0,0.3);
+	box-shadow:         0px 0px 3px rgba(0,0,0,0.3);
+}
+
+.ribbon-end:before, .ribbon-end:after {
+	content: "";
+	border-top:   3px solid #810d05;   
+	border-left:  3px solid transparent;
+	border-right: 3px solid transparent;
+	position:absolute;
+	bottom: -3px;
+}
+
+.ribbon-new:before, .ribbon-new:after {
+	content: "";
+	border-top:   3px solid #6e8900;   
+	border-left:  3px solid transparent;
+	border-right: 3px solid transparent;
+	position:absolute;
+	bottom: -3px;
+}
+
+.ribbon-end:before, .ribbon-new:before {
+	left: 0;
+}
+
+.ribbon-end:after, .ribbon-new:after {
+	right: 0;
+}
+
+.ribbon-end {
+	font: 19px Sans-Serif;
+	padding: 4px 0;
+	top: 12px;
+	background-color: #f24437;
+	background-image: -webkit-gradient(linear, left top, left bottom, from(#f24437), to(#d02718)); 
+	background-image: -webkit-linear-gradient(top, #f24437, #d02718); 
+	background-image:    -moz-linear-gradient(top, #f24437, #d02718); 
+	background-image:     -ms-linear-gradient(top, #f24437, #d02718); 
+	background-image:      -o-linear-gradient(top, #f24437, #d02718); 
+	color: #FFF5F5;
+}
+
+.ribbon-new {
+	font: bold 15px Sans-Serif;
+	padding: 7px 0;
+	top: 12px;
+	background-color: #77d42a;
+	background-image: -webkit-gradient(linear, left top, left bottom, from(#77d42a), to(#51A70C)); 
+	background-image: -webkit-linear-gradient(top, #77d42a, #51A70C); 
+	background-image:    -moz-linear-gradient(top, #77d42a, #51A70C); 
+	background-image:     -ms-linear-gradient(top, #77d42a, #51A70C); 
+	background-image:      -o-linear-gradient(top, #77d42a, #51A70C); 
+	color: #306108;
+}

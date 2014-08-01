@@ -17,14 +17,14 @@ public class UserWebtoonMapsService {
 
 	// 2014.07.12 박태균 : ajax값을 받아서 유저가 선택한 퉵툰을 CRUD
 	// 2014.07.14 soo : 구조 수정 - CRUD 메소드 따로 뺌
-	public List<WebtoonVO> saveWebtoon(long CurruntUser_facebookID,
+	public List<WebtoonVO> saveWebtoon(long currentUser_facebookID,
 			int user_webtoon_rate, int webtoons_id) {
 		List<WebtoonVO> webtoon_ids = this
-				.getReadWebtoons(CurruntUser_facebookID);
+				.getReadWebtoons(currentUser_facebookID);
 
 		// ver.5 태균 확인!!
 		if (0 == user_webtoon_rate) {
-			this.deleteReadWebtoon(webtoons_id);// 수정완료
+			this.deleteReadWebtoon(currentUser_facebookID, webtoons_id);// 수정완료
 			System.out.println("0점 선택 ,삭제");
 			this.calculateAverageRate(webtoons_id, user_webtoon_rate);
 			return null;
@@ -35,7 +35,7 @@ public class UserWebtoonMapsService {
 				System.out.println(" 첫 웹툰 추가   웹툰아이디 :" + webtoons_id);
 
 				this.addFirstReadWebtoon(webtoons_id, user_webtoon_rate,
-						CurruntUser_facebookID);
+						currentUser_facebookID);
 			} else {
 				Iterator<WebtoonVO> webtoonIter = webtoon_ids.iterator();
 
@@ -43,11 +43,11 @@ public class UserWebtoonMapsService {
 					if (webtoons_id == webtoonIter.next().getWebtoons_id_pk()) {
 						System.out.println("동일한 웹툰 별점수 또는 이미 평가한 웹툰 upDateWebtoon실행");
 						this.updateReadWebtoon(webtoons_id, user_webtoon_rate,
-								CurruntUser_facebookID);
+								currentUser_facebookID);
 					} else {
 						System.out.println("새로운 웹툰 추가 addReadWebtoon 실행 ");
 						this.addReadWebtoon(webtoons_id, user_webtoon_rate,
-								CurruntUser_facebookID);
+								currentUser_facebookID);
 					}
 				}
 			}
@@ -59,7 +59,7 @@ public class UserWebtoonMapsService {
 	}
 
 	// 2014.07.14 soo 찜한 웹툰 정보 넣어서 성공/실패 여부 리턴 수정
-	public String doInsertReserveWebtoon(long users_facebookID_fk,
+	public String doChangeReserveWebtoon(long users_facebookID_fk,
 			int webtoons_id) {
 		boolean result = addReserveWebtoon(users_facebookID_fk, webtoons_id);
 
@@ -133,36 +133,36 @@ public class UserWebtoonMapsService {
 
 	// 2014.07.14 soo 구조 변경 (읽은 웹툰 삭제 - DAO 빼기)
 	// 2014.07.20 박태균  평가한 웹툰 삭제 
-	public void deleteReadWebtoon(int webtoons_id) {
+	public void deleteReadWebtoon(long currentUser_facebookID, int webtoons_id) {
 		MySqlDAOFactory mysqlDAOFactory = new MySqlDAOFactory();
 		User_Webtoon_MapsDAO userWebtoonMapsDAO = mysqlDAOFactory
 				.getUser_Webtoon_MapsDAO();
 
-		userWebtoonMapsDAO.deleteReadWebtoon(webtoons_id);
+		userWebtoonMapsDAO.deleteReadWebtoon(currentUser_facebookID, webtoons_id);
 	}
 
 	// 2014.07.17 박태균 사용자가 평가한 웹툰들을 소환
-	public List<UserWebtoonMapsVO> LoadingWebtoon(long CurruntUser_facebookID) {
+	public List<UserWebtoonMapsVO> LoadingWebtoon(long currentUser_facebookID) {
 		User_Webtoon_MapsDAO user_Webtoon_MapsDAO = new User_Webtoon_MapsDAO();
 
 		return user_Webtoon_MapsDAO
-				.readWebtoonWithOUtIsRead(CurruntUser_facebookID);
+				.readWebtoonWithOUtIsRead(currentUser_facebookID);
 	}
 	
 	
 
 	// 2014.07.17 박태균 유저가 본 웹툰중 찜한 웹툰을 제외한 모든웹툰
 	public List<UserWebtoonMapsVO> readWebtoonWithOUtIsRead(
-			long CurruntUser_facebookID) {
+			long currentUser_facebookID) {
 		User_Webtoon_MapsDAO userWebtoonMaps = new User_Webtoon_MapsDAO();
-		return userWebtoonMaps.readWebtoonWithOUtIsRead(CurruntUser_facebookID);
+		return userWebtoonMaps.readWebtoonWithOUtIsRead(currentUser_facebookID);
 	}
 	
 	// 2014.07.12 박태균 : 웹툰 카운트 (게이지 바)
-	public int countWebtoon(long CurruntUser_facebookID) {
+	public int countWebtoon(long currentUser_facebookID) {
 		User_Webtoon_MapsDAO user_Webtoon_MapsDAO = new User_Webtoon_MapsDAO();
 
-		return user_Webtoon_MapsDAO.countWebtoon(CurruntUser_facebookID);
+		return user_Webtoon_MapsDAO.countWebtoon(currentUser_facebookID);
 	}
 	
 	// 2014.07.14 soo 평균별점 계산
