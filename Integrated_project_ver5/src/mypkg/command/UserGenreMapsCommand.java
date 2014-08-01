@@ -74,7 +74,8 @@ public class UserGenreMapsCommand implements Command {
 	// 태균 선택한 장르의 웹툰 보여주기 14.07.27
 	public void doShowToonByUserSelectedGenre(HttpServletRequest request, long CurrentUser_facebookID) {
 		// request.setAttribute("showWebtoons",
-		// userGenreMapsService.ShowToonByUserSelectedGenre(CurrentUser_facebookID));
+//		String num = "0";
+//		 userGenreMapsService.returnAllToonByUserSelectedGenre(CurrentUser_facebookID , num);
 		commandResult = new CommandResult("/WEB-INF/jsp/showToonByUserSelectedGenre.jsp");
 
 	}

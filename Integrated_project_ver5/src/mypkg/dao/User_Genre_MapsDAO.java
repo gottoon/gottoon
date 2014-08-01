@@ -61,22 +61,22 @@ public class User_Genre_MapsDAO {
 			while (genresIter.hasNext()) {
 
 				UserGenreMapsVO genres = genresIter.next();
-//				if (button) {
-//					selectedGenres = " genre_id_fk = " + genres.getGenres_id_fk();
-//					button = false;
-//				}
+				if (button) {
+					selectedGenres = " genre_id_fk = " + genres.getGenres_id_fk();
+					button = false;
+				}
 				if (genresList.size() != 1) {
 					String secondSelectedGenres = " or genre_id_fk = " + genres.getGenres_id_fk() + " ";
 					selectedGenres += secondSelectedGenres;
 				}
 			}
-System.out.println("sql문 확인 테스트 "+selectedGenres);
+System.out.println("sql문 확인 테스트/////////////////////////////////////////////// "+selectedGenres);
 //sql문 확인 테스트  genre_id_fk = 8or genre_id_fk = 8 or genre_id_fk = 9 
 
-			String sql = String.format("select * from webtoons where webtoons_id_pk  not in "
+			String sql = String.format("select * from webtoons where("+selectedGenres+") AND webtoons_id_pk  not in "
 					+ "(select webtoons_id_pk from webtoons where webtoons_id_pk = "
 					+ "any(select webtoons_id_fk from user_webtoon_maps where " + "users_facebookID_fk = " + user_facebookID_fk
-					+ " AND user_webtoon_isread = 1 )) " + "or " + selectedGenres + " limit %s , 6 ", num);
+					+ " AND user_webtoon_isread = 1)) limit %s , 8 ", num);
 			ResultSet webtoonOfSelectedGenre = stmt.executeQuery(sql);
 
 			while (webtoonOfSelectedGenre.next()) {
@@ -84,9 +84,10 @@ System.out.println("sql문 확인 테스트 "+selectedGenres);
 				String webtoonsTitle = webtoonOfSelectedGenre.getString("webtoons_title");
 				String publisher = webtoonOfSelectedGenre.getString("webtoons_publisher");
 				int webtoonId = webtoonOfSelectedGenre.getInt("webtoons_id_pk");
-				String url = webtoonOfSelectedGenre.getString("webtoons_url");
+				
+				String webtoons_main_image = webtoonOfSelectedGenre.getString("webtoons_main_image");
 				System.out.println("웹툰제목 : " + webtoonOfSelectedGenre.getString("webtoons_title"));
-				webtoons.add(new WebtoonVO(webtoonsTitle, publisher, webtoonId, url));
+				webtoons.add(new WebtoonVO(webtoonsTitle, publisher, webtoonId, webtoons_main_image));
 
 			}
 		} catch (SQLException ex) {

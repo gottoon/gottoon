@@ -9,54 +9,30 @@
 	padding: 0;
 	outline: 0;
 }
- html {
-background-color: #e9eaed;
-	font-family: 'Helvetica Neue',
+
+html {
+/* 	background-color: #e9eaed;
+ */	font-family: 'Helvetica Neue',
 		HelveticaNeue-Light, sans-serif;
-
- }
-.test{
-	width: 376px;
-	height: 258px;
-
 }
 
+
 body section {
-/*  	float: left;
- */	argin: 0 auto;
-/*  	padding: 20px 20px;
- */ 	
-background-color: #3b5998;
-border-bottom: 4px #133783;	
-	
-	width: 376px;
-	margin: 15px auto;
+	border-bottom: 4px #133783;
+	width: 288px;
 	padding-bottom: 18px;
-	background-color: #fff;
-	-webkit-border-radius: 7px 7px 5px 5px;
-	-moz-border-radius: 7px 7px 5px 5px;
-	-ms-border-radius: 7px 7px 5px 5px;
-	-o-border-radius: 7px 7px 5px 5px;
-	border-radius: 7px 7px 5px 5px;
-	/* @group Poster */
-	/* @end */
-	/* @group Add Comment */
-	/* @end */
-	/* @group Comments */
-	/* @end */
 }
 
 body section #poster {
-	width: 376px;
-	height: 258px;
+	height: 200px;
+	height: 197px;
 	position: relative;
-		border-radius: 5px;
-	
-background-color: #3b5998;
-border-bottom: 4px #133783; 
+	border-radius: 5px;
+
 }
 
 body section #poster img {
+	width: 18em;
 	-webkit-border-radius: 5px 5px 0 0;
 	-moz-border-radius: 5px 5px 0 0;
 	-ms-border-radius: 5px 5px 0 0;
@@ -64,26 +40,39 @@ body section #poster img {
 	border-radius: 5px 5px 0 0;
 }
 
-body section #add {/* 타이틀 부분 배경색  */
+body section #add { /* 타이틀 부분 배경색  */
+	background-color: #fff;
 	height: 20px;
-	position: relative;
-background-color: #fff;
-border-bottom: 4px #133783;	
+	
 }
 
 body section #add p {
-	color: #34373c;
-	font-size: 35px;
-	font-weight: 600;
-	position: absolute;
-	top: 5px;
-	left: 27px;
+	text-align: center;
+	background-color: #e9eaed;
+	
 }
+
+.comm{
+	font-size: 40px;
+font-weight: bold;
+line-height: 109px;
+text-align: -webkit-center;
+}
+
 
 body section #add p span {
 	font-size: 15px;
 	font-weight: 300;
 }
+/* .topSector{
+width: 100%;
+top: -3px;
+position: fixed;
+
+background-color: #3b5998;
+height: 145px;
+z-index: 900;
+} */
 
 body section #add #comment {
 	width: 125px;
@@ -118,27 +107,27 @@ body section #add #comment:hover {
 	opacity: .8;
 }
 
-body section #comments {/*comments 외부 배경   */
-background-color: #fff;
-border-bottom: 4px #133783;	
-	height: 100%;
-	max-height: 126px;
-	overflow: auto;
-/* 	-webkit-overflow-scrolling: touch;
- */}
+/* body section #comments {
+	comments 외부 배경  
+	background-color: #fff;
+	border-bottom: 4px #133783;
+	height: 60px;
+} */
 
-body section #comments section {/* comments내부 배경 */
-background-color: #fff;
-border-bottom: 4px #133783;	
-	max-width: 340px;
-	margin: 18px 0 0 18px;
+body section #comments section {
+	/* comments내부 배경 */
+	border-bottom-right-radius:30px;
+ 	border-bottom-left-radius:30px;
+	background-color: #e9eaed;
+	border-bottom: 4px #133783;
 }
 
 body section #comments section img {
 	width: 75px;
 	height: 75px;
-/* 	float: left;
- */	-webkit-border-radius: 50%;
+	/* 	float: left;
+ */
+	-webkit-border-radius: 50%;
 	-moz-border-radius: 50%;
 	-ms-border-radius: 50%;
 	-o-border-radius: 50%;
@@ -146,17 +135,19 @@ body section #comments section img {
 	margin: 0 18px 0 0;
 }
 
-body section #comments section article {/* 별들어가는 위치의 부분 */
-	max-width: 240px;
+body section #comments section article {
+	/* 별들어가는 위치의 부분 */
 	display: inline-block;
-	margin-bottom: 18px;
-} 
+}
 
 .webtoonTalbe {
-	margin: 1px 10px;
-	
-	float: left;
-	
+top: 9em;
+margin: 7px 14px;
+float: left;
+position: relative;
+left: 6%;
+border-radius: 20px;
+
 }
 
 /*팝업 스타일 */
@@ -166,18 +157,20 @@ body section #comments section article {/* 별들어가는 위치의 부분 */
 }
 
 .open-modal {
-background-color: #3b5998;
-border-bottom: 1px solid #133783;
--webkit-box-shadow: 0 2px 2px -2px rgba(0, 0, 0, .52);
+	/* #3b5998 */
+	background-color: #e9eaed;
+	border-bottom: 1px solid #fcfcfc;
+	-webkit-box-shadow: 0 2px 2px -2px
+		rgba(0, 0, 0, .52);
 	border: none;
-	border-radius: 20px;
-	font: inherit;
+/* 	border-radius: 20px;
+ */	font: inherit;
 	font-size: 25px;
-	color: #e9eaed;
+	color: black;
 	outline: none;
-	top : 0em;
+	top: 89px;
 	padding: 30px 50px;
-	width : 100%;
+	width: 100%;
 	position: fixed;
 	z-index: 10;
 }
@@ -199,7 +192,7 @@ border-bottom: 1px solid #133783;
 	margin-top: -150px;
 	padding: 50px;
 	border-radius: 5px;
-	z-index: 999;
+	z-index: 32;
 	box-shadow: 0 0 0 99999px rgba(0, 0, 0, 0.7);
 }
 
@@ -209,83 +202,80 @@ border-bottom: 1px solid #133783;
 }
 /*////////////////////////////////////////////////////////////////////////////////////////////////////////////////  */
 
-
 /*Design from Dribbble shot by Cesar Zeppini*/
 /*http://dribbble.com/shots/1201397-Dashboard-Elements*/
+@import
+	url(http://fonts.googleapis.com/css?family=Montserrat)
+	;
 
-@import url(http://fonts.googleapis.com/css?family=Montserrat);
+@import
+	url(http://weloveiconfonts.com/api/?family=entypo)
+	;
 
-@import url(http://weloveiconfonts.com/api/?family=entypo);
-
-
-
- .meterContainer {/*meter자체틀   */
-  overflow: display;
-  width: 300px;
-  position: absolute;
-  top: 160px;
-  right:780px;
-   position: fixed;
-  z-index: 999;
-/*     top: 0; left: 0; bottom: 0; right: 0;
- */  
-}
- 
-.meterBackground {/*meter의 체워지지 않은 부분   */
-  background-color: #e9eaed;
-  border-radius: 32px;
-  height: 80px;
-  width: 600px;
-  position: absolute;
-  bottom: 0;
-  left: 0;
+.big {
+	width: 100%;
+	top: 69px;
+	position: fixed;
+	background-color: #e9eaed;
+	z-index: 30;
 }
 
-.meterBar {/*meter의 체워지는  부분   */
-  background-color: #ea5c50;
-  border-radius: 32px;
-  display: block;
-  height: 100%;
-  width: 75%;
-  position: relative;
+.meterContainer { /*meter자체틀   */
+	width: 100%;
+	top: 89px;
+ position: fixed;
+}
+
+.meterBackground { /*meter의 체워지지 않은 부분   */
+	background-color: #f5f5dc;
+	width: 100%;
+	position: absolute;
+	bottom: 0;
+ 	height: 20px;
+}
+
+.meterBar { /*meter의 체워지는  부분   */
+	background-color: #ea5c50;
+/* 	border-radius: 32px;
+ */	display: block;
+	height: 100%;
+	width: 75%;
+	position: relative;
 }
 
 meter {
-  display: none;
+	display: none;
 }
 
-.progressValue {/*meter의 카운트 숫자   */
-  background-color: #38b3b1;
-  border-radius: 2px;
-  color: #fff;
-  font-family: 'Montsserat', sans-serif;
-    font-size: 25px;
-  
-  height: 50px;
-  right: -25px;
-  line-height: 56px;/*숫자 위치   */
-  position: absolute;
-  text-align: center;
-  top: -60px;/*녹색칸의 높이   */
-  width: 70px;
-  z-index: 2;
+.progressValue { /*meter의 카운트 숫자   */
+	background-color: #38b3b1;
+border-radius: 2px;
+color: #fff;
+font-family: 'Montsserat', sans-serif;
+font-size: 29px;
+height: 30px;
+right: -1px;
+line-height: 36px;
+position: absolute;
+text-align: center;
+top: 27px;
+width: 44px;
+z-index: 9999;
 }
 
-
-.progressValue:before {/* meter의 카운트 숫자틀의 밑모먕 (마름모) */ 
-  background-color: #38b3b1;
-  border-radius: 1px;
-  content: "";
-  height: 10px;
-  left: 29px;
-  position: absolute;
-  transform: rotate(45deg);
-  top: 45px;
-  width: 10px;
-  z-index: 3;
-} 
-
-
+.progressValue:before {
+	/* meter의 카운트 숫자틀의 밑모먕 (마름모) */
+background-color: #38b3b1;
+border-radius: 1px;
+content: "";
+height: 10px;
+left: 15px;
+position: absolute;
+transform: rotate(45deg);
+top: -4px;
+width: 10px;
+z-index: 9990;
+}
 /*////////////////////////////////////////////////////////////////////////////////////////////////////////////////  */
 /*성공 팝업 창 */
 .modalStar {
@@ -304,7 +294,8 @@ meter {
 }
 
 .modalDeleteStar {
-	background-color: red;
+border-bottom: 1px solid #133783;
+background-color:#133783;
 	display: none;
 	position: fixed;
 	top: 50%;
@@ -327,17 +318,35 @@ meter {
 }
 
 /*end decoration*/
-.visuallyhidden {
+.visuallyhidden, .visuallyhiddenHeart {
 	position: absolute !important;
 	clip: rect(1px, 1px, 1px, 1px);
 	clip: rect(1px, 1px, 1px, 1px);
 }
+/* 
+.product-review-stars label:after {
+	content: "★";
+	color: inherit;
+	-webkit-transform: scale(4);
+	position: absolute;
+	z-index: 4;
+	left: 0px;
+	transition: all .4s;
+	opacity: 0;
+	color: inherit;
+	visibility: hidden;
+} */
 
+.product-review-stars input:checked+label:after {
+	visibility: visible;
+	-webkit-transform: scale(1);
+	opacity: 1;
+}
 
 .product-review-stars {
 	unicode-bidi: bidi-override;
 	direction: rtl;
-	width: 200px; /*가로*/
+	width : 141%;
 }
 /*밑은 별의 모양 */
 .product-review-stars label {
@@ -349,13 +358,11 @@ meter {
 	/* #DFE3E4 */
 }
 
-.product-review-stars input:checked ~ label:before
-	{
+.product-review-stars input:checked ~ label:before {
 	opacity: 1;
 }
 
-.product-review-stars:hover input ~ label:before
-	{
+.product-review-stars:hover input ~ label:before {
 	opacity: 0;
 }
 
@@ -364,15 +371,11 @@ meter {
 	position: absolute;
 	right: 0;
 	opacity: 0;
-	transition: opacity .3s ease-in-out, color
-		.3s ease-in-out;
+	transition: opacity .3s ease-in-out, color .3s ease-in-out;
 	backface-visibility: hidden;
-	-webkit-backface-visibility: hidden;
-	/* Chrome and Safari */
-	-moz-backface-visibility: hidden;
-	/* Firefox */
-	-ms-backface-visibility: hidden;
-	/* Internet Explorer */
+	-webkit-backface-visibility: hidden; /* Chrome and Safari */
+	-moz-backface-visibility: hidden; /* Firefox */
+	-ms-backface-visibility: hidden; /* Internet Explorer */
 }
 
 .product-review-stars input+label:hover:before,.product-review-stars input+label:hover 
@@ -381,26 +384,26 @@ meter {
 }
 
 .product-review-stars input+label:nth-of-type(1):after,.product-review-stars input+label:nth-of-type(1):before,.product-review-stars input+label:nth-of-type(1):hover:before,.product-review-stars input+label:nth-of-type(1):hover 
-	 ~ label:before,.product-review-stars input:nth-of-type(1):checked 
-	~ label:before {
+	 ~ label:before,.product-review-stars input:nth-of-type(1):checked ~
+	label:before {
 	color: #2ecc71;
 }
 
 .product-review-stars input+label:nth-of-type(2):after,.product-review-stars input+label:nth-of-type(2):before,.product-review-stars input+label:nth-of-type(2):hover:before,.product-review-stars input+label:nth-of-type(2):hover 
-	 ~ label:before,.product-review-stars input:nth-of-type(2):checked 
-	~ label:before {
+	 ~ label:before,.product-review-stars input:nth-of-type(2):checked ~
+	label:before {
 	color: #f1c40f;
 }
 
 .product-review-stars input+label:nth-of-type(3):after,.product-review-stars input+label:nth-of-type(3):before,.product-review-stars input+label:nth-of-type(3):hover:before,.product-review-stars input+label:nth-of-type(3):hover 
-	 ~ label:before,.product-review-stars input:nth-of-type(3):checked 
-	~ label:before {
+	 ~ label:before,.product-review-stars input:nth-of-type(3):checked ~
+	label:before {
 	color: #F39C12;
 }
 
 .product-review-stars input+label:nth-of-type(4):after,.product-review-stars input+label:nth-of-type(4):before,.product-review-stars input+label:nth-of-type(4):hover:before,.product-review-stars input+label:nth-of-type(4):hover 
-	 ~ label:before,.product-review-stars input:nth-of-type(4):checked 
-	~ label:before {
+	 ~ label:before,.product-review-stars input:nth-of-type(4):checked ~
+	label:before {
 	color: #e74c3c;
 }
 
@@ -409,9 +412,7 @@ meter {
 	color: #d35400;
 }
 
-.product-review-stars label:nth-of-type(5):hover:before
-	{
+.product-review-stars label:nth-of-type(5):hover:before {
 	color: #d35400 !important;
 }
 
-/*  recommand  */

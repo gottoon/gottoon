@@ -6,14 +6,11 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<meta http-equiv="Pragma" content="no-cache" />
-<meta http-equiv="Expires" content="-1" />
 <title>선택된 장르 웹툰</title>
 
 <script src='http://codepen.io/assets/libs/fullpage/jquery.js'></script>
 
-<script type="text/javascript"
-	src="http://code.jquery.com/jquery-1.6.1.min.js"></script>
+<script type="text/javascript"src="http://code.jquery.com/jquery-1.6.1.min.js"></script>
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7/jquery.js"></script>
 <script src="http://malsup.github.com/jquery.form.js"></script>
 <script src="<c:url value='/js/showToon.js'/>"></script>
@@ -23,6 +20,9 @@
 
 </head>
 <body>
+
+<div id = "pgcontainer">
+		<c:import url="/WEB-INF/jsp/main/moreAssessmentToonmenu.jsp"></c:import>
 
 	<div class="show-modalStar">
 		<div class="modalStar">
@@ -35,6 +35,9 @@
 			<div>삭제 끄아악!</div>
 		</div>
 	</div>
+<!-- 	<section class="topSector">
+ --><section class = "big">
+	<h1 class = "comm">읽으신 웹툰만 선택해 주세요</h1>
 
 	<div class="meterContainer">
 		<div aria-hidden="true" class="meterBackground">
@@ -48,11 +51,11 @@
 		</div>
 		<!--meterBackground-->
 	</div>
-	<!--meterContainer-->
-	<br>
-	<br>
+	</section>
+<!-- 	</section>
+ -->	<!--meterContainer-->
+	
 	<h1>읽으신 웹툰만 선택해 주세요</h1>
-	<br>
 
 
 
@@ -63,12 +66,7 @@
 		<input type="hidden" name="todo" value="recommendWebtoons" /> <input
 			class="show-modal open-modal" type="submit" value="추천해줭 " />
 	</form>
-
 <div id= "layout"></div>
-
-
-
-
 	<div class="container">
 		<div class="modal">
 			<div>더 평가하면 더 정확한 추천을 해드릴수 있어요</div>
@@ -79,6 +77,6 @@
 			</form>
 		</div>
 	</div>
-
+</div>
 </body>
 </html>
