@@ -562,6 +562,10 @@
 	margin : 85px 5% 5px 5%;
 }
 
+#image {
+	position: relative;
+}
+
 #right-section {
 	font-family: Nanum Gothic;
 }
