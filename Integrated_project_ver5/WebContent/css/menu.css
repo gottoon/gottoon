@@ -12,55 +12,50 @@ html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockq
 	-webkit-box-sizing: border-box;
 	-moz-box-sizing: border-box;
 	box-sizing: border-box;
-} */
+}
 
-/* html {
+html {
 	overflow-y: scroll;
-} */
-/* 
+}
+
 body {
 	width: 100%;
 	font-family: "Nanum Gothic", 'Helvetica Neue', Helvetica, Arial,
 	sans-serif,;
 	font-size: 62.5%;
 	line-height: 1;
-} */
+}
 
-/* br {
+br {
 	display: block;
 	line-height: 1.6em;
-} */
+}
 
-<<<<<<< HEAD
 article, aside, details, figcaption, figure, footer, hgroup, menu, section {
-=======
-/* article, aside, details, figcaption, figure, footer, header, hgroup,
-	menu, nav, section {
->>>>>>> refs/heads/morejames8
 	display: block;
-} */
+}
 
-/* ol, ul {
+ol, ul {
 	list-style: none;
 }
- */
-/* input, textarea {
+
+input, textarea {
 	-webkit-text-size-adjust: 100%;
 	-ms-text-size-adjust: 100%;
 	-webkit-box-sizing: border-box;
 	-moz-box-sizing: border-box;
 	box-sizing: border-box;
 	outline: none;
-} */
+}
 
-/* blockquote, q {
+blockquote, q {
 	quotes: none;
 }
 
 blockquote:before, blockquote:after, q:before, q:after {
 	content: '';
 	content: none;
-} */
+}
 
 strong, b {
 	font-weight: bold;
