@@ -175,7 +175,7 @@ public class User_Webtoon_MapsDAO {
 	}
 
 	// 2014.07.10 soo 찜한 웹툰 넣는 DAO
-	public boolean addReserveWebtoon(long users_facebookID_fk, int webtoons_id_fk) {
+	public boolean addReserve(long users_facebookID_fk, int webtoons_id_fk) {
 		boolean result = false;
 
 		Connection conn = null;
@@ -552,6 +552,39 @@ public class User_Webtoon_MapsDAO {
 			
 			if (rset.next()) {
 				check = true;
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			try {
+				if (stmt != null) stmt.close();
+				if (conn != null) conn.close();
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+		}
+		
+		return check;
+	}
+	
+	public int getCheckReserve(long users_facebookID_pk, int webtoon_id) {
+		int check = -1;
+		Connection conn = null;
+		Statement stmt = null;
+		
+		try {
+			conn = pool.getConnection();
+			stmt = conn.createStatement();
+			
+			String sql = "select user_webtoon_isread from user_webtoon_maps where users_facebookID_fk = " 
+					+ users_facebookID_pk + " and webtoons_id_fk = " + webtoon_id;
+			
+			ResultSet rset = stmt.executeQuery(sql);
+			
+			if (rset.next()) {
+				check = rset.getInt("user_webtoon_isread");
+			} else {
+				check = -1;
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();

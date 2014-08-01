@@ -57,32 +57,37 @@ public class UserWebtoonMapsService {
 	}
 
 	// 2014.07.14 soo 찜한 웹툰 정보 넣어서 성공/실패 여부 리턴 수정
-	public String doChangeReserveWebtoon(long users_facebookID_fk,
-			int webtoons_id) {
-		boolean result = addReserveWebtoon(users_facebookID_fk, webtoons_id);
-
-		if (result == true) {
-			return "찜하기 성공!";
-//			 return "See Reserve Success!";
+	public String doChangeReserveWebtoon(long users_facebookID_fk, int webtoons_id) {
+		boolean result = false;
+		
+		int resultReserve = this.getCheckReserve(users_facebookID_fk, webtoons_id);
+		
+		if (resultReserve == -1) {
+			result = this.addReserve(users_facebookID_fk, webtoons_id);
+			if (result == true) {
+				return "찜하기 성공!";
+			} else {
+				return "잠시 후 다시 시도해주세요.";
+			}
+		} else if (resultReserve == 0) {
+			return "이미 찜한 웹툰입니다!";
+		} else if (resultReserve == 1) {
+			return "이미 본 웹툰입니다!";
 		} else {
-			return "이미 찜하거나 본 웹툰입니다!";
-//			 return "Error!";
+			return "잠시 후 다시 시도해주세요.";
 		}
 	}
 
 	// 2014.07.10 soo 찜한 웹툰 넣는 DAO 불러오기
-	public boolean addReserveWebtoon(long users_facebookID_fk,
+	public boolean addReserve(long users_facebookID_fk,
 			int webtoons_id_fk) {
 		MySqlDAOFactory mysqlDAOFactory = new MySqlDAOFactory();
 		User_Webtoon_MapsDAO userWebtoonMapsDAO = mysqlDAOFactory
 				.getUser_Webtoon_MapsDAO();
 
-		return userWebtoonMapsDAO.addReserveWebtoon(users_facebookID_fk,
-				webtoons_id_fk);
+		return userWebtoonMapsDAO.addReserve(users_facebookID_fk, webtoons_id_fk);
 	}
 	
-	//
-
 	// 2014.07.2 soo 구조 변경 (첫 읽은 웹툰 별점 추가 - DAO 빼기)
 	// 2014.07.20 박태균  신규가입자 첫 웹툰 저장 
 	public void addFirstReadWebtoon(int webtoons_id, int user_webtoon_rate,
@@ -204,4 +209,11 @@ public class UserWebtoonMapsService {
 		return userWebtoonMapsDAO.getWebtoonCount(users_facebookID_fk);
 	}
 	
+	public int getCheckReserve(long users_facebookID_fk, int webtoons_id) {
+		MySqlDAOFactory mysqlDAOFactory = new MySqlDAOFactory();
+		User_Webtoon_MapsDAO userWebtoonMapsDAO = mysqlDAOFactory
+				.getUser_Webtoon_MapsDAO();
+
+		return userWebtoonMapsDAO.getCheckReserve(users_facebookID_fk, webtoons_id);
+	}
 }
