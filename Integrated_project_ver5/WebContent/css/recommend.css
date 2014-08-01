@@ -1,18 +1,18 @@
-html, body {
+body {
 	height: 100%;
 	overflow : hidden;
 }
 
 @media screen and (max-width:532px) {
 	.webtoon {
-		width : 70%;
+		width : 75%;
 		height : auto;
 		float : left;
-		margin : 5% 15%;
+		margin : 5% 10%;
 	}
 	
 	.main_image {
-		width : 300px;
+		width : 400px;
 		height : 250px;
 	}
 	
@@ -52,19 +52,23 @@ html, body {
 	.button:hover {
 		font-size: 12px;
 	}
+	
+	.heart {
+		margin-left: auto;
+		margin-right: 15%;
+	}
 }
 
 @media screen and (min-width:533px) and (max-width:768px) {
 	.webtoon {
-		width : 40%;
+		width : 45%;
 		height : auto;
 		float : left;
-		margin : 2%;
-		margin-left: 6%
+		margin : 2% 1% 2% 3%;
 	}
 	
 	.main_image {
-		width : 300px;
+		width : 350px;
 		height : 300px;
 	}
 	
@@ -214,6 +218,10 @@ html, body {
 	
 	.button:hover {
 		font-size: 1.1vw;
+	}
+	
+	.heart {
+		margin-left : 30%;
 	}
 }
 
@@ -376,7 +384,6 @@ h2 {
 	width: 42px;			
 	height: 40px;
 	position: relative;
-	margin-left : 30%;
 	margin-bottom : 3%;
 	top: -1px;
 }
