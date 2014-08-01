@@ -14,7 +14,6 @@
 <script src="<c:url value='/js/webtoonDetailAndStarPoint.js'/>"></script>
 </head>
 <body>
-	<div id="pgcontainer">
 		<c:import url="/WEB-INF/jsp/main/menu.jsp"></c:import>
 
 		<div class="show-modalStar">
@@ -27,7 +26,6 @@
 				<div>삭제  끄아악!</div>
 			</div>
 		</div>
-	</div>
 	
 	<div class="article">
 		<div id="left-section">

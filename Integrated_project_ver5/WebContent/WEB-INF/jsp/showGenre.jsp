@@ -21,10 +21,8 @@
 
 		<c:import url="/WEB-INF/jsp/main/menu.jsp"></c:import>
 
-	<!-- <h1 align="center" class="h">장르 선택을 해주세요.</h1> -->
 
 
-		<%-- 	<p align="center"><%=session.getAttribute("CurrentUser")%></p> --%>
 
 
 		<form method='get' onsubmit="return Validate()"
