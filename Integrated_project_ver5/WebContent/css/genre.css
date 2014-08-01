@@ -313,7 +313,7 @@ box-shadow: 1px 1px 3px #888;
 } */
  /* 테이블 */  
 table.genretable {
-	margin-top: 110px;
+	margin-top: 150px;
 max-width: 98%;
 box-shadow: 0px 0px 8px 1px gray;
 background-color: inherit;
@@ -355,7 +355,7 @@ margin: 7px;
 .but {
 /* 	background-color: #3b5998; */
 border-bottom: 4px #fff;	
-margin: 12px;
+margin-top: -75px;
 	 /* border-top: 1px solid #96d1f8; */ 
  	background: #3366ff; 
 	/* background: -webkit-gradient(linear, left top, left bottom, from(#3e779d),
@@ -370,11 +370,12 @@ margin: 12px;
 	box-shadow: rgba(0, 0, 0, 1) 0 1px 0;
 	text-shadow: rgba(0, 0, 0, .4) 0 1px 0;
 	color: white;
+	width: 100%;
 	font-size: 40px;
 	font-family: Nanum Gothic;
 	text-decoration: none;
 	vertical-align: middle;
-	/* position: fixed; */
+	position: fixed;
 }
 
 .but:hover {
@@ -400,13 +401,13 @@ margin: 12px;
   position: relative;
   z-index: 667;
   background: #3366ff;
-  left: 0.5%;
+  left: 35%;
   top: -640px;
 box-shadow: 0 0 0 99999px rgba(0, 0, 0, 0.7);
 
 }
 .modal1 {
-   margin: -24px;
+   margin: 25px;
 padding: 6px;
 border: 1px;
 font-size: 100%;
