@@ -4,18 +4,18 @@
 $(document).ready(function() {
 	var count = 0;
 
-	var details = $('table .product-review-stars');
+	var details = $('.product-review-stars');
 //	 for (var i = 0; i < details.length; i++) {
 	console.log("웹툰 갯 수 " + details.length);
 	details.each(function() {
 		var detailsIndex = details.index(this);
 		console.log("===================================");
-		console.log("사용자가 평가했던 별점 " + $('table #rate').eq(detailsIndex).val());
-		console.log("사용자가 평가했던 웹툰 아이디 : " + $('table #id').eq(detailsIndex).val());
+		console.log("사용자가 평가했던 별점 " + $('#rate').eq(detailsIndex).val());
+		console.log("사용자가 평가했던 웹툰 아이디 : " + $('#id').eq(detailsIndex).val());
 //		var webtoonId = "^" + $('table #id').eq(detailsIndex).val();
 //		var rate = $('table #rate').eq(detailsIndex).val();
 //		var value = rate + webtoonId;
-		$(".product-review-stars input:checkbox[value="+"'"+$('table #rate').eq(detailsIndex).val()+"^"+$('table #id').eq(detailsIndex).val()+"'"+"]").attr("checked", true);
+		$(".product-review-stars input:checkbox[value="+"'"+$('#rate').eq(detailsIndex).val()+"^"+$('#id').eq(detailsIndex).val()+"'"+"]").attr("checked", true);
 //		var rateValue = rate + "^" + webtoonId;
 		// console.log("웹툰의 아이디+별점 : "
 		// +$('.product-review-stars
