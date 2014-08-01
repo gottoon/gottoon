@@ -117,7 +117,7 @@
 
 				success : function(data) {
 					var userGrade = data;
-					
+
 					if (userGrade == 1) {
 						newbieCheck();
 					} else {
@@ -196,9 +196,10 @@
 
 	//managerBtn
 	$(document).ready(function() {
-		var userGrade = 10
-<%-- <%=session.getAttribute("userGrade")%> --%>
-	console.log("asdfaeee " + userGrade);
+		var userGrade =
+<%=session.getAttribute("userGrade")%>
+	;
+		console.log("asdfaeee " + userGrade);
 
 		if (userGrade >= 1) {
 			console.log('더 평가하기 없애');
@@ -264,7 +265,9 @@
 		FB.api('/me', function checkUser(response) {
 
 			$("#welcomeUser").html("<h3> " + response.name + "</h3>");
-			$(".talkbox").html("<p>안녕하세요  <b>"+response.name +"</b> 님!<br /> <b>갓툰</b>의 세계에 오신것을 환영합니다! </p>")
+			$(".talkbox").html(
+					"<p>안녕하세요  <b>" + response.name
+							+ "</b> 님!<br /> <b>갓툰</b>의 세계에 오신것을 환영합니다! </p>")
 		});
 		/* make the API call */
 		FB.api("/me/picture", function(response) {

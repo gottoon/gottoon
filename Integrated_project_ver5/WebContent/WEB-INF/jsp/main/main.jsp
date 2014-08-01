@@ -24,7 +24,6 @@
 </head>
 <body>
 	<div class="container-fluid">
-		<div id="pgcontainer">
 			<c:import url="/WEB-INF/jsp/main/menu.jsp"></c:import>
 			<div class="row">
 				<section id="carousel">
@@ -113,7 +112,6 @@
 
 
 		</div>
-	</div>
 
 
 

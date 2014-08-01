@@ -11,7 +11,7 @@
 	clip: rect(1px, 1px, 1px, 1px);
 }
 
-.product-review-stars label:after {
+/* .product-review-stars label:after {
 	content: "★";
 	color: inherit;
 	-webkit-transform: scale(4);
@@ -28,7 +28,7 @@
 	visibility: visible;
 	-webkit-transform: scale(1);
 	opacity: 1;
-}
+} */
 
 .product-review-stars {
 	unicode-bidi: bidi-override;
@@ -42,7 +42,6 @@
 	position: relative;
 	cursor: pointer;
 	color: gray;
-	/* #DFE3E4 */
 }
 
 .product-review-stars input:checked ~ label:before {

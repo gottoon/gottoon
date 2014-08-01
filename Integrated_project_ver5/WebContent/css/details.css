@@ -1,3 +1,8 @@
+body {
+	height: 100%;
+	overflow : hidden;
+}
+
 @media screen and (max-width:401px) {
 	.article {
 		height : 700px;
@@ -488,7 +493,6 @@
 	
 	.product-review-stars label {
 		font-size: 38px;
-		/* width: 4.5vw; */
 	}
 	
 	.heart {
