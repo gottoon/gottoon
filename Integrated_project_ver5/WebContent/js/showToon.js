@@ -39,29 +39,27 @@ function scrollEvent(count){
 };
 
 function showScroll(request , count){
-
 	
 	if(request.length !== 0){
 		for(var i =0; i< request.length; i++){
-			count.value++;
+			count.value++;																		
 			console.log(count.value);
-			$('#layout').append('<section class="webtoonTalbe"><div id="poster"><img src="http://www.codepen.kamilczujowski.de/images/picture.jpg" alt="© Kamil Czujowski // @kamilczujowski " /></div>'
-					+'<div id="add"><p><span>웹툰 타이틀 : ' + request[i].webtoons_title+ ' </span></p>'
-					+'</div><hr /><hr /><hr /><hr /><hr /><div id = "comments" ><section><article><form id="myForm">'
+			$('#layout').append('<section class="webtoonTalbe"><div id="poster"><input type="image" src="'+request[i].webtoons_main_image+'" style ="width: 288px; height: 200px; border-top-left-radius : 30px; border-top-right-radius : 30px;" /></div>'
+					+'<div id="add"><p><span>' + request[i].webtoons_title+ ' </span></p>'
+					+'</div><div id = "comments" ><section><article><form id="myForm">'
 					+'<div class = "product-review-stars" >'
 					+'<input type="checkbox" id="'+count.value*count.value*count.value+1+'" name="rating" value="5^'+request[i].webtoons_id_pk+'" onclick=onclickStart(this) class="visuallyhidden"> <label for="'+count.value*count.value*count.value+1+'" title="Rocks!">★</label>'
 					+'<input type="checkbox" id="'+count.value*count.value*count.value+2+'" name="rating" value="4^'+request[i].webtoons_id_pk+'" onclick=onclickStart(this) class="visuallyhidden"> <label for="'+count.value*count.value*count.value+2+'" title="Pretty good">★</label>'
 					+'<input type="checkbox" id="'+count.value*count.value*count.value+3+'" name="rating" value="3^'+request[i].webtoons_id_pk+'" onclick=onclickStart(this) class="visuallyhidden"> <label for="'+count.value*count.value*count.value+3+'" title="Meh">★</label>'
 					+'<input type="checkbox" id="'+count.value*count.value*count.value+4+'" name="rating" value="2^'+request[i].webtoons_id_pk+'" onclick=onclickStart(this) class="visuallyhidden"> <label for="'+count.value*count.value*count.value+4+'" title="Kinda bad">★</label>'
 					+'<input type="checkbox" id="'+count.value*count.value*count.value+5+'" name="rating" value="1^'+request[i].webtoons_id_pk+'" onclick=onclickStart(this) class="visuallyhidden"> <label for="'+count.value*count.value*count.value+5+'" title="Sucks big time">★</label>'
-					+'</div></form><p>간략한 설명</p>'
+					+'</div></form>'
 			+'</article></section></div></section>');
 		}
 	}	
 };
 
 $(document).ready(function() {//페이지가 로드되면 meter값 넣기 
-	
 	$.ajax({
 		type : "POST",
 		url : "userWebtoon",
@@ -69,7 +67,7 @@ $(document).ready(function() {//페이지가 로드되면 meter값 넣기
 			todo : "getCount"
 		},
 		success : function(data) {
-			$("meter").val( [data] );
+			$("meter").val( data);
 
 			
 
@@ -108,8 +106,6 @@ $(document).ready(function() {//페이지가 로드되면 meter값 넣기
 							  return meterBarWidth;
 							  
 						  }
-						  
-						  
 					  }
 				  };	
 				  var adjustWidth = function() {
@@ -135,11 +131,11 @@ $(document).ready(function() {//페이지가 로드되면 meter값 넣기
 				alert("신규 가입자 입니다. 최소 20개의 웹툰을 평가해주세요 ");
 			} else if ([ data ] >= 10) {//10개 이상 평가했을때 "추천해줭"버튼 유지 
 				$("#button").show();
+				$(".comm").hide();
 			}
 		}
 	});
-	toDoCheck();
-
+			toDoCheck()	;
 });
 
 function onclickStart(param) {//별점 추가 삭제 수정 변경.
@@ -164,6 +160,7 @@ function onclickStart(param) {//별점 추가 삭제 수정 변경.
 
 	}
 	console.log("별점 : " + starRate + " , 아이디 : " + webtoonId);
+	
 	$.ajax({
 		type : "POST",
 		url : "userWebtoon",
@@ -229,6 +226,8 @@ function onclickStart(param) {//별점 추가 삭제 수정 변경.
 					  adjustWidth();
 					  indicUpdate();
 					})();
+				
+				
 				if (starRate == 0) {//평가 별점이 0점일때 삭제 모달창
 
 					$('.show-modalDeleteStar').show(function() {

@@ -6,8 +6,6 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 
 import javax.naming.InitialContext;
 import javax.naming.NamingException;
@@ -440,8 +438,8 @@ public class User_Webtoon_MapsDAO {
 					+ webtoons_id_pk + " AND users_facebookID_fk = " + users_facebookID_fk + " );";
 
 			stmt.execute(sql);
-			System.out.println("웹툰 아이디 :" + webtoons_id_pk + " , 유저아이디 :" + users_facebookID_fk + ",평가별점 :  "
-					+ user_webtoon_rate + "추가 완료");
+			System.out.println("유저가 선택한 웹툰아이디  :" + webtoons_id_pk + " , 유저아이디 :" + users_facebookID_fk + ",평가별점 :  "
+					+ user_webtoon_rate + "점 추가 완료");
 		} catch (SQLException e) {
 			e.printStackTrace();
 		} finally {
