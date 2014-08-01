@@ -11,8 +11,7 @@
 }
 
 html {
-/* 	background-color: #e9eaed;
- */	font-family: 'Helvetica Neue',
+ font-family: 'Helvetica Neue',
 		HelveticaNeue-Light, sans-serif;
 }
 
@@ -64,16 +63,6 @@ body section #add p span {
 	font-size: 15px;
 	font-weight: 300;
 }
-/* .topSector{
-width: 100%;
-top: -3px;
-position: fixed;
-
-background-color: #3b5998;
-height: 145px;
-z-index: 900;
-} */
-
 body section #add #comment {
 	width: 125px;
 	height: 40px;
@@ -107,12 +96,6 @@ body section #add #comment:hover {
 	opacity: .8;
 }
 
-/* body section #comments {
-	comments 외부 배경  
-	background-color: #fff;
-	border-bottom: 4px #133783;
-	height: 60px;
-} */
 
 body section #comments section {
 	/* comments내부 배경 */
@@ -168,7 +151,7 @@ border-radius: 20px;
 	font-size: 25px;
 	color: black;
 	outline: none;
-	top: 89px;
+	top: 90%;
 	padding: 30px 50px;
 	width: 100%;
 	position: fixed;
@@ -282,12 +265,12 @@ z-index: 9990;
 	background-color: #dbd9d9;
 	display: none;
 	position: fixed;
-	top: 50%;
-	left: 51em;
+	top: 80%;
+	left: 50%;
 	width: 100px;
 	height: auto;
-	margin-left: -200px;
-	margin-top: -150px;
+	/* margin-left: -200px;
+	margin-top: -150px; */
 	padding: 50px;
 	border-radius: 5px;
 	z-index: 10;
@@ -298,7 +281,7 @@ border-bottom: 1px solid #133783;
 background-color:#133783;
 	display: none;
 	position: fixed;
-	top: 50%;
+	top: 80%;
 	left: 51em;
 	width: 100px;
 	height: auto;
@@ -323,24 +306,10 @@ background-color:#133783;
 	clip: rect(1px, 1px, 1px, 1px);
 	clip: rect(1px, 1px, 1px, 1px);
 }
-/* 
-.product-review-stars label:after {
-	content: "★";
-	color: inherit;
-	-webkit-transform: scale(4);
-	position: absolute;
-	z-index: 4;
-	left: 0px;
-	transition: all .4s;
-	opacity: 0;
-	color: inherit;
-	visibility: hidden;
-} */
-
-.product-review-stars input:checked+label:after {
-	visibility: visible;
-	-webkit-transform: scale(1);
-	opacity: 1;
+.downbar{
+	top:10px;
+	backgroung-color : red;
+	height: 50px;
 }
 
 .product-review-stars {
