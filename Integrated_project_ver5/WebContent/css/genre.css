@@ -401,13 +401,13 @@ margin-top: -75px;
   position: relative;
   z-index: 667;
   background: #3366ff;
-  left: 0.5%;
+  left: 35%;
   top: -640px;
 box-shadow: 0 0 0 99999px rgba(0, 0, 0, 0.7);
 
 }
 .modal1 {
-   margin: -24px;
+   margin: 25px;
 padding: 6px;
 border: 1px;
 font-size: 100%;
