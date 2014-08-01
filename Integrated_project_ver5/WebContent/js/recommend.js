@@ -19,7 +19,7 @@ function checkButton() {
 	}
 }
 
-function seeReserve(form) {
+/*function seeReserve(form) {
 	$.ajax({
 		url : "userWebtoon",
 		data : {"todo" : "seeReserve", "webtoon_id" : form.webtoon_id.value},
@@ -27,27 +27,32 @@ function seeReserve(form) {
 			alert(data);
 		}
 	});
-}
+}*/
 
-/*function seeReserve(clicked_form, clicked_id) {
+function seeReserve(clicked_form, clicked_id) {
 	console.log(clicked_form);
 	console.log(clicked_id);
+	
+	var reserve = "add";
+	
 	if ($(".heart input:checkbox[id = '" + clicked_id + "']").is(":checked")) {
-		$(".product-review-stars input:checkbox[value = " + "'" + param.value+ "'" + "]");
+		$(".heart input:checkbox[id = '" + clicked_id + "']"); // 있어야 할까?
 	} else {
-		
+		reserve = "cancel";
 	}
-	
-	
 	
 	$.ajax({
 		url : "userWebtoon",
-		data : {"todo" : "seeReserve", "webtoon_id" : clicked_form.webtoon_id.value},
+		data : {
+			todo : "seeReserve",
+			webtoon_id : clicked_form.webtoon_id.value,
+			status : reserve
+		},
 		success : function(data) {
 			alert(data);
 		}
 	});
-}*/
+}
 
 function goBack() {
 	window.history.back();

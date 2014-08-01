@@ -19,23 +19,23 @@ function toDoCheck(){
 function scrollEvent(count){
 	console.log("scrollEvent의 Request와 count : "+ count.value);
 	$.ajax({
-	url : "userGenre",
-	dataType : "json",
-	type : "POST",
-	data : {
-		todo : "infinite",
-		count : count.value
-	},
-	success : function(data) {
-		
-		showScroll(data ,count);
-	},
-	error : function(request , status , error){
-		alert("code : "+request.status + "\n"+"message : " +
-				request.responseText+"\n"+"error : "+error);
-		
-	}
-});
+		url : "userGenre",
+		dataType : "json",
+		type : "POST",
+		data : {
+			todo : "infinite",
+			count : count.value
+		},
+		success : function(data) {
+			
+			showScroll(data ,count);
+		},
+		error : function(request , status , error){
+			alert("code : "+request.status + "\n"+"message : " +
+					request.responseText+"\n"+"error : "+error);
+			
+		}
+	});
 };
 
 function showScroll(request , count){

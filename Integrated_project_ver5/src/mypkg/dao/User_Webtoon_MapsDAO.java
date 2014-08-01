@@ -567,8 +567,8 @@ public class User_Webtoon_MapsDAO {
 		return check;
 	}
 	
-	public int getCheckReserve(long users_facebookID_pk, int webtoon_id) {
-		int check = -1;
+	public boolean getCheckReserve(long users_facebookID_pk, int webtoon_id) {
+		boolean check = false;
 		Connection conn = null;
 		Statement stmt = null;
 		
@@ -582,9 +582,39 @@ public class User_Webtoon_MapsDAO {
 			ResultSet rset = stmt.executeQuery(sql);
 			
 			if (rset.next()) {
-				check = rset.getInt("user_webtoon_isread");
-			} else {
-				check = -1;
+				check = true;
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			try {
+				if (stmt != null) stmt.close();
+				if (conn != null) conn.close();
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+		}
+		
+		return check;
+	}
+
+	public boolean deleteReserve(long users_facebookID_pk, int webtoon_id) {
+		boolean check = false;
+		Connection conn = null;
+		Statement stmt = null;
+		
+		try {
+			conn = pool.getConnection();
+			stmt = conn.createStatement();
+			
+			String sql = "delete from user_webtoon_maps where users_facebookID_fk = " 
+					+ users_facebookID_pk + " and webtoons_id_fk = " + webtoon_id
+					+ " and user_webtoon_isread = 0";
+			
+			int success = stmt.executeUpdate(sql);
+			
+			if (success != 0) {
+				check = true;
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();

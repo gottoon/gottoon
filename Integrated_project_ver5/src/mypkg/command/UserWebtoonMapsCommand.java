@@ -103,9 +103,13 @@ public class UserWebtoonMapsCommand implements Command {
 		long curruntUser_facebookID = (long) session.getAttribute("CurrentUser");
 
 		int webtoons_id = Integer.parseInt(request.getParameter("webtoon_id"));
-
+		String statusReverse = request.getParameter("status");
+		
+		System.out.println("여기 웹툰 아이디 : " + webtoons_id);
+		System.out.println("여기 스테터스 : " + statusReverse);
+		
 		UserWebtoonMapsService service = new UserWebtoonMapsService();
-		return service.doChangeReserveWebtoon(curruntUser_facebookID, webtoons_id);
+		return service.doChangeReserveWebtoon(curruntUser_facebookID, webtoons_id, statusReverse);
 	}
 
 	// 2014.07.17 soo 별점 4점이상 웹툰 작가
