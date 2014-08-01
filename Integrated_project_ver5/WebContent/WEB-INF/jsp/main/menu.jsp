@@ -379,12 +379,6 @@
 
 	<!-- @end #pgcontainer -->
 
-	<!--ajax wait  -->
-	<div id="wait" style="display: none;">
-		<img src="<c:url value='/img/menu/ajax-loader.gif'/>" width="64"
-			height="64" /><br>Loading..
-	</div>
-	<!--ajax wait  -->
 
 
 
