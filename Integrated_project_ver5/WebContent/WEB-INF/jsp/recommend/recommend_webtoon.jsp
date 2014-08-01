@@ -17,7 +17,6 @@
 <title>Show Recommended Webtoons</title>
 </head>
 <body>
-	<div id="pgcontainer">
 		<c:import url="/WEB-INF/jsp/main/menu.jsp"></c:import>
 		<div class="show-modalStar">
 			<div class="modalStar">
@@ -125,7 +124,6 @@
 				</div>
 			</c:forEach>
 		</div>
-	</div>
 	
 	<script type="text/javascript">
 		var webtoonCount = 0;
