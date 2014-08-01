@@ -85,99 +85,19 @@ $(document).ready(function() {
 	
 	
 
-	$.ajax({
+	/*$.ajax({
 		type : "POST",
 		url : "userWebtoon",
 		data : {
 			todo : "getCount"
 		},
 		success : function(data) {
-			/*$("meter").val([ data ]);*/
-			$("#progressController").hide();
-			if([ data ] == 0) {
-			} else if ([ data ] >= 1 && [ data ] <= 19) {	
-				$("#progressController").val([ data ] * 5); //1당 5
-			} else if ([ data ] >= 21 && [ data ] <= 39) {	
-				$("#progressController").val(([ data ] -20) * 5 ); //1당 5
-			} else if ([ data ] >= 41 && [ data ] <= 79) {	
-				$("#progressController").val(([ data ] -40) * 2.5); //1당 2.5
-			} else if ([ data ] >= 81 && [ data ] <= 119) {	
-				$("#progressController").val(([ data ] -80) * 2.5); //1당 2.5
-			} else if ([ data ] >= 121 && [ data ] <= 179) {	
-				$("#progressController").val(([ data ] -120) * 1.66); //1당 1.66
-			} else if ([ data ] >= 181 && [ data ] <= 239) {	
-				$("#progressController").val(([ data ] -180) * 1.66); //1당 1.66
-			} else if ([ data ] >= 241 && [ data ] <= 319) {	
-				$("#progressController").val(([ data ] -240) * 1.25); //1당 1.25
-			} else if ([ data ] >= 321) {	
-				$("#progressController").val(100);
-			} else {
-			}	
+			$("meter").val([ data ]);
+			
 			console.log("ajax 결과값 " + data);
 			
-			var $pc = $('#progressController');
-			var $pCaption = $('.progress-bar p');
-			var iProgress = document.getElementById('inactiveProgress');
-			var aProgress = document.getElementById('activeProgress');
-			var iProgressCTX = iProgress.getContext('2d');
-
-
-			drawInactive(iProgressCTX);
-
-			$pc.on('change', function(){
-				var percentage = $(this).val() / 100;
-				console.log(percentage + '%');
-				drawProgress(aProgress, percentage, $pCaption);
-			});
-
-			function drawInactive(iProgressCTX){
-				iProgressCTX.lineCap = 'square';
-
-				//outer ring
-				iProgressCTX.beginPath();
-				iProgressCTX.lineWidth = 15;
-				iProgressCTX.strokeStyle = '#e1e1e1';
-				iProgressCTX.arc(137.5,137.5,129,0,2*Math.PI);
-				iProgressCTX.stroke();
-
-				//progress bar
-				iProgressCTX.beginPath();
-				iProgressCTX.lineWidth = 0;
-				iProgressCTX.fillStyle = '#e6e6e6';
-				iProgressCTX.arc(137.5,137.5,121,0,2*Math.PI);
-				iProgressCTX.fill();
-
-				//progressbar caption
-				iProgressCTX.beginPath();
-				iProgressCTX.lineWidth = 0;
-				iProgressCTX.fillStyle = '#fff';
-				iProgressCTX.arc(137.5,137.5,100,0,2*Math.PI);
-				iProgressCTX.fill();
-
-			}
-			function drawProgress(bar, percentage, $pCaption){
-				var barCTX = bar.getContext("2d");
-				var quarterTurn = Math.PI / 2;
-				var endingAngle = ((2*percentage) * Math.PI) - quarterTurn;
-				var startingAngle = 0 - quarterTurn;
-
-				bar.width = bar.width;
-				barCTX.lineCap = 'square';
-
-				barCTX.beginPath();
-				barCTX.lineWidth = 20;
-				barCTX.strokeStyle = '#76e1e5';
-				barCTX.arc(137.5,137.5,111,startingAngle, endingAngle);
-				barCTX.stroke();
-
-				$pCaption.text( (parseInt(percentage * 100, 10)) + '%');
-				
-			}
-
-				var percentage = $pc.val() / 100;
-				drawProgress(aProgress, percentage, $pCaption);
 		}
-	});
+	});*/
 	
 
 

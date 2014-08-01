@@ -93,27 +93,27 @@ public class WebtoonService {
 	}
 
 	// 7.18 영규꺼
-	public List<WebtoonVO> getReadToon(long users_facebookID_pk) {
+	public List<WebtoonVO> getReadToon(long users_facebookID_pk, String num) {
 		MySqlDAOFactory mysqlFactory = new MySqlDAOFactory();
 		WebtoonDAO webtoonDAO = mysqlFactory.getWebtoonsDAO();
 
-		return webtoonDAO.findReadToon(users_facebookID_pk);
+		return webtoonDAO.findReadToon(users_facebookID_pk, num);
 	}
 
 	// 7.18 영규꺼
-	public List<WebtoonVO> getNewToon() {
+	public List<WebtoonVO> getNewToon(String num) {
 		MySqlDAOFactory mysqlFactory = new MySqlDAOFactory();
 		WebtoonDAO webtoonDAO = mysqlFactory.getWebtoonsDAO();
 
-		return webtoonDAO.findNewToon();
+		return webtoonDAO.findNewToon(num);
 	}
 
 	// 7.18 영규꺼
-	public List<WebtoonVO> getWishList(long users_facebookID_pk) {
+	public List<WebtoonVO> getWishList(long users_facebookID_pk, String num) {
 		MySqlDAOFactory mysqlFactory = new MySqlDAOFactory();
 		WebtoonDAO webtoonDAO = mysqlFactory.getWebtoonsDAO();
 
-		return webtoonDAO.findWishList(users_facebookID_pk);
+		return webtoonDAO.findWishList(users_facebookID_pk, num);
 	}
 
 	// 2014.7.16 bj 모든 웹툰 가져오기
@@ -146,6 +146,74 @@ public class WebtoonService {
 		WebtoonDAO webtoonDAO = mysqlDAOFactory.getWebtoonsDAO();
 
 		 webtoonDAO.addWebtoon(webtoonVO);
+	}
+	
+	
+	// 7.31 영규 유저 등급, 카운트 정보 가져오기
+	public double[] getWebtoonCount(long users_facebookID_pk) {
+		MySqlDAOFactory mysqlDAOFactory = new MySqlDAOFactory();
+		WebtoonDAO webtoonDAO = mysqlDAOFactory.getWebtoonsDAO();
+		double[] allInfo = new double[3];
+		double userGrade = 1.0;
+		
+		double readWebtoonCount = webtoonDAO.getReadWebtoonCount(users_facebookID_pk);
+		double allWebtoonCount= webtoonDAO.getAllWebtoonCount();
+		
+		double wholeExperiencePoint = (readWebtoonCount / allWebtoonCount) * 100;
+		double userExperiencePoint = 0.0;
+		
+		//모든 웹툰 카운트 대비 읽은 웹툰 카운트
+		// 유저 경험치 계산 공식 : ((전체 대비 내가 읽은 웹툰[%] - 등급 구간 최소치[%]) / 등급 구간 차이[%]) * 100
+		
+		if(readWebtoonCount >= 10 && wholeExperiencePoint < 5.0) {
+			userGrade = 2.0;
+		} else if(wholeExperiencePoint >= 5.0 && wholeExperiencePoint < 10.0) {
+			userExperiencePoint = ((wholeExperiencePoint - 5.0) / 4.999999999999999) * 100;
+			userGrade = 3.0;
+		} else if(wholeExperiencePoint >= 10.0 && wholeExperiencePoint < 15.5) {
+			userExperiencePoint = ((wholeExperiencePoint - 10.0) / 5.499999999999999) * 100;
+			System.out.println(userExperiencePoint + "경험치 는");
+			userGrade = 4.0;
+		} else if(wholeExperiencePoint >= 15.5 && wholeExperiencePoint < 21.0) {
+			userExperiencePoint = ((wholeExperiencePoint - 15.5) / 5.499999999999999) * 100;
+			userGrade = 5.0;
+		} else if(wholeExperiencePoint >= 21.0 && wholeExperiencePoint < 27.5) {
+			userExperiencePoint = ((wholeExperiencePoint - 21.0) / 6.499999999999999) * 100;
+			userGrade = 6.0;
+		} else if(wholeExperiencePoint >= 27.5 && wholeExperiencePoint < 34.0) {
+			userExperiencePoint = ((wholeExperiencePoint - 27.5) / 6.499999999999999) * 100;
+			userGrade = 7.0;
+		} else if(wholeExperiencePoint >= 34.0 && wholeExperiencePoint < 42.0) {
+			userExperiencePoint = ((wholeExperiencePoint - 34.0) / 7.999999999999999) * 100;
+			userGrade = 8.0;
+		} else if(wholeExperiencePoint >= 42.0 && wholeExperiencePoint < 50.0) {
+			userExperiencePoint = ((wholeExperiencePoint - 42.0) / 7.999999999999999) * 100;
+			userGrade = 9.0;
+		} else if(wholeExperiencePoint >= 50.0 && wholeExperiencePoint < 60.0) {
+			userExperiencePoint = ((wholeExperiencePoint - 50.0) / 9.999999999999999) * 100;
+			userGrade = 10.0;
+		} else if(wholeExperiencePoint >= 60.0 && wholeExperiencePoint < 70.0) {
+			userExperiencePoint = ((wholeExperiencePoint - 60.0) / 9.999999999999999) * 100;
+			userGrade = 11.0;
+		} else if(wholeExperiencePoint >= 70.0 && wholeExperiencePoint < 82.5) {
+			userExperiencePoint = ((wholeExperiencePoint - 70.0) / 12.499999999999999) * 100;
+			userGrade = 12.0;
+		} else if(wholeExperiencePoint >= 82.5 && wholeExperiencePoint < 95.0) {
+			userExperiencePoint = ((wholeExperiencePoint - 82.5) / 12.499999999999999) * 100;
+			userGrade = 13.0;
+		} else if(wholeExperiencePoint >= 95.0) {
+			userExperiencePoint = 100.0;
+			userGrade = 14.0;
+		}
+		
+		//유저가 읽은 웹툰 카운트
+		allInfo[0] = readWebtoonCount;
+		//카운트 계산 경험치
+		allInfo[1] = userExperiencePoint;
+		//계산된 유저 등급
+		allInfo[2] = userGrade;
+		
+		return allInfo;
 	}
 	
 }

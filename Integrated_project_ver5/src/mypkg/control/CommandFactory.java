@@ -48,6 +48,10 @@ public class CommandFactory {
 		case "/mypageNewWebtoon":
 			target = new MypageCommand();
 			break;
+			
+		case "/mypage":
+			target = new MypageCommand();
+			break;
 
 		case "/chart":
 			target = new ChartCommand();

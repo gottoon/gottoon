@@ -1,4 +1,5 @@
 @CHARSET "UTF-8";
+@import url('http://fonts.googleapis.com/earlyaccess/nanumgothic.css');
 
 [role="main"] {
 	padding-top: 1rem;
@@ -8,8 +9,9 @@
 .page {
 	background-color: #fff;
 	color: #333;
-	padding: 10px;
+	padding-top: 10px;
 	position: relative;
+	font-family: "Nanum Gothic";
 }
 
 .contents {
@@ -43,17 +45,21 @@
 
 .gallery-item .vcard .photo {
 	width: 100%;
+	border-radius: 4px;
+	border-bottom: 1px solid #F3F3F5;
 }
 
 input.btn.btn-primary.btn-lg {
 	width: 100%;
 	border-radius: 0;
+	background-color: white;
+	border-color: gray;
+	color: black;
 	
 }
 .nav-pills>li+li {
 	margin-left: 0px;
 }
-
 
 h1,h2 {
 	text-align: center;
@@ -94,6 +100,7 @@ div#title {
 
 div#image {
 	width: 100%;
+	font-size: 0;
 	/* float : left; */
 }
 
@@ -102,24 +109,14 @@ div#desc {
 	/* margin-bottom: 30px; */
 }
 
-/* 큰화면에서 테스트 */
-@media all and (min-width: 1800px) {
-	body {
-		font-size: 25px;
-		font-size: 1.125rem;
-	}
-	.gallery .gallery-item {
-		width: 15%;
-	}
-}
 
-@media all and (min-width: 1200px) and (max-width: 1799px) {
+@media all and (min-width: 1200px){
 	body {
 		font-size: 20px;
 		font-size: 1.125rem;
 	}
 	.gallery .gallery-item {
-		/* width: 18%; */
+		width: 18%;
 		width: 220px;
 	}
 }
@@ -130,7 +127,7 @@ div#desc {
 		font-size: 1.125rem;
 	}
 	.gallery .gallery-item {
-		/* width: 18%; */
+		width: 18%;
 		width: 220px;
 	}
 }
@@ -141,7 +138,7 @@ div#desc {
 		font-size: 1.125rem;
 	}
 	.gallery .gallery-item {
-		/* width: 20%; */
+		width: 20%;
 		width: 230px;
 	}
 	.gallery-item .vcard {
@@ -155,7 +152,7 @@ div#desc {
 		font-size: 1.125rem;
 	}
 	.gallery .gallery-item {
-		/* width: 30%; */
+		width: 30%;
 		width: 250px;
 	}
 	.gallery-item .vcard {
@@ -169,7 +166,7 @@ div#desc {
 		font-size: 1.125rem;
 	}
 	.gallery .gallery-item {
-		/* width: 30%; */
+		width: 30%;
 		width: 200px;
 	}
 	.gallery-item .vcard {
@@ -197,32 +194,51 @@ div#desc {
 	.gallery-item.vcard {
 		width: 198px;
 	}
-}
+} 
 
-@media all and (max-width: 517px) {
+/* 가로 사이즈  */
+@media all and (min-width: 302px) and (max-width: 517px) {
 	.gallery-item {
-		/* width: 90%; */
-		width: 400px;
-		margin-bottom: 20px;
+		width: 90%;
+		margin-bottom: 10px;
 	}
 	.gallery-item .vcard {
-		/* width: 100%; */
-		width: 398px;
-		height: 145px;
+		width: 100%;
+		height: 100%;
 	}
 	
 	div#image {
-		/* width: 45%; */
-		width: 180px;
-		height: 145px;
+		width: 45%;
+		height: 45%;
 		float: left;
 	}
 	
-	div#title{
-		height: 60px;
+	div#title {
+		height: 67px;
 		margin-top: 0px;
 		margin-bottom: 10px;
 		margin-left: 0px;
 		margin-right: 0px;	
+		float: left;
+		width: 55%;
+	}
+	
+	div#desc {
+	float: left;
+	width: 55%;
 	}
 }
+
+/* 가로 사이즈 별, 글자  */
+@media all and (min-width: 396px) and (max-width: 476px) {
+	div#title {
+		height: 60px;
+	}
+}
+
+@media all and (min-width: 302px) and (max-width: 395px) {
+	div#title {
+		height: 50px;
+	}
+}
+	
