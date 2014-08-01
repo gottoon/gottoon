@@ -3,9 +3,77 @@
 nav {
 	display: block;
 }
+#keywords form{
+	width:5%;
+	display:inline-block;
+	margin:5px;
+}
 #keywords {
 	margin-left:auto;
 	margin-right:auto;
 	display: block;
 	width: 80%;
+}
+#keywords li{
+	display:inline-block;
+}
+
+button{
+	
+	border:1px solid lightgrey;
+	background:none;
+}
+form button:hover{
+	background-color:#3b5998;
+	color:white;
+	font-size:1.7em;
+}
+
+
+.inputDiv {
+	margin: 4px;
+	border-radius: 4px;
+	background-color: #8b9dc3;
+	border: 1px solid #3b5998;
+	float: left;
+	box-shadow: 1px 1px 1px black;
+}
+
+.modal-body {
+	height: auto;
+}
+
+#keywords {
+	height: auto;
+}
+
+.inputDiv:hover {
+	background: #CC3333;
+}
+
+.inputDiv label {
+	float: left;
+	width: 8em;
+	height:50px;
+	margin-bottom: 0;
+}
+
+.inputDiv label span {
+	margin-left:10px;
+	text-align: center;
+	padding: 3px 0px;
+	display: block;
+	height: 30px;
+	border-radius: 3px;
+}
+
+.inputDiv label input {
+	position: absolute;
+	display: inline-block;
+	height: 30px;
+}
+
+.inputDiv input:checked+span {
+	background-color: #CC3333;
+	color: #fff;
 }

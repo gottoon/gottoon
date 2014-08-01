@@ -63,9 +63,9 @@ $(document)
 
 															$('#webtoons')
 																	.append(
-																			' <div class="checkbox"><label><input type="checkbox">'
-																					+ webtoonTitle
-																					+ '</label></div>'
+																			' <div class="col-md-3"><div class="inputDiv"><label><input class="inputbox" type="checkbox"><span>'
+																			+ webtoonTitle
+																			+ '</span></label></div></div>'
 																	);
 															$(
 																	'.ck-button input')

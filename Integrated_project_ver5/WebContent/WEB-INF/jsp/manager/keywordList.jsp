@@ -72,19 +72,20 @@
 	<br />
 
 	<section id=keywords>
-		<c:forEach var="keyword" items="${allKeywords}">
-
-			<form>
-				<input type="hidden" name="keywords_id_pk"
-					value="<c:out value='${keyword.keywords_id_pk}'></c:out>">
-				<button class="keywordBtn" data-toggle="modal"
-					data-target="#myModal2">
-					<c:out value='${keyword.keywords_name}'></c:out>
-				</button>
-			</form>
-
-		</c:forEach>
-
+		<ul>
+			<c:forEach var="keyword" items="${allKeywords}">
+				<li>
+					<form>
+						<input type="hidden" name="keywords_id_pk"
+							value="<c:out value='${keyword.keywords_id_pk}'></c:out>">
+						<button class="keywordBtn" data-toggle="modal"
+							data-target="#myModal2">
+							<c:out value='${keyword.keywords_name}'></c:out>
+						</button>
+					</form>
+				</li>
+			</c:forEach>
+		</ul>
 
 	</section>
 
@@ -104,9 +105,13 @@
 				<br />
 				<div class="modal-body">
 					<section id=webtoons></section>
-<button type="button" class="btn btn-primary" data-dismiss="modal">Save changes</button>
-				</div>
 
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-primary" id="confirmModalSave"
+						data-dismiss="modal">Save changes</button>
+
+				</div>
 			</div>
 		</div>
 	</div>

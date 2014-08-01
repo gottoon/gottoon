@@ -1,11 +1,11 @@
 @CHARSET "UTF-8";
 
-@media screen and ( min-width: 360px ) {
+@media screen and ( max-width: 360px ) {
 	.carousel-inner p {
 		font-size: 2em;
 	}
 	.talkbox {
-		height: 80px;
+		height: 100px;
 	}
 	.talkbox:before {
 		left: 140px;
@@ -20,7 +20,12 @@
 		height: 350px;
 	}
 	.carousel-inner {
-		height: 350px;
+		height: 320px;
+	}
+	.carousel-caption {
+		color: white;
+		margin-bottom: 200px;
+		text-align: right;
 	}
 }
 
@@ -48,7 +53,7 @@
 	}
 	.carousel-caption {
 		color: white;
-		margin-bottom: 500px;
+		margin-bottom: 400px;
 		text-align: right;
 	}
 }

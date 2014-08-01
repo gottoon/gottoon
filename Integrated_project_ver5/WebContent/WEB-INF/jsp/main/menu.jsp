@@ -232,7 +232,6 @@
 
 		$('#managerBtn').click(function(event) {
 			if (userGrade >= 10) {
-				alert('하');
 
 			} else {
 				alert('레벨 10 이상만 들어갈수 있어요 !');
