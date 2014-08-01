@@ -1,0 +1,281 @@
+strong, b {
+	font-weight: bold;
+}
+
+em, i {
+	font-style: italic;
+}
+
+/** page structure **/
+#content {
+	max-width: 100%;
+}
+
+header {
+	position: fixed;
+	top: 0px;
+	display: block;
+	width: 100%;
+	height: 70px;
+	background: #3b5998;
+	padding: 0 10px;
+	margin-bottom: 3px;
+	z-index: 50;
+}
+
+#navbar {
+	max-width: 100%;
+	margin: 0 auto;
+	z-index: 50;
+}
+
+.menubtn {
+	width: 100px;
+	position: relative;
+	z-index: 101;
+	text-decoration: none;
+	font-size: 0em;
+	line-height: 0em;
+	top: 5px;
+	padding: 2px;
+}
+
+.menubtn img {
+	width: 80px;
+	height: 50px;
+	-webkit-filter: invert(100%);
+	filter: invert(100%);
+}
+
+.menubtn:hover, .openmenu .menubtn {
+	color: white;
+	-webkit-filter: invert(100%);
+	filter: invert(100%);
+	content: url("../img/menu/afterMenu.png");
+	width: 80px;
+	height: 50px;
+}
+
+/** toggle menu **/
+body.openmenu {
+	position: fixed;
+	overflow: hidden;
+}
+
+#pgcontainer {
+	padding: 0 0;
+	margin: 0;
+}
+
+.overlay {
+	position: fixed;
+	z-index: 99;
+	background-color: rgba(0, 0, 0, 0.5);
+	bottom: 0;
+	right: 0;
+	left: 0;
+}
+
+.openmenu .overlay {
+	top: 0;
+}
+
+#hamburgermenu {
+	height: 100%;
+	width: 0;
+	position: fixed;
+	top: 0;
+	left: 0;
+	z-index: 101;
+	overflow: hidden;
+	-webkit-box-shadow: 3px 0 7px rgba(0, 0, 0, 0.55);
+	-moz-box-shadow: 3px 0 7px rgba(0, 0, 0, 0.55);
+	box-shadow: 3px 0 7px rgba(0, 0, 0, 0.55);
+	background-color: #8b9dc3;
+}
+
+#hamburgermenu ul {
+	z-index: 101;
+	overflow-y: auto;
+	overflow-x: hidden;
+}
+
+#hamburgermenu ul li {
+	display: block;
+	border-top: 1px solid white;
+	margin-top: 2px;
+}
+
+#hamburgermenu ul li a {
+	display: block;
+	min-width: 200px;
+	padding: 18px 8px;
+	font-size: 1.45em;
+	text-decoration: none;
+	text-align: center;
+}
+
+#hamburgermenu li p:hover {
+	text-shadow: 0.5px 0.5px 0.5px white;
+}
+
+#hamburgermenu li button {
+	border: none;
+	width: 100%;
+	height: 60px;
+	background-position: left 20px;
+	background-size: 20% 55%;
+	background-repeat: no-repeat;
+	background-color: #8b9dc3;
+}
+
+#hamburgermenu button img {
+	width: 40px;
+	height: 30px;
+	background-color: red;
+	display: inline-block;
+	border: 1px solid black;
+}
+
+#hamburgermenu button p {
+	font-size: 1.3em;
+	text-align: right;
+	margin-left: 75px;
+	text-align: right;
+	color: white;
+}
+
+#homeBtn {
+	background: url('../img/menu/beforeHome.png');
+}
+
+#homeBtn : hover {
+	background: url('../img/menu/afterHome.png');
+}
+
+#recommendBtn {
+	background-image: url('../img/menu/beforeRecommend.png');
+}
+
+#recommendBtn:hover {
+	background-image: url('../img/menu/afterRecommend.png');
+}
+
+#mypageBtn {
+	background-image: url('../img/menu/beforeMypage.png');
+}
+
+#mypageBtn:hover {
+	background-image: url('../img/menu/afterMypage.png');
+}
+
+#genreBtn {
+	background-image: url('../img/menu/beforeExplorer.png');
+}
+
+#genreBtn:hover {
+	background-image: url('../img/menu/afterExplorer.png');
+}
+
+#managerBtn {
+	background-image: url('../img/menu/beforeManager.png');
+}
+
+#managerBtn:hover {
+	background-image: url('../img/menu/afterManager.png');
+}
+
+#logoutBtn {
+	background-image: url('../img/menu/beforeLogout.png');
+}
+
+#logoutBtn:hover {
+	background-image: url('../img/menu/afterLogout.png');
+}
+
+#moreBtn {
+	background-image: url('../img/menu/beforeMore.png');
+}
+
+#moreBtn:hover {
+	background-image: url('../img/menu/afterMore.png');
+}
+
+#goGenreModal {
+	display: none;
+	position: fixed;
+	top: 50%;
+	left: 50%;
+	width: 500px;
+	line-height: 200px;
+	height: 500px;
+	margin-left: -150px;
+	margin-top: -100px;
+	background-color: rgba(0, 0, 0, 0.5);
+	text-align: center;
+	color: black;
+	/* needed styles for the overlay */
+	z-index: 100; /* keep on top of other elements on the page */
+	outline: 9999px solid rgba(0, 0, 0, 0.5);
+}
+
+#goGenreModal button {
+	width: 200px;
+	height: 120px;
+	margin-top: 40px;
+	margin-right: 205px;
+	text-align: center;
+	font-size: 18px;
+	border: none;
+	background-position: left 5px;
+	background-size: 100% 70%;
+	background-repeat: no-repeat;
+	background-color: white;
+	background-image: url('../img/menu/beforeExplorer.png');
+	box-shadow: 2px 2px 2px grey;
+	border-radius: 25px;
+}
+
+#goGenreModal button:hover {
+	width: 180px;
+	height: 110px;
+/* 	box-shadow: 2px 2px 2px grey;
+ */	background-image: url('../img/menu/afterExplorer.png');
+}
+
+#wait {
+	position: fixed;
+	top: 50%;
+	left: 50%;
+	width: 300px;
+	line-height: 200px;
+	height: 200px;
+	margin-left: -150px;
+	margin-top: -100px;
+	text-align: center;
+	/* needed styles for the overlay */
+	z-index: 100; /* keep on top of other elements on the page */
+/* 	outline: 9999px solid rgba(0, 0, 0, 0.5);
+ */}
+
+#userInfo {
+	position: fixed;
+	top: 0px;
+	right: 30px;
+}
+
+#userInfo li {
+	display: inline-block;
+	margin-left: 5px;
+}
+
+#welcomeUser {
+	color: white;
+}
+
+#userImg {
+	width: 50px;
+	border: 2px solid white;
+	box-shadow: 2px 2px 2px black;
+	border-radius: 30px;
+}
