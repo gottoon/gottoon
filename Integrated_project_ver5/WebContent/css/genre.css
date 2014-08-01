@@ -1,502 +1,350 @@
-@import url(http://fonts.googleapis.com/earlyaccess/nanumpenscript.css);
- 
- input[id="cb1"] + label {
-        display: inline-block;
-        width: 200px;
-        height: 300px;
-         background: url(../img/genreImg/SF.png);
-        border-radius: 5px;
-        cursor: pointer;
-        background-size: cover;
-        border: 1px solid #fff;
-		box-shadow: 2px 2px 2px #888;
-      }
- input[id="cb1"]:checked + label {
-         background: url(../img/genreImg/SF1.png) ;
-         background-size: cover;
-      }
- input[id="cb1"] {
-        display: none;
-      }
- input[id="cb2"] + label {
-        display: inline-block;
-        width: 200px;
-        height: 300px;
-         background: url(../img/genreImg/comic.png);
-           border-radius: 5px;
-        cursor: pointer;
-        background-size: cover;
-        border: 1px solid #fff;
-		box-shadow: 2px 2px 2px #888;
-      }
- input[id="cb2"]:checked + label {
-         background: url(../img/genreImg/comic1.png) ;
-         background-size: cover;
-      }
- input[id="cb2"] {
-        display: none;
-      }
-      input[id="cb3"] + label {
-        display: inline-block;
-      width: 200px;
-        height: 300px;
-         background: url(../img/genreImg/fear.png);
-          border-radius: 5px;
-        cursor: pointer;
-        background-size: cover;
-        border: 1px solid #fff;
-		box-shadow: 2px 2px 2px #888;
-      }
- input[id="cb3"]:checked + label {
-         background: url(../img/genreImg/fear1.png) ;
-         background-size: cover;
-      }
- input[id="cb3"] {
-        display: none;
-      }
-      input[id="cb4"] + label {
-        display: inline-block;
-        width: 200px;
-        height: 300px;
-         background: url(../img/genreImg/drama.png);
-           border-radius: 5px;
-        cursor: pointer;
-        background-size: cover;
-        border: 1px solid #fff;
-		box-shadow: 2px 2px 2px #888;
-      }
- input[id="cb4"]:checked + label {
-         background: url(../img/genreImg/drama1.png) ;
-         background-size: cover;
-      }
- input[id="cb4"] {
-        display: none;
-      }
-      input[id="cb5"] + label {
-        display: inline-block;
-        width: 200px;
-        height: 300px;
-         background: url(../img/genreImg/romance.png);
-          border-radius: 5px;
-        cursor: pointer;
-        background-size: cover;
-        border: 1px solid #fff;
-		box-shadow: 2px 2px 2px #888;
-      }
- input[id="cb5"]:checked + label {
-         background: url(../img/genreImg/romance1.png) ;
-         background-size: cover;
-      }
- input[id="cb5"] {
-        display: none;
-      }
-      input[id="cb6"] + label {
-        display: inline-block;
-        width: 200px;
-        height: 300px;
-         background: url(../img/genreImg/thriller.png);
-           border-radius: 5px;
-        cursor: pointer;
-        background-size: cover;
-        border: 1px solid #fff;
-		box-shadow: 2px 2px 2px #888;
-      }
- input[id="cb6"]:checked + label {
-         background: url(../img/genreImg/thriller1.png) ;
-         background-size: cover;
-      }
- input[id="cb6"] {
-        display: none;
-      }
-      input[id="cb7"] + label {
-        display: inline-block;
-        width: 200px;
-        height: 300px;
-         background: url(../img/genreImg/sports.png);
-           border-radius: 5px;
-        cursor: pointer;
-        background-size: cover;
-        border: 1px solid #fff;
-		box-shadow: 2px 2px 2px #888;
-      }
- input[id="cb7"]:checked + label {
-         background: url(../img/genreImg/sports1.png) ;
-         background-size: cover;
-      }
- input[id="cb7"] {
-        display: none;
-      }
-      input[id="cb8"] + label {
-        display: inline-block;
-       width: 200px;
-        height: 300px;
-         background: url(../img/genreImg/action.png);
-           border-radius: 5px;
-        cursor: pointer;
-        background-size: cover;
-        border: 1px solid #fff;
-		box-shadow: 2px 2px 2px #888;
-      }
- input[id="cb8"]:checked + label {
-         background: url(../img/genreImg/action1.png) ;
-         background-size: cover;
-      }
- input[id="cb8"] {
-        display: none;
-      }
-      input[id="cb9"] + label {
-        display: inline-block;
-      width: 200px;
-        height: 300px;
-         background: url(../img/genreImg/daily.png);
-          border-radius: 5px;
-        cursor: pointer;
-        background-size: cover;
-        border: 1px solid #fff;
-		box-shadow: 2px 2px 2px #888;
-      }
- input[id="cb9"]:checked + label {
-         background: url(../img/genreImg/daily1.png) ;
-         background-size: cover;
-      }
- input[id="cb9"] {
-        display: none;
-      }
-      input[id="cb10"] + label {
-        display: inline-block;
-        width: 200px;
-        height: 300px;
-         background: url(../img/genreImg/fantasy.png);
-           border-radius: 5px;
-        cursor: pointer;
-        background-size: cover;
-        border: 1px solid #fff;
-		box-shadow: 2px 2px 2px #888;
-      }
- input[id="cb10"]:checked + label {
-         background: url(../img/genreImg/fantasy1.png) ;
-         background-size: cover;
-      }
- input[id="cb10"] {
-        display: none;
-      }
-/* 마우스 오버일때  */
-/* .viewport {
-	border: 3px solid #eee;
-	float: left;
-	height: 299px;
-	margin: 0 9px 9px 0;
-	overflow: hidden;
-	position: relative;
-	width: 206px;
-	
-	
-	margin: 4px;
-border-radius: 4px;
-background-color: #8b9dc3;
-border: 1px solid #3b5998;
-float: left;
-box-shadow: 1px 1px 1px black;
-}
-    .viewport label {
-float: left;
-width: 7em;
-margin-bottom: 0;
-}
-    label.la {
-display: inline-block;
-max-width: 100%;
-margin-bottom: 5px;
-font-weight: 700;
-}
-        .viewport label input {
-position: absolute;
-display: inline-block;
-height: 30px;
-}
-      .viewport label span {
-text-align: center;
-padding: 3px 0px;
-display: block;
-height: 30px;
-border-radius: 3px;
-}
-        .viewport:hover {
-background: #CC3333;
+label{
+	width:100%;
+	height:280px;
 }
 
-.viewport a {
-	display: block;
-	position: relative;
+
+input[id="cb1"] + label {
+	display: inline-block;
+	background: url(../img/genreImg/SF.png);
+	border-radius: 5px;
+	cursor: pointer;
+	background-size: cover;
+	border: 1px solid #fff;
+	box-shadow: 2px 2px 2px #888;
 }
-.viewport a img {
-	height: 332px;
-	left: -20px;
-	position: relative;
-	top: -20px;
-	width: 500px;
+input[id="cb1"]:checked + label {
+	background: url(../img/genreImg/SF1.png);
+	background-size: cover;
 }
---- Label configuration --------------------------------------------------------------
-.viewport a span {
+input[id="cb1"] {
 	display: none;
-	font-size: 3.0em;
-	font-weight: bold;
-	height: 100%;
-	padding-top: 120px;
-	position: absolute;
-	text-align: center;
-	text-decoration: none;
-	width: 100%;
-	z-index: 100;
 }
-.viewport a span em {
-	display: block;
-	font-size: 0.45em;
-	font-weight: normal;
+input[id="cb2"] + label {
+	display: inline-block;
+	background: url(../img/genreImg/comic.png);
+	border-radius: 5px;
+	cursor: pointer;
+	background-size: cover;
+	border: 1px solid #fff;
+	box-shadow: 2px 2px 2px #888;
 }
---- Dark hover background ------------------------------------------------------------
-.dark-background {
-	background-color: rgba(15, 15, 15, 0.6);
-	color: #fff;
-	text-shadow: #000 0px 0px 20px;
+input[id="cb2"]:checked + label {
+	background: url(../img/genreImg/comic1.png);
+	background-size: cover;
 }
-.dark-background em {
-	color: #ccc;
-} */
+input[id="cb2"] {
+	display: none;
+}
+input[id="cb3"] + label {
+	display: inline-block;
+	background: url(../img/genreImg/fear.png);
+	border-radius: 5px;
+	cursor: pointer;
+	background-size: cover;
+	border: 1px solid #fff;
+	box-shadow: 2px 2px 2px #888;
+}
+input[id="cb3"]:checked + label {
+	background: url(../img/genreImg/fear1.png);
+	background-size: cover;
+}
+input[id="cb3"] {
+	display: none;
+}
+input[id="cb4"] + label {
+	display: inline-block;
+	background: url(../img/genreImg/drama.png);
+	border-radius: 5px;
+	cursor: pointer;
+	background-size: cover;
+	border: 1px solid #fff;
+	box-shadow: 2px 2px 2px #888;
+}
+input[id="cb4"]:checked + label {
+	background: url(../img/genreImg/drama1.png);
+	background-size: cover;
+}
+input[id="cb4"] {
+	display: none;
+}
+input[id="cb5"] + label {
+	display: inline-block;
+	background: url(../img/genreImg/romance.png);
+	border-radius: 5px;
+	cursor: pointer;
+	background-size: cover;
+	border: 1px solid #fff;
+	box-shadow: 2px 2px 2px #888;
+}
+input[id="cb5"]:checked + label {
+	background: url(../img/genreImg/romance1.png);
+	background-size: cover;
+}
+input[id="cb5"] {
+	display: none;
+}
+input[id="cb6"] + label {
+	display: inline-block;
+	background: url(../img/genreImg/thriller.png);
+	border-radius: 5px;
+	cursor: pointer;
+	background-size: cover;
+	border: 1px solid #fff;
+	box-shadow: 2px 2px 2px #888;
+}
+input[id="cb6"]:checked + label {
+	background: url(../img/genreImg/thriller1.png);
+	background-size: cover;
+}
+input[id="cb6"] {
+	display: none;
+}
+input[id="cb7"] + label {
+	display: inline-block;
+	background: url(../img/genreImg/sports.png);
+	border-radius: 5px;
+	cursor: pointer;
+	background-size: cover;
+	border: 1px solid #fff;
+	box-shadow: 2px 2px 2px #888;
+}
+input[id="cb7"]:checked + label {
+	background: url(../img/genreImg/sports1.png);
+	background-size: cover;
+}
+input[id="cb7"] {
+	display: none;
+}
+input[id="cb8"] + label {
+	display: inline-block;
+	background: url(../img/genreImg/action.png);
+	border-radius: 5px;
+	cursor: pointer;
+	background-size: cover;
+	border: 1px solid #fff;
+	box-shadow: 2px 2px 2px #888;
+}
+input[id="cb8"]:checked + label {
+	background: url(../img/genreImg/action1.png);
+	background-size: cover;
+}
+input[id="cb8"] {
+	display: none;
+}
+input[id="cb9"] + label {
+	display: inline-block;
+	background: url(../img/genreImg/daily.png);
+	border-radius: 5px;
+	cursor: pointer;
+	background-size: cover;
+	border: 1px solid #fff;
+	box-shadow: 2px 2px 2px #888;
+}
+input[id="cb9"]:checked + label {
+	background: url(../img/genreImg/daily1.png);
+	background-size: cover;
+}
+input[id="cb9"] {
+	display: none;
+}
+input[id="cb10"] + label {
+	display: inline-block;
+	background: url(../img/genreImg/fantasy.png);
+	border-radius: 5px;
+	cursor: pointer;
+	background-size: cover;
+	border: 1px solid #fff;
+	box-shadow: 2px 2px 2px #888;
+}
+input[id="cb10"]:checked + label {
+	background: url(../img/genreImg/fantasy1.png);
+	background-size: cover;
+}
+input[id="cb10"] {
+	display: none;
+}
 
-h1 , h3 ,h4{
+h1, h3, h4 {
 	color: #fff;
 }
-h1.genrefont{
-	margin-top: -50px;
-margin-bottom: 22px;
+h1.genrefont {
+	margin-top: -140px;
+	margin-bottom: 88px;
 	text-align: -webkit-center;
 	font-family: Nanum Gothic;
-	font-size: 45px;
 }
-.h{
+.h {
 	font-family: Nanum Gothic;
-margin-top: 78px;
-margin-bottom: 13px;
-  /* 말풍선 */  
-  position: relative;
-width: 385px;
-height: 70px;
-text-align: center;
-line-height: 70px;
-background-color: #888;
-border: 3px solid #fff;
-border-radius: 5px;
-box-shadow: 1px 1px 3px #888;
-}  
-/* .h:before
-{
-	content: ' ';
-	position: absolute;
-	width: 0;
-	height: 0;
-	left: 30px;
-	top: 100px;
-	border: 25px solid;
-	border-color: #666 transparent transparent #666;
+	margin-top: 78px;
+	margin-bottom: 13px;
+	/* 말풍선 */
+	position: relative;
+	width: 385px;
+	height: 70px;
+	text-align: center;
+	line-height: 70px;
+	background-color: #888;
+	border: 3px solid #fff;
+	border-radius: 5px;
+	box-shadow: 1px 1px 3px #888;
 }
-.h:after
-{
-	content: ' ';
-	position: absolute;
-	width: 0;
-	height: 0;
-	left: 38px;
-	top: 100px;
-	border: 15px solid;
-	border-color: #fff transparent transparent #fff;
-} */
- /* 테이블 */  
+/* 테이블 */
 table.genretable {
-	margin-top: 150px;
-max-width: 98%;
-box-shadow: 0px 0px 8px 1px gray;
-background-color: inherit;
-border-radius: 5px;
-}   
-/* .genretable{
-     margin: auto;
-}  */
-.imgTable{
-	left:200px;
+	margin-top: 80px;
+	margin-right:auto;
+	margin-left:auto;
+	max-width: 100%;
+	box-shadow: 2px 2px 2px 2px lightgray;
+	-webkit-box-shadow: 1px 1px 2px 2px lightgray;
+	border-radius: 5px;
 }
-td#tabletd{
-margin: 5px;
-padding: 10px;	
+
+#tabletd{
+	text-align:center;
+	width:76%;
 }
 .genreimg {
-margin: 15px;
-padding: 1px;
-border: 0;
-font-size: 100%;
-font: inherit;
-vertical-align: baseline;
-outline: none;
--webkit-font-smoothing: antialiased;
--webkit-text-size-adjust: 100%;
--ms-text-size-adjust: 100%;
--webkit-box-sizing: border-box;
--moz-box-sizing: border-box;
-box-sizing: border-box;
-/* box-shadow: -2px 0px 0px 3px #000;
-border-radius: 7px; */
+	margin: 10px;
+	padding: 1px;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+	outline: none;
+	-webkit-font-smoothing: antialiased;
+	-webkit-text-size-adjust: 100%;
+	-ms-text-size-adjust: 100%;
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
 }
 /* 이미지 */
-.kaka{
-padding: 31px;
-margin: 7px;
+.kaka {
+	padding: 31px;
+	margin: 7px;
 }
 /* 버튼 */
 .but {
-/* 	background-color: #3b5998; */
-border-bottom: 4px #fff;	
-margin-top: -75px;
-	 /* border-top: 1px solid #96d1f8; */ 
- 	background: #3366ff; 
-	/* background: -webkit-gradient(linear, left top, left bottom, from(#3e779d),
-		to(#65a9d7)); */
+	margin-left:auto;
+	margin-right:auto;
+	border: 1px solid lightgrey;
+	background: #CC3333;
 	background: -moz-linear-gradient(top, #3e779d, #65a9d7);
 	padding: 4.5px 100px;
 	-webkit-border-radius: 8px;
 	-moz-border-radius: 8px;
 	border-radius: 5px;
-	/* -webkit-box-shadow: rgba(0, 0, 0, 1) 0 1px 0;
-	-moz-box-shadow: rgba(0, 0, 0, 1) 0 1px 0; */
-	box-shadow: rgba(0, 0, 0, 1) 0 1px 0;
-	text-shadow: rgba(0, 0, 0, .4) 0 1px 0;
+	box-shadow: 1px 1px 1px lightgrey;
 	color: white;
 	width: 100%;
-	font-size: 40px;
+	font-size: 2.5em;
 	font-family: Nanum Gothic;
 	text-decoration: none;
 	vertical-align: middle;
 	position: fixed;
+	left: 0px;
+	bottom: 0px;
+	height: 60px;
 }
 
 .but:hover {
-	border-top-color: #28597a;
-	background: red;
-	color: #000;
+	
+	
 }
 
-/* .but:active {
-	border-top-color: #fff;
-	background: #fff;
-} */
 /* 모달 */
 .modalTable {
 	display: none;
-  min-width: 280px;
-  max-width: 320px;
-  width: 500px;
-  min-height: 150px;
-  max-height: 150px;
-  /*height: 350px*/;
-  border-radius: 55px;
-  position: relative;
-  z-index: 667;
-  background: #3366ff;
-  left: 35%;
-  top: -640px;
-box-shadow: 0 0 0 99999px rgba(0, 0, 0, 0.7);
-
+	min-width: 280px;
+	max-width: 320px;
+	width: 500px;
+	min-height: 150px;
+	max-height: 150px;
+	/*height: 350px*/;
+	border-radius: 55px;
+	position: relative;
+	z-index: 667;
+	background: #3366ff;
+	left: 35%;
+	top: -640px;
+	box-shadow: 0 0 0 99999px rgba(0, 0, 0, 0.7);
 }
 .modal1 {
-   margin: 25px;
-padding: 6px;
-border: 1px;
-font-size: 100%;
-font: inherit;
-vertical-align: baseline; 
+	margin: 25px;
+	padding: 6px;
+	border: 1px;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
 }
-.modal1:after 
-{
-content: '';
-position: absolute;
-border-style: solid;
-border-width: 20px 8px 0;
-border-color: #3366ff transparent;
-display: block;
-width: 0;
-z-index: 1;
-bottom: -20px;
-left: 113px;
+.modal1:after {
+	content: '';
+	position: absolute;
+	border-style: solid;
+	border-width: 20px 8px 0;
+	border-color: #3366ff transparent;
+	display: block;
+	width: 0;
+	z-index: 1;
+	bottom: -20px;
+	left: 113px;
 }
 
-.modal1:before 
-{
-content: '';
-position: absolute;
-border-style: solid;
-border-width: 21px 9px 0;
-border-color: #000000 transparent;
-display: block;
-width: 0;
-z-index: 0;
-bottom: -23px;
-left: 113px;
+.modal1:before {
+	content: '';
+	position: absolute;
+	border-style: solid;
+	border-width: 21px 9px 0;
+	border-color: #000000 transparent;
+	display: block;
+	width: 0;
+	z-index: 0;
+	bottom: -23px;
+	left: 113px;
 }
 /* 모달 취소 버튼 */
 input.close {
-float: initial;
-font-size: 21px;
-font-weight: bold;
-line-height: 1;
-color: #000;
-text-shadow: 0 1px 0 #fff;
-opacity: .2;
+	float: initial;
+	font-size: 21px;
+	font-weight: bold;
+	line-height: 1;
+	color: #000;
+	text-shadow: 0 1px 0 #fff;
+	opacity: .2;
 }
 /* 왔다갔다 크기별로 */
-@media screen and (max-width:401px) {
+@media screen and (max-width: 401px) {
 	.genreimg {
-		width : 50%;
-		float:left;
+		width: 90%;
+		float: left;
 	}
 	.sub {
-	width : 100%;
+		width: 100%;
 	}
-	
+
 }
 
-@media screen and (min-width:402px) and (max-width:990px) {
+@media screen and (min-width: 402px) and (max-width: 990px) {
 	.genreimg {
-		width : 25%;
-		float:left;
-		
+		width: 25%;
+		float: left;
 	}
 	.sub {
-	width : 100%;
-/* 	padding-top : 186px;
-		bottom : 253px; */
+		width: 100%;
 	}
-	
-	
+
 }
 
-@media screen and (min-width:991px) {
+@media screen and (min-width: 991px) {
 	.genreimg {
-		width : 17%;
-		float:left;
-		height: 298px;
+		width: 18%;
+		float: left;
+		height: 300px;
 	}
 	.sub {
-	width : 100%;
-	
+		width: 100%;
 	}
-	
+
 }
 
-
-/*   @media screen and (max-width: 768px) {
-      .genretable {
-          table-layout: fixed;
-          word-wrap: normal|break-word|initial|inherit;
-              width: 300px;
-               columns: 3px;
-      }
-  } */

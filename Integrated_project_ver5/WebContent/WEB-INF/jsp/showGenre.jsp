@@ -36,8 +36,7 @@
 			</div>
 
 			<table border='1' cellpadding='6' class="genretable" align="center">
-				<tr>
-					<!-- <table class ="imgTable"> -->
+				<tr >
 					<td id="tabletd">
 					
 						<div class="genreimg">
