@@ -71,17 +71,13 @@ $(document).ready(function() {
 			success : function(data) {
 				$("#gauge").hide();
 				$("#progressController").hide();
-				console.log("유저 가 본 웹튼 카운트 : "+parseInt(data[0])+" 경험치 : "+data[1]+" 유저 등급 : "+parseInt(data[2]));
+				console.log("유저 가 본 웹튼 카운트 : "+parseInt(data[0])+" 경험치 : "+data[1]+" 유저 등급 : "+parseInt(data[2]) + "등급 업 여부 : " + parseInt(data[3]));
 				
 				toDoCheck();
 				
-				// 계산 바꿔야함
-				// 0~19는 1 
-				// 20~39는 2
-				//최소 20개 2등급
 				if(parseInt(data[2]) == 1) {
 					$("#grade").append(" <b id='level'>1</b>");
-					$(".gradeImg").append('<img src="../img/gradeImg/grade_level2.png" width="200" height="200" border="0">');
+					$(".gradeImg").append('<img src="../img/gradeImg/grade_level1.png" width="200" height="200" border="0">');
 					
 				} else if (parseInt(data[2]) == 2) {	
 					$("#gauge").show();
@@ -97,7 +93,7 @@ $(document).ready(function() {
 					$("#grade").append(" <b id='level'>3</b>");
 					$(".gradeImg").append('<img src="../img/gradeImg/grade_level3.png" width="200" height="200" border="0">');
 					
-				} else if (parseInt(data[2]) == 4 || parseInt(data[2]) == 5) {	
+				} else if (parseInt(data[2]) == 4) {	
 					$("#gauge").show();
 					$("#gauge").val(data[1]); 
 					$("#progressController").val(data[1]); 
@@ -173,6 +169,17 @@ $(document).ready(function() {
 					$("#progressController").val(100);
 					$("#grade").append(" <b id='level'>14</b>");
 					$(".gradeImg").append('<img src="../img/gradeImg/grade_level14.png" width="200" height="200" border="0">');
+				}
+				
+				// 테스트는 0으로 
+				if(parseInt(data[3])== 1) {
+					$('.show-levelup').show(function() {
+						$('.levelup').fadeIn('slow');
+					});
+
+					$('.close').click(function() {
+						$('.show-levelup').fadeOut('slow');
+					});
 				}
 				
 				$("#readWebtoonCount").append(parseInt(data[0]));

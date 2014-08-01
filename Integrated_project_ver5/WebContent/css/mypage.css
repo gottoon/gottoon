@@ -1,5 +1,9 @@
 @CHARSET "UTF-8";
 @import url('http://fonts.googleapis.com/earlyaccess/nanumgothic.css');
+.menubtn {
+position: fixed;
+left: 0;
+}
 
 [role="main"] {
 	padding-top: 1rem;

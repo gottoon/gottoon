@@ -387,7 +387,7 @@ public class WebtoonDAO {
 	public List<WebtoonVO> findNewToon(String num) {
 		Connection conn = null;
 		Statement stmt = null;
-
+		
 		ArrayList<WebtoonVO> newToon = new ArrayList<WebtoonVO>();
 
 		try {
@@ -397,7 +397,7 @@ public class WebtoonDAO {
 			String sqlQuery = String.format("select webtoons_id_pk as webtoonID, webtoons_title as title, webtoons_update_days as days,"
 					+ " webtoons_summary as summary, webtoons_publisher as publisher,"
 					+ " webtoons_url as url from webtoons"
-					+ " where (webtoons_first_update <= curdate()) and (webtoons_first_update + interval 20 day >= curdate() limit %s, 10 ", num);
+					+ " where (webtoons_first_update <= curdate()) and (webtoons_first_update + interval 20 day >= curdate()) limit %s, 10 ", num);
 
 			ResultSet rset = stmt.executeQuery(sqlQuery);
 			while (rset.next()) {

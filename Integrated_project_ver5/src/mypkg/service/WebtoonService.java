@@ -153,7 +153,7 @@ public class WebtoonService {
 	public double[] getWebtoonCount(long users_facebookID_pk) {
 		MySqlDAOFactory mysqlDAOFactory = new MySqlDAOFactory();
 		WebtoonDAO webtoonDAO = mysqlDAOFactory.getWebtoonsDAO();
-		double[] allInfo = new double[3];
+		double[] allInfo = new double[4];
 		double userGrade = 1.0;
 		
 		double readWebtoonCount = webtoonDAO.getReadWebtoonCount(users_facebookID_pk);
@@ -172,7 +172,6 @@ public class WebtoonService {
 			userGrade = 3.0;
 		} else if(wholeExperiencePoint >= 10.0 && wholeExperiencePoint < 15.5) {
 			userExperiencePoint = ((wholeExperiencePoint - 10.0) / 5.499999999999999) * 100;
-			System.out.println(userExperiencePoint + "경험치 는");
 			userGrade = 4.0;
 		} else if(wholeExperiencePoint >= 15.5 && wholeExperiencePoint < 21.0) {
 			userExperiencePoint = ((wholeExperiencePoint - 15.5) / 5.499999999999999) * 100;
