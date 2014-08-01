@@ -1,8 +1,9 @@
-body {
-	overflow : hidden;
+html, body {
+	height: 100%;
+	/* overflow : hidden; */
 }
 
-@media screen and (max-width:401px) {
+@media screen and (max-width:532px) {
 	.webtoon {
 		width : 70%;
 		height : auto;
@@ -23,7 +24,16 @@ body {
 	
 	.product-review-stars label {
 		font-size: 35px;
-		width: 10vw;
+		width: 31px;
+	}
+	
+	.reserve {
+		width : 40%;
+		margin-left: 2%
+	}
+	
+	.view-now {
+		width : 55%;
 	}
 	
 	.image_title {
@@ -35,12 +45,73 @@ body {
 		top: -250px;
 	}
 	
+	.button {
+		height: 38px;
+	}
+	
 	.button:hover {
-		font-size: 4vw;
+		font-size: 12px;
 	}
 }
 
-@media screen and (min-width:402px) and (max-width:990px) {
+@media screen and (min-width:533px) and (max-width:768px) {
+	.webtoon {
+		width : 40%;
+		height : auto;
+		float : left;
+		margin : 2%;
+		margin-left: 6%
+	}
+	
+	.main_image {
+		width : 300px;
+		height : 300px;
+	}
+	
+	.product-review-stars {
+		height : 50px;
+		line-height : 50px;
+		font-size : 2.5vw;
+	}
+	
+	.product-review-stars label {
+		font-size: 40px;
+		width: 35px;
+	}
+	
+	.reserve {
+		width : 40%;
+		margin-left: 1vw;
+	}
+	
+	.view-now {
+		width : 50%;
+	}
+	
+	.image_title {
+		font-size : 2.3vw;
+	}
+	
+	.submit {
+		height : 300px;
+		top: -300px;
+	}
+	
+	.viewfree-nav>li {
+		display: table-cell;
+		width: 1%;
+	}
+	
+	.button {
+		height: 38px;
+	}
+	
+	.button:hover {
+		font-size: 13px;
+	}
+}
+
+@media screen and (min-width:769px) and (max-width:990px) {
 	.webtoon {
 		width : 30%;
 		height : auto;
@@ -61,7 +132,15 @@ body {
 	
 	.product-review-stars label {
 		font-size: 40px;
-		width: 4.5vw;
+		width: 32px;
+	}
+	
+	.reserve {
+		width : 40%;
+	}
+	
+	.view-now {
+		width : 55%;
 	}
 	
 	.image_title {
@@ -78,8 +157,12 @@ body {
 		width: 1%;
 	}
 	
+	.button {
+		height: 39px;
+	}
+	
 	.button:hover {
-		font-size: 2vw;
+		font-size: 15px;
 	}
 }
 
@@ -104,7 +187,11 @@ body {
 	
 	.product-review-stars label {
 		font-size: 34px;
-		width: 3vw;
+		width: 30px;
+	}
+	
+	.reserve, .view-now {
+		width : 50%;
 	}
 	
 	.image_title {
@@ -121,8 +208,12 @@ body {
 		width: 1%;
 	}
 	
+	.button {
+		height: 39px;
+	}
+	
 	.button:hover {
-		font-size: 1.2vw;
+		font-size: 1.1vw;
 	}
 }
 
@@ -287,6 +378,7 @@ h2 {
 	position: relative;
 	margin-left : 30%;
 	margin-bottom : 3%;
+	top: -1px;
 }
 
  .heart label {
@@ -350,17 +442,16 @@ h2 {
 	-webkit-border-radius : 20px;
 	-moz-border-radius : 20px;
 	border-radius : 20px;
-	text-indent:0;
-	border:1px solid #BFBFC4;
+	text-indent: 0;
+	border: 1px solid #BFBFC4;
 	background-color : #ffffff;
-	display:inline-block;
+	display: inline-block;
 	font-family: Nanum Gothic;
 	font-size: 0px;
-	font-weight:bold;
-	font-style:normal;
-	height:40px;
-	line-height:50px;
-	width:80%;
+	font-weight: bold;
+	font-style: normal;
+	line-height: 50px;
+	width: 80%;
 	margin-right : 15%;
 	background-image : url('../img/button/webtoon-view.png');
 	background-repeat : no-repeat;
@@ -384,13 +475,7 @@ h2 {
 	padding : 5px;
 }
 
-.reserve {
-	width : 50%;
-	float : left;
-}
-
-.view-now {
-	width : 50%;
+.reserve, .view-now {
 	float : left;
 }
 
