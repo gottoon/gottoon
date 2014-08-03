@@ -27,7 +27,7 @@ public class Webtoon_Another_Webtoon_Relative_MapsDAO {
 	}
 
 	// soo 웹툰 추천 연관성
-	public int findWebtoonsRelativeRate(int webtoonId, int anotherWebtoonId) {
+	public int getWebtoonsRelativeRate(int webtoonId, int anotherWebtoonId) {
 		int relativeRate = 0;
 		Connection conn = null;
 		Statement stmt = null;

@@ -1,11 +1,10 @@
 package mypkg.dao;
 
 import java.sql.Connection;
-import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
-import java.util.LinkedList;
 import java.util.List;
 
 import javax.naming.InitialContext;
@@ -16,8 +15,6 @@ import javax.sql.DataSource;
 import mypkg.vo.KeywordsVO;
 import mypkg.vo.User_keyword_mapsVO;
 import mypkg.vo.Webtoon_keyword_mapsVO;
-
-import org.json.JSONObject;
 
 
 public class KeywordDAO {
@@ -163,5 +160,38 @@ public class KeywordDAO {
 
 		return User_keyword_mapsVOs;
 	}
+	
+	// 08.01 soo 키워드만 가져오기
+	public List<Integer> getKeyWords(int webtoon_id) {
+		List<Integer> keywords = new ArrayList<Integer>();
 
+		Connection conn = null;
+		Statement stmt = null;
+
+		try {
+			conn = pool.getConnection();
+			stmt = conn.createStatement();
+
+			String sql = "select keywords_id_fk from webtoon_keyword_maps "
+						+ "where webtoons_id_fk = " + webtoon_id;
+
+			ResultSet rset = stmt.executeQuery(sql);
+
+			while (rset.next()) {
+				int keyword_id = rset.getInt("keywords_id_fk");
+				keywords.add(keyword_id);
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			try {
+				if (stmt != null) stmt.close();
+				if (conn != null) conn.close();
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+		}
+
+		return keywords;
+	}
 }

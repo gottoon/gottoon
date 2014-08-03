@@ -8,14 +8,16 @@ public class RecommenderVO /*implements Comparable*/ {
 	private int countSameWebtoons;
 	private int sameWebtoonsScore;
 	private List<UserWebtoonMapsVO> readWebtoons;
+	private double recommender_matching;
 	
 	// 생성자 1번
 	public RecommenderVO (long userId, int countSameWebtoons, int sameWebtoonsScore, 
-			List<UserWebtoonMapsVO> readWebtoons) {
+			List<UserWebtoonMapsVO> readWebtoons, double recommender_matching) {
 		this.userId = userId;
 		this.countSameWebtoons = countSameWebtoons;
 		this.sameWebtoonsScore = sameWebtoonsScore;
 		this.readWebtoons = readWebtoons;
+		this.recommender_matching = recommender_matching;
 	}
 
 	public long getUserId() {
@@ -48,5 +50,13 @@ public class RecommenderVO /*implements Comparable*/ {
 
 	public void setReadWebtoons(List<UserWebtoonMapsVO> readWebtoons) {
 		this.readWebtoons = readWebtoons;
+	}
+
+	public double getRecommender_matching() {
+		return recommender_matching;
+	}
+
+	public void setRecommender_matching(double recommender_matching) {
+		this.recommender_matching = recommender_matching;
 	}
 }

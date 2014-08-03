@@ -40,4 +40,8 @@ public class MySqlDAOFactory {
 	public PublisherDAO getPublisherDAO(){
 		return new PublisherDAO();
 	}
+
+	public RecommendDAO getRecommendDAO(){
+		return new RecommendDAO();
+	}
 }

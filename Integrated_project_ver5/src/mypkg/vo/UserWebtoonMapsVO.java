@@ -41,6 +41,18 @@ public class UserWebtoonMapsVO {
 
 	// 생성자 3번
 	public UserWebtoonMapsVO(long users_facebookID_fk, int webtoons_id_fk,
+			int genres_id_fk, boolean user_webtoon_isRead, int user_webtoon_rate,
+			String webtoons_title) {
+		this.users_facebookID_fk = users_facebookID_fk;
+		this.webtoons_id_fk = webtoons_id_fk;
+		this.genres_id_fk = genres_id_fk;
+		this.user_webtoon_isRead = user_webtoon_isRead;
+		this.user_webtoon_rate = user_webtoon_rate;
+		this.webtoons_title = webtoons_title;
+	}
+
+	// 생성자 4번
+	public UserWebtoonMapsVO(long users_facebookID_fk, int webtoons_id_fk,
 			int push_alarms_id_fk, int comment_id_fk,
 			boolean user_webtoon_isRead, int user_webtoon_rate) {
 		this.users_facebookID_fk = users_facebookID_fk;

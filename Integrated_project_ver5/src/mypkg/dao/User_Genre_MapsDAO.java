@@ -1,7 +1,6 @@
 package mypkg.dao;
 
 import java.sql.Connection;
-import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
@@ -16,9 +15,6 @@ import javax.naming.NamingException;
 import javax.servlet.ServletException;
 import javax.sql.DataSource;
 
-import org.json.JSONObject;
-
-import mypkg.vo.GenreVO;
 import mypkg.vo.UserGenreMapsVO;
 import mypkg.vo.WebtoonVO;
 

@@ -1,7 +1,6 @@
 package mypkg.command;
 
 import java.io.IOException;
-import java.util.List;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
@@ -11,7 +10,6 @@ import javax.servlet.http.HttpSession;
 import mypkg.control.Command;
 import mypkg.control.CommandResult;
 import mypkg.service.UserService;
-import mypkg.vo.UserVO;
 
 public class UserCommand implements Command {
 	CommandResult commandResult = null;

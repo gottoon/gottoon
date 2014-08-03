@@ -1,7 +1,6 @@
 package mypkg.command;
 
 import java.io.IOException;
-import java.util.ArrayList;
 import java.util.List;
 
 import javax.servlet.ServletException;
@@ -12,7 +11,7 @@ import javax.servlet.http.HttpSession;
 import mypkg.control.Command;
 import mypkg.control.CommandResult;
 import mypkg.service.RecommendService;
-import mypkg.vo.WebtoonVO;
+import mypkg.vo.RecommendWebtoonVO;
 
 // 다 내꺼 soo 웹툰 추천
 public class RecommendCommand implements Command {
@@ -20,7 +19,7 @@ public class RecommendCommand implements Command {
 
 	public CommandResult execute(HttpServletRequest request,
 			HttpServletResponse response) throws ServletException, IOException {
-		List<WebtoonVO> recommendWebtoons = this.doGetRecommendWebtoons(request);
+		List<RecommendWebtoonVO> recommendWebtoons = this.doGetRecommendWebtoons(request);
 
 		request.setAttribute("recommendWebtoons", recommendWebtoons);
 		commandResult = new CommandResult("/WEB-INF/jsp/recommend/recommend_webtoon.jsp");
@@ -28,7 +27,7 @@ public class RecommendCommand implements Command {
 		return commandResult;
 	}
 	
-	public List<WebtoonVO> doGetRecommendWebtoons(HttpServletRequest request) {
+	public List<RecommendWebtoonVO> doGetRecommendWebtoons(HttpServletRequest request) {
 		HttpSession session = request.getSession();
 		long currentUser_facebookID = (long)session.getAttribute("CurrentUser");
 		String viewfreeValue = request.getParameter("filterviewfree");

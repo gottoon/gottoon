@@ -14,11 +14,6 @@ import javax.naming.NamingException;
 import javax.servlet.ServletException;
 import javax.sql.DataSource;
 
-import org.json.JSONException;
-import org.json.JSONObject;
-
-import mypkg.vo.AuthorVO;
-import mypkg.vo.UserWebtoonMapsVO;
 import mypkg.vo.WebtoonVO;
 import mypkg.vo.Webtoon_keyword_mapsVO;
 
@@ -39,54 +34,7 @@ public class WebtoonDAO {
 		}
 	}
 
-	// 2014.07.15 soo 추천 웹툰 정보 가져오기 (수정)
-	public WebtoonVO findWebtoon(int webtoon_id) {
-		WebtoonVO webtoon = null;
-		Connection conn = null;
-		Statement stmt = null;
-
-		try {
-			conn = pool.getConnection();
-			stmt = conn.createStatement();
-
-			String sql = "select w.webtoons_title, a.authors_name, w.webtoons_completed, "
-					+ "w.webtoons_viewfree, w.webtoons_main_image, w.webtoons_url, "
-					+ "w.webtoons_first_update "
-					+ "from webtoons as w inner join webtoon_author_maps as wam "
-					+ "on w.webtoons_id_pk = wam.webtoons_id_fk "
-					+ "inner join authors as a on a.authors_id_pk = wam.authors_id_fk "
-					+ "where webtoons_id_pk = " + webtoon_id;
-
-			ResultSet rset = stmt.executeQuery(sql);
-
-			rset.next();
-			String webtoons_title = rset.getString("webtoons_title");
-			String authors_name = rset.getString("authors_name");
-			String webtoons_completed = rset.getString("webtoons_completed");
-			boolean webtoons_viewfree = rset.getBoolean("webtoons_viewfree");
-			String webtoons_main_image = rset.getString("webtoons_main_image");
-			String webtoons_url = rset.getString("webtoons_url");
-			String webtoons_first_update = rset
-					.getString("webtoons_first_update");
-
-			webtoon = new WebtoonVO(webtoon_id, webtoons_title, authors_name,
-					webtoons_completed, webtoons_viewfree, webtoons_main_image,
-					webtoons_url, webtoons_first_update);
-		} catch (SQLException e) {
-			e.printStackTrace();
-		} finally {
-			try {
-				if (stmt != null)
-					stmt.close();
-				if (conn != null)
-					conn.close();
-			} catch (SQLException e) {
-				e.printStackTrace();
-			}
-		}
-
-		return webtoon;
-	}
+	// 2014.07.15 soo 추천 웹툰 정보 가져오기 (08.01 수정)
 
 	// 2014.07.11 soo 웹툰 상세보기 정보 뽑아오기 (웹툰 본거 or 찜한거 - 별점 가져오기)
 	public WebtoonVO getMyWebtoonInfo(long curruntUser_facebookID,
@@ -745,5 +693,39 @@ public class WebtoonDAO {
 		
 		return allWebtoonCount;
 	}
+	
+	
+	// 08.01 soo 유/무료 가져오기
+	public boolean getViewfree(int webtoon_id) {
+		boolean isViewfree = false;
+		Connection conn = null;
+		Statement stmt = null;
 
+		try {
+			conn = pool.getConnection();
+			stmt = conn.createStatement();
+
+			String sql = "select webtoons_viewfree from webtoons "
+					+ "where webtoons_id_pk = " + webtoon_id;
+
+			ResultSet rset = stmt.executeQuery(sql);
+			
+			rset.next();
+			isViewfree = rset.getBoolean("webtoons_viewfree");
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			try {
+				if (stmt != null)
+					stmt.close();
+				if (conn != null)
+					conn.close();
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+		}
+
+		return isViewfree;
+	}
 }

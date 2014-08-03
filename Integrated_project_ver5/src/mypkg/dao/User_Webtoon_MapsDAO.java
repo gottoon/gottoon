@@ -45,7 +45,8 @@ public class User_Webtoon_MapsDAO {
 
 			// String sql = "select * from user_webtoon_maps";
 			String sql = "select uw.users_facebookID_fk, uw.webtoons_id_fk, w.genre_id_fk, "
-					+ "uw.user_webtoon_isread, uw.user_webtoon_rate " + "from user_webtoon_maps as uw "
+					+ "uw.user_webtoon_isread, uw.user_webtoon_rate, w.webtoons_title " 
+					+ "from user_webtoon_maps as uw "
 					+ "inner join webtoons as w on w.webtoons_id_pk = uw.webtoons_id_fk "
 					+ "where uw.users_facebookID_fk = " + users_facebookID + " and uw.user_webtoon_isread = 1";
 
@@ -56,9 +57,10 @@ public class User_Webtoon_MapsDAO {
 				int genreId = rset.getInt("genre_id_fk");
 				boolean webtoonIsRead = rset.getBoolean("user_webtoon_isread");
 				int webtoonRate = rset.getInt("user_webtoon_rate");
+				String webtoonTitle = rset.getString("webtoons_title");
 
 				UserWebtoonMapsVO readWebtoon = new UserWebtoonMapsVO(users_facebookID, webtoonId, genreId,
-						webtoonIsRead, webtoonRate);
+						webtoonIsRead, webtoonRate, webtoonTitle);
 
 				readWebtoons.add(readWebtoon);
 			}

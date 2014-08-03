@@ -3,7 +3,6 @@ package mypkg.service;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpSession;
 
 import mypkg.dao.MySqlDAOFactory;
 import mypkg.dao.UserDAO;
