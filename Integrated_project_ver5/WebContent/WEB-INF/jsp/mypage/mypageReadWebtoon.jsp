@@ -53,7 +53,7 @@
 				<div class="gradeImg">
 					<div id="level">
 						<div>
-							<p id="grade" />
+							<p id="grade" ><strong>Lv.</strong></p> 
 						</div>
 					</div>
 				</div>
@@ -61,7 +61,7 @@
 				<div id="state_gauge">
 					<div>
 						<h2>
-							지금까지 총 <strong id="readWebtoonCount"></strong> 편의 웹툰을 보셨습니다.
+							지금까지 총 <strong id="readWebtoonCount"></strong> 편의 웹툰을 평가하셨습니다.
 						</h2>
 
 						<div id="gauge_meter">

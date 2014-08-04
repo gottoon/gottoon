@@ -91,15 +91,9 @@ img {
 	max-height: 160px;
 }
 
-div#level {
-	background: url(../img/gradeImg/level_star.jpg);
-	width: 160px;
-	height: 136px;
-	margin: auto;
-}
-
 div#title {
 	margin: 10px;
+	font-size: 14px;
 }
 
 div#image {
@@ -201,7 +195,7 @@ div#desc {
 } 
 
 /* 가로 사이즈  */
-@media all and (min-width: 302px) and (max-width: 517px) {
+/* @media all and (min-width: 302px) and (max-width: 517px) {
 	.gallery-item {
 		width: 90%;
 		margin-bottom: 10px;
@@ -231,10 +225,10 @@ div#desc {
 	float: left;
 	width: 55%;
 	}
-}
+} */
 
 /* 가로 사이즈 별, 글자  */
-@media all and (min-width: 396px) and (max-width: 476px) {
+/* @media all and (min-width: 396px) and (max-width: 476px) {
 	div#title {
 		height: 60px;
 	}
@@ -244,5 +238,5 @@ div#desc {
 	div#title {
 		height: 50px;
 	}
-}
+} */
 	

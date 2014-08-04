@@ -120,7 +120,7 @@
 	}
 }
 
-@media all and (min-width: 476px) and (max-width: 517px) {
+/* @media all and (min-width: 476px) and (max-width: 517px) {
 	.product-review-stars label {
 	font-size: 30px;
 	}
@@ -136,7 +136,7 @@
 	.product-review-stars label {
 	font-size: 19px;
 	}
-}
+} */
 
 .product-review-stars input+label:hover:before,.product-review-stars input+label:hover 
 	 ~ label:before {
