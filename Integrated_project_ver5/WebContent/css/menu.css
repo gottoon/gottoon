@@ -141,10 +141,7 @@ body.openmenu {
 	overflow: hidden;
 }
 
-#pgcontainer {
-	padding: 0 0;
-	margin: 0;
-}
+
 
 .overlay {
 	position: fixed;
@@ -195,7 +192,6 @@ body.openmenu {
 }
 
 #hamburgermenu li p:hover {
-	text-shadow: 0.5px 0.5px 0.5px white;
 }
 
 #hamburgermenu li button {

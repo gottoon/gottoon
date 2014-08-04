@@ -67,14 +67,12 @@ $(function() {
 	}
 });
 
-$(document).ready(function (){
 	
 	function newbieCheck(){
-		
-				$('#goGenreModal').show();
+	$('#goGenreModal').show();
 	}
 	
-});
+
 
 
 //ajax wait

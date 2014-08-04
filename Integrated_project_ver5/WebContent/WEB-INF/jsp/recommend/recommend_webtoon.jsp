@@ -17,7 +17,6 @@
 <title>Show Recommended Webtoons</title>
 </head>
 <body>
-	<div id="pgcontainer">
 		<c:import url="/WEB-INF/jsp/main/menu.jsp"></c:import>
 
 
@@ -114,7 +113,8 @@
 						<div class="reserve">
 							<form method="post" action="#">
 								<input type="hidden" name="webtoon_id" value="${webtoonInfo.webtoons_id_pk}" />
-								<div class="heart"><input type="checkbox" id="${webtoonInfo.webtoons_title}" class="visuallyhiddenHeart" name="reserve" onclick=seeReserve(this.form) />
+								<div class="heart">
+									<input type="checkbox" id="${webtoonInfo.webtoons_title}" class="visuallyhiddenHeart" name="reserve" onclick="seeReserve(this.form, this.id)" />
 									<label for="${webtoonInfo.webtoons_title}" title="reserve_heart">❤</label>
 								</div>
 							</form>
@@ -130,7 +130,6 @@
 				</div>
 			</c:forEach>
 		</div>
-	</div>
 	
 	<script type="text/javascript">
 		var webtoonCount = 0;

@@ -188,10 +188,8 @@
 		if (userGrade >= 1) {
 			console.log('더 평가하기 없애');
 			$('#genreBtn img').hide();
-
+			$('#moreBtn img').hide();
 			if (userGrade >= 2) {
-
-				$('#moreBtn img').hide();
 				$('#recommendBtn img').hide();
 				$('#mypageBtn img').hide();
 
@@ -204,28 +202,28 @@
 		}
 		//버튼 클릭 
 		$('#genreBtn').click(function(event) {
-			if (userGrade >= 2) {
+			if (userGrade >= 1) {
 			} else {
-				alert('레벨 2 이상만 들어갈수 있어요 !');
+				alert('레벨 1 이상만 들어갈수 있어요 !');
 				event.preventDefault();
 			}
 		});
 		$('#moreBtn').click(function(event) {
 			if (userGrade >= 1) {
 			} else {
-				alert('레벨 2 이상만 들어갈수 있어요 !');
+				alert('레벨 1 이상만 들어갈수 있어요 !');
 				event.preventDefault();
 			}
 		});
 		$('#recommendBtn').click(function(event) {
-			if (userGrade >= 1) {
+			if (userGrade >= 2) {
 			} else {
 				alert('레벨 2 이상만 들어갈수 있어요 !');
 				event.preventDefault();
 			}
 		});
 		$('#mypageBtn').click(function(event) {
-			if (userGrade >= 1) {
+			if (userGrade >= 2) {
 			} else {
 				alert('레벨 2 이상만 들어갈수 있어요 !');
 				event.preventDefault();
@@ -234,7 +232,6 @@
 
 		$('#managerBtn').click(function(event) {
 			if (userGrade >= 10) {
-				alert('하');
 
 			} else {
 				alert('레벨 10 이상만 들어갈수 있어요 !');

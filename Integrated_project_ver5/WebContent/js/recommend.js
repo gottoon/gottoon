@@ -29,6 +29,26 @@ function seeReserve(form) {
 	});
 }
 
+/*function seeReserve(clicked_form, clicked_id) {
+	console.log(clicked_form);
+	console.log(clicked_id);
+	if ($(".heart input:checkbox[id = '" + clicked_id + "']").is(":checked")) {
+		$(".product-review-stars input:checkbox[value = " + "'" + param.value+ "'" + "]");
+	} else {
+		
+	}
+	
+	
+	
+	$.ajax({
+		url : "userWebtoon",
+		data : {"todo" : "seeReserve", "webtoon_id" : clicked_form.webtoon_id.value},
+		success : function(data) {
+			alert(data);
+		}
+	});
+}*/
+
 function goBack() {
 	window.history.back();
 }

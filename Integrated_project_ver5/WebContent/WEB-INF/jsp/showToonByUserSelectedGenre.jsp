@@ -28,9 +28,6 @@
 </head>
 <body>
 
-
-
-	<div id="pgcontainer">
 		<c:import url="/WEB-INF/jsp/main/moreAssessmentToonmenu.jsp"></c:import>
 
 
@@ -116,6 +113,5 @@
 				</form>
 			</div>
 		</div>
-	</div>
 </body>
 </html>

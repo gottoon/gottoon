@@ -62,7 +62,15 @@
 			<div>삭제 끄아악!</div>
 		</div>
 	</div>
-
+	
+	<div class="show-levelup">
+		<div class="levelup">
+			<div>등급이 올랐습니다!</div>
+			<input type="submit" class="close"
+					value="close">
+		</div>
+	</div>
+	
 	<section>
 		<div class="state">
 			<div id="state_image">

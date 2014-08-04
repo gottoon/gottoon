@@ -6,35 +6,37 @@
 <head>
 <link rel="stylesheet" type="text/css"
 	href="<c:url value='/css/genre.css'/>" />
-<link rel="stylesheet" href="css/style.css" media="screen" type="text/css" />
+	
+<!-- <link rel="stylesheet" href="css/style.css" media="screen" type="text/css" /> -->
 <script src="<c:url value='/js/genre.js'/>"></script>
 
 <script src="//code.jquery.com/jquery-1.11.0.js"></script>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Show Genre</title>
-
 </head>
 
 <body>
 <script type="text/javascript" src="http://code.jquery.com/jquery-latest.pack.js"></script> 
-	<center>
+	
 
 		<c:import url="/WEB-INF/jsp/main/menu.jsp"></c:import>
 
-	<!-- <h1 align="center" class="h">장르 선택을 해주세요.</h1> -->
 
 
-		<%-- 	<p align="center"><%=session.getAttribute("CurrentUser")%></p> --%>
 
 
-		<form method='get' onsubmit="return Validate()"
+		<form method='post' onsubmit="return Validate()"
 			action="<c:url value='/action/userGenre'/>">
 			<input type="hidden" name='todo' value='addUserGenre'>
 			<!-- <div class ="CSSTableGenerator"> -->
 
+				<div class="sub">
+				<input type="submit" name="장르선택확인" class="but" align="center"
+					value="확인">
+			</div>
+
 			<table border='1' cellpadding='6' class="genretable" align="center">
-				<tr>
-					<!-- <table class ="imgTable"> -->
+				<tr >
 					<td id="tabletd">
 					
 						<div class="genreimg">
@@ -114,10 +116,7 @@
 
 			</table>
 
-			<div class="sub">
-				<input type="submit" name="장르선택확인" class="but" align="center"
-					value="확인">
-			</div>
+			
 
 
 
@@ -168,7 +167,7 @@
 					});
 
 				}); 
-				 alert("신규 User 인가요??  장르를 선택해주세요 다중선택이 가능합니다"); 
+				/*  alert("신규 User 인가요??  장르를 선택해주세요 다중선택이 가능합니다");  */
 				/* 신규 버튼 안보이기 */
 				$(document).ready(function() {
 					$(".but").hide();
@@ -179,7 +178,7 @@
 				});
 			}
 		</script>
-	</center>
+
 	<!-- 모달 -->
 	<script src='http://codepen.io/assets/libs/fullpage/jquery.js'></script>
 	<script src="<c:url value='/js/genremodal.js'/>"></script>

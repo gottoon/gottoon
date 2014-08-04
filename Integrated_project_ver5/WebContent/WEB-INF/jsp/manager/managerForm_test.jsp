@@ -281,14 +281,14 @@
 							</button>
 							<input type="hidden" name="todo" value="getAllKeywords" />
 						</form></li>
-					<li><form method="POST"
+					<%-- <li><form method="POST"
 							action="<c:url value='/action/manager'/>">
 							<button type="submit" id="showKeywordBtn">
 								<img src="<c:url value='/img/menu/lock.png'/>" class="lockImg" />
 								<p>맨소니테스트</p>
 							</button>
 							<input type="hidden" name="todo" value="mansony" />
-						</form></li>
+						</form></li> --%>
 				</ul>
 
 			</article>

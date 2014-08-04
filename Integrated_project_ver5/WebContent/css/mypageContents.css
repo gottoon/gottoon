@@ -1,4 +1,76 @@
 @CHARSET "UTF-8";
+.show-levelup {
+	display: none;
+ 	border-radius: 55px;
+ 	position: fixed;
+ 	z-index: 667;
+ 	background: #3366ff;
+  	top: 150px;
+  	width: 300px;
+	height: 100px;
+	box-shadow: 0 0 0 99999px rgba(0, 0, 0, 0.7);
+}
+
+.levelup {
+margin: 10px;
+padding: 0px;
+border: 1px;
+font-size: 100%;
+font: inherit;
+vertical-align: baseline; 
+} 
+
+.levelup:after {
+content: '';
+position: absolute;
+border-style: solid;
+border-width: 20px 8px 0;
+border-color: #3366ff transparent;
+display: block;
+width: 0;
+z-index: 1;
+bottom: -20px;
+left: 113px;
+}
+
+.levelup:before {
+content: '';
+position: absolute;
+border-style: solid;
+border-width: 21px 9px 0;
+border-color: #000000 transparent;
+display: block;
+width: 0;
+z-index: 0;
+bottom: -23px;
+left: 113px;
+}
+
+input.close {
+float: initial;
+font-size: 21px;
+font-weight: bold;
+line-height: 1;
+color: #000;
+text-shadow: 0 1px 0 #fff;
+opacity: 1.0;
+}
+
+/* .levelup {
+  background-color: #dbd9d9;
+  display: none;
+  position: fixed;
+  top: 50%;
+  left: 51em;
+  width: 100px;
+  height: auto;
+  margin-left: -200px;
+  margin-top: -150px;
+  padding: 50px;
+  border-radius: 5px;
+  z-index: 10;
+}  */
+
 /* 프로그레스 바  */
 #progress{
 width: 275px;
