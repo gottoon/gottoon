@@ -1,89 +1,32 @@
-@CHARSET "UTF-8";
-
-/*더평가하기틀   */
 @charset "UTF-8";
 
-* {
-	border: 0;
-	margin: 0;
-	padding: 0;
-	outline: 0;
-}
-
-html {
- font-family: 'Helvetica Neue',
-		HelveticaNeue-Light, sans-serif;
-}
-
-
-body section {
-	border-bottom: 4px #133783;
-	width: 288px;
-	padding-bottom: 18px;
-}
-
-body section #poster {
-	height: 200px;
-	height: 197px;
-	position: relative;
-	border-radius: 5px;
-
-}
-
-body section #poster img {
-	width: 18em;
-	-webkit-border-radius: 5px 5px 0 0;
-	-moz-border-radius: 5px 5px 0 0;
-	-ms-border-radius: 5px 5px 0 0;
-	-o-border-radius: 5px 5px 0 0;
-	border-radius: 5px 5px 0 0;
-}
-
-body section #add { /* 타이틀 부분 배경색  */
-	background-color: #fff;
-	height: 20px;
-	
+#toonLabel {
+	background-color: rgba(57,179,117,0.8);
+	width: 100%;
+	height: 100px;
+	-webkit-box-shadow: 1px 1px 1px lightgrey;
+	box-shadow: 1px 1px 1px lightgrey;
 }
 
 body section #add p {
 	text-align: center;
-	background-color: #e9eaed;
-	
+	color: white;
 }
-
-.comm{
-	font-size: 40px;
-font-weight: bold;
-line-height: 109px;
-text-align: -webkit-center;
-}
-
 
 body section #add p span {
-	font-size: 15px;
-	font-weight: 300;
+	font-size: 1.5em;
+	font-weight: bold;
 }
-body section #add #comment {
+body section #add #comments {
 	width: 125px;
-	height: 40px;
-	background-color: #1fc19a;
 	position: absolute;
-	top: 18px;
-	right: 20px;
+	top: 100px;
 	text-align: center;
 	color: black;
-	font-weight: 500;
-	font-size: 16px;
-	-webkit-border-radius: 5px;
-	-moz-border-radius: 5px;
-	-ms-border-radius: 5px;
-	-o-border-radius: 5px;
-	border-radius: 5px;
-	-webkit-transition: opacity 0.3s ease-in-out;
-	-moz-transition: opacity 0.3s ease-in-out;
-	-ms-transition: opacity 0.3s ease-in-out;
-	-o-transition: opacity 0.3s ease-in-out;
-	transition: opacity 0.3s ease-in-out;
+}
+
+#comments {
+	text-align: center;
 }
 
 body section #add #comment:after {
@@ -96,26 +39,11 @@ body section #add #comment:hover {
 	opacity: .8;
 }
 
-
-body section #comments section {
-	/* comments내부 배경 */
-	border-bottom-right-radius:30px;
- 	border-bottom-left-radius:30px;
-	background-color: #e9eaed;
-	border-bottom: 4px #133783;
-}
-
 body section #comments section img {
 	width: 75px;
 	height: 75px;
 	/* 	float: left;
- */
-	-webkit-border-radius: 50%;
-	-moz-border-radius: 50%;
-	-ms-border-radius: 50%;
-	-o-border-radius: 50%;
-	border-radius: 50%;
-	margin: 0 18px 0 0;
+	 */
 }
 
 body section #comments section article {
@@ -123,13 +51,15 @@ body section #comments section article {
 	display: inline-block;
 }
 
+#layout {
+	width: 90%;
+	height: 100%;
+	margin-top: 100px;
+	margin-left: auto;
+	margin-right: auto;
+}
+
 .webtoonTalbe {
-top: 9em;
-margin: 7px 14px;
-float: left;
-position: relative;
-left: 6%;
-border-radius: 20px;
 
 }
 
@@ -141,26 +71,27 @@ border-radius: 20px;
 
 .open-modal {
 	/* #3b5998 */
-	background-color: #e9eaed;
+	background-color: white;
 	border-bottom: 1px solid #fcfcfc;
-	-webkit-box-shadow: 0 2px 2px -2px
-		rgba(0, 0, 0, .52);
+	-webkit-box-shadow: 1px 1px 1px 1px lightgrey;
 	border: none;
-/* 	border-radius: 20px;
- */	font: inherit;
+	/* 	border-radius: 20px;
+	 */
+	font: inherit;
 	font-size: 25px;
-	color: black;
+	color: #CC3333;
 	outline: none;
-	top: 90%;
+	bottom: 0;
 	padding: 30px 50px;
 	width: 100%;
 	position: fixed;
 	z-index: 10;
+	border: 2px solid #CC3333;
 }
 
 .open-modal:hover {
-	background-color: #133783;
-	color: #e9eaed;
+	background-color: #CC3333;
+	color: white;
 }
 
 .modal {
@@ -171,7 +102,7 @@ border-radius: 20px;
 	left: 50%;
 	width: 400px;
 	height: auto;
-	margin-left: -200px;
+	margin-left: -300px;
 	margin-top: -150px;
 	padding: 50px;
 	border-radius: 5px;
@@ -185,16 +116,6 @@ border-radius: 20px;
 }
 /*////////////////////////////////////////////////////////////////////////////////////////////////////////////////  */
 
-/*Design from Dribbble shot by Cesar Zeppini*/
-/*http://dribbble.com/shots/1201397-Dashboard-Elements*/
-@import
-	url(http://fonts.googleapis.com/css?family=Montserrat)
-	;
-
-@import
-	url(http://weloveiconfonts.com/api/?family=entypo)
-	;
-
 .big {
 	width: 100%;
 	top: 69px;
@@ -203,24 +124,25 @@ border-radius: 20px;
 	z-index: 30;
 }
 
-.meterContainer { /*meter자체틀   */
+.meterContainer {/*meter자체틀   */
 	width: 100%;
 	top: 89px;
- position: fixed;
+	position: fixed;
 }
 
-.meterBackground { /*meter의 체워지지 않은 부분   */
+.meterBackground {/*meter의 체워지지 않은 부분   */
 	background-color: #f5f5dc;
 	width: 100%;
 	position: absolute;
 	bottom: 0;
- 	height: 20px;
+	height: 20px;
 }
 
-.meterBar { /*meter의 체워지는  부분   */
+.meterBar {/*meter의 체워지는  부분   */
 	background-color: #ea5c50;
-/* 	border-radius: 32px;
- */	display: block;
+	/* 	border-radius: 32px;
+	 */
+	display: block;
 	height: 100%;
 	width: 75%;
 	position: relative;
@@ -230,73 +152,41 @@ meter {
 	display: none;
 }
 
-.progressValue { /*meter의 카운트 숫자   */
+.progressValue {/*meter의 카운트 숫자   */
 	background-color: #38b3b1;
-border-radius: 2px;
-color: #fff;
-font-family: 'Montsserat', sans-serif;
-font-size: 29px;
-height: 30px;
-right: -1px;
-line-height: 36px;
-position: absolute;
-text-align: center;
-top: 27px;
-width: 44px;
-z-index: 9999;
+	border-radius: 2px;
+	color: #fff;
+	font-family: 'Montsserat', sans-serif;
+	font-size: 29px;
+	height: 30px;
+	right: -1px;
+	line-height: 36px;
+	position: absolute;
+	text-align: center;
+	top: 27px;
+	width: 80px;
+	z-index: 9999;
 }
 
 .progressValue:before {
 	/* meter의 카운트 숫자틀의 밑모먕 (마름모) */
-background-color: #38b3b1;
-border-radius: 1px;
-content: "";
-height: 10px;
-left: 15px;
-position: absolute;
-transform: rotate(45deg);
-top: -4px;
-width: 10px;
-z-index: 9990;
-}
-/*////////////////////////////////////////////////////////////////////////////////////////////////////////////////  */
-/*성공 팝업 창 */
-.modalStar {
-	background-color: #dbd9d9;
-	display: none;
-	position: fixed;
-	top: 80%;
-	left: 50%;
-	width: 100px;
-	height: auto;
-	/* margin-left: -200px;
-	margin-top: -150px; */
-	padding: 50px;
-	border-radius: 5px;
-	z-index: 10;
-}
-
-.modalDeleteStar {
-border-bottom: 1px solid #133783;
-background-color:#133783;
-	display: none;
-	position: fixed;
-	top: 80%;
-	left: 51em;
-	width: 100px;
-	height: auto;
-	margin-left: -200px;
-	margin-top: -150px;
-	padding: 50px;
-	border-radius: 5px;
-	z-index: 10;
+	background-color: #38b3b1;
+	border-radius: 1px;
+	content: "";
+	height: 8px;
+	left: 15px;
+	position: absolute;
+	transform: rotate(45deg);
+	top: -4px;
+	width: 10px;
+	z-index: 9990;
 }
 
 /*////////////////////////////////////////////////////////////////////////////////////////////////////////////////  */
 
 /*별점 css*/
 .product-review-stars label {
-	text-shadow: 0px 0px 20px yellow;
+	text-shadow: 0px 0px 3px yellow;
 	/*별점 주변 색설정 */
 }
 
@@ -306,36 +196,33 @@ background-color:#133783;
 	clip: rect(1px, 1px, 1px, 1px);
 	clip: rect(1px, 1px, 1px, 1px);
 }
-.downbar{
-	top:10px;
-	backgroung-color : red;
-	height: 50px;
-}
 
 .product-review-stars {
 	unicode-bidi: bidi-override;
 	direction: rtl;
-	width : 141%;
+	width: 100%;
 }
 /*밑은 별의 모양 */
 .product-review-stars label {
 	font-family: "icomoon";
-	font-size: 2em;
+	font-size: 2.3em;
 	position: relative;
 	cursor: pointer;
-	color: gray;
+	color: grey;
 	/* #DFE3E4 */
 }
 
-.product-review-stars input:checked ~ label:before {
+.product-review-stars input:checked ~
+label:before {
 	opacity: 1;
 }
 
-.product-review-stars:hover input ~ label:before {
+.product-review-stars:hover input ~
+label:before {
 	opacity: 0;
 }
 
-.product-review-stars input+label:before {
+.product-review-stars input+ label:before {
 	content: "\2605";
 	position: absolute;
 	right: 0;
@@ -347,41 +234,125 @@ background-color:#133783;
 	-ms-backface-visibility: hidden; /* Internet Explorer */
 }
 
-.product-review-stars input+label:hover:before,.product-review-stars input+label:hover 
-	 ~ label:before {
+.product-review-stars input+label:hover:before,.product-review-stars input+label:hover
+~
+label:before {
 	opacity: 1;
 }
 
-.product-review-stars input+label:nth-of-type(1):after,.product-review-stars input+label:nth-of-type(1):before,.product-review-stars input+label:nth-of-type(1):hover:before,.product-review-stars input+label:nth-of-type(1):hover 
-	 ~ label:before,.product-review-stars input:nth-of-type(1):checked ~
-	label:before {
-	color: #2ecc71;
+.product-review-stars input+label:nth-of-type(1):after,.product-review-stars input+label:nth-of-type(1):before,.product-review-stars input+label:nth-of-type(1):hover:before,.product-review-stars input+label:nth-of-type(1):hover
+~ label:before,.product-review-stars input:nth-of-type(1):checked ~
+label:before {
+	font-size: 1.2em;
+	text-shadow: 2px 0px 16px yellow;
+	color: yellow;
 }
 
-.product-review-stars input+label:nth-of-type(2):after,.product-review-stars input+label:nth-of-type(2):before,.product-review-stars input+label:nth-of-type(2):hover:before,.product-review-stars input+label:nth-of-type(2):hover 
-	 ~ label:before,.product-review-stars input:nth-of-type(2):checked ~
-	label:before {
+.product-review-stars input+label:nth-of-type(2):after,.product-review-stars input+label:nth-of-type(2):before,.product-review-stars input+label:nth-of-type(2):hover:before,.product-review-stars input+label:nth-of-type(2):hover
+~ label:before,.product-review-stars input:nth-of-type(2):checked ~
+label:before {
+	color: yellow;
+}
+
+.product-review-stars input+label:nth-of-type(3):after,.product-review-stars input+label:nth-of-type(3):before,.product-review-stars input+label:nth-of-type(3):hover:before,.product-review-stars input+label:nth-of-type(3):hover
+~ label:before,.product-review-stars input:nth-of-type(3):checked ~
+label:before {
+	color: yellow;
+}
+
+.product-review-stars input+label:nth-of-type(4):after,.product-review-stars input+label:nth-of-type(4):before,.product-review-stars input+label:nth-of-type(4):hover:before,.product-review-stars input+label:nth-of-type(4):hover
+~ label:before,.product-review-stars input:nth-of-type(4):checked ~
+label:before {
+	color: yellow;
+}
+
+.product-review-stars input+label:nth-of-type(5):after,.product-review-stars input+label:nth-of-type(5):before,.product-review-stars label:nth-of-type(5):hover:before,.product-review-stars input:nth-of-type(5):checked
+~
+label:before {
 	color: #f1c40f;
-}
-
-.product-review-stars input+label:nth-of-type(3):after,.product-review-stars input+label:nth-of-type(3):before,.product-review-stars input+label:nth-of-type(3):hover:before,.product-review-stars input+label:nth-of-type(3):hover 
-	 ~ label:before,.product-review-stars input:nth-of-type(3):checked ~
-	label:before {
-	color: #F39C12;
-}
-
-.product-review-stars input+label:nth-of-type(4):after,.product-review-stars input+label:nth-of-type(4):before,.product-review-stars input+label:nth-of-type(4):hover:before,.product-review-stars input+label:nth-of-type(4):hover 
-	 ~ label:before,.product-review-stars input:nth-of-type(4):checked ~
-	label:before {
-	color: #e74c3c;
-}
-
-.product-review-stars input+label:nth-of-type(5):after,.product-review-stars input+label:nth-of-type(5):before,.product-review-stars label:nth-of-type(5):hover:before,.product-review-stars input:nth-of-type(5):checked 
-	 ~ label:before {
-	color: #d35400;
 }
 
 .product-review-stars label:nth-of-type(5):hover:before {
 	color: #d35400 !important;
 }
 
+/*플립 효과 */
+@media all and (min-width: 320px) and (max-width: 360px) {
+
+	.flip-container {
+		width: 100%;
+	}
+}
+
+.poster {
+
+	width: 100%;
+}
+
+.flip-container {
+	-webkit-perspective: 1000;
+	-moz-perspective: 1000;
+	-o-perspective: 1000;
+	perspective: 1000;
+	float: left;
+	width: 25%;
+	margin-top: 100px;
+	height: 300px;
+}
+
+.flip-container:active .flipper, .flip-container.active .flipper {
+	-webkit-transform: rotateY(180deg);
+	-moz-transform: rotateY(180deg);
+	-o-transform: rotateY(180deg);
+	transform: rotateY(180deg);
+}
+
+.flipper {
+	-webkit-transition: 0.6s;
+	-webkit-transform-style: preserve-3d;
+	-moz-transition: 0.6s;
+	-moz-transform-style: preserve-3d;
+	-o-transition: 0.6s;
+	-o-transform-style: preserve-3d;
+	transition: 0.6s;
+	transform-style: preserve-3d;
+	position: relative;
+}
+
+.front, .back {
+	-webkit-backface-visibility: hidden;
+	-moz-backface-visibility: hidden;
+	-o-backface-visibility: hidden;
+	backface-visibility: hidden;
+	position: relative;
+}
+
+.front {
+	z-index: 2;
+	width: 100%;
+	height: 100%;
+}
+
+.back {
+	-webkit-transform: rotateY(180deg);
+	-moz-transform: rotateY(180deg);
+	-o-transform: rotateY(180deg);
+	transform: rotateY(180deg);
+}
+
+.front .name {
+	display: inline-block;
+	position: relative;
+	-webkit-box-shadow: 1px 1px 1px 1px lightgrey;
+	box-shadow: 1px 1px 1px 1px lightgrey;
+}
+
+.back h4 {
+	position: relative;
+	bottom: 200px;
+	left: 0;
+	right: 0;
+	text-align: center;
+	padding: 0 20px;
+	line-height: 2em;
+}

@@ -72,7 +72,24 @@ $(function() {
 	$('#goGenreModal').show();
 	}
 	
-
+$(document).ready(function(){
+	var currentPage = location.href;
+	
+	 if(currentPage.indexOf("main") >= 0){
+		$('#pageInfo').append("<h2>갓툰</h2>");
+	}else if(currentPage.indexOf("genre") >= 0 ){
+		$('#pageInfo').append("<h2>선호 장르</h2>");
+	}else if(currentPage.indexOf("userGenre") >= 0 ){
+		$('#pageInfo').append("<h2>평가 하기</h2>");
+	}else if(currentPage.indexOf("recommend") >= 0 ){
+		$('#pageInfo').append("<h2>추천 웹툰</h2>");
+	}
+	 else if(currentPage.indexOf("mypage") >= 0 ){
+		$('#pageInfo').append("<h2>마이 페이지</h2>");
+	} else if(currentPage.indexOf("manager") >= 0 ){
+		$('#pageInfo').append("<h2>매니져</h2>");
+	}
+});
 
 
 //ajax wait

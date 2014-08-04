@@ -228,15 +228,16 @@ table.genretable {
 .but {
 	margin-left:auto;
 	margin-right:auto;
-	border: 1px solid lightgrey;
-	background: #CC3333;
+	border: 2px solid #CC3333;
+	background: white;
+	color:#CC3333;
 	background: -moz-linear-gradient(top, #3e779d, #65a9d7);
 	padding: 4.5px 100px;
 	-webkit-border-radius: 8px;
 	-moz-border-radius: 8px;
 	border-radius: 5px;
 	box-shadow: 1px 1px 1px lightgrey;
-	color: white;
+	
 	width: 100%;
 	font-size: 2.5em;
 	font-family: Nanum Gothic;
@@ -249,8 +250,8 @@ table.genretable {
 }
 
 .but:hover {
-	
-	
+	color: white;
+	background: #CC3333;
 }
 
 /* 모달 */

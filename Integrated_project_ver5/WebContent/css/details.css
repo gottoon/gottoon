@@ -282,27 +282,18 @@ body {
 		height : 100%;
 	}
 	
-	#left-section {
-		border-left: 2px solid #ccc;
-		border-right: 1px solid #444;
-		border-top: 2px solid #ccc;
-		border-bottom: 12px double #ccc;
-		border-radius: 10px 10px 10px 10px;
-		-moz-box-shadow: inset -18px 0px 15px -8px #777;
-		-webkit-box-shadow: inset -18px 0px 15px -8px #777;
-		box-shadow: inset -18px 0px 15px -8px #777;
-	}
+	
 	
 	#right-section {
 		padding : 2% 3% 2% 3%;
 		border-left: 1px solid #444;
 		border-right: 12px double #ccc;
 		border-top: 2px solid #ccc;
-		border-bottom: 12px double #ccc;
+		border-bottom: 8px double #ccc;
 		border-radius: 10px 10px 10px 10px;
-		-moz-box-shadow: inset 18px 0px 15px -8px #777;
-		-webkit-box-shadow: inset 18px 0px 15px -8px #777;
-		box-shadow: inset 18px 0px 15px -8px #777;
+		-moz-box-shadow: inset 12px 0px 15px -8px #777;
+		-webkit-box-shadow: inset 12px 0px 15px -8px #777;
+		box-shadow: inset 12px 0px 15px -8px #777;
 	}
 	
 	#image {
@@ -424,16 +415,7 @@ body {
 		height : 100%;
 	}
 	
-	#left-section {
-		border-left: 2px solid #ccc;
-		border-right: 1px solid #444;
-		border-top: 2px solid #ccc;
-		border-bottom: 12px double #ccc;
-		border-radius: 10px 10px 10px 10px;
-		-moz-box-shadow: inset -18px 0px 15px -8px #777;
-		-webkit-box-shadow: inset -18px 0px 15px -8px #777;
-		box-shadow: inset -18px 0px 15px -8px #777;
-	}
+	
 	
 	#right-section {
 		padding : 30px 50px 30px 50px;
@@ -602,6 +584,17 @@ body {
 	float: left;
 	text-align: left;
 }
+
+#left-section {
+		border-left: 2px solid #ccc;
+		border-right: 1px solid #444;
+		border-top: 2px solid #ccc;
+		border-bottom: 8px double #ccc;
+		border-radius: 5px 10px 10px 5px;
+		-moz-box-shadow: inset -12px 0px 15px -8px #777;
+		-webkit-box-shadow: inset -12px 0px 13px -6px #777;
+		box-shadow: inset -12px 0px 13px -6px #777;
+	}
 
 
 /* =====================================================================

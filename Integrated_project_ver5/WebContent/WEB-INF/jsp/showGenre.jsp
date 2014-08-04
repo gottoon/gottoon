@@ -7,7 +7,6 @@
 <link rel="stylesheet" type="text/css"
 	href="<c:url value='/css/genre.css'/>" />
 	
-<!-- <link rel="stylesheet" href="css/style.css" media="screen" type="text/css" /> -->
 <script src="<c:url value='/js/genre.js'/>"></script>
 
 <script src="//code.jquery.com/jquery-1.11.0.js"></script>
@@ -21,10 +20,6 @@
 
 		<c:import url="/WEB-INF/jsp/main/menu.jsp"></c:import>
 
-
-
-
-
 		<form method='post' onsubmit="return Validate()"
 			action="<c:url value='/action/userGenre'/>">
 			<input type="hidden" name='todo' value='addUserGenre'>
@@ -32,86 +27,65 @@
 
 				<div class="sub">
 				<input type="submit" name="장르선택확인" class="but" align="center"
-					value="확인">
+					value="다음 단계로">
 			</div>
 
 			<table border='1' cellpadding='6' class="genretable" align="center">
 				<tr >
 					<td id="tabletd">
-					
 						<div class="genreimg">
 						
-						<!--  <div class="viewport"> -->
-						 
-						<!--  <a href="#">
-						 <label class="la"> -->
-					<!-- 	<span id = "dark-background" style="display: none;">
-						눌러주세요<em>선택</em></span> -->
 							<input type="checkbox" id="cb1" name="genrechek" class="check"
 								value="${allGenres[0].genres_id_pk}"> <label for="cb1"></label>
-							<!-- 	</label> -->
 								<h1 class ="genrefont">SF</h1>
-								<!-- </a> -->
-							<%-- <p>${allGenres[0].genres_id_pk}.${allGenres[0].genres_name}</p> --%>
 						</div>
-						<!-- </div> -->
 						<div class="genreimg">
 							<input type="checkbox" id="cb2" name="genrechek" class="check"
 								value="${allGenres[1].genres_id_pk}"> <label for="cb2"></label>
 								<h1 class = "genrefont">코믹</h1>
-							<%-- <p>${allGenres[1].genres_id_pk}.${allGenres[1].genres_name}</p> --%>
 						</div>
 						<div class="genreimg">
 							<input type="checkbox" id="cb3" name="genrechek" class="check"
 								value="${allGenres[2].genres_id_pk}"> <label for="cb3"></label>
 								<h1 class = "genrefont">공포</h1>
-							<%-- <p>${allGenres[2].genres_id_pk}.${allGenres[2].genres_name}</p> --%>
 						</div>
 						<div class="genreimg">
 							<input type="checkbox" id="cb4" name="genrechek" class="check"
 								value="${allGenres[3].genres_id_pk}"> <label for="cb4"></label>
 								<h1 class = "genrefont">드라마</h1>
-							<%-- <p>${allGenres[3].genres_id_pk}.${allGenres[3].genres_name}</p> --%>
 						</div>
 						<div class="genreimg">
 							<input type="checkbox" id="cb5" name="genrechek" class="check"
 								value="${allGenres[4].genres_id_pk}"> <label for="cb5"></label>
 								<h1 class = "genrefont">로맨스</h1>
-							<%-- <p>${allGenres[4].genres_id_pk}.${allGenres[4].genres_name}</p> --%>
 						</div>
 
 						<div class="genreimg">
 							<input type="checkbox" id="cb6" name="genrechek" class="check"
 								value="${allGenres[5].genres_id_pk}"> <label for="cb6"></label>
 								<h1 class = "genrefont">스릴러</h1>
-							<%-- <p>${allGenres[5].genres_id_pk}.${allGenres[5].genres_name}</p> --%>
 						</div>
 						<div class="genreimg">
 							<input type="checkbox" id="cb7" name="genrechek" class="check"
 								value="${allGenres[6].genres_id_pk}"> <label for="cb7"></label>
 								<h1 class = "genrefont">스포츠</h1>
-							<%-- 	<p>${allGenres[6].genres_id_pk}.${allGenres[6].genres_name}</p> --%>
 						</div>
 						<div class="genreimg">
 							<input type="checkbox" id="cb8" name="genrechek" class="check"
 								value="${allGenres[7].genres_id_pk}"> <label for="cb8"></label>
 								<h1 class = "genrefont">액션</h1>
-							<%-- <p>${allGenres[7].genres_id_pk}.${allGenres[7].genres_name}</p> --%>
 						</div>
 						<div class="genreimg">
 							<input type="checkbox" id="cb9" name="genrechek" class="check"
 								value="${allGenres[8].genres_id_pk}"> <label for="cb9"></label>
 								<h1 class = "genrefont">일상</h1>
-							<%-- <p>${allGenres[8].genres_id_pk}.${allGenres[8].genres_name}</p> --%>
 						</div>
 						<div class="genreimg">
 							<input type="checkbox" id="cb10" name="genrechek" class="check"
 								value="${allGenres[9].genres_id_pk}"> <label for="cb10"></label>
 								<h1 class = "genrefont">판타지</h1>
-							<%-- <p>${allGenres[9].genres_id_pk}.${allGenres[9].genres_name}</p> --%>
 						</div>
 					</td>
-					<!-- </table> -->
 				</tr>
 
 			</table>

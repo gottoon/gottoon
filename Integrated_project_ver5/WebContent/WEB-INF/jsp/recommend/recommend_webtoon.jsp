@@ -14,24 +14,15 @@
 <script src="<c:url value='/js/recommend.js'/>"></script>
 <script src="<c:url value='/js/showToon.js'/>"></script>
 <script src="<c:url value='/js/webtoonDetailAndStarPoint.js'/>"></script>
+
+
+<!-- 책효과 -->
+
 <title>Show Recommended Webtoons</title>
 </head>
 <body>
 		<c:import url="/WEB-INF/jsp/main/menu.jsp"></c:import>
-		<div class="show-modalStar">
-			<div class="modalStar">
-				<div>저장 부아악!</div>
-			</div>
-		</div>
-		<div class="show-modalDeleteStar">
-			<div class="modalDeleteStar">
-				<div>삭제  끄아악!</div>
-			</div>
-		</div>
-		
-		<!-- <div class="header">
-			<h1>???님을 위한 본격 맞춤 웹툰!</h1>
-		</div> -->
+	
 		
 		<div class="nav">
 			<ul class="viewfree-nav">
@@ -61,12 +52,12 @@
 				<div class="webtoon">
 					<div class="label_div">
 						<div class="main_image_div">
-							<img class="main_image" src="${webtoonInfo.webtoons_main_image}" width="300px" height="400px">
-							<form method="post" action="webtoon" class="detail_form">
+						<img class="main_image" src="${webtoonInfo.webtoons_main_image}"
+							width="300px" height="400px">
+						<form method="post" action="webtoon" class="detail_form">
 								<input type="hidden" name="webtoon_id" value="${webtoonInfo.webtoons_id_pk}" />
 								<input type="hidden" name="todo" value="showWebtoonDetails" />
 								<button class="submit" type="submit">
-									<!-- <span class="black_overlay"></span> -->
 								</button>
 							</form>
 							<span class="image_title">${webtoonInfo.webtoons_title}</span>
@@ -138,5 +129,13 @@
 	 			});
 		});
 	</script>
+	
+	
+	
+	
+	
+	
+	
+	
 </body>
 </html>
