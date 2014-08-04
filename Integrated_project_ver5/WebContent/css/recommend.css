@@ -1,400 +1,66 @@
-body {
-	height: 100%;
-	overflow: hidden;
-}
-
-@media screen and (max-width: 532px) {
-	.webtoon {
-		width: 75%;
-		height: auto;
-		float: left;
-		margin: 5% 10%;
-	}
-
-	.main_image {
-		width: 400px;
-		height: 250px;
-	}
-
-	.product-review-stars {
-		height: 45px;
-		line-height: 45px;
-		font-size: 5.5 vw;
-	}
-
-	.product-review-stars label {
-		font-size: 35px;
-		width: 31px;
-	}
-
-	.reserve {
-		width: 40%;
-		margin-left: 2%
-	}
-
-	.view-now {
-		width: 55%;
-	}
-
-	.image_title {
-		font-size: 5vw;
-	}
-
-	.submit {
-		height: 250px;
-		top: -250px;
-	}
-
-	.button {
-		height: 38px;
-	}
-
-	.button:hover {
-		font-size: 12px;
-	}
-
-	.heart {
-		margin-left: auto;
-		margin-right: 20%;
-	}
-}
-
-@media screen and (min-width: 533px) and (max-width: 768px) {
-	.webtoon {
-		width: 45%;
-		height: auto;
-		float: left;
-		margin: 2% 1% 2% 3%;
-	}
-
-	.main_image {
-		width: 350px;
-		height: 300px;
-	}
-
-	.product-review-stars {
-		height: 50px;
-		line-height: 50px;
-		font-size: 2.5 vw;
-	}
-
-	.product-review-stars label {
-		font-size: 40px;
-		width: 35px;
-	}
-
-	.reserve {
-		width: 40%;
-		margin-left: 1vw;
-	}
-
-	.view-now {
-		width: 50%;
-	}
-
-	.image_title {
-		font-size: 2.3 vw;
-	}
-
-	.submit {
-		height: 300px;
-		top: -300px;
-	}
-
-	.viewfree-nav > li {
-		display: table-cell;
-		width: 1%;
-	}
-
-	.button {
-		height: 38px;
-	}
-
-	.button:hover {
-		font-size: 13px;
-	}
-
-	.heart {
-		margin-left: auto;
-		margin-right: 20%;
-	}
-}
-
-@media screen and (min-width: 769px) and (max-width: 990px) {
-	.webtoon {
-		width: 30%;
-		height: auto;
-		float: left;
-		margin: 1%;
-	}
-
-	.main_image {
-		width: 300px;
-		height: 300px;
-	}
-
-	.product-review-stars {
-		height: 50px;
-		line-height: 50px;
-		font-size: 2.5 vw;
-	}
-
-	.product-review-stars label {
-		font-size: 40px;
-		width: 32px;
-	}
-
-	.reserve {
-		width: 40%;
-	}
-
-	.view-now {
-		width: 55%;
-	}
-
-	.image_title {
-		font-size: 2.3 vw;
-	}
-
-	.submit {
-		height: 300px;
-		top: -300px;
-	}
-
-	.viewfree-nav > li {
-		display: table-cell;
-		width: 1%;
-	}
-
-	.button {
-		height: 39px;
-	}
-
-	.button:hover {
-		font-size: 15px;
-	}
-
-	.heart {
-		margin-left: auto;
-		margin-right: 20%;
-	}
-}
-
-@media screen and (min-width: 991px) {
-	.webtoon {
-		width: 18%;
-		height: auto;
-		float: left;
-		margin: 1%;
-	}
-
-	.main_image {
-		width: 300px;
-		height: 350px;
-	}
-
-	.product-review-stars {
-		height: 45px;
-		line-height: 45px;
-		/* font-size : 1.5vw; */
-	}
-
-	.product-review-stars label {
-		font-size: 34px;
-		width: 30px;
-	}
-
-	.reserve, .view-now {
-		width: 50%;
-	}
-
-	.image_title {
-		font-size: 2vw;
-	}
-
-	.submit {
-		height: 350px;
-		top: -350px;
-	}
-
-	.viewfree-nav > li {
-		display: table-cell;
-		width: 1%;
-	}
-
-	.button {
-		height: 39px;
-	}
-
-	.button:hover {
-		font-size: 1.1 vw;
-	}
-
-	.heart {
-		margin-left: 30%;
-	}
-}
-
-.webtoon {
-	text-align: center;
-	-moz-box-shadow: 0px 0px 12px -1px #FFD700;
-	-webkit-box-shadow: 0px 0px 12px -1px #FFD700;
-	box-shadow: 0px 0px 12px -1px #FFD700;
-	border-radius: 5px;
-}
-
-.label_div {
-	position: relative;
-	width: 100%;
-}
-
-.nav {
-	margin-top: 70px;
-	/* width : 98%;
-	 margin : 1em; */
-	/* margin-left : 35%; */
-	/* float : left; */
-	/* margin : 0 auto; */
-}
-
-.main_image {
-	border-top-left-radius: 5px;
-	border-top-right-radius: 5px;
-}
-
-.label {
-	position: absolute;
-	width: 25%;
-}
-
-.end_label, .new_label {
-	float: left;
-	position: absolute;
-	top: 0;
-	left: 0;
-}
-
-.author_label {
-	position: absolute;
-	display: inline-block;
-	top: 0;
-	float: right;
-	width: 50%;
-	text-overflow: ellipsis;
-	overflow: visible;
-	clear: both;
-	left: 115px;
-}
-
-.author_label span {
-	color: white;
-	font: bold 15px/20px Helvetica, Sans-Serif;
-	letter-spacing: -1px;
-	/* background : #3b5998; */
-	background: black;
-	padding: 1px;
-	float: right;
-}
-
-.main_image_div {
-	position: relative;
-	width: 100%; /* for IE 6 */
-}
-
-h2 {
-	position: absolute;
-	top: 300px;
-	left: 0;
-	width: 100%;
-}
-
-.image_title {
-	position: absolute;
-	display: inline-block;
-	color: white;
-	font-family: Nanum Gothic;
-	letter-spacing: -1px;
-	width: 100%;
-	line-height: -1px;
-	left: 0px;
-	bottom: 10px;
-	padding-left: 5px;
-	padding-right: 5px;
-	z-index: 10;
-}
-
-.submit {
-	position: relative;
-	width: 100%;
-	border: none;
-	background: -moz-linear-gradient(top, rgba(255,255,255,0) 0%, rgba(0,0,0,0.9) 100%); /* FF3.6+ */
-	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(255,255,255,0)), color-stop(100%,rgba(0,0,0,0.9))); /* Chrome,Safari4+ */
-	background: -webkit-linear-gradient(top, rgba(255,255,255,0) 0%, rgba(0,0,0,0.9) 100%); /* Chrome10+,Safari5.1+ */
-	background: -o-linear-gradient(top, rgba(255,255,255,0) 0%,rgba(0,0,0,0.9) 100%); /* Opera 11.10+ */
-	background: -ms-linear-gradient(top, rgba(255,255,255,0) 0%,rgba(0,0,0,0.9) 100%); /* IE10+ */
-	background: linear-gradient(top, rgba(255,255,255,0) 0%,rgba(0,0,0,0.9) 100%); /* W3C */
-	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='rgba(255,255,255,0)', endColorstr='rgba(0,0,0,0.9)',GradientType=0 ); /* IE6-9 */
-}
-
-.detail_form {
-	width: 100%;
-	height: 0px;
-}
-
-.webtoon_table {
-	border: 1px;
-	cellpadding: 6px;
-	width: 100%;
-}
-
 /* =====================================================================
  유,무료 선택
  ===================================================================== */
 
 .viewfree-nav {
+	margin-top: 70px;
 	padding-left: 10px;
 	padding-right: 10px;
+}
+.viewfree-nav li {
+	width: 33%;
+	display: inline-block;
+	line-height: 1.33;
 }
 
 .viewfree-button {
 	width: 100%;
-	border-radius: 0;
-	color: #fff;
-	background-color: #428bca;
-	border: 1px solid transparent;
-	border-color: #357ebd;
-	padding: 10px 16px;
 	font-family: Nanum Gothic;
 	font-size: 18px;
-	line-height: 1.33;
+	color: #CC3333;
+	height:40px;
+	background-color:white;
+	border: 1px solid #CC3333;
 }
 
-.viewfree-button:hover {
-	color: #fff;
-	background-color: #3071a9;
-	border-color: #285e8e;
+.viewfree-button:hover{
+	background-color:#CC3333;
+	color: white;
 }
-
-/* .viewfree-nav>li+li {
- margin-left: 0px;
- } */
-
-/* ul,ol {
- text-align: center;
- margin: 0 0 0;
- padding: 0;
- list-style: none;
- } */
 
 /* =====================================================================
- 찜하기 버튼
+ 웹툰
  ===================================================================== */
 
-/* .visuallyhidden {
- position: absolute !important;
- clip: rect(1px, 1px, 1px, 1px);
- clip: rect(1px, 1px, 1px, 1px);
- } */
+
+#webtoons {
+	margin-top: 30px;
+	margin-left: auto;
+	margin-right: auto;
+	width: 90%;
+	text-align: center;
+}
+
+.webtoon {
+	width: 30%;
+	height: 300px;
+	margin: 20px;
+	float: left;
+}
+
+.main_image_div {
+	width: 100%;
+	height: 300px;
+}
+.main_image {
+	width: 100%;
+	height: 300px;
+}
+
+
+
+
+
 
 .heart {
 	width: 42px;

@@ -152,8 +152,8 @@ ol.ui p {
 
 /*팝업 스타일 */
 .container {
-	width: 500px;
-	margin: 50px auto
+	width: 100%;
+	margin: 0;
 }
 
 .open-modal {

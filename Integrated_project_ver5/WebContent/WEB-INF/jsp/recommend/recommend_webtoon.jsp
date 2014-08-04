@@ -23,28 +23,25 @@
 <body>
 	<c:import url="/WEB-INF/jsp/main/menu.jsp"></c:import>
 	
-	<!-- <div class="header">
-		<h1>???님을 위한 본격 맞춤 웹툰!</h1>
-	</div> -->
 	
 	<div class="nav">
 		<ul class="viewfree-nav">
 			<li>
 				<form method = "post" action="<c:url value='/action/recommend'/>">
 					<input type = "hidden" name = "filterviewfree" value ="null" />
-					<input class="viewfree-button" type="submit" value="전체보기" />
+					<input class="viewfree-button" type="submit" value="전체 웹툰" />
 				</form>
 			</li>
 			<li>
 				<form method = "post" action="<c:url value='/action/recommend'/>">
 					<input type = "hidden" name = "filterviewfree" value ="false" />
-					<input class="viewfree-button" type="submit" value="유료만보기" />
+					<input class="viewfree-button" type="submit" value="유료 웹툰" />
 				</form>
 			</li>
 			<li>
 				<form method = "post" action="<c:url value='/action/recommend'/>">
 					<input type = "hidden" name = "filterviewfree" value ="true" />
-					<input class="viewfree-button" type="submit" value="무료만보기" />
+					<input class="viewfree-button" type="submit" value="무료 웹툰" />
 				</form>
 			</li>
 		</ul>
@@ -55,12 +52,11 @@
 			<div class="webtoon">
 				<div class="label_div">
 					<div class="main_image_div">
-						<img class="main_image" src="${webtoonInfo.webtoons_title_image}" width="300px" height="400px">
 						<form method="post" action="webtoon" class="detail_form">
 							<input type="hidden" name="webtoon_id" value="${webtoonInfo.webtoons_id_pk}" />
 							<input type="hidden" name="todo" value="showWebtoonDetails" />
 							<button class="submit" type="submit">
-								<!-- <span class="black_overlay"></span> -->
+							<img class="main_image" src="${webtoonInfo.webtoons_title_image}" >
 							</button>
 						</form>
 						<span class="image_title">${webtoonInfo.webtoons_title}</span>
