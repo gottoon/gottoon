@@ -30,7 +30,8 @@ public class RecommendDAO {
 	}
 	
 	public RecommendWebtoonVO getRecommendWebtoonInfo(String myWebtoon_title, 
-				int otherWebtoon_id, int keywordsCount, String matching_percent) {
+				int otherWebtoon_id, int keywordsCount, String recommender_matching_percent, 
+				String relative_matching_percent) {
 		RecommendWebtoonVO recommendWebtoon = null;
 		Connection conn = null;
 		Statement stmt = null;
@@ -40,7 +41,7 @@ public class RecommendDAO {
 			stmt = conn.createStatement();
 
 			String sql = "select w.webtoons_title, a.authors_name, w.webtoons_completed, "
-					+ "w.webtoons_viewfree, w.webtoons_main_image, w.webtoons_url, "
+					+ "w.webtoons_viewfree, w.webtoons_title_image, w.webtoons_url, "
 					+ "w.webtoons_first_update "
 					+ "from webtoons as w inner join webtoon_author_maps as wam "
 					+ "on w.webtoons_id_pk = wam.webtoons_id_fk "
@@ -54,14 +55,15 @@ public class RecommendDAO {
 			String authors_name = rset.getString("authors_name");
 			String webtoons_completed = rset.getString("webtoons_completed");
 			boolean webtoons_viewfree = rset.getBoolean("webtoons_viewfree");
-			String webtoons_main_image = rset.getString("webtoons_main_image");
+			String webtoons_main_image = rset.getString("webtoons_title_image");
 			String webtoons_url = rset.getString("webtoons_url");
 			String webtoons_first_update = rset
 					.getString("webtoons_first_update");
 
 			recommendWebtoon = new RecommendWebtoonVO (otherWebtoon_id, webtoons_title, authors_name,
 					webtoons_completed, webtoons_viewfree, webtoons_main_image,
-					webtoons_url, webtoons_first_update, myWebtoon_title, keywordsCount, matching_percent);
+					webtoons_url, webtoons_first_update, myWebtoon_title, keywordsCount, 
+					recommender_matching_percent, relative_matching_percent);
 		} catch (SQLException e) {
 			e.printStackTrace();
 		} finally {

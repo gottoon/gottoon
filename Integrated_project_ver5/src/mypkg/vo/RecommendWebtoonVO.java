@@ -5,30 +5,33 @@ public class RecommendWebtoonVO {
 	private String webtoons_title;
 	private String webtoons_completed;
 	private boolean webtoons_viewfree;
-	private String webtoons_main_image;
+	private String webtoons_title_image;
 	private String webtoons_url;
 	private String webtoons_first_update;
 	private String authors_name;
 	private String myWebtoon_title;
 	private int keywordsCount;
-	private String matching_percent;
+	private String recommender_matching_percent;
+	private String relative_matching_percent;
 	
 	public RecommendWebtoonVO (int otherWebtoon_id, String webtoons_title,
 			String authors_name, String webtoons_completed,
-			boolean webtoons_viewfree, String webtoons_main_image,
+			boolean webtoons_viewfree, String webtoons_title_image,
 			String webtoons_url, String webtoons_first_update, 
-			String myWebtoon_title, int keywordsCount, String matching_percent) {
+			String myWebtoon_title, int keywordsCount, String recommender_matching_percent,
+			String relative_matching_percent) {
 		this.webtoons_id_pk = otherWebtoon_id;
 		this.webtoons_title = webtoons_title;
 		this.authors_name = authors_name;
 		this.webtoons_completed = webtoons_completed;
 		this.webtoons_viewfree = webtoons_viewfree;
-		this.webtoons_main_image = webtoons_main_image;
+		this.webtoons_title_image = webtoons_title_image;
 		this.webtoons_url = webtoons_url;
 		this.webtoons_first_update = webtoons_first_update;
 		this.myWebtoon_title = myWebtoon_title;
 		this.keywordsCount = keywordsCount;
-		this.matching_percent = matching_percent;
+		this.recommender_matching_percent = recommender_matching_percent;
+		this.relative_matching_percent = relative_matching_percent;
 	}
 
 	public int getWebtoons_id_pk() {
@@ -63,12 +66,12 @@ public class RecommendWebtoonVO {
 		this.webtoons_viewfree = webtoons_viewfree;
 	}
 
-	public String getWebtoons_main_image() {
-		return webtoons_main_image;
+	public String getWebtoons_title_image() {
+		return webtoons_title_image;
 	}
 
-	public void setWebtoons_main_image(String webtoons_main_image) {
-		this.webtoons_main_image = webtoons_main_image;
+	public void setWebtoons_title_image(String webtoons_title_image) {
+		this.webtoons_title_image = webtoons_title_image;
 	}
 
 	public String getWebtoons_url() {
@@ -111,11 +114,19 @@ public class RecommendWebtoonVO {
 		this.keywordsCount = keywordsCount;
 	}
 
-	public String getMatching_percent() {
-		return matching_percent;
+	public String getRecommender_matching_percent() {
+		return recommender_matching_percent;
 	}
 
-	public void setMatching_percent(String matching_percent) {
-		this.matching_percent = matching_percent;
+	public void setRecommender_matching_percent(String recommender_matching_percent) {
+		this.recommender_matching_percent = recommender_matching_percent;
+	}
+
+	public String getRelative_matching_percent() {
+		return relative_matching_percent;
+	}
+
+	public void setRelative_matching_percent(String relative_matching_percent) {
+		this.relative_matching_percent = relative_matching_percent;
 	}
 }

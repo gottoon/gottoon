@@ -44,7 +44,7 @@ function showScroll(request , count){
 		for(var i =0; i< request.length; i++){
 			count.value++;																		
 			console.log(count.value);
-			$('#layout').append('<div class="flip-container" ontouchstart="this.classList.toggle("hover");"><div class="flipper"><div class="front"  id="front'+count.value+'"><span class="name"><section class="webtoonTalbe"><div class="poster"><img src="'+request[i].webtoons_main_image+'" style ="width: 290px; height: 280px; " /></div>'
+			$('#layout').append('<div class="flip-container" ontouchstart="this.classList.toggle("hover");"><div class="flipper"><div class="front"  id="front'+count.value+'"><span class="name"><section class="webtoonTalbe"><div class="poster"><img src="'+request[i].webtoons_title_image+'" style ="width: 290px; height: 280px; " /></div>'
 					+'<div id="toonLabel"><div id="add"><p><span>' + request[i].webtoons_title+ ' </span></p>'
 					+'</div><div id = "comments" ><form id="myForm">'
 					+'<div class = "product-review-stars" >'
@@ -131,7 +131,7 @@ $(document).ready(function() {//페이지가 로드되면 meter값 넣기
 			console.log(data);
 
 			if (data == 0) {//신규 가입자용 알림창 
-				alert("신규 가입자 입니다. 최소 20개의 웹툰을 평가해주세요 ");
+				alert("신규 가입자 입니다. 최소 10개의 웹툰을 평가해주세요 ");
 			} else if ( data  >= 10) {//10개 이상 평가했을때 "추천해줭"버튼 유지 
 				$("#button").show();
 				$(".comm").hide();

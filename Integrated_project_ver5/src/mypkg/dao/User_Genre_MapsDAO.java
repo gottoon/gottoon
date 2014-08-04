@@ -81,9 +81,9 @@ System.out.println("sql문 확인 테스트/////////////////////////////////////
 				String publisher = webtoonOfSelectedGenre.getString("webtoons_publisher");
 				int webtoonId = webtoonOfSelectedGenre.getInt("webtoons_id_pk");
 				
-				String webtoons_main_image = webtoonOfSelectedGenre.getString("webtoons_main_image");
+				String webtoons_title_image = webtoonOfSelectedGenre.getString("webtoons_title_image");
 				System.out.println("웹툰제목 : " + webtoonOfSelectedGenre.getString("webtoons_title"));
-				webtoons.add(new WebtoonVO(webtoonsTitle, publisher, webtoonId, webtoons_main_image));
+				webtoons.add(new WebtoonVO(webtoonsTitle, publisher, webtoonId, webtoons_title_image));
 
 			}
 		} catch (SQLException ex) {

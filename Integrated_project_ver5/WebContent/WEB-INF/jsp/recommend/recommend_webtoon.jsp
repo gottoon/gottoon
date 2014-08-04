@@ -55,7 +55,7 @@
 			<div class="webtoon">
 				<div class="label_div">
 					<div class="main_image_div">
-						<img class="main_image" src="${webtoonInfo.webtoons_main_image}" width="300px" height="400px">
+						<img class="main_image" src="${webtoonInfo.webtoons_title_image}" width="300px" height="400px">
 						<form method="post" action="webtoon" class="detail_form">
 							<input type="hidden" name="webtoon_id" value="${webtoonInfo.webtoons_id_pk}" />
 							<input type="hidden" name="todo" value="showWebtoonDetails" />
@@ -118,7 +118,8 @@
 				</div>
 				<div>
 					<div style="padding-top:45px">${webtoonInfo.myWebtoon_title} : ${webtoonInfo.keywordsCount}</div>
-					<div>${webtoonInfo.matching_percent}%</div>
+					<div>추천인 : ${webtoonInfo.recommender_matching_percent}%</div>
+					<div>연관성 : ${webtoonInfo.relative_matching_percent}%</div>
 				</div>
 			</div>
 		</c:forEach>

@@ -110,11 +110,12 @@ public class RecommendService {
 	}
 	
 	public RecommendWebtoonVO getRecommendWebtoonInfo(String myWebtoon_title, int otherWebtoon_id, 
-				int keywordsCount, String matching_percent) {
+				int keywordsCount, String recommender_matching_percent, String relative_matching_percent) {
 		MySqlDAOFactory mysqlFactory = new MySqlDAOFactory();
 		RecommendDAO recommendDAO = mysqlFactory.getRecommendDAO();
 	
-		return recommendDAO.getRecommendWebtoonInfo(myWebtoon_title, otherWebtoon_id, keywordsCount, matching_percent);
+		return recommendDAO.getRecommendWebtoonInfo(myWebtoon_title, otherWebtoon_id, keywordsCount, 
+					recommender_matching_percent, relative_matching_percent);
 	}
 	
 	public List<Integer> getKeyWords(int webtoon_id) {
@@ -498,11 +499,16 @@ public class RecommendService {
 			int keywordsCount = webtoons_keywords.get(i).getKeywords_count();
 			double recommender_matching = webtoons_keywords.get(i).getOtherWebtoons().getRecommender_matching();
 			double relative_matching = webtoons_keywords.get(i).getOtherWebtoons().getRelative_matching();
-			double average_matching = (recommender_matching * 0.5) + (relative_matching * 0.5);
 			
-			String matching_percent = String.format("%.1f", average_matching);
+//			System.out.println("추천자 : " + recommender_matching);
+//			System.out.println("연관성 : " + relative_matching);
+//			double average_matching = (recommender_matching * 0.5) + (relative_matching * 0.5);
 			
-			recommendWebtoons.add(this.getRecommendWebtoonInfo(myWebtoon_title, otherWebtoon_id, keywordsCount, matching_percent));
+			String recommender_matching_percent = String.format("%.1f", recommender_matching);
+			String relative_matching_percent = String.format("%.1f", relative_matching);
+			
+			recommendWebtoons.add(this.getRecommendWebtoonInfo(myWebtoon_title, otherWebtoon_id, keywordsCount, 
+					recommender_matching_percent, relative_matching_percent));
 		}
 		
 		return recommendWebtoons;
@@ -520,7 +526,7 @@ public class RecommendService {
 				if (otherRate == 5) {
 					recommender_matching += 87.5;
 				} else {
-					recommender_matching += 75.0;
+					recommender_matching += 100.0;
 				}
 			}
 		} else {
@@ -536,17 +542,17 @@ public class RecommendService {
 				if (otherRate == 1) {
 					recommender_matching += 87.5;
 				} else if (otherRate == 2) {
-					recommender_matching += 75.0;
+					recommender_matching += 100.0;
 				} else {
-					recommender_matching += 62.5;
+					recommender_matching += 87.5;
 				}
 			} else {
 				if (otherRate == 1) {
 					recommender_matching += 75.0;
 				} else if (otherRate == 2) {
-					recommender_matching += 62.5;
+					recommender_matching += 87.5;
 				} else {
-					recommender_matching += 50.0;
+					recommender_matching += 100.0;
 				}
 			}
 		}
