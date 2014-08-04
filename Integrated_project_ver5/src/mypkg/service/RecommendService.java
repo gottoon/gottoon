@@ -282,7 +282,7 @@ public class RecommendService {
 			Iterator<Integer> iter = repeatWebtoonRemove.get(i).getExceptDuplicationWebtoons().iterator();
 			while (iter.hasNext()) {
 				// 08.01 soo 웹툰 5개 되면 Iter 빠져나가기
-				if (completeRecommendWebtoons.size() > 4) {
+				if (completeRecommendWebtoons.size() > 2) {
 					break;
 				}
 
