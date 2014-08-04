@@ -56,12 +56,11 @@
 	</form>
 
 	<div class="container">
-		<div class="modal">
+		<div class="choose-modal">
 			<div>더 평가하면 더 정확한 추천을 해드릴수 있어요</div>
 			<form class="recommand" method="post" action="recommend">
-				<input type="submit" name="select" value="추천해줭" /> <input
-					id="showButton" type="button" class="close-modal" href="#"
-					value="더평가할래요 " />
+				<input type="submit" name="select" value="추천해줭" />
+				<input id="showButton" type="button" class="close-modal" href="#" value="더평가할래요 " />
 			</form>
 		</div>
 	</div>

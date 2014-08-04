@@ -36,7 +36,7 @@ function seeReserve(clicked_form, clicked_id) {
 	var reserve = "add";
 	
 	if ($(".heart input:checkbox[id = '" + clicked_id + "']").is(":checked")) {
-		$(".heart input:checkbox[id = '" + clicked_id + "']"); // 있어야 할까?
+//		$(".heart input:checkbox[id = '" + clicked_id + "']"); // 있어야 할까?
 	} else {
 		reserve = "cancel";
 	}

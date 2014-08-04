@@ -44,7 +44,11 @@ function showScroll(request , count){
 		for(var i =0; i< request.length; i++){
 			count.value++;																		
 			console.log(count.value);
-			$('#layout').append('<div class="flip-container" ontouchstart="this.classList.toggle("hover");"><div class="flipper"><div class="front"  id="front'+count.value+'"><span class="name"><section class="webtoonTalbe"><div class="poster"><img src="'+request[i].webtoons_title_image+'" style ="width: 290px; height: 280px; " /></div>'
+			/*style ="width: 290px; height: 280px; "*/
+			$('#layout').append('<div class="flip-container" ontouchstart="this.classList.toggle("hover");">'
+					+'<div class="flipper"><div class="front" id="front'+count.value+'">'
+					+'<span class="name"><section class="webtoonTalbe"><div class="poster">'
+					+'<img src="'+request[i].webtoons_title_image+'" /></div>'
 					+'<div id="toonLabel"><div id="add"><p><span>' + request[i].webtoons_title+ ' </span></p>'
 					+'</div><div id = "comments" ><form id="myForm">'
 					+'<div class = "product-review-stars" >'
@@ -177,10 +181,10 @@ function onclickStart(param) {//별점 추가 삭제 수정 변경.
 				if(data == 10){//10개일때 "추천해줭 ", "더평가할래!"선택창 띄움.
 
 					$('.show-modal').show(function() {
-						$('.modal').fadeIn('normal');
+						$('.choose-modal').fadeIn('normal');
 					});
 					$('.close-modal').click(function() {
-						$('.modal').fadeOut('fast');
+						$('.choose-modal').fadeOut('fast');
 					});
 				}
 				
