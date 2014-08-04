@@ -232,7 +232,6 @@
 
 		$('#managerBtn').click(function(event) {
 			if (userGrade >= 10) {
-				alert('하');
 
 			} else {
 				alert('레벨 10 이상만 들어갈수 있어요 !');
@@ -380,12 +379,6 @@
 
 	<!-- @end #pgcontainer -->
 
-	<!--ajax wait  -->
-	<div id="wait" style="display: none;">
-		<img src="<c:url value='/img/menu/ajax-loader.gif'/>" width="64"
-			height="64" /><br>Loading..
-	</div>
-	<!--ajax wait  -->
 
 
 

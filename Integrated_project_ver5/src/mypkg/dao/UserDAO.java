@@ -115,19 +115,37 @@ public class UserDAO {
 	}
 
 	// 7.18 영규꺼
-	public void setUserGrade(long users_facebookID, int SetGrade) {
+	public double setUserGrade(long users_facebookID, int SetGrade) {
 		Connection conn = null;
 		Statement stmt = null;
-
+		int userGrade = 0;
+		int check = 0;
+		double success = 0.0;
+		
 		try {
 			conn = pool.getConnection();
 			stmt = conn.createStatement();
 
-			String sqlQuery = "update users set users_grade=" + SetGrade
+			String sqlQuery = "select users_grade from users where users_facebookID_pk="
+					+ users_facebookID;
+			ResultSet rset = stmt.executeQuery(sqlQuery);
+
+			while (rset.next()) {
+				userGrade = rset.getInt("users_grade");
+			}
+			
+			if(userGrade != SetGrade) {
+			sqlQuery = "update users set users_grade=" + SetGrade
 					+ " where users_facebookID_pk=" + users_facebookID;
-
-			stmt.executeUpdate(sqlQuery);
-
+			check = stmt.executeUpdate(sqlQuery);
+			}
+			
+			if (check == 1) {
+				System.out.println("기존 등급 : "+userGrade + " 새 등급 : "+SetGrade);
+				if(userGrade < SetGrade) {
+				success = 1.0;
+				}
+			}
 		} catch (SQLException ex) {
 			Logger.getLogger(UserDAO.class.getName()).log(Level.SEVERE, null,
 					ex);
@@ -142,6 +160,8 @@ public class UserDAO {
 						null, ex);
 			}
 		}
+		
+		return success;
 	}
 
 	// soo 챠트용 7.18

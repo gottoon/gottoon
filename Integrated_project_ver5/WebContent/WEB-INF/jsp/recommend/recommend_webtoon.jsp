@@ -18,16 +18,6 @@
 </head>
 <body>
 	<c:import url="/WEB-INF/jsp/main/menu.jsp"></c:import>
-	<div class="show-modalStar">
-		<div class="modalStar">
-			<div>저장 부아악!</div>
-		</div>
-	</div>
-	<div class="show-modalDeleteStar">
-		<div class="modalDeleteStar">
-			<div>삭제  끄아악!</div>
-		</div>
-	</div>
 	
 	<!-- <div class="header">
 		<h1>???님을 위한 본격 맞춤 웹툰!</h1>

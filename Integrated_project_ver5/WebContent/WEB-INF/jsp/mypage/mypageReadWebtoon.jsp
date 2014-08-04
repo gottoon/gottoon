@@ -27,6 +27,30 @@
 <body>
 	<%-- MYPAGE - READ WEBTOON --%>
 
+
+		  <ol class="ui progress">
+
+    <li class="active">
+      <span>장르선택</span><span>1</span>
+    </li>
+
+    <li class="active"> 
+      <span>웹툰평가</span><span>2</span>
+    </li>
+
+    <li>
+      <span>추천받기</span><span>3</span>
+    </li>
+
+    <li>
+      <span>마이정보</span><span>4</span>
+    </li> 
+
+</ol>
+		
+		
+
+
 	<div class="show-modalStar">
 		<div class="modalStar">
 			<div>저장 부아악!</div>
@@ -38,7 +62,15 @@
 			<div>삭제 끄아악!</div>
 		</div>
 	</div>
-
+	
+	<div class="show-levelup">
+		<div class="levelup">
+			<div>등급이 올랐습니다!</div>
+			<input type="submit" class="close"
+					value="close">
+		</div>
+	</div>
+	
 	<section>
 		<div class="state">
 			<div id="state_image">

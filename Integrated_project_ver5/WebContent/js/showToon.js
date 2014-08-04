@@ -8,7 +8,6 @@ $(document).ready(function() {
 			toDoCheck();
 		}
 	});
-
 });
 function toDoCheck(){
 	var count = document.getElementById("count");
@@ -53,7 +52,7 @@ function showScroll(request , count){
 					+'<input type="checkbox" id="'+count.value*count.value*count.value+4+'" name="rating" value="2^'+request[i].webtoons_id_pk+'" onclick=onclickStart(this) class="visuallyhidden"> <label for="'+count.value*count.value*count.value+4+'" title="Kinda bad">★</label>'
 					+'<input type="checkbox" id="'+count.value*count.value*count.value+5+'" name="rating" value="1^'+request[i].webtoons_id_pk+'" onclick=onclickStart(this) class="visuallyhidden"> <label for="'+count.value*count.value*count.value+5+'" title="Sucks big time">★</label>'
 					+'</div></form>'
-			+'</article></section></div></section>');
+			+'</article></section></div><div class = "downbar"></div></section>');
 		}
 	}	
 }
@@ -128,7 +127,7 @@ $(document).ready(function() {//페이지가 로드되면 meter값 넣기
 
 			if (data == 0) {//신규 가입자용 알림창 
 				alert("신규 가입자 입니다. 최소 20개의 웹툰을 평가해주세요 ");
-			} else if ([ data ] >= 10) {//10개 이상 평가했을때 "추천해줭"버튼 유지 
+			} else if ( data  >= 10) {//10개 이상 평가했을때 "추천해줭"버튼 유지 
 				$("#button").show();
 				$(".comm").hide();
 			}
