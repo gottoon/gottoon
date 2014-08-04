@@ -106,17 +106,24 @@ header {
 	height: 70px;
 	z-index: 50;
 	margin: 0 auto;
+	float:left;
+	
+}
+
+#showMenu{
+	display:inline-block;
+	top: 5px;
+	padding: 2px;
+	width:45%;
 }
 
 .menubtn {
-	width: 100px;
 	position: relative;
 	z-index: 101;
 	text-decoration: none;
 	font-size: 0em;
 	line-height: 0em;
-	top: 5px;
-	padding: 2px;
+	
 }
 
 .menubtn img {
@@ -354,4 +361,13 @@ body.openmenu {
 	border: 2px solid white;
 	box-shadow: 2px 2px 2px black;
 	border-radius: 30px;
+}
+
+
+#pageInfo{
+	width:25%;
+	position: fixed;
+	top: 10px;
+	left:200px;
+	color:white;	
 }

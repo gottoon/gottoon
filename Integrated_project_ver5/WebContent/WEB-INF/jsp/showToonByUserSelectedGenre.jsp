@@ -12,9 +12,13 @@
 
 <script type="text/javascript"
 	src="http://code.jquery.com/jquery-1.6.1.min.js"></script>
-	
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7/jquery.js"></script>
 <script src="http://malsup.github.com/jquery.form.js"></script>
+<script src="<c:url value='/js/showToon.js'/>"></script>
+<script src="<c:url value='/js/bar.js'/>"></script>
+<link rel="stylesheet" href="<c:url value='/css/showToon.css'/>" />
+<link href='http://fonts.googleapis.com/css?family=Lato:300,400,700,900'
+	rel='stylesheet' type='text/css'>
 
 <script src="<c:url value='/js/showToon.js'/>"></script>
 
@@ -27,12 +31,9 @@
  -->
 </head>
 <body>
+	<c:import url="/WEB-INF/jsp/main/menu.jsp"></c:import>
 
-		<c:import url="/WEB-INF/jsp/main/moreAssessmentToonmenu.jsp"></c:import>
-
-
-
-
+	<!-- <section class="big"> -->
 
   <ol class="ui progress">
 
@@ -53,22 +54,39 @@
     </li> 
 
 </ol>
-
-
-
-
-
-
-		<div class="show-modalStar">
-			<div class="modalStar">
-				<div>저장 부아악!</div>
-			</div>
+		<div class="meterContainer">
+			<div aria-hidden="true" class="meterBackground">
+				<div aria-hidden="true" class="meterBar">
+					<label class="progressValue"> <span class="progressNumber"></span>
+						<meter max="10" value="0" class="leaseMeter"></meter>
+					</label>
+					<!--progressValue-->
+				</div>
+				<!--meterBar-->
+			<!--meterBackground-->
 		</div>
+		</div>
+	<!-- </section> -->
 
-		<div class="show-modalDeleteStar">
-			<div class="modalDeleteStar">
-				<div>삭제 끄아악!</div>
-			</div>
+
+	<input type="hidden" id="count" value="0">
+
+	<form id="button" class="recommand" method="post" action="recommend">
+		<input type="hidden" name="todo" value="recommendWebtoons" /> <input
+			class="show-modal open-modal" type="submit" value="추천해줭 " />
+	</form>
+
+
+
+
+	<div class="container">
+		<div class="modal">
+			<div>더 평가하면 더 정확한 추천을 해드릴수 있어요</div>
+			<form class="recommand" method="post" action="recommend">
+				<input type="submit" name="select" value="추천해줭" /> <input
+					id="showButton" type="button" class="close-modal" href="#"
+					value="더평가할래요 " />
+			</form>
 		</div>
 		<!-- 	<section class="topSector">
  -->
@@ -113,5 +131,11 @@
 				</form>
 			</div>
 		</div>
+	</div>
+
+	<div id="layout">
+		
+			
+	</div>
 </body>
 </html>

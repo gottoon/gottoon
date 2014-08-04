@@ -216,16 +216,16 @@
 			}
 		});
 		$('#recommendBtn').click(function(event) {
-			if (userGrade >= 2) {
+			if (userGrade >= 1) {
 			} else {
-				alert('레벨 2 이상만 들어갈수 있어요 !');
+				alert('레벨 1 이상만 들어갈수 있어요 !');
 				event.preventDefault();
 			}
 		});
 		$('#mypageBtn').click(function(event) {
-			if (userGrade >= 2) {
+			if (userGrade >= 1) {
 			} else {
-				alert('레벨 2 이상만 들어갈수 있어요 !');
+				alert('레벨 1 이상만 들어갈수 있어요 !');
 				event.preventDefault();
 			}
 		});
@@ -281,8 +281,10 @@
 		<nav>
 			<div id="navbar">
 				<div id="topNav">
-					<a href="#" class="menubtn"><img
-						src="<c:url value='/img/menu/menu.png'/>">gottoon</a>
+				<div id="showMenu"><a href="#" class="menubtn"><img
+						src="<c:url value='/img/menu/menu.png'/>">gottoon</a></div>
+					
+					<div id="pageInfo"></div>	
 					<div id="userInfo">
 						<ul>
 							<li>
@@ -316,7 +318,7 @@
 								method="post">
 								<button id="genreBtn" type="submit">
 									<img src="<c:url value='/img/menu/lock.png'/>" />
-									<p>장르 선택</p>
+									<p>선호 장르</p>
 								</button>
 								<input type="hidden" name="todo" value="showGenres">
 							</form>
@@ -336,7 +338,7 @@
 								<%-- 	<c:if test="${userGradeInt >= 2}"> --%>
 								<button id="recommendBtn" type="submit">
 									<img src="<c:url value='/img/menu/lock.png'/>" />
-									<p>추천해줘</p>
+									<p>추천웹툰</p>
 								</button>
 								<input type="hidden" name="todo" value="recommend">
 								<%-- </c:if> --%>

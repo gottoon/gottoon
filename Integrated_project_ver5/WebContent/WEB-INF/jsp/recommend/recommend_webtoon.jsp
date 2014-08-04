@@ -14,6 +14,10 @@
 <script src="<c:url value='/js/recommend.js'/>"></script>
 <script src="<c:url value='/js/showToon.js'/>"></script>
 <script src="<c:url value='/js/webtoonDetailAndStarPoint.js'/>"></script>
+
+
+<!-- 책효과 -->
+
 <title>Show Recommended Webtoons</title>
 </head>
 <body>

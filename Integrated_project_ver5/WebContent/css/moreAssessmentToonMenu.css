@@ -1,12 +1,5 @@
-strong, b {
-	font-weight: bold;
-}
 
-em, i {
-	font-style: italic;
-}
 
-/** page structure **/
 #content {
 	max-width: 100%;
 }
@@ -242,21 +235,6 @@ body.openmenu {
 	box-shadow: 2px 2px 2px grey;
 	background-image: url('../img/menu/afterExplorer.png');
 }
- */
-/* #wait {
-	position: fixed;
-	top: 80%;
-	left: 50%;
-	width: 300px;
-	line-height: 200px;
-	height: 200px;
-	margin-left: -150px;
-	margin-top: -100px;
-	text-align: center;
-	needed styles for the overlay
-	z-index: 100; keep on top of other elements on the page
-	outline: 9999px solid rgba(0, 0, 0, 0.5);
-} */
 
 #userInfo {
 	position: fixed;

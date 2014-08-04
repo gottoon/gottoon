@@ -37,14 +37,16 @@ function scrollEvent(count){
 	});
 };
 
+
 function showScroll(request , count){
+	
 	if(request.length !== 0){
 		for(var i =0; i< request.length; i++){
 			count.value++;																		
 			console.log(count.value);
-			$('#layout').append('<section class="webtoonTalbe"><div id="poster"><input type="image" src="'+request[i].webtoons_main_image+'" style ="width: 288px; height: 200px; border-top-left-radius : 30px; border-top-right-radius : 30px;" /></div>'
-					+'<div id="add"><p><span>' + request[i].webtoons_title+ ' </span></p>'
-					+'</div><div id = "comments" ><section><article><form id="myForm">'
+			$('#layout').append('<div class="flip-container" ontouchstart="this.classList.toggle("hover");"><div class="flipper"><div class="front"  id="front'+count.value+'"><span class="name"><section class="webtoonTalbe"><div class="poster"><img src="'+request[i].webtoons_main_image+'" style ="width: 290px; height: 280px; " /></div>'
+					+'<div id="toonLabel"><div id="add"><p><span>' + request[i].webtoons_title+ ' </span></p>'
+					+'</div><div id = "comments" ><form id="myForm">'
 					+'<div class = "product-review-stars" >'
 					+'<input type="checkbox" id="'+count.value*count.value*count.value+1+'" name="rating" value="5^'+request[i].webtoons_id_pk+'" onclick=onclickStart(this) class="visuallyhidden"> <label for="'+count.value*count.value*count.value+1+'" title="Rocks!">★</label>'
 					+'<input type="checkbox" id="'+count.value*count.value*count.value+2+'" name="rating" value="4^'+request[i].webtoons_id_pk+'" onclick=onclickStart(this) class="visuallyhidden"> <label for="'+count.value*count.value*count.value+2+'" title="Pretty good">★</label>'
@@ -52,7 +54,10 @@ function showScroll(request , count){
 					+'<input type="checkbox" id="'+count.value*count.value*count.value+4+'" name="rating" value="2^'+request[i].webtoons_id_pk+'" onclick=onclickStart(this) class="visuallyhidden"> <label for="'+count.value*count.value*count.value+4+'" title="Kinda bad">★</label>'
 					+'<input type="checkbox" id="'+count.value*count.value*count.value+5+'" name="rating" value="1^'+request[i].webtoons_id_pk+'" onclick=onclickStart(this) class="visuallyhidden"> <label for="'+count.value*count.value*count.value+5+'" title="Sucks big time">★</label>'
 					+'</div></form>'
-			+'</article></section></div><div class = "downbar"></div></section>');
+			+'</div></div></section></span></div>');
+			
+			$('#front'+count.value).after('<div class="back"><h4>'+request[i].webtoons_title+'</h4></div></div></div>');
+			
 		}
 	}	
 }

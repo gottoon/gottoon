@@ -1,257 +1,257 @@
 body {
 	height: 100%;
-	overflow : hidden;
+	overflow: hidden;
 }
 
-@media screen and (max-width:532px) {
+@media screen and (max-width: 532px) {
 	.webtoon {
-		width : 75%;
-		height : auto;
-		float : left;
-		margin : 5% 10%;
+		width: 75%;
+		height: auto;
+		float: left;
+		margin: 5% 10%;
 	}
-	
+
 	.main_image {
-		width : 400px;
-		height : 250px;
+		width: 400px;
+		height: 250px;
 	}
-	
+
 	.product-review-stars {
-		height : 45px;
-		line-height : 45px;
-		font-size : 5.5vw;
+		height: 45px;
+		line-height: 45px;
+		font-size: 5.5 vw;
 	}
-	
+
 	.product-review-stars label {
 		font-size: 35px;
 		width: 31px;
 	}
-	
+
 	.reserve {
-		width : 40%;
+		width: 40%;
 		margin-left: 2%
 	}
-	
+
 	.view-now {
-		width : 55%;
+		width: 55%;
 	}
-	
+
 	.image_title {
-		font-size : 5vw;
+		font-size: 5vw;
 	}
-	
+
 	.submit {
-		height : 250px;
+		height: 250px;
 		top: -250px;
 	}
-	
+
 	.button {
 		height: 38px;
 	}
-	
+
 	.button:hover {
 		font-size: 12px;
 	}
-	
+
 	.heart {
 		margin-left: auto;
 		margin-right: 20%;
 	}
 }
 
-@media screen and (min-width:533px) and (max-width:768px) {
+@media screen and (min-width: 533px) and (max-width: 768px) {
 	.webtoon {
-		width : 45%;
-		height : auto;
-		float : left;
-		margin : 2% 1% 2% 3%;
+		width: 45%;
+		height: auto;
+		float: left;
+		margin: 2% 1% 2% 3%;
 	}
-	
+
 	.main_image {
-		width : 350px;
-		height : 300px;
+		width: 350px;
+		height: 300px;
 	}
-	
+
 	.product-review-stars {
-		height : 50px;
-		line-height : 50px;
-		font-size : 2.5vw;
+		height: 50px;
+		line-height: 50px;
+		font-size: 2.5 vw;
 	}
-	
+
 	.product-review-stars label {
 		font-size: 40px;
 		width: 35px;
 	}
-	
+
 	.reserve {
-		width : 40%;
+		width: 40%;
 		margin-left: 1vw;
 	}
-	
+
 	.view-now {
-		width : 50%;
+		width: 50%;
 	}
-	
+
 	.image_title {
-		font-size : 2.3vw;
+		font-size: 2.3 vw;
 	}
-	
+
 	.submit {
-		height : 300px;
+		height: 300px;
 		top: -300px;
 	}
-	
-	.viewfree-nav>li {
+
+	.viewfree-nav > li {
 		display: table-cell;
 		width: 1%;
 	}
-	
+
 	.button {
 		height: 38px;
 	}
-	
+
 	.button:hover {
 		font-size: 13px;
 	}
-	
+
 	.heart {
 		margin-left: auto;
 		margin-right: 20%;
 	}
 }
 
-@media screen and (min-width:769px) and (max-width:990px) {
+@media screen and (min-width: 769px) and (max-width: 990px) {
 	.webtoon {
-		width : 30%;
-		height : auto;
-		float : left;
-		margin : 1%;
+		width: 30%;
+		height: auto;
+		float: left;
+		margin: 1%;
 	}
-	
+
 	.main_image {
-		width : 300px;
-		height : 300px;
+		width: 300px;
+		height: 300px;
 	}
-	
+
 	.product-review-stars {
-		height : 50px;
-		line-height : 50px;
-		font-size : 2.5vw;
+		height: 50px;
+		line-height: 50px;
+		font-size: 2.5 vw;
 	}
-	
+
 	.product-review-stars label {
 		font-size: 40px;
 		width: 32px;
 	}
-	
+
 	.reserve {
-		width : 40%;
+		width: 40%;
 	}
-	
+
 	.view-now {
-		width : 55%;
+		width: 55%;
 	}
-	
+
 	.image_title {
-		font-size : 2.3vw;
+		font-size: 2.3 vw;
 	}
-	
+
 	.submit {
-		height : 300px;
+		height: 300px;
 		top: -300px;
 	}
-	
-	.viewfree-nav>li {
+
+	.viewfree-nav > li {
 		display: table-cell;
 		width: 1%;
 	}
-	
+
 	.button {
 		height: 39px;
 	}
-	
+
 	.button:hover {
 		font-size: 15px;
 	}
-	
+
 	.heart {
 		margin-left: auto;
 		margin-right: 20%;
 	}
 }
 
-@media screen and (min-width:991px) {
+@media screen and (min-width: 991px) {
 	.webtoon {
-		width : 18%;
-		height : auto;
-		float : left;
-		margin : 1%;
+		width: 18%;
+		height: auto;
+		float: left;
+		margin: 1%;
 	}
-	
+
 	.main_image {
-		width : 300px;
-		height : 350px;
+		width: 300px;
+		height: 350px;
 	}
-	
+
 	.product-review-stars {
-		height : 45px;
-		line-height : 45px;
+		height: 45px;
+		line-height: 45px;
 		/* font-size : 1.5vw; */
 	}
-	
+
 	.product-review-stars label {
 		font-size: 34px;
 		width: 30px;
 	}
-	
+
 	.reserve, .view-now {
-		width : 50%;
+		width: 50%;
 	}
-	
+
 	.image_title {
-		font-size : 2vw;
+		font-size: 2vw;
 	}
-	
+
 	.submit {
-		height : 350px;
+		height: 350px;
 		top: -350px;
 	}
-	
-	.viewfree-nav>li {
+
+	.viewfree-nav > li {
 		display: table-cell;
 		width: 1%;
 	}
-	
+
 	.button {
 		height: 39px;
 	}
-	
+
 	.button:hover {
-		font-size: 1.1vw;
+		font-size: 1.1 vw;
 	}
-	
+
 	.heart {
-		margin-left : 30%;
+		margin-left: 30%;
 	}
 }
 
 .webtoon {
-	text-align : center;
-	-moz-box-shadow:    0px 0px 0px 1px #BFBFC4;
-	-webkit-box-shadow: 0px 0px 0px 1px #BFBFC4;
-	box-shadow:         0px 0px 0px 1px #BFBFC4;
+	text-align: center;
+	-moz-box-shadow: 0px 0px 12px -1px #FFD700;
+	-webkit-box-shadow: 0px 0px 12px -1px #FFD700;
+	box-shadow: 0px 0px 12px -1px #FFD700;
 	border-radius: 5px;
 }
 
 .label_div {
 	position: relative;
-	width : 100%;
+	width: 100%;
 }
 
 .nav {
 	margin-top: 70px;
 	/* width : 98%;
-	margin : 1em; */
+	 margin : 1em; */
 	/* margin-left : 35%; */
 	/* float : left; */
 	/* margin : 0 auto; */
@@ -262,70 +262,70 @@ body {
 	border-top-right-radius: 5px;
 }
 
- .label {
-	position : absolute;
-	width : 25%;
+.label {
+	position: absolute;
+	width: 25%;
 }
 
 .end_label, .new_label {
-	float:left;
-	position : absolute;
-	top : 0; 
-	left : 0; 
+	float: left;
+	position: absolute;
+	top: 0;
+	left: 0;
 }
 
 .author_label {
-	position : absolute;
+	position: absolute;
 	display: inline-block;
-	top : 0; 
-	float : right;
-	width : 50%;
-	text-overflow : ellipsis;
-	overflow : visible;
-	clear : both;
-	left : 115px;
+	top: 0;
+	float: right;
+	width: 50%;
+	text-overflow: ellipsis;
+	overflow: visible;
+	clear: both;
+	left: 115px;
 }
 
 .author_label span {
-	color : white; 
-	font : bold 15px/20px Helvetica, Sans-Serif; 
-	letter-spacing : -1px;  
+	color: white;
+	font: bold 15px/20px Helvetica, Sans-Serif;
+	letter-spacing: -1px;
 	/* background : #3b5998; */
-	background : black;
-	padding : 1px;
-	float : right; 
+	background: black;
+	padding: 1px;
+	float: right;
 }
 
-.main_image_div { 
-	position : relative; 
-	width : 100%; /* for IE 6 */
+.main_image_div {
+	position: relative;
+	width: 100%; /* for IE 6 */
 }
 
-h2 { 
-	position : absolute; 
-	top : 300px; 
-	left : 0; 
-	width : 100%;
+h2 {
+	position: absolute;
+	top: 300px;
+	left: 0;
+	width: 100%;
 }
 
 .image_title {
-	position : absolute;
-	display : inline-block;
-	color : white;
-	font-family: Nanum Gothic; 
-	letter-spacing : -1px;  
-	width : 100%;
-	line-height : -1px;
-	left : 0px;
-	bottom : 10px;
-	padding-left : 5px;
-	padding-right : 5px;
-	z-index : 10;
+	position: absolute;
+	display: inline-block;
+	color: white;
+	font-family: Nanum Gothic;
+	letter-spacing: -1px;
+	width: 100%;
+	line-height: -1px;
+	left: 0px;
+	bottom: 10px;
+	padding-left: 5px;
+	padding-right: 5px;
+	z-index: 10;
 }
 
 .submit {
 	position: relative;
-	width : 100%;
+	width: 100%;
 	border: none;
 	background: -moz-linear-gradient(top, rgba(255,255,255,0) 0%, rgba(0,0,0,0.9) 100%); /* FF3.6+ */
 	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(255,255,255,0)), color-stop(100%,rgba(0,0,0,0.9))); /* Chrome,Safari4+ */
@@ -337,19 +337,19 @@ h2 {
 }
 
 .detail_form {
-	width : 100%;
-	height : 0px;
+	width: 100%;
+	height: 0px;
 }
 
 .webtoon_table {
-	border : 1px;
-	cellpadding : 6px;
-	width : 100%;
+	border: 1px;
+	cellpadding: 6px;
+	width: 100%;
 }
 
 /* =====================================================================
-							유,무료 선택
-===================================================================== */
+ 유,무료 선택
+ ===================================================================== */
 
 .viewfree-nav {
 	padding-left: 10px;
@@ -376,43 +376,43 @@ h2 {
 }
 
 /* .viewfree-nav>li+li {
-	margin-left: 0px;
-} */
+ margin-left: 0px;
+ } */
 
 /* ul,ol {
-	text-align: center;
-	margin: 0 0 0;
-	padding: 0;
-	list-style: none;
-} */
+ text-align: center;
+ margin: 0 0 0;
+ padding: 0;
+ list-style: none;
+ } */
 
 /* =====================================================================
-							찜하기 버튼
-===================================================================== */
+ 찜하기 버튼
+ ===================================================================== */
 
 /* .visuallyhidden {
-	position: absolute !important;
-	clip: rect(1px, 1px, 1px, 1px);
-	clip: rect(1px, 1px, 1px, 1px);
-} */
+ position: absolute !important;
+ clip: rect(1px, 1px, 1px, 1px);
+ clip: rect(1px, 1px, 1px, 1px);
+ } */
 
 .heart {
-	width: 42px;			
+	width: 42px;
 	height: 40px;
 	position: relative;
-	margin-bottom : 3%;
+	margin-bottom: 3%;
 	top: -1px;
 }
 
- .heart label {
+.heart label {
 	/* font-family: "icomoon"; */
 	font-size: 30px;
 	position: relative;
 	cursor: pointer;
 	color: gray;
 	border-radius: 50%;
-	border : 1px solid #BFBFC4;
-	width: 42px;			
+	border: 1px solid #BFBFC4;
+	width: 42px;
 	height: 40px;
 }
 
@@ -430,7 +430,7 @@ h2 {
 	visibility: hidden;
 }
 
-.heart input+label:before {
+.heart input+ label:before {
 	content: "❤";
 	position: absolute;
 	right: 0;
@@ -441,33 +441,32 @@ h2 {
 .heart input+label:nth-of-type(1):before,
 .heart input+label:nth-of-type(1):hover:before,
 .heart input+label:nth-of-type(1):hover ~ label:before,
-.heart input:nth-of-type(1):checked ~ label:before,
-.heart label:hover {
+.heart input:nth-of-type(1):checked ~
+label:before, .heart label:hover {
 	color: red;
 	border: 1px solid #727280;
 	border-radius: 50%;
-	width: 42px;			
+	width: 42px;
 	height: 40px;
 }
-		
-.heart input:checked+label:after {
+
+.heart input:checked+ label:after {
 	visibility: visible;
 	/* -webkit-transform: scale(1); */
 	opacity: 1;
 }
 
-
 /* =====================================================================
-							바로보기 버튼
-===================================================================== */
+ 바로보기 버튼
+ ===================================================================== */
 
 .button {
-	-webkit-border-radius : 20px;
-	-moz-border-radius : 20px;
-	border-radius : 20px;
+	-webkit-border-radius: 20px;
+	-moz-border-radius: 20px;
+	border-radius: 20px;
 	text-indent: 0;
 	border: 1px solid #BFBFC4;
-	background-color : #ffffff;
+	background-color: #ffffff;
 	display: inline-block;
 	font-family: Nanum Gothic;
 	font-size: 0px;
@@ -475,43 +474,43 @@ h2 {
 	font-style: normal;
 	line-height: 50px;
 	width: 80%;
-	margin-right : 15%;
-	background-image : url('../img/button/webtoon-view.png');
-	background-repeat : no-repeat;
-	background-position : center;
+	margin-right: 15%;
+	background-image: url('../img/button/webtoon-view.png');
+	background-repeat: no-repeat;
+	background-position: center;
 }
 
 .right-now {
-	position : relative;
-	bottom : 6px;
+	position: relative;
+	bottom: 6px;
 }
 
 .button:hover {
-	text-indent : 0px;
-	text-decoration:none;
-	text-align:center;
+	text-indent: 0px;
+	text-decoration: none;
+	text-align: center;
 	background-image: none;
 	border: 1px solid #727280;
 }
 
 .author_label {
-	padding : 5px;
+	padding: 5px;
 }
 
 .reserve, .view-now {
-	float : left;
+	float: left;
 }
 
 .option-button {
-	border-top : 1px solid #E4E4E4;
-	margin-left : 10px;
-	margin-right : 10px;
-	padding-top : 5px;
+	border-top: 1px solid #E4E4E4;
+	margin-left: 10px;
+	margin-right: 10px;
+	padding-top: 5px;
 }
 
 /* =====================================================================
-							완결,신작 라벨
-===================================================================== */
+ 완결,신작 라벨
+ ===================================================================== */
 
 .ribbon-wrapper {
 	width: 85px;
@@ -528,32 +527,32 @@ h2 {
 	text-align: center;
 	/* text-shadow: rgba(255,255,255,0.5) 0px 1px 0px; */
 	-webkit-transform: rotate(-45deg);
-	-moz-transform:    rotate(-45deg);
-	-ms-transform:     rotate(-45deg);
-	-o-transform:      rotate(-45deg);
+	-moz-transform: rotate(-45deg);
+	-ms-transform: rotate(-45deg);
+	-o-transform: rotate(-45deg);
 	position: relative;
 	left: -27px;
 	width: 111px;
 	-webkit-box-shadow: 0px 0px 3px rgba(0,0,0,0.3);
-	-moz-box-shadow:    0px 0px 3px rgba(0,0,0,0.3);
-	box-shadow:         0px 0px 3px rgba(0,0,0,0.3);
+	-moz-box-shadow: 0px 0px 3px rgba(0,0,0,0.3);
+	box-shadow: 0px 0px 3px rgba(0,0,0,0.3);
 }
 
 .ribbon-end:before, .ribbon-end:after {
 	content: "";
-	border-top:   3px solid #810d05;   
-	border-left:  3px solid transparent;
+	border-top: 3px solid #810d05;
+	border-left: 3px solid transparent;
 	border-right: 3px solid transparent;
-	position:absolute;
+	position: absolute;
 	bottom: -3px;
 }
 
 .ribbon-new:before, .ribbon-new:after {
 	content: "";
-	border-top:   3px solid #6e8900;   
-	border-left:  3px solid transparent;
+	border-top: 3px solid #6e8900;
+	border-left: 3px solid transparent;
 	border-right: 3px solid transparent;
-	position:absolute;
+	position: absolute;
 	bottom: -3px;
 }
 
@@ -570,11 +569,11 @@ h2 {
 	padding: 4px 0;
 	top: 12px;
 	background-color: #f24437;
-	background-image: -webkit-gradient(linear, left top, left bottom, from(#f24437), to(#d02718)); 
-	background-image: -webkit-linear-gradient(top, #f24437, #d02718); 
-	background-image:    -moz-linear-gradient(top, #f24437, #d02718); 
-	background-image:     -ms-linear-gradient(top, #f24437, #d02718); 
-	background-image:      -o-linear-gradient(top, #f24437, #d02718); 
+	background-image: -webkit-gradient(linear, left top, left bottom, from(#f24437), to(#d02718));
+	background-image: -webkit-linear-gradient(top, #f24437, #d02718);
+	background-image: -moz-linear-gradient(top, #f24437, #d02718);
+	background-image: -ms-linear-gradient(top, #f24437, #d02718);
+	background-image: -o-linear-gradient(top, #f24437, #d02718);
 	color: #FFF5F5;
 }
 
@@ -583,17 +582,17 @@ h2 {
 	padding: 7px 0;
 	top: 12px;
 	background-color: #77d42a;
-	background-image: -webkit-gradient(linear, left top, left bottom, from(#77d42a), to(#51A70C)); 
-	background-image: -webkit-linear-gradient(top, #77d42a, #51A70C); 
-	background-image:    -moz-linear-gradient(top, #77d42a, #51A70C); 
-	background-image:     -ms-linear-gradient(top, #77d42a, #51A70C); 
-	background-image:      -o-linear-gradient(top, #77d42a, #51A70C); 
+	background-image: -webkit-gradient(linear, left top, left bottom, from(#77d42a), to(#51A70C));
+	background-image: -webkit-linear-gradient(top, #77d42a, #51A70C);
+	background-image: -moz-linear-gradient(top, #77d42a, #51A70C);
+	background-image: -ms-linear-gradient(top, #77d42a, #51A70C);
+	background-image: -o-linear-gradient(top, #77d42a, #51A70C);
 	color: #306108;
 }
 
 /* =====================================================================
-							작가 추천
-===================================================================== */
+ 작가 추천
+ ===================================================================== */
 
 #ribbon-container {
 	position: absolute;
@@ -602,11 +601,11 @@ h2 {
 	overflow: visible; /* so we can see the pseudo-elements we're going to add to the anchor */
 	font-size: 18px; /* font-size and line-height must be equal so we can account for the height of the banner */
 	line-height: 18px;
-	z-index : 10;
+	z-index: 10;
 }
 
 #ribbon-container:before {
-	content:"";
+	content: "";
 	height: 0;
 	width: 0;
 	display: block;
@@ -614,66 +613,66 @@ h2 {
 	top: 3px;
 	right: 0;
 	border-top: 29px solid rgba(0,0,0,.3); /* These 4 border properties create the first part of our drop-shadow */
-	border-bottom: 29px solid rgba(0,0,0,.3); 
+	border-bottom: 29px solid rgba(0,0,0,.3);
 	border-right: 29px solid rgba(0,0,0,.3);
 	border-left: 29px solid transparent;
 }
 
-#ribbon-container:after { /* This adds the second part of our dropshadow */
-	content:"";
+#ribbon-container:after {/* This adds the second part of our dropshadow */
+	content: "";
 	height: 3px;
 	background: rgba(0,0,0,.3);
 	display: block;
 	position: absolute;
 	bottom: -3px;
 	left: 58px;
-	right:3px;
+	right: 3px;
 }
 
 #ribbon-container span {
-	display:block;
-	padding:20px;
-	position:relative; /* allows us to position our pseudo-elements properly */
-	background:#0089d0;
-	overflow:visible;
-	height:58px;
+	display: block;
+	padding: 20px;
+	position: relative; /* allows us to position our pseudo-elements properly */
+	background: #0089d0;
+	overflow: visible;
+	height: 58px;
 	/* margin-left:29px; */
-	color:#fff;
-	text-decoration:none;
+	color: #fff;
+	text-decoration: none;
 }
 
-#ribbon-container span:after { /* this creates the "folded" part of our ribbon */
-	content:""; 
+#ribbon-container span:after {/* this creates the "folded" part of our ribbon */
+	content: "";
 	height: 0;
 	width: 0;
-	display:block;
-	position:absolute;
-	bottom:-15px;
-	left:0;
-	border-top: 15px solid #004a70; 
+	display: block;
+	position: absolute;
+	bottom: -15px;
+	left: 0;
+	border-top: 15px solid #004a70;
 	border-left: 15px solid transparent;
 }
 
-#ribbon-container span:before { /* this creates the "forked" part of our ribbon */
-	content:"";
+#ribbon-container span:before {/* this creates the "forked" part of our ribbon */
+	content: "";
 	height: 0;
 	width: 0;
-	display:block;
-	position:absolute;
-	top:0;
-	right:-29px;
-	border-top: 29px solid #0089d0; 
-	border-bottom: 29px solid #0089d0; 
+	display: block;
+	position: absolute;
+	top: 0;
+	right: -29px;
+	border-top: 29px solid #0089d0;
+	border-bottom: 29px solid #0089d0;
 	border-right: 29px solid transparent;
 	border-left: 29px solid transparent;
 }
 
 #ribbon-container span:hover {
-	background:#009ff1;
+	background: #009ff1;
 }
 
-#ribbon-container span:hover:before { /* this makes sure that the "forked" part of the ribbon changes color with the anchor on :hover */
-	border-top: 29px solid #009ff1; 
+#ribbon-container span:hover:before {/* this makes sure that the "forked" part of the ribbon changes color with the anchor on :hover */
+	border-top: 29px solid #009ff1;
 	border-bottom: 29px solid #009ff1;
 }
 

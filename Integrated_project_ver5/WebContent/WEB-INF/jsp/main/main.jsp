@@ -22,6 +22,9 @@
 	href="<c:url value='/css/main.css'/>">
 <script src="<c:url value='/js/main/main.js'/>"></script>
 </head>
+<script></script>
+
+
 <body>
 	<div class="container-fluid">
 			<c:import url="/WEB-INF/jsp/main/menu.jsp"></c:import>
