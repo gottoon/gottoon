@@ -124,7 +124,7 @@
 				</div>
 				<div>
 					<div style="padding-top:45px">${webtoonInfo.myWebtoon_title} : ${webtoonInfo.keywordsCount}</div>
-					<div>${webtoonInfo.matching_percent}</div>
+					<div>${webtoonInfo.matching_percent}%</div>
 				</div>
 			</div>
 		</c:forEach>
