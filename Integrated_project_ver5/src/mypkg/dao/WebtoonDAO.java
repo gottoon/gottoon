@@ -50,7 +50,7 @@ public class WebtoonDAO {
 			String sql = "select g.genres_name, w.webtoons_title, w.webtoons_summary, "
 					+ "w.webtoons_update_days, w.webtoons_completed, w.webtoons_viewfree, "
 					+ "w.webtoons_professional, w.webtoons_pgrating, w.webtoons_publisher, "
-					+ "w.webtoons_average_rate, w.webtoons_title_image, w.webtoons_url, "
+					+ "w.webtoons_average_rate, w.webtoons_details_image, w.webtoons_url, "
 					+ "w.webtoons_first_update, uwm.user_webtoon_rate "
 					+ "from webtoons w inner join genres g on w.genre_id_fk = g.genres_id_pk "
 					+ "inner join user_webtoon_maps as uwm on uwm.webtoons_id_fk = w.webtoons_id_pk "
@@ -81,7 +81,7 @@ public class WebtoonDAO {
 			String webtoons_publisher = rset.getString("webtoons_publisher");
 			double webtoons_average_rate = rset
 					.getDouble("webtoons_average_rate");
-			String webtoons_title_image = rset.getString("webtoons_title_image");
+			String webtoons_details_image = rset.getString("webtoons_details_image");
 			String webtoons_url = rset.getString("webtoons_url");
 			String webtoons_first_update = rset
 					.getString("webtoons_first_update");
@@ -106,7 +106,7 @@ public class WebtoonDAO {
 					webtoons_title, webtoons_summary, webtoons_update_days,
 					webtoons_completed, webtoon_viewfree, webtoon_professional,
 					webtoons_pgrating, webtoons_publisher,
-					webtoons_average_rate, webtoons_title_image, webtoons_url,
+					webtoons_average_rate, webtoons_details_image, webtoons_url,
 					webtoons_first_update, user_webtoon_rate);
 		} catch (SQLException e) {
 			e.printStackTrace();
@@ -129,7 +129,8 @@ public class WebtoonDAO {
 		WebtoonVO webtoonInfo = null;
 		Connection conn = null;
 		Statement stmt = null;
-
+		
+		System.out.println("여기 들어와???");
 		try {
 			conn = pool.getConnection();
 			stmt = conn.createStatement();

@@ -111,7 +111,7 @@ public class WebtoonVO implements Serializable {
 			String webtoons_update_days, String webtoons_completed,
 			String webtoon_viewfree, String webtoon_professional,
 			String webtoons_pgrating, String webtoons_publisher,
-			double webtoons_average_rate, String webtoons_title_image,
+			double webtoons_average_rate, String webtoons_details_image,
 			String webtoons_url, String webtoons_first_update,
 			int user_webtoon_rate) {
 		this.webtoons_id_pk = webtoon_id_pk;
@@ -125,7 +125,7 @@ public class WebtoonVO implements Serializable {
 		this.webtoons_pgrating = webtoons_pgrating;
 		this.webtoons_publisher = webtoons_publisher;
 		this.webtoons_average_rate = webtoons_average_rate;
-		this.webtoons_title_image = webtoons_title_image;
+		this.webtoons_details_image = webtoons_details_image;
 		this.webtoons_url = webtoons_url;
 		this.webtoons_first_update = webtoons_first_update;
 		this.webtoon_rate = user_webtoon_rate;
