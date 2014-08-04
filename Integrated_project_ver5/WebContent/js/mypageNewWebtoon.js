@@ -39,7 +39,7 @@ function showScroll(data , count){
 					+ '<form method="post" action="webtoon"><input type="hidden" name="webtoon_id"'
 					+ ' value='+data[i].webtoons_id_pk+' /> <input type="hidden"'
 					+ ' name="todo" value="showWebtoonDetails" />'
-					+ '<input type="image" src="..'+data[i].webtoons_thumbnail+'" class='+'\"'+'photo\" />'
+					+ '<input type="image" src="'+data[i].webtoons_thumbnail+'" class='+'\"'+'photo\" />'
 					+ '</form></div><div id="title">'
 					+ '<a id="title_link" href='+data[i].webtoons_url+' target="_blank"><strong>'+data[i].webtoons_title+'</strong></a></div>'
 					+ '<div id="desc"><form id="myForm"><div class = "product-review-stars" >'
