@@ -346,7 +346,7 @@
 							</form></li>
 
 						<li><form id="mypageForm"
-								action="<c:url value='/action/mypageReadWebtoon'/>"
+								action="<c:url value='/action/mypage'/>"
 								method="post">
 								<button id="mypageBtn" type="submit">
 									<img src="<c:url value='/img/menu/lock.png'/>" />

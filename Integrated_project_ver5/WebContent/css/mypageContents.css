@@ -132,6 +132,8 @@ body {
 	background-color: #fff;
 }
 
+
+
 h2, div {
 	font-size: 18px;
 	text-align: center;
@@ -145,6 +147,7 @@ div.state {
 
 p#grade {
 	line-height: 1.8;
+	font-size: 4em;
 }
 
 b#level {
@@ -158,6 +161,7 @@ form#myForm {
 div#state_image {
 	width: 510px;
 	display: -webkit-inline-box;
+	display: -ms-inline-flexbox;
 }
 
 div#state_gauge{
@@ -170,8 +174,11 @@ b#level, strong#readWebtoonCount {
 	color: crimson;
 }
 
+strong#title {
+	font-size: 14px;
+}
+
 a#title_link {
-	/* width: 12em; */
 	border: 0px solid #000000;
 	word-break: break-all;
 	color: #79b3d4;
@@ -184,12 +191,24 @@ a#title_link {
 	text-align: center;
 	margin-left: 10px;
 	margin-right: 10px;
+	padding-top: 0;
 }
 
 section.contains {
 	background-color: #f7f7f7;
 	min-width: 320px;
 }
+
+div#wish {
+	margin: 0 auto;
+	color: red;
+	float: left;
+	font-size: 14px;
+	border: 1px solid #FF0066;
+	border-radius: 100px;
+	width: 23px;
+}
+
 
 
 /* 화면 크기별 크기 맞추기  */
@@ -256,7 +275,7 @@ section.contains {
 	}
 }
 	
-@media all and (min-width: 518px) and (max-width: 526px){
+/*@media all and (min-width: 518px) and (max-width: 526px){
 	div#progress {
 		display: none;
 	}
@@ -272,7 +291,7 @@ section.contains {
 	}
 }
 
-@media all and (min-width: 302px) and (max-width: 517px) {
+ @media all and (min-width: 302px) and (max-width: 517px) {
 	div#progress {
 		display: none;
 	}
@@ -289,13 +308,13 @@ section.contains {
 	}
 	
 	a#title_link {
-		padding-top: 26px;
+		padding-top: 12px;
 		font-size: 14px;
 	}
-}
+} */
 
 /* width: 476px 이하 타이틀, 별점 크기 맞추기  */
-@media all and (min-width: 396px)and (max-width: 476px) {
+/* @media all and (min-width: 396px)and (max-width: 476px) {
 	form#myForm {
 		margin: 5px;
 	}
@@ -303,16 +322,17 @@ section.contains {
 
 @media all and (min-width: 302px)and (max-width: 396px) {
 	a#title_link {
+		padding-top: 0px;
 		font-size: 11px;
 	}
 	
 	form#myForm {
 		margin: 0px;
 	}
-}
+} */
 
 /* width: 476px 이하 별점 중간 맞추기  */
-@media all and (min-width: 435px) and (max-width: 476px){
+/* @media all and (min-width: 435px) and (max-width: 476px){
 	form#myForm {
 	padding-top: 7px;
 	}
@@ -328,4 +348,4 @@ section.contains {
 	form#myForm {
 	padding-top: 5px;
 	}
-}
+} */
