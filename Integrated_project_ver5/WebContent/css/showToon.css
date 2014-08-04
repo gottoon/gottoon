@@ -1,5 +1,97 @@
 @CHARSET "UTF-8";
 
+
+
+body {
+/*   background: green;
+ */}
+
+
+section {
+  width: 30rem;
+  margin: auto;
+  padding-bottom: 10rem;
+}
+
+/*==============================================
+Progress Steps
+================================================ */
+ol.ui {
+    list-style: none outside none;
+    z-index: 9999;
+    position: fixed;
+}
+ol.ui li {
+  float: left;
+  margin-right: 1rem;
+  position: relative;
+  text-align: center;
+  width: 104px;
+  left: 26em;
+  left: 30em;
+top: -3em;
+}
+ol.ui li > span {
+  color: #fff;
+  display: block;
+  margin-bottom: 0.5rem;
+  width: 100px;
+}
+ol.ui span:nth-of-type(2) {
+  background: rgba(0, 0, 0, 0.4);
+  border: 0.2rem solid transparent;
+  border-radius: 50%;
+  cursor: pointer;
+  font-size: 1.5rem;
+  font-weight: bold;
+  width: 3rem;
+  height: 3rem;
+  display: inline-block;
+  line-height: 1.7;
+  transition: all 1.2s ease-in-out;
+}
+ol.ui span:nth-of-type(2):before {
+  background: rgba(0, 0, 0, 0.4);
+  bottom: 1.9rem;
+  content: "";
+  height: 0.5rem;
+  left: -2.65rem;
+  position: absolute;
+  transition: all 1.2s ease-in-out;
+  width: 0rem;
+}
+ol.ui span:nth-of-type(2):after {
+  background: rgba(0, 0, 0, 0.4);
+  bottom: 1.9rem;
+  content: "";
+  height: 0.5rem;
+  left: 5rem;
+  position: absolute;
+  transition: all 1.2s ease-in-out;
+  width: 4rem;
+}
+ol.ui li:first-of-type span:nth-of-type(2):before,
+ol.ui li:last-of-type span:nth-of-type(2):after {
+  display: none;
+}
+ol.ui .active span:nth-of-type(2) {
+  border: 0.2rem solid white;
+  transition: all 1s ease-in-out;
+  transition-delay: 0.8s;
+}
+ol.ui .active span:nth-of-type(2):before {
+  background: white;
+  transition: all 1.2s ease-in-out;
+  width: 4.35rem;
+}
+ol.ui p {
+  color: #fff;
+  left: 50%;
+  margin-left: -1rem;
+  margin-top: 4.5rem;
+  cursor: pointer;
+  position: absolute;
+}
 /*더평가하기틀   */
 @charset "UTF-8";
 

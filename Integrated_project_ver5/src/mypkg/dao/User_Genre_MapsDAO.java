@@ -76,7 +76,7 @@ System.out.println("sql문 확인 테스트/////////////////////////////////////
 			String sql = String.format("select * from webtoons where("+selectedGenres+") AND webtoons_id_pk  not in "
 					+ "(select webtoons_id_pk from webtoons where webtoons_id_pk = "
 					+ "any(select webtoons_id_fk from user_webtoon_maps where " + "users_facebookID_fk = " + user_facebookID_fk
-					+ " AND user_webtoon_isread = 1)) limit %s , 8 ", num);
+					+ " AND user_webtoon_isread = 1)) limit %s , 8 " , num);
 			ResultSet webtoonOfSelectedGenre = stmt.executeQuery(sql);
 
 			while (webtoonOfSelectedGenre.next()) {

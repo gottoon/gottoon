@@ -19,6 +19,11 @@
 <body>
 	<div id="pgcontainer">
 		<c:import url="/WEB-INF/jsp/main/menu.jsp"></c:import>
+
+
+
+
+
 		<div class="show-modalStar">
 			<div class="modalStar">
 				<div>저장 부아악!</div>

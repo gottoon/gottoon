@@ -218,7 +218,7 @@ body.openmenu {
 	z-index: 100; /* keep on top of other elements on the page */
 	outline: 9999px solid rgba(0, 0, 0, 0.5);
 }
-
+/* 
 #goGenreModal button {
 	width: 200px;
 	height: 120px;
@@ -239,10 +239,10 @@ body.openmenu {
 #goGenreModal button:hover {
 	width: 180px;
 	height: 110px;
-/* 	box-shadow: 2px 2px 2px grey;
- */	background-image: url('../img/menu/afterExplorer.png');
+	box-shadow: 2px 2px 2px grey;
+	background-image: url('../img/menu/afterExplorer.png');
 }
-
+ */
 /* #wait {
 	position: fixed;
 	top: 80%;

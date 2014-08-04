@@ -145,7 +145,7 @@
 
 	//ajax wait
 
-	$(document).ready(function() {
+/* 	$(document).ready(function() {
 		$(document).ajaxStart(function() {
 			$("#wait").css("display", "block");
 		});
@@ -155,7 +155,7 @@
 		$("button").click(function() {
 			$("#txt").load("demo_ajax_load.asp");
 		});
-	});
+	}); */
 
 	$(document).ready(function() {
 		$('#logoutBtn').click(function logout() {
@@ -395,10 +395,10 @@
 	<!-- @end #pgcontainer -->
 
 	<!--ajax wait  -->
-	<div id="wait" style="display: none;">
+	<%-- <div id="wait" style="display: none;">
 		<img src="<c:url value='/img/menu/ajax-loader.gif'/>" width="64"
 			height="64" /><br>Loading..
-	</div>
+	</div> --%>
 	<!--ajax wait  -->
 
 
