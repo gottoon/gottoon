@@ -29,8 +29,8 @@ public class RecommendDAO {
 		}
 	}
 	
-	public RecommendWebtoonVO getRecommendWebtoonInfo(String myWebtoon_title, 
-				int otherWebtoon_id, int keywordsCount, String recommender_matching_percent, 
+	public RecommendWebtoonVO getRecommendWebtoonInfo(long currentUser_facebookID, String myWebtoon_title, 
+				int otherWebtoon_id, int reserveValue, int keywordsCount, String recommender_matching_percent, 
 				String relative_matching_percent) {
 		RecommendWebtoonVO recommendWebtoon = null;
 		Connection conn = null;
@@ -62,8 +62,9 @@ public class RecommendDAO {
 
 			recommendWebtoon = new RecommendWebtoonVO (otherWebtoon_id, webtoons_title, authors_name,
 					webtoons_completed, webtoons_viewfree, webtoons_main_image,
-					webtoons_url, webtoons_first_update, myWebtoon_title, keywordsCount, 
-					recommender_matching_percent, relative_matching_percent);
+					webtoons_url, webtoons_first_update, myWebtoon_title, 
+					reserveValue, keywordsCount, recommender_matching_percent,
+					relative_matching_percent);
 		} catch (SQLException e) {
 			e.printStackTrace();
 		} finally {

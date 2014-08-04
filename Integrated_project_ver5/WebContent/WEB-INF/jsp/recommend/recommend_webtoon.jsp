@@ -79,8 +79,8 @@
 					<span class="image_title">${webtoonInfo.webtoons_title}</span>
 					<div class="star">
 						<form id="myForm">
-							<input type="hidden" id="rate" name="rate"
-								value="${webtoonDetail.webtoon_rate}" /> <input type="hidden"
+							<%-- <input type="hidden" id="rate" name="rate"
+								value="${webtoonInfo.webtoon_rate}" /> --%> <input type="hidden"
 								id="id" name="webtoons_id_pk"
 								value="${webtoonInfo.webtoons_id_pk}" /> <input type="hidden"
 								name="webtoons_title" value="${webtoonInfo.webtoons_title}" />
@@ -130,9 +130,11 @@
 									<form method="post" action="#">
 										<input type="hidden" name="webtoon_id"
 											value="${webtoonInfo.webtoons_id_pk}" />
+										<input type="hidden" class="reserve_value" value="${webtoonInfo.reserveValue}" />
+										<input type="hidden" class="reserve_title" value="${webtoonInfo.webtoons_title}" />
 										<div class="heart">
 											<input type="checkbox" id="${webtoonInfo.webtoons_title}"
-												class="visuallyhiddenHeart" name="reserve"
+												class="visuallyhiddenHeart" name="reserve" value="0${webtoonInfo.webtoons_title}"
 												onclick="seeReserve(this.form, this.id)" /> <label
 												for="${webtoonInfo.webtoons_title}" title="reserve_heart">❤</label>
 										</div>

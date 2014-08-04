@@ -1,6 +1,5 @@
 package mypkg.service;
 
-import java.text.Format;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
@@ -56,7 +55,7 @@ public class RecommendService {
 		// 08.01 키워드개수 뽑아오기 추가
 		List<KeywordsCountVO> webtoons_keywords = this.compareToKeywords(ratedWebtoons, completed_webtoons);
 		
-		List<RecommendWebtoonVO> result = this.getWebtoonInfo_Keyword(webtoons_keywords);
+		List<RecommendWebtoonVO> result = this.getWebtoonInfo_Keyword(currentUser_facebookID, webtoons_keywords);
 		
 		
 		/*// 6. 추천 웹툰 5개만 뽑아오기
@@ -109,13 +108,15 @@ public class RecommendService {
 		return userDAO.getExceptBlacklistAllUsers();
 	}
 	
-	public RecommendWebtoonVO getRecommendWebtoonInfo(String myWebtoon_title, int otherWebtoon_id, 
-				int keywordsCount, String recommender_matching_percent, String relative_matching_percent) {
+	public RecommendWebtoonVO getRecommendWebtoonInfo(long currentUser_facebookID, 
+			String myWebtoon_title, int otherWebtoon_id, int reserveValue, int keywordsCount, 
+			String recommender_matching_percent, String relative_matching_percent) {
 		MySqlDAOFactory mysqlFactory = new MySqlDAOFactory();
 		RecommendDAO recommendDAO = mysqlFactory.getRecommendDAO();
 	
-		return recommendDAO.getRecommendWebtoonInfo(myWebtoon_title, otherWebtoon_id, keywordsCount, 
-					recommender_matching_percent, relative_matching_percent);
+		return recommendDAO.getRecommendWebtoonInfo(currentUser_facebookID, myWebtoon_title, 
+				otherWebtoon_id, reserveValue, keywordsCount, recommender_matching_percent,
+				relative_matching_percent);
 	}
 	
 	public List<Integer> getKeyWords(int webtoon_id) {
@@ -137,6 +138,13 @@ public class RecommendService {
 		Webtoon_Another_Webtoon_Relative_MapsDAO relativeWebtoonDAO = mysqlFactory.getWebtoon_another_webtoon_relative_mapsDAO();
 
 		return relativeWebtoonDAO.getWebtoonsRelativeRate(webtoonId, anotherWebtoonId);
+	}
+	
+	public int reserveCheck(long currentUser_facebookID, int webtoon_id) {
+		MySqlDAOFactory mysqlFactory = new MySqlDAOFactory();
+		User_Webtoon_MapsDAO userWebtoonDAO = mysqlFactory.getUser_Webtoon_MapsDAO();
+		
+		return userWebtoonDAO.getReserveCheck(currentUser_facebookID, webtoon_id);
 	}
 	
 	public List<UserWebtoonMapsVO> checkWebtoonsRated(List<UserWebtoonMapsVO> allReadWebtoons) {
@@ -490,12 +498,15 @@ public class RecommendService {
 		return keywordsCount;
 	}*/
 	
-	public List<RecommendWebtoonVO> getWebtoonInfo_Keyword(List<KeywordsCountVO> webtoons_keywords) {
+	public List<RecommendWebtoonVO> getWebtoonInfo_Keyword(long currentUser_facebookID, 
+			List<KeywordsCountVO> webtoons_keywords) {
 		List<RecommendWebtoonVO> recommendWebtoons = new ArrayList<RecommendWebtoonVO>();
 		
 		for (int i = 0; i < webtoons_keywords.size(); i++) {
 			String myWebtoon_title = webtoons_keywords.get(i).getMyWebtoon_title();
 			int otherWebtoon_id = webtoons_keywords.get(i).getOtherWebtoons().getWebtoon_id();
+			int reserveValue = this.reserveCheck(currentUser_facebookID, otherWebtoon_id);
+			
 			int keywordsCount = webtoons_keywords.get(i).getKeywords_count();
 			double recommender_matching = webtoons_keywords.get(i).getOtherWebtoons().getRecommender_matching();
 			double relative_matching = webtoons_keywords.get(i).getOtherWebtoons().getRelative_matching();
@@ -507,8 +518,9 @@ public class RecommendService {
 			String recommender_matching_percent = String.format("%.1f", recommender_matching);
 			String relative_matching_percent = String.format("%.1f", relative_matching);
 			
-			recommendWebtoons.add(this.getRecommendWebtoonInfo(myWebtoon_title, otherWebtoon_id, keywordsCount, 
-					recommender_matching_percent, relative_matching_percent));
+			recommendWebtoons.add(this.getRecommendWebtoonInfo(currentUser_facebookID, myWebtoon_title,
+					otherWebtoon_id, reserveValue, keywordsCount, recommender_matching_percent,
+					relative_matching_percent));
 		}
 		
 		return recommendWebtoons;

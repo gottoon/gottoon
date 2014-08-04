@@ -17,14 +17,16 @@ public class WebtoonService {
 	public WebtoonVO doGetWebtoonDetail(long curruntUser_facebookID,
 			int webtoon_id) {
 		WebtoonVO webtoonDetail = null;
+		int reserveValue = this.reserveCheck(curruntUser_facebookID, webtoon_id);
 
+		// 본거 찜한거 체크 : 있으면 true
 		if (this.checkMyWebtoon(curruntUser_facebookID, webtoon_id)) {
 			webtoonDetail = this.getMyWebtoonDetail(curruntUser_facebookID,
-					webtoon_id);
+					webtoon_id, reserveValue);
 		} else {
-			webtoonDetail = this.getWebtoonDetail(webtoon_id);
+			webtoonDetail = this.getWebtoonDetail(webtoon_id, reserveValue);
 		}
-
+		
 		return webtoonDetail;
 	}
 
@@ -73,11 +75,11 @@ public class WebtoonService {
 
 	// 2014.07.11 soo (내가 본&찜한) 상세보기 웹툰 정보 뽑아오기 DAO
 	public WebtoonVO getMyWebtoonDetail(long curruntUser_facebookID,
-			int webtoon_id) {
+			int webtoon_id, int reserveValue) {
 		MySqlDAOFactory mysqlDAOFactory = new MySqlDAOFactory();
 		WebtoonDAO webtoonDAO = mysqlDAOFactory.getWebtoonsDAO();
 
-		return webtoonDAO.getMyWebtoonInfo(curruntUser_facebookID, webtoon_id);
+		return webtoonDAO.getMyWebtoonInfo(curruntUser_facebookID, webtoon_id, reserveValue);
 	}
 
 	// 2014.07.11 soo 상세보기 작가 뽑아오기 DAO
@@ -130,11 +132,11 @@ public class WebtoonService {
 	}
 
 	// 2014.07.23 soo 걍 웹툰 상세정보 가져오기
-	public WebtoonVO getWebtoonDetail(int webtoon_id) {
+	public WebtoonVO getWebtoonDetail(int webtoon_id, int reserveValue) {
 		MySqlDAOFactory mysqlDAOFactory = new MySqlDAOFactory();
 		WebtoonDAO webtoonDAO = mysqlDAOFactory.getWebtoonsDAO();
 
-		return webtoonDAO.getWebtoonInfo(webtoon_id);
+		return webtoonDAO.getWebtoonInfo(webtoon_id, reserveValue);
 	}
 	
 	public void addWebtoon(WebtoonVO webtoonVO){
@@ -211,4 +213,10 @@ public class WebtoonService {
 		return allInfo;
 	}
 	
+	public int reserveCheck(long currentUser_facebookID, int webtoon_id) {
+		MySqlDAOFactory mysqlFactory = new MySqlDAOFactory();
+		User_Webtoon_MapsDAO userWebtoonDAO = mysqlFactory.getUser_Webtoon_MapsDAO();
+		
+		return userWebtoonDAO.getReserveCheck(currentUser_facebookID, webtoon_id);
+	}
 }

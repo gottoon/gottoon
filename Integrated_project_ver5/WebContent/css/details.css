@@ -589,11 +589,11 @@ body {
 		border-left: 2px solid #ccc;
 		border-right: 1px solid #444;
 		border-top: 2px solid #ccc;
-		border-bottom: 8px double #ccc;
+		border-bottom: 12px double #ccc;
 		border-radius: 5px 10px 10px 5px;
 		-moz-box-shadow: inset -12px 0px 15px -8px #777;
 		-webkit-box-shadow: inset -12px 0px 13px -6px #777;
-		box-shadow: inset -12px 0px 13px -6px #777;
+		box-shadow: inset -18px 0px 15px -8px #777;
 	}
 
 
@@ -615,7 +615,6 @@ body {
 }
 
  .heart label {
-	/* font-family: "icomoon"; */
 	position: relative;
 	cursor: pointer;
 	color: gray;
@@ -626,12 +625,10 @@ body {
 .heart label:after {
 	content: "❤";
 	color: inherit;
-	/* -webkit-transform: scale(4); */
 	position: absolute;
 	z-index: 4;
 	left: -1px;
 	top: -1px;
-	/* transition: all .4s; */
 	opacity: 0;
 	color: inherit;
 	visibility: hidden;
@@ -650,14 +647,13 @@ body {
 .heart input+label:nth-of-type(1):hover ~ label:before,
 .heart input:nth-of-type(1):checked ~ label:before,
 .heart label:hover {
-	color: red;
-	border: 1px solid #727280;
+	color: #CC3333;
+	border: 1px solid #CC3333;
 	border-radius: 50%;
 }
 		
 .heart input:checked+label:after {
 	visibility: visible;
-	/* -webkit-transform: scale(1); */
 	opacity: 1;
 }
 

@@ -20,7 +20,7 @@ public class RecommendCommand implements Command {
 	public CommandResult execute(HttpServletRequest request,
 			HttpServletResponse response) throws ServletException, IOException {
 		List<RecommendWebtoonVO> recommendWebtoons = this.doGetRecommendWebtoons(request);
-
+		
 		request.setAttribute("recommendWebtoons", recommendWebtoons);
 		commandResult = new CommandResult("/WEB-INF/jsp/recommend/recommend_webtoon.jsp");
 		

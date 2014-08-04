@@ -38,7 +38,7 @@ public class WebtoonDAO {
 
 	// 2014.07.11 soo 웹툰 상세보기 정보 뽑아오기 (웹툰 본거 or 찜한거 - 별점 가져오기)
 	public WebtoonVO getMyWebtoonInfo(long curruntUser_facebookID,
-			int webtoon_id) {
+			int webtoon_id, int reserveValue) {
 		WebtoonVO webtoonInfo = null;
 		Connection conn = null;
 		Statement stmt = null;
@@ -107,7 +107,7 @@ public class WebtoonDAO {
 					webtoons_completed, webtoon_viewfree, webtoon_professional,
 					webtoons_pgrating, webtoons_publisher,
 					webtoons_average_rate, webtoons_details_image, webtoons_url,
-					webtoons_first_update, user_webtoon_rate);
+					webtoons_first_update, user_webtoon_rate, reserveValue);
 		} catch (SQLException e) {
 			e.printStackTrace();
 		} finally {
@@ -125,12 +125,11 @@ public class WebtoonDAO {
 	}
 
 	// 2014.07.23 soo 걍 웹툰 상세보기 정보 뽑아오기
-	public WebtoonVO getWebtoonInfo(int webtoon_id) {
+	public WebtoonVO getWebtoonInfo(int webtoon_id, int reserveValue) {
 		WebtoonVO webtoonInfo = null;
 		Connection conn = null;
 		Statement stmt = null;
 		
-		System.out.println("여기 들어와???");
 		try {
 			conn = pool.getConnection();
 			stmt = conn.createStatement();
@@ -188,7 +187,7 @@ public class WebtoonDAO {
 					webtoons_completed, webtoon_viewfree, webtoon_professional,
 					webtoons_pgrating, webtoons_publisher,
 					webtoons_average_rate, webtoons_details_image, webtoons_url,
-					webtoons_first_update);
+					webtoons_first_update, reserveValue);
 		} catch (SQLException e) {
 			e.printStackTrace();
 		} finally {

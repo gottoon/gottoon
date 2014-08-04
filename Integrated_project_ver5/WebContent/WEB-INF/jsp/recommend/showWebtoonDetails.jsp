@@ -66,7 +66,11 @@
 					<div id="reserve">
 							<form method="post" action="#">
 								<input type="hidden" name="webtoon_id" value="${webtoonDetail.webtoons_id_pk}" />
-								<div class="heart"><input type="checkbox" id="${webtoonDetail.webtoons_title}" class="visuallyhiddenHeart" name="reserve" onclick=seeReserve(this.form) />
+								<input type="hidden" class="reserve_value" value="${webtoonDetail.reserveValue}" />
+								<input type="hidden" class="reserve_title" value="${webtoonDetail.webtoons_title}" />
+								<div class="heart"><input type="checkbox" id="${webtoonDetail.webtoons_title}"
+									 class="visuallyhiddenHeart" name="reserve" onclick="seeReserve(this.form, this.id)" 
+									 value="0${webtoonDetail.webtoons_title}" />
 									<label for="${webtoonDetail.webtoons_title}" title="reserve_heart">❤</label>
 								</div>
 							</form>

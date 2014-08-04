@@ -318,7 +318,7 @@
 								method="post">
 								<button id="genreBtn" type="submit">
 									<img src="<c:url value='/img/menu/lock.png'/>" />
-									<p>선호 장르</p>
+									<p>선호장르선택</p>
 								</button>
 								<input type="hidden" name="todo" value="showGenres">
 							</form>
@@ -328,7 +328,7 @@
 								method="post">
 								<button id="moreBtn" type="submit">
 									<img src="<c:url value='/img/menu/lock.png'/>" />
-									<p>평가 하기</p>
+									<p>별점평가하기</p>
 								</button>
 								<input type="hidden" name="todo" value="">
 							</form>
@@ -338,7 +338,7 @@
 								<%-- 	<c:if test="${userGradeInt >= 2}"> --%>
 								<button id="recommendBtn" type="submit">
 									<img src="<c:url value='/img/menu/lock.png'/>" />
-									<p>추천웹툰</p>
+									<p>추천웹툰보기</p>
 								</button>
 								<input type="hidden" name="todo" value="recommend">
 								<%-- </c:if> --%>

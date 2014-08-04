@@ -26,6 +26,7 @@ public class WebtoonVO implements Serializable {
 	private String webtoon_professional;
 	private String authors_name; // 여기까지 추가
 	private int webtoon_rate;
+	private int reserveValue;
 
 	// 생성자 1번
 	public WebtoonVO(int webtoons_id_pk) {
@@ -113,7 +114,7 @@ public class WebtoonVO implements Serializable {
 			String webtoons_pgrating, String webtoons_publisher,
 			double webtoons_average_rate, String webtoons_details_image,
 			String webtoons_url, String webtoons_first_update,
-			int user_webtoon_rate) {
+			int user_webtoon_rate, int reserveValue) {
 		this.webtoons_id_pk = webtoon_id_pk;
 		this.genres_name = genres_name;
 		this.webtoons_title = webtoons_title;
@@ -129,6 +130,7 @@ public class WebtoonVO implements Serializable {
 		this.webtoons_url = webtoons_url;
 		this.webtoons_first_update = webtoons_first_update;
 		this.webtoon_rate = user_webtoon_rate;
+		this.reserveValue = reserveValue;
 	}
 
 	// 2014.07.11 soo 생성자 추가 (웹툰 상세보기) - 내가 안본거
@@ -139,7 +141,7 @@ public class WebtoonVO implements Serializable {
 			String webtoon_viewfree, String webtoon_professional,
 			String webtoons_pgrating, String webtoons_publisher,
 			double webtoons_average_rate, String webtoons_details_image,
-			String webtoons_url, String webtoons_first_update) {
+			String webtoons_url, String webtoons_first_update, int reserveValue) {
 		this.webtoons_id_pk = webtoon_id_pk;
 		this.genres_name = genres_name;
 		this.webtoons_title = webtoons_title;
@@ -154,6 +156,7 @@ public class WebtoonVO implements Serializable {
 		this.webtoons_details_image = webtoons_details_image;
 		this.webtoons_url = webtoons_url;
 		this.webtoons_first_update = webtoons_first_update;
+		this.reserveValue = reserveValue;
 	}
 
 	// 생성자 10번 - bj 7.18
@@ -391,5 +394,13 @@ public class WebtoonVO implements Serializable {
 
 	public void setAuthors_name(String authors_name) {
 		this.authors_name = authors_name;
+	}
+
+	public int getReserveValue() {
+		return reserveValue;
+	}
+
+	public void setReserveValue(int reserveValue) {
+		this.reserveValue = reserveValue;
 	}
 }

@@ -68,7 +68,7 @@ public class UserWebtoonMapsService {
 				if(this.addReserve(users_facebookID_fk, webtoons_id)) {
 					return "찜하기 성공!";
 				} else {
-					return "잠시 후 다시 시도해주세요.";
+					return "잠시 후 다시 시도해주세요.1";
 				}
 			} else {
 				return "이미 보거나 찜한 웹툰입니다!";
@@ -77,7 +77,7 @@ public class UserWebtoonMapsService {
 			if (this.deleteReserve(users_facebookID_fk, webtoons_id)) {
 				return "찜하기 삭제!";
 			} else {
-				return "잠시 후 다시 시도해주세요.";
+				return "잠시 후 다시 시도해주세요.2";
 			}
 		}
 	}

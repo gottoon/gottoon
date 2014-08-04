@@ -101,13 +101,10 @@ function getHighRatedWebtoonsAuthor(recommendAuthor, webtoon_id, callback) {
 	});
 }
 
-/*function overlay(webtoon_id) {
-	$.ajax({
-		type : "POST",
-		url : "webtoon",
-		data : {"todo" : "showWebtoonDetails", "webtoon_id" : webtoon_id},
-		success : function(data){
-			console.log(data);
-		}
+$(document).ready(function() {
+	var reserves = $('.heart');
+	reserves.each(function() {
+		var detailsIndex = reserves.index(this);
+		$(".heart input:checkbox[value='"+$('.reserve_value').eq(detailsIndex).val()+$('.reserve_title').eq(detailsIndex).val()+"']").attr("checked", true);
 	});
-}*/
+});

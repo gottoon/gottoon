@@ -10,6 +10,7 @@ public class RecommendWebtoonVO {
 	private String webtoons_first_update;
 	private String authors_name;
 	private String myWebtoon_title;
+	private int reserveValue;
 	private int keywordsCount;
 	private String recommender_matching_percent;
 	private String relative_matching_percent;
@@ -17,8 +18,8 @@ public class RecommendWebtoonVO {
 	public RecommendWebtoonVO (int otherWebtoon_id, String webtoons_title,
 			String authors_name, String webtoons_completed,
 			boolean webtoons_viewfree, String webtoons_title_image,
-			String webtoons_url, String webtoons_first_update, 
-			String myWebtoon_title, int keywordsCount, String recommender_matching_percent,
+			String webtoons_url, String webtoons_first_update,
+			String myWebtoon_title, int reserveValue, int keywordsCount, String recommender_matching_percent,
 			String relative_matching_percent) {
 		this.webtoons_id_pk = otherWebtoon_id;
 		this.webtoons_title = webtoons_title;
@@ -29,6 +30,7 @@ public class RecommendWebtoonVO {
 		this.webtoons_url = webtoons_url;
 		this.webtoons_first_update = webtoons_first_update;
 		this.myWebtoon_title = myWebtoon_title;
+		this.reserveValue = reserveValue;
 		this.keywordsCount = keywordsCount;
 		this.recommender_matching_percent = recommender_matching_percent;
 		this.relative_matching_percent = relative_matching_percent;
@@ -104,6 +106,14 @@ public class RecommendWebtoonVO {
 
 	public void setMyWebtoon_title(String myWebtoon_title) {
 		this.myWebtoon_title = myWebtoon_title;
+	}
+
+	public int getReserveValue() {
+		return reserveValue;
+	}
+
+	public void setReserveValue(int reserveValue) {
+		this.reserveValue = reserveValue;
 	}
 
 	public int getKeywordsCount() {

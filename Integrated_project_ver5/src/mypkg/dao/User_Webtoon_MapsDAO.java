@@ -631,4 +631,38 @@ public class User_Webtoon_MapsDAO {
 		
 		return check;
 	}
+
+	public int getReserveCheck(long users_facebookID_pk, int webtoon_id) {
+		int checkValue = 1;
+		Connection conn = null;
+		Statement stmt = null;
+		
+		try {
+			conn = pool.getConnection();
+			stmt = conn.createStatement();
+			
+			String sql = "select user_webtoon_isread from user_webtoon_maps "
+					+ "where users_facebookID_fk = " + users_facebookID_pk 
+					+ " and webtoons_id_fk = " + webtoon_id;
+			
+			ResultSet rset = stmt.executeQuery(sql);
+			
+			if (rset.next()) {
+				if (!rset.getBoolean("user_webtoon_isread")) {
+					checkValue = 0;
+				}
+			};
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			try {
+				if (stmt != null) stmt.close();
+				if (conn != null) conn.close();
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+		}
+		
+		return checkValue;
+	}
 }
