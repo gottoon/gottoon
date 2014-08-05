@@ -113,7 +113,7 @@ public class WebtoonVO implements Serializable {
 			String webtoons_pgrating, String webtoons_publisher,
 			double webtoons_average_rate, String webtoons_title_image,
 			String webtoons_url, String webtoons_first_update,
-			int user_webtoon_rate) {
+			int user_webtoon_rate, String webtoons_details_image) {
 		this.webtoons_id_pk = webtoon_id_pk;
 		this.genres_name = genres_name;
 		this.webtoons_title = webtoons_title;
@@ -129,6 +129,7 @@ public class WebtoonVO implements Serializable {
 		this.webtoons_url = webtoons_url;
 		this.webtoons_first_update = webtoons_first_update;
 		this.webtoon_rate = user_webtoon_rate;
+		this.webtoons_details_image = webtoons_details_image;
 	}
 
 	// 2014.07.11 soo 생성자 추가 (웹툰 상세보기) - 내가 안본거

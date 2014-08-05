@@ -189,7 +189,7 @@
 			console.log('더 평가하기 없애');
 			$('#genreBtn img').hide();
 			$('#moreBtn img').hide();
-			if (userGrade >= 2) {
+			if (userGrade >= 1) {
 				$('#recommendBtn img').hide();
 				$('#mypageBtn img').hide();
 

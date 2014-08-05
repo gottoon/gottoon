@@ -51,7 +51,7 @@ public class WebtoonDAO {
 					+ "w.webtoons_update_days, w.webtoons_completed, w.webtoons_viewfree, "
 					+ "w.webtoons_professional, w.webtoons_pgrating, w.webtoons_publisher, "
 					+ "w.webtoons_average_rate, w.webtoons_title_image, w.webtoons_url, "
-					+ "w.webtoons_first_update, uwm.user_webtoon_rate "
+					+ "w.webtoons_first_update, w.webtoons_details_image, uwm.user_webtoon_rate "
 					+ "from webtoons w inner join genres g on w.genre_id_fk = g.genres_id_pk "
 					+ "inner join user_webtoon_maps as uwm on uwm.webtoons_id_fk = w.webtoons_id_pk "
 					+ "where w.webtoons_id_pk = "
@@ -85,6 +85,7 @@ public class WebtoonDAO {
 			String webtoons_url = rset.getString("webtoons_url");
 			String webtoons_first_update = rset
 					.getString("webtoons_first_update");
+			String webtoons_details_image = rset.getString("webtoons_details_image");
 			int user_webtoon_rate = rset.getInt("user_webtoon_rate");
 			System.out.println("별점 점" + user_webtoon_rate);
 			System.out.println("웹툰 아이디디디" + webtoon_id);
@@ -107,7 +108,7 @@ public class WebtoonDAO {
 					webtoons_completed, webtoon_viewfree, webtoon_professional,
 					webtoons_pgrating, webtoons_publisher,
 					webtoons_average_rate, webtoons_title_image, webtoons_url,
-					webtoons_first_update, user_webtoon_rate);
+					webtoons_first_update, user_webtoon_rate, webtoons_details_image);
 		} catch (SQLException e) {
 			e.printStackTrace();
 		} finally {
