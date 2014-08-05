@@ -22,9 +22,24 @@
 <body>
 	<c:import url="/WEB-INF/jsp/main/menu.jsp"></c:import>
 
-
 	<div class="nav">
 		<ul class="viewfree-nav">
+			<%-- <li>
+				<form method="post" action="<c:url value='/action/recommend'/>">
+					<div>
+						<input class="viewfree-button" type="radio" id="all" name="viewfree" value="all" checked/>
+						<label for="all">전체 웹툰</label>
+					</div>
+					<div>
+						<input class="viewfree-button" type="radio" name="viewfree" value="paid" />
+						<label for="paid">유료 웹툰</label>
+					</div>
+					<div>
+						<input class="viewfree-button" type="radio" name="viewfree" value="free" />
+						<label for="free">무료 웹툰</label>
+					</div>
+				</form>
+			</li> --%>
 			<li>
 				<form method="post" action="<c:url value='/action/recommend'/>">
 					<input type="hidden" name="filterviewfree" value="null" /> <input
