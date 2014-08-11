@@ -343,7 +343,7 @@ public class WebtoonDAO {
 			stmt = conn.createStatement();
 
 			String sqlQuery = String.format("select webtoons_id_pk as webtoonID, webtoons_title as title, webtoons_update_days as days,"
-					+ " webtoons_summary as summary, webtoons_publisher as publisher,"
+					+ " webtoons_summary as summary, webtoons_thumbnail as thumbnail, webtoons_publisher as publisher,"
 					+ " webtoons_url as url from webtoons"
 					+ " where (webtoons_first_update <= curdate()) and (webtoons_first_update + interval 20 day >= curdate()) limit %s, 10 ", num);
 
@@ -351,13 +351,11 @@ public class WebtoonDAO {
 			while (rset.next()) {
 				int toon_id = rset.getInt("webtoonID");
 				String toon_title = rset.getString("title");
-				String toon_days = rset.getString("days");
-				String toon_summary = rset.getString("summary");
-				String toon_publisher = rset.getString("publisher");
+				String toon_thumbnail = rset.getString("thumbnail");
 				String toon_url = rset.getString("url");
 
-				newToon.add(new WebtoonVO(toon_id, toon_title, toon_days,
-						toon_summary, toon_publisher, toon_url));
+				newToon.add(new WebtoonVO(toon_id, toon_title, toon_thumbnail,
+						toon_url));
 			}
 
 		} catch (SQLException ex) {

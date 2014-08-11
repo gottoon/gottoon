@@ -200,7 +200,7 @@
 			}
 
 		}
-		//버튼 클릭 
+		 //버튼 클릭 
 		$('#genreBtn').click(function(event) {
 			if (userGrade >= 1) {
 			} else {
@@ -231,7 +231,7 @@
 		});
 
 		$('#managerBtn').click(function(event) {
-			if (userGrade >= 10) {
+			if (userGrade >= 1) {
 
 			} else {
 				alert('레벨 10 이상만 들어갈수 있어요 !');
@@ -239,7 +239,7 @@
 			}
 		});
 	});
-	//managerBtn
+	//managerBtn 
 
 	function welcomUser() {
 

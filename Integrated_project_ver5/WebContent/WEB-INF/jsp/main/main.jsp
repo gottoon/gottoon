@@ -11,8 +11,7 @@
 <meta name="keywords" content="webtoons,recommend,comic,cartoon" />
 
 
-<script
-	src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
 <link rel="stylesheet"
 	href="//netdna.bootstrapcdn.com/bootstrap/3.0.0-wip/css/bootstrap.min.css">
 <script
@@ -27,94 +26,92 @@
 
 <body>
 	<div class="container-fluid">
-			<c:import url="/WEB-INF/jsp/main/menu.jsp"></c:import>
-			<div class="row">
-				<section id="carousel">
-					<div id="content">
-						<!--회전 효과    -->
-						<div id="this-carousel-id" class="carousel slide">
-							<!-- class of slide for animation -->
-							<div class="carousel-inner">
-								<div class="item active">
-									<div class="carouselImg">
-										<img src="<c:url value='/img/carousel/badRelationship.png'/>"
-											alt="" />
-									</div>
-
-									<div class="carousel-caption">
-										<p>서비스 설명이 들어갈 곳</p>
-									</div>
+		<c:import url="/WEB-INF/jsp/main/menu.jsp"></c:import>
+		<div class="row">
+			<section id="carousel">
+				<div id="content">
+					<!--회전 효과    -->
+					<div id="this-carousel-id" class="carousel slide">
+						<!-- class of slide for animation -->
+						<div class="carousel-inner">
+							<div class="item active">
+								<div class="carouselImg">
+									<img src="<c:url value='/img/carousel/badRelationship.png'/>"
+										alt="" />
 								</div>
-								<div class="item">
-									<div class="carouselImg">
-										<img src="<c:url value='/img/carousel/fashionKing.png'/>"
-											alt="" />
-									</div>
 
-									<div class="carousel-caption">
-										<p>신작 소개 소개</p>
-									</div>
-								</div>
-								<div class="item">
-									<div class="carouselImg">
-										<img src="<c:url value='/img/carousel/innerSound.png'/>"
-											alt="" />
-									</div>
-
-									<div class="carousel-caption">
-										<p>추천인 랭킹순위</p>
-									</div>
-								</div>
-								<div class="item">
-									<div class="carouselImg">
-										<img src="<c:url value='/img/carousel/namgihan.png'/>" alt="" />
-									</div>
-
-									<div class="carousel-caption">
-										<p>가장 많이 추천된 웹툰</p>
-									</div>
+								<div class="carousel-caption">
+									<p>싸이코패스. 연쇄살인범. <br/>그리고 마주치는 사람들.<악연></p>
 								</div>
 							</div>
-							<a data-slide="prev" href="#this-carousel-id"
-								class="left carousel-control">‹</a> <a data-slide="next"
-								href="#this-carousel-id" class="right carousel-control">›</a>
+							<div class="item">
+								<div class="carouselImg">
+									<img src="<c:url value='/img/carousel/fashionKing.png'/>" alt="" />
+								</div>
+
+								<div class="carousel-caption">
+									<p>신작 소개 소개</p>
+								</div>
+							</div>
+							<div class="item">
+								<div class="carouselImg">
+									<img src="<c:url value='/img/carousel/innerSound.png'/>" alt="" />
+								</div>
+
+								<div class="carousel-caption">
+									<p>추천인 랭킹순위</p>
+								</div>
+							</div>
+							<div class="item">
+								<div class="carouselImg">
+									<img src="<c:url value='/img/carousel/namgihan.png'/>" alt="" />
+								</div>
+
+								<div class="carousel-caption">
+									<p>가장 많이 추천된 웹툰</p>
+								</div>
+							</div>
 						</div>
+						<a data-slide="prev" href="#this-carousel-id"
+							class="left carousel-control">‹</a> <a data-slide="next"
+							href="#this-carousel-id" class="right carousel-control">›</a>
 					</div>
-				</section>
-				<!--회전 효과  bj  -->
-
-
-			</div>
-			<div class="row">
-				<section id="loginSection">
-					<article id=loginArticle>
-
-						<div class="talkbox">
-							<div id="loginMent"></div>
-							<div>
-								<form id="loginForm" method="post"
-									action="<c:url value='/action/user'/>">
-									<input id="loginInput" type="hidden" name="todo"
-										value="checkUser" />
-									<button id="facebookBtn" type="button"
-										onclick="checkLoginState()"><img src="<c:url value='/img/menu/facebook.svg'/>"></button>
-								</form>
-							</div>
-						</div>
-						<div id="guider">
-							<img src="<c:url value='/img/menu/guider.svg'/>">
-						</div>
-
-					</article>
-
-				</section>
-
-			</div>
-
-			<!--페북 로그인 버튼, 로그인 후 환영 인사  -->
+				</div>
+			</section>
+			<!--회전 효과  bj  -->
 
 
 		</div>
+		<div class="row">
+			<section id="loginSection">
+				<article id=loginArticle>
+
+					<div class="talkbox">
+						<div id="loginMent"></div>
+						<div>
+							<form id="loginForm" method="post"
+								action="<c:url value='/action/user'/>">
+								<input id="loginInput" type="hidden" name="todo" value="checkUser" />
+								<button id="facebookBtn" type="button" onclick="checkLoginState()">
+									<img src="<c:url value='/img/menu/facebook.svg'/>">
+								</button>
+							</form>
+						</div>
+					</div>
+					<div id="guider">
+						<img src="<c:url value='/img/menu/guider.svg'/>">
+					</div>
+
+				</article>
+
+			</section>
+
+		</div>
+
+		<!--페북 로그인 버튼, 로그인 후 환영 인사  -->
+
+
+	</div>
 
 
 

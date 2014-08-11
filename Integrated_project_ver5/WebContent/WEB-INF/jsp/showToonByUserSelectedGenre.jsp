@@ -32,6 +32,18 @@
 		<li><span>추천받기</span><span>3</span></li>
 		<li><span>마이정보</span><span>4</span></li>
 	</ol> -->
+	
+		<div class="show-modalStar">
+		<div class="modalStar">
+			<div>저장 부아악!</div>
+		</div>
+	</div>
+
+	<div class="show-modalDeleteStar">
+		<div class="modalDeleteStar">
+			<div>삭제 끄아악!</div>
+		</div>
+	</div>
 
 	<section class="big">
 		<div class="meterContainer">

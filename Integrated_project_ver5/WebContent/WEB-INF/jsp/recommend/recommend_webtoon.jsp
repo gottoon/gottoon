@@ -22,8 +22,22 @@
 <body>
 	<c:import url="/WEB-INF/jsp/main/menu.jsp"></c:import>
 
+	<div class="show-modalStar">
+		<div class="modalStar">
+			<div>저장 부아악!</div>
+		</div>
+	</div>
+
+	<div class="show-modalDeleteStar">
+		<div class="modalDeleteStar">
+			<div>삭제 끄아악!</div>
+		</div>
+	</div>
+	
 	<div class="nav">
 		<ul class="viewfree-nav">
+		
+		
 			<%-- <li>
 				<form method="post" action="<c:url value='/action/recommend'/>">
 					<div>

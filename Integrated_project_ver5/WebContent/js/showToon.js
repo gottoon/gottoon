@@ -10,20 +10,20 @@ $(document).ready(function() {
 	});
 });
 function toDoCheck(){
-	var count = document.getElementById("count");
-	console.log("toDoCheck의 count number : "+ count.value);
+	var count = $("#count").val();
+//	console.log("toDoCheck의 count number : "+ count.value);
 	scrollEvent(count);
 }
 
 function scrollEvent(count){
-	console.log("scrollEvent의 Request와 count : "+ count.value);
+	console.log("scrollEvent의 Request와 count : "+ count);
 	$.ajax({
 		url : "userGenre",
 		dataType : "json",
 		type : "POST",
 		data : {
 			todo : "infinite",
-			count : count.value
+			count : count
 		},
 		success : function(data) {
 			
@@ -42,21 +42,22 @@ function showScroll(request , count){
 	
 	if(request.length !== 0){
 		for(var i =0; i< request.length; i++){
-			count.value++;																		
-			console.log(count.value);
+			count++;
+			$("#count").val(count);
+			console.log(count);
 			/*style ="width: 290px; height: 280px; "*/
 			$('#layout').append('<div class="flip-container" ontouchstart="this.classList.toggle("hover");">'
-					+'<div class="flipper"><div class="front" id="front'+count.value+'">'
+					+'<div class="flipper"><div class="front" id="front'+count+'">'
 					+'<span class="name"><section class="webtoonTalbe"><div class="poster">'
 					+'<img src="'+request[i].webtoons_title_image+'" /></div>'
 					+'<div id="toonLabel"><div id="add"><p><span>' + request[i].webtoons_title+ ' </span></p>'
 					+'</div><div id = "comments" ><form id="myForm">'
 					+'<div class = "product-review-stars" >'
-					+'<input type="checkbox" id="'+count.value*count.value*count.value+1+'" name="rating" value="5^'+request[i].webtoons_id_pk+'" onclick=onclickStart(this) class="visuallyhidden"> <label for="'+count.value*count.value*count.value+1+'" title="Rocks!">★</label>'
-					+'<input type="checkbox" id="'+count.value*count.value*count.value+2+'" name="rating" value="4^'+request[i].webtoons_id_pk+'" onclick=onclickStart(this) class="visuallyhidden"> <label for="'+count.value*count.value*count.value+2+'" title="Pretty good">★</label>'
-					+'<input type="checkbox" id="'+count.value*count.value*count.value+3+'" name="rating" value="3^'+request[i].webtoons_id_pk+'" onclick=onclickStart(this) class="visuallyhidden"> <label for="'+count.value*count.value*count.value+3+'" title="Meh">★</label>'
-					+'<input type="checkbox" id="'+count.value*count.value*count.value+4+'" name="rating" value="2^'+request[i].webtoons_id_pk+'" onclick=onclickStart(this) class="visuallyhidden"> <label for="'+count.value*count.value*count.value+4+'" title="Kinda bad">★</label>'
-					+'<input type="checkbox" id="'+count.value*count.value*count.value+5+'" name="rating" value="1^'+request[i].webtoons_id_pk+'" onclick=onclickStart(this) class="visuallyhidden"> <label for="'+count.value*count.value*count.value+5+'" title="Sucks big time">★</label>'
+					+'<input type="checkbox" id="'+count*count*count+1+'" name="rating" value="5^'+request[i].webtoons_id_pk+'" onclick=onclickStart(this) class="visuallyhidden"> <label for="'+count*count*count+1+'" title="Rocks!">★</label>'
+					+'<input type="checkbox" id="'+count*count*count+2+'" name="rating" value="4^'+request[i].webtoons_id_pk+'" onclick=onclickStart(this) class="visuallyhidden"> <label for="'+count*count*count+2+'" title="Pretty good">★</label>'
+					+'<input type="checkbox" id="'+count*count*count+3+'" name="rating" value="3^'+request[i].webtoons_id_pk+'" onclick=onclickStart(this) class="visuallyhidden"> <label for="'+count*count*count+3+'" title="Meh">★</label>'
+					+'<input type="checkbox" id="'+count*count*count+4+'" name="rating" value="2^'+request[i].webtoons_id_pk+'" onclick=onclickStart(this) class="visuallyhidden"> <label for="'+count*count*count+4+'" title="Kinda bad">★</label>'
+					+'<input type="checkbox" id="'+count*count*count+5+'" name="rating" value="1^'+request[i].webtoons_id_pk+'" onclick=onclickStart(this) class="visuallyhidden"> <label for="'+count*count*count+5+'" title="Sucks big time">★</label>'
 					+'</div></form>'
 			+'</div></div></section></span></div>');
 			
@@ -104,9 +105,6 @@ $(document).ready(function() {//페이지가 로드되면 meter값 넣기
 						  if(parseInt(valueGetter().charAt(valueGetter().length-1)) == 0){
 							  meterBarWidth = 100 + "%";
 							  return meterBarWidth;
-
-							  
-						  
 						  }else{
 							  meterBarWidth = parseInt(valueGetter().charAt(valueGetter().length-1)) * 10;
 							  meterBarWidth = meterBarWidth + "%";
