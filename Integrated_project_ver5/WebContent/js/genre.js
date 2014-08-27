@@ -2,7 +2,7 @@
 
 function Validate() {
 			if (!validateForm()) {
-				alert("하나 찍으라고 부왁!!");
+				alert("장르 하나 선택!!");
 				return false;
 			}
 			return true
