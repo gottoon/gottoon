@@ -1,6 +1,10 @@
 
 @charset "UTF-8";
-
+.container{
+	padding-top:50px;
+	margin-left:20px;
+	margin-right:20px;
+}
 
 .modalStar {
 background-color: #dbd9d9;
@@ -95,17 +99,19 @@ body section #comments section article {
 	margin-right: auto;
 }
 
-.webtoonTalbe {
-
+.webtoonTable {
+	width:100%;
 }
+
+#nextButton{
+	display:block;
+}
+
+
 /*==============================================
 Progress Steps
 ================================================ */
-section {
-  width: 30rem;
-  margin: auto;
-  padding-bottom: 10rem;
-}
+
 ol.ui {
     list-style: none outside none;
     z-index: 9999;
@@ -192,14 +198,10 @@ ol.ui p {
 }
 
 .open-modal {
-	/* #3b5998 */
 	background-color: white;
 	border-bottom: 1px solid #fcfcfc;
 	-webkit-box-shadow: 1px 1px 1px 1px lightgrey;
 	border: none;
-	/* 	border-radius: 20px;
-	 */
-	font: inherit;
 	font-size: 25px;
 	color: #CC3333;
 	outline: none;
@@ -207,7 +209,7 @@ ol.ui p {
 	padding: 30px 50px;
 	width: 100%;
 	position: fixed;
-	z-index: 10;
+	
 	border: 2px solid #CC3333;
 }
 
@@ -399,15 +401,11 @@ label:before {
 }
 
 /*플립 효과 */
-@media all and (min-width: 320px) and (max-width: 360px) {
 
-	.flip-container {
-		width: 100%;
-	}
-}
 
 .poster {
 	width: 100%;
+	height:200px;
 }
 
 .flip-container {
@@ -416,10 +414,8 @@ label:before {
 	-o-perspective: 1000;
 	perspective: 1000;
 	float: left;
-	width: 23%;
-	margin-top: 100px;
-	margin-left:1%;
-	margin-right:1%;
+	width: 30%;
+	margin: 10px;
 	height: 300px;
 }
 
@@ -440,6 +436,7 @@ label:before {
 	transition: 0.6s;
 	transform-style: preserve-3d;
 	position: relative;
+	height: 300px;
 }
 
 .front, .back {
@@ -457,6 +454,7 @@ label:before {
 }
 
 .back {
+	width:100%;
 	-webkit-transform: rotateY(180deg);
 	-moz-transform: rotateY(180deg);
 	-o-transform: rotateY(180deg);
@@ -464,6 +462,7 @@ label:before {
 }
 
 .front .name {
+	
 	display: inline-block;
 	position: relative;
 	-webkit-box-shadow: 1px 1px 1px 1px lightgrey;

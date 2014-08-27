@@ -17,7 +17,8 @@
 <script src="<c:url value='/js/showToon.js'/>"></script>
 <script src="<c:url value='/js/bar.js'/>"></script>
 <link rel="stylesheet" href="<c:url value='/css/showToon.css'/>" />
-<link href='http://fonts.googleapis.com/css?family=Lato:300,400,700,900' rel='stylesheet' type='text/css'>
+<link href='http://fonts.googleapis.com/css?family=Lato:300,400,700,900'
+	rel='stylesheet' type='text/css'>
 
 <!-- <link href='http://fonts.googleapis.com/css?family=Lato:300,400,700,900'
 	rel='stylesheet' type='text/css'>
@@ -26,25 +27,35 @@
 <body>
 	<c:import url="/WEB-INF/jsp/main/menu.jsp"></c:import>
 
-	<!-- <ol class="ui progress">
-		<li class="active"><span>장르선택</span><span>1</span></li>
-		<li class="active"><span>웹툰평가</span><span>2</span></li>
-		<li><span>추천받기</span><span>3</span></li>
-		<li><span>마이정보</span><span>4</span></li>
-	</ol> -->
-	
-		<div class="show-modalStar">
-		<div class="modalStar">
-			<div>저장 부아악!</div>
+	<section id="webtoonList">
+		<div class="container">
+			<div id="layout"></div>
 		</div>
-	</div>
+	</section>
 
-	<div class="show-modalDeleteStar">
-		<div class="modalDeleteStar">
-			<div>삭제 끄아악!</div>
+
+
+
+
+
+
+
+
+
+
+
+	<input type="hidden" id="count" value="0">
+	<footer>
+		<div id="nextButton">
+			<form class="recommand" method="post" action="recommend">
+				<input type="hidden" name="todo" value="recommendWebtoons" />
+				<button id="nextButton" class="show-modal open-modal" type="submit">추천해줭</button>
+			</form>
 		</div>
-	</div>
+	</footer>
 
+
+	<!--미터바  -->
 	<section class="big">
 		<div class="meterContainer">
 			<div aria-hidden="true" class="meterBackground">
@@ -60,24 +71,31 @@
 		</div>
 	</section>
 
-	<input type="hidden" id="count" value="0">
 
-	<form id="button" class="recommand" method="post" action="recommend">
-		<input type="hidden" name="todo" value="recommendWebtoons" /> <input
-			class="show-modal open-modal" type="submit" value="추천해줭 " />
-	</form>
 
-	<div class="container">
-		<div class="choose-modal">
-			<div>더 평가하면 더 정확한 추천을 해드릴수 있어요</div>
-			<form class="recommand" method="post" action="recommend">
-				<input type="submit" name="select" value="추천해줭" />
-				<input id="showButton" type="button" class="close-modal" href="#" value="더평가할래요 " />
-			</form>
+
+	<!--모달  -->
+
+	<div class="show-modalStar">
+		<div class="modalStar">
+			<div>저장됬어요!</div>
 		</div>
 	</div>
 
-	<div id="layout">
+	<div class="show-modalDeleteStar">
+		<div class="modalDeleteStar">
+			<div>삭제 흐규...</div>
+		</div>
 	</div>
+
+	<div class="choose-modal">
+		<div>더 평가하면 더 정확한 추천을 해드릴수 있어요</div>
+		<form class="recommand" method="post" action="recommend">
+			<input type="submit" name="select" value="추천해줭" /> <input
+				id="showButton" type="button" class="close-modal" href="#"
+				value="더평가할래요 " />
+		</form>
+	</div>
+
 </body>
 </html>
