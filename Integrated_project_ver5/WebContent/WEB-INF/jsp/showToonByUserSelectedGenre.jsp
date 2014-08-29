@@ -28,7 +28,7 @@
 	<c:import url="/WEB-INF/jsp/main/menu.jsp"></c:import>
 
 	<section id="webtoonList">
-		<div class="container">
+		<div class="container-fluid">
 			<div id="layout"></div>
 		</div>
 	</section>
@@ -46,11 +46,13 @@
 
 	<input type="hidden" id="count" value="0">
 	<footer>
-		<div id="nextButton">
-			<form class="recommand" method="post" action="recommend">
-				<input type="hidden" name="todo" value="recommendWebtoons" />
-				<button id="nextButton" class="show-modal open-modal" type="submit">추천해줭</button>
-			</form>
+		<div class="col-md-2">
+			<div>
+				<form class="recommand" method="post" action="recommend">
+					<input type="hidden" name="todo" value="recommendWebtoons" />
+					<button id="nextButton" class="show-modal open-modal" type="submit">추천해줭</button>
+				</form>
+			</div>
 		</div>
 	</footer>
 

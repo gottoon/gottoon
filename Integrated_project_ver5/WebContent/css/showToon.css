@@ -105,6 +105,23 @@ body section #comments section article {
 
 #nextButton{
 	display:block;
+	
+	height:60px;
+	background-color: white;
+	border-bottom: 1px solid #fcfcfc;
+	-webkit-box-shadow: 1px 1px 1px 1px lightgrey;
+	border: none;
+	font-size: 1.5em;
+	color: #CC3333;
+	outline: none;
+	bottom: 20px;
+	right: 20px;
+	position: fixed;
+	border: 2px solid #CC3333;
+}
+#nextButton:hover {
+	background-color: #CC3333;
+	color: white;
 }
 
 
@@ -197,26 +214,9 @@ ol.ui p {
 	margin: 0;
 }
 
-.open-modal {
-	background-color: white;
-	border-bottom: 1px solid #fcfcfc;
-	-webkit-box-shadow: 1px 1px 1px 1px lightgrey;
-	border: none;
-	font-size: 25px;
-	color: #CC3333;
-	outline: none;
-	bottom: 0;
-	padding: 30px 50px;
-	width: 100%;
-	position: fixed;
-	
-	border: 2px solid #CC3333;
-}
 
-.open-modal:hover {
-	background-color: #CC3333;
-	color: white;
-}
+
+
 
 .choose-modal {
 	background-color: #dbd9d9;
@@ -409,12 +409,13 @@ label:before {
 }
 
 .flip-container {
+	border:1px solid lightgrey;
 	-webkit-perspective: 1000;
 	-moz-perspective: 1000;
 	-o-perspective: 1000;
 	perspective: 1000;
 	float: left;
-	width: 30%;
+	width: 100%;
 	margin: 10px;
 	height: 300px;
 }

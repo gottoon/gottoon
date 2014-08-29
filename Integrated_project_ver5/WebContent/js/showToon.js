@@ -46,7 +46,7 @@ function showScroll(request , count){
 			$("#count").val(count);
 			console.log(count);
 			
-			$('#layout').append('<div class="flip-container" ontouchstart="this.classList.toggle("hover");">'
+			$('#layout').append('<div class="col-md-3"><div class="flip-container" ontouchstart="this.classList.toggle("hover");">'
 					+'<div class="flipper"><div class="front" id="front'+count+'">'
 					+'<span class="name"><section class="webtoonTable"><div class="poster">'
 					+'<img src="'+request[i].webtoons_title_image+'" /></div>'
@@ -59,7 +59,7 @@ function showScroll(request , count){
 					+'<input type="checkbox" id="'+count*count*count+4+'" name="rating" value="2^'+request[i].webtoons_id_pk+'" onclick=onclickStart(this) class="visuallyhidden"> <label for="'+count*count*count+4+'" title="Kinda bad">★</label>'
 					+'<input type="checkbox" id="'+count*count*count+5+'" name="rating" value="1^'+request[i].webtoons_id_pk+'" onclick=onclickStart(this) class="visuallyhidden"> <label for="'+count*count*count+5+'" title="Sucks big time">★</label>'
 					+'</div></form>'
-			+'</div></div></section></span></div></div>');
+			+'</div></div></section></span></div></div></div>');
 			
 			$('#front'+count.value).after('<div class="back"><h4>'+request[i].webtoons_title+'</h4></div></div></div>');
 			
