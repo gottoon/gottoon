@@ -22,168 +22,158 @@
 <body>
 	<c:import url="/WEB-INF/jsp/main/menu.jsp"></c:import>
 
-	<div class="show-modalStar">
-		<div class="modalStar">
-			<div>저장 부아악!</div>
-		</div>
-	</div>
 
-	<div class="show-modalDeleteStar">
-		<div class="modalDeleteStar">
-			<div>삭제 끄아악!</div>
-		</div>
-	</div>
+
 	
+
+	<div class="container">
 	<div class="nav">
 		<ul class="viewfree-nav">
-		
-		
-			<%-- <li>
-				<form method="post" action="<c:url value='/action/recommend'/>">
-					<div>
-						<input class="viewfree-button" type="radio" id="all" name="viewfree" value="all" checked/>
-						<label for="all">전체 웹툰</label>
-					</div>
-					<div>
-						<input class="viewfree-button" type="radio" name="viewfree" value="paid" />
-						<label for="paid">유료 웹툰</label>
-					</div>
-					<div>
-						<input class="viewfree-button" type="radio" name="viewfree" value="free" />
-						<label for="free">무료 웹툰</label>
-					</div>
-				</form>
-			</li> --%>
-			<li>
-				<form method="post" action="<c:url value='/action/recommend'/>">
-					<input type="hidden" name="filterviewfree" value="null" /> <input
-						class="viewfree-button" type="submit" value="전체 웹툰" />
-				</form>
-			</li>
-			<li>
-				<form method="post" action="<c:url value='/action/recommend'/>">
-					<input type="hidden" name="filterviewfree" value="false" /> <input
-						class="viewfree-button" type="submit" value="유료 웹툰" />
-				</form>
-			</li>
-			<li>
-				<form method="post" action="<c:url value='/action/recommend'/>">
-					<input type="hidden" name="filterviewfree" value="true" /> <input
-						class="viewfree-button" type="submit" value="무료 웹툰" />
-				</form>
-			</li>
+			<div class="col-md-4">
+				<li>
+					<form method="post" action="<c:url value='/action/recommend'/>">
+						<input type="hidden" name="filterviewfree" value="null" /> <input
+							class="viewfree-button" type="submit" value="전체 웹툰" />
+					</form>
+				</li>
+			</div>
+			<div class="col-md-4">
+				<li>
+					<form method="post" action="<c:url value='/action/recommend'/>">
+						<input type="hidden" name="filterviewfree" value="false" /> <input
+							class="viewfree-button" type="submit" value="유료 웹툰" />
+					</form>
+				</li>
+			</div>
+			<div class="col-md-4">
+				<li>
+					<form method="post" action="<c:url value='/action/recommend'/>">
+						<input type="hidden" name="filterviewfree" value="true" /> <input
+							class="viewfree-button" type="submit" value="무료 웹툰" />
+					</form>
+				</li>
+			</div>
 		</ul>
 	</div>
+	
+	
+	
+		<section id="webtoons">
+			<c:forEach var="webtoonInfo" items="${recommendWebtoons}"
+				varStatus="status">
+				<div class="col-md-4">
+					<div class="webtoon">
+						<div class="label_div">
+							<div class="main_image_div">
+								<form method="post" action="webtoon" class="detail_form">
+									<input type="hidden" name="webtoon_id"
+										value="${webtoonInfo.webtoons_id_pk}" /> <input type="hidden"
+										name="todo" value="showWebtoonDetails" />
+									<button class="submit" type="submit">
+										<img class="main_image"
+											src="${webtoonInfo.webtoons_title_image}">
+									</button>
+								</form>
 
-	<div class="section" id="webtoons">
-		<c:forEach var="webtoonInfo" items="${recommendWebtoons}"
-			varStatus="status">
-			<div class="webtoon">
-				<div class="label_div">
-					<div class="main_image_div">
-						<form method="post" action="webtoon" class="detail_form">
-							<input type="hidden" name="webtoon_id"
-								value="${webtoonInfo.webtoons_id_pk}" /> <input type="hidden"
-								name="todo" value="showWebtoonDetails" />
-							<button class="submit" type="submit">
-								<img class="main_image"
-									src="${webtoonInfo.webtoons_title_image}">
-							</button>
-						</form>
-
-					</div>
-					<c:if test="${webtoonInfo.webtoons_completed == '완'}">
-						<div class="ribbon-wrapper">
-							<div class="ribbon-end">완결</div>
-						</div>
-					</c:if>
-					<jsp:useBean id="now" class="java.util.Date" />
-					<c:if test="${webtoonInfo.webtoons_first_update gt now}">
-						<div class="ribbon-wrapper">
-							<div class="ribbon-new">NEW!</div>
-						</div>
-					</c:if>
-				</div>
-				<div class="toonInforDiv">
-					<span class="image_title">${webtoonInfo.webtoons_title}</span>
-					<div class="star">
-						<form id="myForm">
-							<%-- <input type="hidden" id="rate" name="rate"
-								value="${webtoonInfo.webtoon_rate}" /> --%> <input type="hidden"
-								id="id" name="webtoons_id_pk"
-								value="${webtoonInfo.webtoons_id_pk}" /> <input type="hidden"
-								name="webtoons_title" value="${webtoonInfo.webtoons_title}" />
-							<div class="product-review-stars">
-								<input type="checkbox"
-									id="${status.count*status.count*status.count+1}" name="rating"
-									value="5^${webtoonInfo.webtoons_id_pk}"
-									onclick=onclickStart(this) class="visuallyhidden"> <label
-									for="${status.count*status.count*status.count+1}"
-									title="Rocks!">★</label> <input type="checkbox"
-									id="${status.count*status.count*status.count+2}" name="rating"
-									value="4^${webtoonInfo.webtoons_id_pk}"
-									onclick=onclickStart(this) class="visuallyhidden"> <label
-									for="${status.count*status.count*status.count+2}"
-									title="Pretty good">★</label> <input type="checkbox"
-									id="${status.count*status.count*status.count+3}" name="rating"
-									value="3^${webtoonInfo.webtoons_id_pk}"
-									onclick=onclickStart(this) class="visuallyhidden"> <label
-									for="${status.count*status.count*status.count+3}" title="Meh">★</label>
-								<input type="checkbox"
-									id="${status.count*status.count*status.count+4}" name="rating"
-									value="2^${webtoonInfo.webtoons_id_pk}"
-									onclick=onclickStart(this) class="visuallyhidden"> <label
-									for="${status.count*status.count*status.count+4}"
-									title="Kinda bad">★</label> <input type="checkbox"
-									id="${status.count*status.count*status.count+5}" name="rating"
-									value="1^${webtoonInfo.webtoons_id_pk}"
-									onclick=onclickStart(this) class="visuallyhidden"> <label
-									for="${status.count*status.count*status.count+5}"
-									title="Sucks big time">★</label>
 							</div>
-						</form>
-					</div>
-					<div class="machingRateDiv">
-						<ul>
-							<li><span class="myWebtoon_title">
-									${webtoonInfo.myWebtoon_title}</span> 의 뒤를 이을 웹툰!!</li>
-							<li>추천인이 <span class="recommender_matching_percent">${webtoonInfo.recommender_matching_percent}%</span>
-								보장합니다!
-							</li>
-							<li>내가 좋아하는 웹툰들과의 연관성 <span class="relative_matching_percent">${webtoonInfo.relative_matching_percent}%</span></li>
-						</ul>
-					</div>
-					<div class="option-button">
-						<ul>
-							<li><div class="reserve">
-									<form method="post" action="#">
-										<input type="hidden" name="webtoon_id"
-											value="${webtoonInfo.webtoons_id_pk}" />
-										<input type="hidden" class="reserve_value" value="${webtoonInfo.reserveValue}" />
-										<input type="hidden" class="reserve_title" value="${webtoonInfo.webtoons_title}" />
-										<div class="heart">
-											<input type="checkbox" id="${webtoonInfo.webtoons_title}"
-												class="visuallyhiddenHeart" name="reserve" value="0${webtoonInfo.webtoons_title}"
-												onclick="seeReserve(this.form, this.id)" /> <label
-												for="${webtoonInfo.webtoons_title}" title="reserve_heart">❤</label>
-										</div>
-									</form>
-								</div></li>
-							<li>
-								<div class="view-now">
-									<a href="${webtoonInfo.webtoons_url}">
-										<button class="button">
-											<span class="right-now">바로보기</span>
-										</button>
-									</a>
+							<c:if test="${webtoonInfo.webtoons_completed == '완'}">
+								<div class="ribbon-wrapper">
+									<div class="ribbon-end">완결</div>
 								</div>
-							</li>
-						</ul>
-					</div>
+							</c:if>
+							<jsp:useBean id="now" class="java.util.Date" />
+							<c:if test="${webtoonInfo.webtoons_first_update gt now}">
+								<div class="ribbon-wrapper">
+									<div class="ribbon-new">NEW!</div>
+								</div>
+							</c:if>
+						</div>
+						<div class="toonInforDiv">
+							<span class="image_title">${webtoonInfo.webtoons_title}</span>
+							<div class="star">
+								<form id="myForm">
+									<%-- <input type="hidden" id="rate" name="rate"
+								value="${webtoonInfo.webtoon_rate}" /> --%>
+									<input type="hidden" id="id" name="webtoons_id_pk"
+										value="${webtoonInfo.webtoons_id_pk}" /> <input type="hidden"
+										name="webtoons_title" value="${webtoonInfo.webtoons_title}" />
+									<div class="product-review-stars">
+										<input type="checkbox"
+											id="${status.count*status.count*status.count+1}"
+											name="rating" value="5^${webtoonInfo.webtoons_id_pk}"
+											onclick=onclickStart(this) class="visuallyhidden"> <label
+											for="${status.count*status.count*status.count+1}"
+											title="Rocks!">★</label> <input type="checkbox"
+											id="${status.count*status.count*status.count+2}"
+											name="rating" value="4^${webtoonInfo.webtoons_id_pk}"
+											onclick=onclickStart(this) class="visuallyhidden"> <label
+											for="${status.count*status.count*status.count+2}"
+											title="Pretty good">★</label> <input type="checkbox"
+											id="${status.count*status.count*status.count+3}"
+											name="rating" value="3^${webtoonInfo.webtoons_id_pk}"
+											onclick=onclickStart(this) class="visuallyhidden"> <label
+											for="${status.count*status.count*status.count+3}" title="Meh">★</label>
+										<input type="checkbox"
+											id="${status.count*status.count*status.count+4}"
+											name="rating" value="2^${webtoonInfo.webtoons_id_pk}"
+											onclick=onclickStart(this) class="visuallyhidden"> <label
+											for="${status.count*status.count*status.count+4}"
+											title="Kinda bad">★</label> <input type="checkbox"
+											id="${status.count*status.count*status.count+5}"
+											name="rating" value="1^${webtoonInfo.webtoons_id_pk}"
+											onclick=onclickStart(this) class="visuallyhidden"> <label
+											for="${status.count*status.count*status.count+5}"
+											title="Sucks big time">★</label>
+									</div>
+								</form>
+							</div>
+							<div class="machingRateDiv">
+								<ul>
+									<li><span class="myWebtoon_title">
+											${webtoonInfo.myWebtoon_title}</span> 의 뒤를 이을 웹툰!!</li>
+									<li>추천인이 <span class="recommender_matching_percent">${webtoonInfo.recommender_matching_percent}%</span>
+										보장합니다!
+									</li>
+									<li>내가 좋아하는 웹툰들과의 연관성 <span
+										class="relative_matching_percent">${webtoonInfo.relative_matching_percent}%</span></li>
+								</ul>
+							</div>
+							<div class="option-button">
+								<ul>
+									<li><div class="reserve">
+											<form method="post" action="#">
+												<input type="hidden" name="webtoon_id"
+													value="${webtoonInfo.webtoons_id_pk}" /> <input
+													type="hidden" class="reserve_value"
+													value="${webtoonInfo.reserveValue}" /> <input
+													type="hidden" class="reserve_title"
+													value="${webtoonInfo.webtoons_title}" />
+												<div class="heart">
+													<input type="checkbox" id="${webtoonInfo.webtoons_title}"
+														class="visuallyhiddenHeart" name="reserve"
+														value="0${webtoonInfo.webtoons_title}"
+														onclick="seeReserve(this.form, this.id)" /> <label
+														for="${webtoonInfo.webtoons_title}" title="reserve_heart">❤</label>
+												</div>
+											</form>
+										</div></li>
+									<li>
+										<div class="view-now">
+											<a href="${webtoonInfo.webtoons_url}">
+												<button class="button">
+													<span class="right-now">바로보기</span>
+												</button>
+											</a>
+										</div>
+									</li>
+								</ul>
+							</div>
 
+						</div>
+					</div>
 				</div>
-			</div>
-		</c:forEach>
+			</c:forEach>
+		</section>
 	</div>
 
 	<script type="text/javascript">
@@ -203,5 +193,19 @@
 							});
 				});
 	</script>
+
+
+	<!--모달  -->
+	<div class="show-modalStar">
+		<div class="modalStar">
+			<div>저장 부아악!</div>
+		</div>
+	</div>
+
+	<div class="show-modalDeleteStar">
+		<div class="modalDeleteStar">
+			<div>삭제 끄아악!</div>
+		</div>
+	</div>
 </body>
 </html>

@@ -1,14 +1,12 @@
 /* =====================================================================
  유,무료 선택
  ===================================================================== */
-
 .viewfree-nav {
 	margin-top: 70px;
-	padding-left: 10px;
-	padding-right: 10px;
 }
+
 .viewfree-nav li {
-	width: 33%;
+	width: 100%;
 	display: inline-block;
 	line-height: 1.33;
 }
@@ -16,110 +14,103 @@
 .viewfree-button {
 	width: 100%;
 	font-family: Nanum Gothic;
-	font-size: 18px;
+	font-size: 1.5em;
 	color: #CC3333;
-	height:40px;
-	background-color:white;
+	height: 40px;
+	background-color: white;
 	border: 1px solid #CC3333;
 }
 
-.viewfree-button:hover{
-	background-color:#CC3333;
+.viewfree-button:hover {
+	background-color: #CC3333;
 	color: white;
 }
 
 /* =====================================================================
  웹툰
  ===================================================================== */
-.label_div{
-	position:relative;
+.container-fluid {
+	margin-top: 100px;
 }
 
-.webtoon {
-	width: 30%;
-	height: 570px;
-	margin-right	: 63px;
-	float: left;
-	-webkit-box-shadow:0px 0px 3px 0px yellow;
-	box-shadow:0px 0px 3px 0px yellow;
-	border-right:4px double lightgrey;
-}
-.webtoon:last-child{
-	
-	margin:0;
+.label_div {
+	width:100%;
+	position: relative;
 }
 
 #webtoons {
-	margin-top: 30px;
-	margin-left: auto;
-	margin-right: auto;
-	width: 90%;
-	text-align: center;
+	width: 100%;
+	margin-top:50px;
 }
-#webtoons .submit{
-	background:none;
-	border:none;
-	margin:0;
+
+.webtoon {
+	margin:20px;
+	width: 100%;
+	height: 500px;
+}
+
+#webtoons .submit {
+	
+	border: none;
+	width:100%;
 	padding:0;
 }
-
-
 
 .main_image_div {
 	width: 100%;
 	height: 300px;
 }
+
 .main_image {
 	width: 100%;
 	height: 300px;
 }
 
-.toonInforDiv{
-	width:100%;
-	height:270px;
-	background-color:orange;
-	
+.toonInforDiv {
+	text-align: center;
+	font-weight: bold;
+	width: 100%;
+	height: 270px;
+	background-color: orange;
+	font-weight: bold;
 }
 
-.image_title{
-	color:white;
-	font-size:1.7em;
-	font-weight:bold;
+.image_title {
+	color: white;
+	font-size: 1.7em;
 }
-
 
 /* 매칭률 */
-.machingRateDiv li{
-	font-size:1.2em;
-	color:white;
+.machingRateDiv li {
+	font-size: 1.2em;
+	color: white;
 }
 
-.myWebtoon_title{
-	color:red;
-	font-size:1.3em;
-	font-weight:bold;
-}
-.recommender_matching_percent{
-	color:red;
-	font-size:1.3em;
-	font-weight:bold;
+.myWebtoon_title {
+	color: red;
+	font-size: 1.3em;
+	font-weight: bold;
 }
 
-.relative_matching_percent{
-	color:red;
-	font-size:1.3em;
-	font-weight:bold;
+.recommender_matching_percent {
+	color: red;
+	font-size: 1.3em;
+	font-weight: bold;
 }
 
+.relative_matching_percent {
+	color: red;
+	font-size: 1.3em;
+	font-weight: bold;
+}
 
 /*찜하기 바로보기*/
-.option-button li{
-	width:30%;
-	display:inline-block;
-	text-align:center;
-	vertical-align:middle;
+.option-button li {
+	width: 30%;
+	display: inline-block;
+	text-align: center;
+	vertical-align: middle;
 }
-
 
 .heart {
 	width: 42px;
@@ -142,23 +133,21 @@
 	position: absolute;
 	z-index: 5;
 	left: -2px;
-	top:-2px;
+	top: -2px;
 	opacity: 0;
 }
 
-.heart input+ label:before {
+.heart input+label:before {
 	content: "❤";
 	position: absolute;
 	right: 0;
 	opacity: 0;
 }
 
-.heart input+label:nth-of-type(1):after,
-.heart input+label:nth-of-type(1):before,
-.heart input+label:nth-of-type(1):hover:before,
-.heart input+label:nth-of-type(1):hover ~ label:before,
-.heart input:nth-of-type(1):checked ~ label:before, 
-.heart label:hover {
+.heart input+label:nth-of-type(1):after, .heart input+label:nth-of-type(1):before,
+	.heart input+label:nth-of-type(1):hover:before, .heart input+label:nth-of-type(1):hover 
+	 ~ label:before, .heart input:nth-of-type(1):checked ~ label:before,
+	.heart label:hover {
 	color: #CC3333;
 	border: 2px solid #CC3333;
 	border-radius: 50%;
@@ -166,7 +155,7 @@
 	height: 40px;
 }
 
-.heart input:checked+ label:after {
+.heart input:checked+label:after {
 	visibility: visible;
 	opacity: 1;
 }
@@ -174,13 +163,12 @@
 /* =====================================================================
  바로보기 버튼
  ===================================================================== */
-.view-now{
-	width:100%;
+.view-now {
+	width: 100%;
 }
 
-
 .view-now button {
-	width:100%;
+	width: 100%;
 	border: 1px solid white;
 	background-color: #ffffff;
 	display: inline-block;
@@ -196,15 +184,14 @@
 }
 
 .right-now {
-	color:#CC3333;
-	
+	color: #CC3333;
 }
 
 .button:hover {
-	font-size:1.5em;
+	font-size: 1.5em;
 	text-decoration: none;
 	text-align: center;
-	background-image:none;
+	background-image: none;
 	border: 1px solid #727280;
 }
 
@@ -212,21 +199,17 @@
 	padding: 5px;
 }
 
-
-
-
 /* =====================================================================
  완결,신작 라벨
  ===================================================================== */
-
 .ribbon-wrapper {
 	width: 85px;
 	height: 88px;
 	overflow: hidden;
 	position: absolute;
 	font-family: Nanum Gothic;
-	top:-3px;
-	left:-4px;
+	top: -3px;
+	left: -4px;
 }
 
 .ribbon-end, .ribbon-new {
@@ -240,9 +223,9 @@
 	position: relative;
 	left: -27px;
 	width: 111px;
-	-webkit-box-shadow: 0px 0px 3px rgba(0,0,0,0.3);
-	-moz-box-shadow: 0px 0px 3px rgba(0,0,0,0.3);
-	box-shadow: 0px 0px 3px rgba(0,0,0,0.3);
+	-webkit-box-shadow: 0px 0px 3px rgba(0, 0, 0, 0.3);
+	-moz-box-shadow: 0px 0px 3px rgba(0, 0, 0, 0.3);
+	box-shadow: 0px 0px 3px rgba(0, 0, 0, 0.3);
 }
 
 .ribbon-end:before, .ribbon-end:after {
@@ -276,7 +259,8 @@
 	padding: 4px 0;
 	top: 12px;
 	background-color: #f24437;
-	background-image: -webkit-gradient(linear, left top, left bottom, from(#f24437), to(#d02718));
+	background-image: -webkit-gradient(linear, left top, left bottom, from(#f24437),
+		to(#d02718));
 	background-image: -webkit-linear-gradient(top, #f24437, #d02718);
 	background-image: -moz-linear-gradient(top, #f24437, #d02718);
 	background-image: -ms-linear-gradient(top, #f24437, #d02718);
@@ -289,7 +273,8 @@
 	padding: 7px 0;
 	top: 12px;
 	background-color: #77d42a;
-	background-image: -webkit-gradient(linear, left top, left bottom, from(#77d42a), to(#51A70C));
+	background-image: -webkit-gradient(linear, left top, left bottom, from(#77d42a),
+		to(#51A70C));
 	background-image: -webkit-linear-gradient(top, #77d42a, #51A70C);
 	background-image: -moz-linear-gradient(top, #77d42a, #51A70C);
 	background-image: -ms-linear-gradient(top, #77d42a, #51A70C);
@@ -300,13 +285,14 @@
 /* =====================================================================
  작가 추천
  ===================================================================== */
-
 #ribbon-container {
 	position: absolute;
 	top: 250px;
 	left: -20px;
-	overflow: visible; /* so we can see the pseudo-elements we're going to add to the anchor */
-	font-size: 18px; /* font-size and line-height must be equal so we can account for the height of the banner */
+	overflow: visible;
+	/* so we can see the pseudo-elements we're going to add to the anchor */
+	font-size: 18px;
+	/* font-size and line-height must be equal so we can account for the height of the banner */
 	line-height: 18px;
 	z-index: 10;
 }
@@ -319,16 +305,18 @@
 	position: absolute;
 	top: 3px;
 	right: 0;
-	border-top: 29px solid rgba(0,0,0,.3); /* These 4 border properties create the first part of our drop-shadow */
-	border-bottom: 29px solid rgba(0,0,0,.3);
-	border-right: 29px solid rgba(0,0,0,.3);
+	border-top: 29px solid rgba(0, 0, 0, .3);
+	/* These 4 border properties create the first part of our drop-shadow */
+	border-bottom: 29px solid rgba(0, 0, 0, .3);
+	border-right: 29px solid rgba(0, 0, 0, .3);
 	border-left: 29px solid transparent;
 }
 
-#ribbon-container:after {/* This adds the second part of our dropshadow */
+#ribbon-container:after {
+	/* This adds the second part of our dropshadow */
 	content: "";
 	height: 3px;
-	background: rgba(0,0,0,.3);
+	background: rgba(0, 0, 0, .3);
 	display: block;
 	position: absolute;
 	bottom: -3px;
@@ -339,7 +327,8 @@
 #ribbon-container span {
 	display: block;
 	padding: 20px;
-	position: relative; /* allows us to position our pseudo-elements properly */
+	position: relative;
+	/* allows us to position our pseudo-elements properly */
 	background: #0089d0;
 	overflow: visible;
 	height: 58px;
@@ -348,7 +337,8 @@
 	text-decoration: none;
 }
 
-#ribbon-container span:after {/* this creates the "folded" part of our ribbon */
+#ribbon-container span:after {
+	/* this creates the "folded" part of our ribbon */
 	content: "";
 	height: 0;
 	width: 0;
@@ -360,7 +350,8 @@
 	border-left: 15px solid transparent;
 }
 
-#ribbon-container span:before {/* this creates the "forked" part of our ribbon */
+#ribbon-container span:before {
+	/* this creates the "forked" part of our ribbon */
 	content: "";
 	height: 0;
 	width: 0;
@@ -378,8 +369,8 @@
 	background: #009ff1;
 }
 
-#ribbon-container span:hover:before {/* this makes sure that the "forked" part of the ribbon changes color with the anchor on :hover */
+#ribbon-container span:hover:before {
+	/* this makes sure that the "forked" part of the ribbon changes color with the anchor on :hover */
 	border-top: 29px solid #009ff1;
 	border-bottom: 29px solid #009ff1;
 }
-
